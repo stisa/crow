@@ -1,1 +1,5 @@
-nimcache/
+nimcache
+test.html
+nwgl.nim
+webglconsts.nim
+nimsuggest.log
