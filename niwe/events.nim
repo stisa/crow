@@ -132,12 +132,29 @@ proc handleKeyEvent(e: EventArgs) =
     echo $e.key
 
 evloop.on("keyEv", handleKeyEvent)
-]#
+[]#
 
 when defined js:
   
-  proc keydown(e:dom.Event) =
+  proc keyev(e:dom.Event) =
     evloop.emit("keyEv", EventArgs(kind:evKey,key:e.keycode.toJSKC()))
   
-  document.addEventlistener("keydown",keydown,true)
-#else: TODO native
+  document.addEventlistener("keydown",keyev,true)
+  document.addEventlistener("keypress",keyev,true)
+  document.addEventlistener("keyup",keyev,true)
+
+else: 
+  import windows
+
+  proc keyCb(o: Win, key: Key, scanCode: int, action: KeyAction,
+      modKeys: ModifierKeySet) =
+    
+    evloop.emit("keyEv", EventArgs(kind:evKey,key:key.int.toGLFWKC()))
+
+#    echo("Key: ", key, " (scan code: ", scanCode, "): ", action)
+
+ #   if action != kaUp:
+  #    if key == keyEscape:
+   #     o.shouldClose = true
+  
+  window.ctx.keyCb = keyCb
