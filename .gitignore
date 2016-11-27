@@ -4,3 +4,6 @@ nwgl.nim
 webglconsts.nim
 nimsuggest.log
 ref
+*.log
+*.exe
+test.js
