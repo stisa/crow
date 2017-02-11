@@ -119,9 +119,9 @@ proc initEventEmitter*(): EventEmitter =
 # Define and export the event loop
 
 when defined js:
-  import dom,webgl
+  import dom
 
-var evloop* = initEventEmitter()
+#var evloop* = initEventEmitter()
 
 #[ example hook event ]
 proc handleKeyEvent(e: EventArgs) =
@@ -136,12 +136,18 @@ evloop.on("keyEv", handleKeyEvent)
 
 when defined js:
   
-  proc keyev(e:dom.Event) =
-    evloop.emit("keyEv", EventArgs(kind:evKey,key:e.keycode.toJSKC()))
+
+  proc initEvents*():EventEmitter =
+    result = initeventemitter()
+    proc keyev(e:dom.Event) =
+      result.emit("keyEv", EventArgs(kind:evKey,key:e.keycode.toJSKC()))
   
-  document.addEventlistener("keydown",keyev,true)
-  document.addEventlistener("keypress",keyev,true)
-  document.addEventlistener("keyup",keyev,true)
+    document.addEventlistener("keypress",keyev,true)
+  
+    proc mouseev(e:dom.Event) =
+      result.emit("mouseEv", EventArgs(kind:evMouse,button:0))
+  
+    document.addEventlistener("click",mouseev,true)
 
 else: 
   import windows

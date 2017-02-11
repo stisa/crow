@@ -6,14 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>niwe</title>
-  <meta name="description" content="niwe">
+  <meta name="description" content="Examples for $project">
   <meta name="author" content="stisa">
   <link rel="stylesheet" href="http://stisa.space/css/main.css">
+  <link rel="stylesheet" href="http://stisa.space/css/prism.css">
   <link rel="apple-touch-icon-precomposed" href="http://stisa.space/favicon-152.png">
   <meta name="msapplication-TileColor" content="#FFFFFF">
   <meta name="msapplication-TileImage" content="http://stisa.space/favicon-144.png">
   <style>@media only screen and (min-width: 800px)  { .output { float:left; padding-right:1em;} } </style>
+  <title>Example: $title</title>    
 </head>
 <body>
   <header class="sidebar">
@@ -25,25 +26,26 @@
       <a href="/">Home</a>
       <a href="/projects/">Projects</a>
       <a href="/about/">About Me</a>
-
+      <br/>
+      <a href="/$project/">$project</a>
     </div>
-   
   </header>
   <section class="content">
-    <h2>Examples for niwe</h2>
-    <ul>
-            <li>
-          <a href="examples/ex1.html">Example: ex1</a>
-      </li>
-      <li>
-          <a href="examples/ex1.html">Example: ex1</a>
-      </li>
-      <li>
-          <a href="examples/index.html">Example: index</a>
-      </li>
-
-    </ul>
+    <section class="output" id="output">
+      <!--TODO:meaningful output-->
+      <h2>Example: $title</h2>
+      <canvas id="canvas" width="800" height="500">
+        Your browser doesn't appear to support the 
+        <code>&lt;canvas&gt;</code> element.
+      </canvas>
+      <script type="text/javascript" src="./$title.js"></script>
+    </section>
+    <section class="examplecode">
+      <h2>Code</h2>
+      <pre><code class="language-nim">$code
+</code></pre>
+    </section>
   </section>
+  <script src="http://stisa.space/js/prism.js"></script>
+  
 </body>
-
-</html>
