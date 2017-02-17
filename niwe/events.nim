@@ -39,6 +39,7 @@ import keymap
 type EvKind* = enum
   evKey
   evMouse
+  evUpdate
 
 type
   EventArgs* = object
@@ -49,6 +50,8 @@ type
     of evMouse:
       button*:int
       kmods*:int
+    of evUpdate:
+      dt*:float
 
   EventHandler* = tuple[name: string, handlers: seq[proc(e: EventArgs) {.closure.}]] ## An eventhandler for an event.
 
@@ -124,14 +127,14 @@ when defined js:
 #var evloop* = initEventEmitter()
 
 #[ example hook event ]
-proc handleKeyEvent(e: EventArgs) =
-  when defined js:
-    log("handle :".cstring,$e.key)
-  else:
-    echo("Handled!")
-    echo $e.key
+# proc handleKeyEvent(e: EventArgs) =
+#  when defined js:
+#    log("handle :".cstring,$e.key)
+#  else:
+#    echo("Handled!")
+#    echo $e.key
 
-evloop.on("keyEv", handleKeyEvent)
+#evloop.on("keyEv", handleKeyEvent)
 []#
 
 when defined js:
