@@ -1,5 +1,10 @@
-import webgl except Color,Red,Black
-import gl
+import gl, snail/[matrix,graphic]
+
+from math import cos,sin,Pi
+
+from webgl import WebglBuffer,Canvas,resize,Glenum,StaticDraw # TODO: move these out to gl, abstract 'em all
+
+const VECSIZE = 4
 
 const vmsrc = r"""
 attribute vec4 aPosition;
@@ -20,17 +25,6 @@ void main() {
 }
 """
 
-import sequtils, math
-import snail/[matrix,graphic]
- 
-export webgl.requestAnimationFrame
-
-const VECSIZE :int = 4
-
-converter toF32A(m:Matrix[4,4]):Float32Array = 
-  var am = m.data[]
-  {.emit: "`result` = new Float32Array(`am`);\n".}
-
 type Renderer* = object
   context:GL
   program: Program
@@ -45,42 +39,21 @@ proc initRenderer*(gl:GL,clear:Color=White):Renderer =
   result.buff = result.context.createBuffer()
   gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight)
 
-proc uploadVertices(eng:Renderer, vertices:seq[float], drawMode:GLenum=StaticDraw) =
+proc uploadVertices(eng:Renderer, vertices:seq[float], drawMode:GLenum=StaticDraw){.inline} =
   ## Bind vertices to the context
-  ## drawMode must be one of : # TODO: check this
-  ## STATIC_DRAW: Contents of the buffer are likely to be used often and not change often. Contents are written to the buffer, but not read.
-  ## DYNAMIC_DRAW: Contents of the buffer are likely to be used often and change often. Contents are written to the buffer, but not read.
-  ## STREAM_DRAW: Contents of the buffer are likely to not be used often. Contents are written to the buffer, but not read.
-  eng.context.bindBuffer(ARRAY_BUFFER, eng.buff)
-  eng.context.bufferData(ARRAY_BUFFER, vertices, drawMode)
-  eng.context.bindBuffer(ARRAY_BUFFER, eng.buff)
+  eng.context.uploadvertices(eng.buff,vertices,drawmode)
 
 proc drawTriangles(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:GLenum=StaticDraw) =
   ## Draw triangles
-  eng.uploadVertices(vertices,drawMode)
-  let numvertices = vertices.len div VECSIZE # 2 is hardcoded for now, it means each vertices has x,y
-  eng.context.bindColor(eng.program, "uColor", color)
-  eng.context.enableAttribute(eng.program, "aPosition")
-  eng.context.drawArrays(TRIANGLES, 0, numvertices)
-  eng.context.flush()
-
+  eng.context.drawtriangles(eng.buff,eng.program,vertices,color,drawmode)
+  
 proc drawTriangleFan(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:GLenum=StaticDraw) =
   ## Draw a fan of triangles
-  eng.uploadVertices(vertices,drawMode)
-  let numvertices = vertices.len div VECSIZE # 2 is hardcoded for now, it means each vertex has x,y
-  eng.context.bindColor(eng.program, "uColor", color)
-  eng.context.enableAttribute(eng.program, "aPosition") 
-  eng.context.drawArrays(TRIANGLE_FAN, 0, numvertices)
-  eng.context.flush()
+  eng.context.drawtrianglefan(eng.buff,eng.program,vertices,color,drawmode)
 
 proc drawLineLoop(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:GLenum=StaticDraw) =
   ## Draw a closed loop of lines
-  eng.uploadVertices(vertices,drawMode)
-  let numvertices = vertices.len div VECSIZE # 2 is hardcoded for now, it means each vertex has x,y
-  eng.context.bindColor(eng.program, "uColor", color)
-  eng.context.enableAttribute(eng.program, "aPosition") 
-  eng.context.drawArrays(LINE_LOOP, 0, numvertices)
-  eng.context.flush()
+  eng.context.drawlineloop(eng.buff,eng.program,vertices,color,drawmode)
 
 type Renderable* = object of Rootobj # Todo: concepts?
   color*: Color
@@ -90,12 +63,61 @@ type Renderable* = object of Rootobj # Todo: concepts?
   origin*: tuple[x,y:float]
   centered*: bool
 
+type Rect* = object of Renderable
+  ## A rectangle. For filled rectangles see box.
+  size*: tuple[w,h:float]
+
+type Box* = object of Renderable
+  ## A filled rectangle
+  size*: tuple[w,h:float]
+
+type Circle* = object of Renderable
+  ## A circle. For filled circles see disk.
+  radius*: float
+
+type Disk* = object of Renderable
+  ## A filled circle.
+  radius*: float
+
 type Polygon* = object of Renderable
   ## A polygon. ``bcradius`` is the radius of the bounding circle.  
   ## If ``filled`` is true, then the polygon is filled (duh).
   sides*: int
   bcradius*:float
   filled*:bool
+
+proc rect*(
+    x,y:float=0.0,
+    w,h:float=10.0,
+    color:Color=Red,
+    centered:bool=true
+  ):Rect =
+  result.color = color
+  result.pos = (x,y)
+  result.size=(w,h)
+  #result.origin = (-w/2,-h/2) # default to centered for consistency
+  result.scale = 1.0
+  result.centered =  centered
+
+proc box*(x,y:float=0.0,w,h:float=10.0,color:Color=Red,centered:bool=true):Box =
+  result.color = color
+  result.pos = (x,y)
+  #result.origin = (-w/2,-h/2)
+  result.size=(w,h)
+  result.scale = 1.0
+  result.centered = centered
+
+proc circle*(x,y:float=0.0,r:float=10.0,color:Color=Red):Circle =
+  result.color = color
+  result.pos = (x,y)
+  result.radius = r 
+  result.scale = 1.0
+
+proc disk*(x,y:float=0.0,r:float=10.0,color:Color=Red):Disk =
+  result.color = color
+  result.pos = (x,y)
+  result.radius = r 
+  result.scale = 1.0
 
 proc polygon* (
     x,y:float=0.0,
@@ -126,6 +148,88 @@ proc setMatrixUnif(eng:Renderer,rend:Renderable,uniform:string) =
             translation(-w/2,-h/2)*
             scaling(w/2,h/2)
   eng.context.uniformMatrix4fv(uMatLoc,false,mat)
+
+proc draw*(eng:Renderer, rect:Rect)=
+  eng.setMatrixUnif(rect,"uMatrix")
+  if rect.centered:
+    let hw = rect.size.w/2
+    let hh = rect.size.h/2
+    eng.drawLineloop(
+      @[
+        -hw, -hh , 0.0, 1.0/rect.scale,
+        hw, -hh, 0.0, 1.0/rect.scale,
+        hw, hh, 0.0, 1.0/rect.scale,
+        -hw, hh, 0.0, 1.0/rect.scale,
+      ],
+    rect.color)
+  else:
+    eng.drawlineloop(
+      @[
+        0.0, 0.0 , 0.0, 1.0/rect.scale,
+        rect.size.w, 0, 0.0, 1.0/rect.scale,
+        rect.size.w, rect.size.h, 0.0, 1.0/rect.scale,
+        0.0, rect.size.h, 0.0, 1.0/rect.scale,
+      ],
+    rect.color)
+
+proc draw*(eng:Renderer, rect:Box)=
+  
+  eng.setMatrixUnif(rect,"uMatrix")
+  if rect.centered:
+    let hw = rect.size.w/2
+    let hh = rect.size.h/2
+    eng.drawTriangles(
+      @[
+        -hw, -hh , 0.0, 1.0/rect.scale,
+        hw, -hh, 0.0, 1.0/rect.scale,
+        -hw, hh, 0.0, 1.0/rect.scale,
+        -hw, hh , 0.0, 1.0/rect.scale,
+        hw, hh, 0.0, 1.0/rect.scale,
+        hw, -hh , 0.0, 1.0/rect.scale
+      ],
+    rect.color)
+  else:
+    eng.drawTriangles(
+      @[
+        0.0, 0.0 , 0.0, 1.0/rect.scale,
+        rect.size.w, 0, 0.0, 1.0/rect.scale,
+        rect.size.w, rect.size.h, 0.0, 1.0/rect.scale,
+        rect.size.w, rect.size.h, 0.0, 1.0/rect.scale,
+        0.0, rect.size.h, 0.0, 1.0/rect.scale,
+        0.0, 0.0 , 0.0, 1.0/rect.scale
+      ],
+    rect.color)
+
+proc draw*(eng:Renderer, circle:Disk, roughness:int=32) =
+  eng.setMatrixUnif(circle,"uMatrix")
+
+  # 2 -> center(x,y), roughness * 4 are the two outer vertex of the trinagle
+  var verts = newSeq[float](VECSIZE+roughness*VECSIZE*2)
+
+  # Set the center
+  verts[3] = 1/circle.scale
+  #Set outer vertices
+  for i in countup(4,verts.len-1,4) :
+    verts[i] = circle.radius*cos( (i/4)*2*Pi/roughness.float)   # x
+    verts[i+1] = circle.radius*sin( (i/4)*2*Pi/roughness.float) # y
+    verts[i+2] = 0 # TODO:z
+    verts[i+3] = 1/circle.scale # w
+  eng.drawTriangleFan( verts, circle.color)
+
+
+proc draw*(eng:Renderer, circle:Circle, roughness:int=32) =
+  eng.setMatrixUnif(circle,"uMatrix")
+
+  var verts = newSeq[float](roughness*VECSIZE) # each line has x,y x1,y1, the last one is the first
+  
+  #Set outer vertices
+  for i in countup(0,verts.len-1,4) :
+    verts[i] = circle.radius*cos( i.float*Pi/(2*roughness.float))   # x
+    verts[i+1] = circle.radius*sin( i.float*Pi/(2*roughness.float)) # y
+    verts[i+2] = 0 # z
+    verts[i+3] = 1/circle.scale # w
+  
+  eng.drawLineLoop( verts, circle.color)
 
 proc draw*(eng:Renderer, pol:Polygon) =
   eng.setMatrixUnif(pol,"uMatrix")
@@ -192,16 +296,24 @@ when isMainModule and defined(js):
   var speed = (0.0,0.0)
   var accel = (2.0,2.0)
  
-  var b = polygon(100,100,32,100,filled=true)
+  var p = polygon(100,100,5,10,filled=true,color=Green)
+  var r = rect(200,200)
+  var c = circle(50,50)
+  var d = disk(150,150)
+  var b = box(250,250)
   evq.on("mouseEv", 
     proc (e:EventArgs)=
       speed += accel)
   evq.on("update", 
     proc (e:EventArgs)=
-      b.pos += speed)
+      p.pos += speed)
 
   frame:
     evq.emit("update",EventArgs(dt:dt))
     en.context.canvas.resize()
     en.context.viewport(0, 0, en.context.drawingBufferWidth, en.context.drawingBufferHeight)
     en.draw(b)
+    en.draw(c)
+    en.draw(d)
+    en.draw(p)
+    en.draw(r)

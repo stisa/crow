@@ -25,13 +25,16 @@ const
   Green* : Color = (r:0.0,g:1.0,b:0.0,a:1.0)
   White* : Color = (r:1.0,g:1.0,b:1.0,a:1.0)
 
-import sequtils, math
-#import private/matrix,private/vector
+#import sequtils, math
 
+import snail/matrix
 export webgl.requestAnimationFrame
 
 const VECSIZE :int = 4
 
+converter toF32A*(m:Matrix[4,4]):Float32Array = 
+  var am = m.data[]
+  {.emit: "`result` = new Float32Array(`am`);\n".}
 converter extractProgram*(program: Program): WebglProgram = program.p
 converter extractShader*(sh:Shader): WebglShader = sh.s
 
@@ -96,6 +99,44 @@ proc enableAttribute*(gl:GL,program:Program,attribname:string,itemSize:int=VECSI
   let aloc = gl.getAttribLocation(program, attribname)
   gl.enableVertexAttribArray(aloc)
   gl.vertexAttribPointer(aloc, itemSize, FLOAT, false, 0, 0)
+
+proc uploadVertices*(gl:GL, buff:WebglBuffer, vertices:seq[float], drawMode:GLenum=StaticDraw) =
+  ## Bind vertices to the context
+  ## drawMode must be one of : # TODO: check this
+  ## STATIC_DRAW: Contents of the buffer are likely to be used often and not change often. Contents are written to the buffer, but not read.
+  ## DYNAMIC_DRAW: Contents of the buffer are likely to be used often and change often. Contents are written to the buffer, but not read.
+  ## STREAM_DRAW: Contents of the buffer are likely to not be used often. Contents are written to the buffer, but not read.
+  gl.bindBuffer(ARRAY_BUFFER, buff)
+  gl.bufferData(ARRAY_BUFFER, vertices, drawMode)
+  gl.bindBuffer(ARRAY_BUFFER, buff)
+
+proc drawTriangles*(gl:GL,buff:WebGlBuffer,p:Program,vertices:seq[float], color:Color=Green,drawMode:GLenum=StaticDraw) =
+  ## Draw triangles
+  gl.uploadVertices(buff,vertices,drawMode)
+  let numvertices = vertices.len div 4 # 4 is hardcoded for now, it means each vertices has x,y,z,scale
+  gl.bindColor(p, "uColor", color)
+  gl.enableAttribute(p, "aPosition")
+  gl.drawArrays(TRIANGLES, 0, numvertices)
+  gl.flush()
+
+proc drawTriangleFan*(gl:GL,buff:WebGlBuffer,p:Program,vertices:seq[float], color:Color=Green,drawMode:GLenum=StaticDraw) =
+  ## Draw a fan of triangles
+  gl.uploadVertices(buff,vertices,drawMode)
+  let numvertices = vertices.len div 4 # 4 is hardcoded for now, it means each vertices has x,y,z,scale
+  gl.bindColor(p, "uColor", color)
+  gl.enableAttribute(p, "aPosition")
+  gl.drawArrays(TRIANGLE_FAN, 0, numvertices)
+  gl.flush()
+
+
+proc drawLineLoop*(gl:GL,buff:WebGlBuffer,p:Program,vertices:seq[float], color:Color=Green,drawMode:GLenum=StaticDraw) =
+  ## Draw a closed loop of lines
+  gl.uploadVertices(buff,vertices,drawMode)
+  let numvertices = vertices.len div 4 # 4 is hardcoded for now, it means each vertices has x,y,z,scale
+  gl.bindColor(p, "uColor", color)
+  gl.enableAttribute(p, "aPosition")
+  gl.drawArrays(LineLoop, 0, numvertices)
+  gl.flush()
 
 when ismainmodule:
   import windows
