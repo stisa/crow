@@ -12,16 +12,16 @@ if (typeof Uint16Array === 'undefined') Uint16Array = Array;
 if (typeof Uint32Array === 'undefined') Uint32Array = Array;
 if (typeof Float32Array === 'undefined') Float32Array = Array;
 if (typeof Float64Array === 'undefined') Float64Array = Array;
-var NTI51061 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI51063 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
 var NTI3446 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI3448 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI3444 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI3452 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI51032 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
-var NTI51029 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI51017 = {size: 0,kind: 25,base: null,node: null,finalizer: null};
-var NTI51016 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
-var NTI51008 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI51034 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI51031 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI51019 = {size: 0,kind: 25,base: null,node: null,finalizer: null};
+var NTI51018 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI51009 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI51436 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
 var NTI3438 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI104 = {size: 0,kind: 31,base: null,node: null,finalizer: null};
@@ -54,14 +54,14 @@ NTI12409.node = NNI12409;
 var NNI3438 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI3438.node = NNI3438;
 NTI3438.base = NTI3436;
-NTI51016.base = NTI51017;
-var NNI51008 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI138, name: "Field0", sons: null}, 
-{kind: 1, offset: "Field1", len: 0, typ: NTI51016, name: "Field1", sons: null}]};
-NTI51008.node = NNI51008;
-NTI51436.base = NTI51008;
-NTI51032.base = NTI51008;
-var NNI51029 = {kind: 1, offset: "s", len: 0, typ: NTI51032, name: "s", sons: null};
-NTI51029.node = NNI51029;
+NTI51018.base = NTI51019;
+var NNI51009 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI138, name: "Field0", sons: null}, 
+{kind: 1, offset: "Field1", len: 0, typ: NTI51018, name: "Field1", sons: null}]};
+NTI51009.node = NNI51009;
+NTI51436.base = NTI51009;
+NTI51034.base = NTI51009;
+var NNI51031 = {kind: 1, offset: "s", len: 0, typ: NTI51034, name: "s", sons: null};
+NTI51031.node = NNI51031;
 var NNI3452 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI3452.node = NNI3452;
 NTI3452.base = NTI3424;
@@ -74,7 +74,7 @@ var NNI3446 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI3446.node = NNI3446;
 NTI3446.base = NTI3424;
 NTI3448.base = NTI3446;
-NTI51061.base = NTI51017;
+NTI51063.base = NTI51019;
 function makeNimstrLit(c_13403) {
 
     var ln = c_13403.length;
@@ -455,7 +455,7 @@ function initeventemitter_51418() {
 var result_51420 = {s: null};
 var F={procname:"events.initEventEmitter",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-F.line = 117;
+F.line = 120;
 result_51420.s = nimCopy(null, [], NTI51436);
 framePtr = F.prev;
 return result_51420;
@@ -467,43 +467,43 @@ e_13284 = {m_type: NTI3452, parent: null, name: null, message: null, trace: null
 e_13284.message = nimCopy(null, makeNimstrLit("index out of bounds"), NTI138);
 raiseException(e_13284, "IndexError");
 }
-function geteventhandler_51248(emitter_51251, event_51252) {
+function geteventhandler_51250(emitter_51253, event_51254) {
 
-var result_51253 = 0;
+var result_51255 = 0;
 var F={procname:"events.getEventHandler",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
 BeforeRet: do {
 L1: do {
-F.line = 89;
-var k_51263 = 0;
+F.line = 92;
+var k_51265 = 0;
 F.line = 1926;
-var HEX3Atmp_51265 = 0;
-F.line = 89;
-HEX3Atmp_51265 = (emitter_51251.s != null ? (emitter_51251.s.length-1) : -1);
+var HEX3Atmp_51267 = 0;
+F.line = 92;
+HEX3Atmp_51267 = (emitter_51253.s != null ? (emitter_51253.s.length-1) : -1);
 F.line = 1908;
-var res_51268 = 0;
+var res_51270 = 0;
 L2: do {
 F.line = 1909;
 L3: while (true) {
-if (!(res_51268 <= HEX3Atmp_51265)) break L3;
+if (!(res_51270 <= HEX3Atmp_51267)) break L3;
 F.line = 1910;
-k_51263 = res_51268;
-if (eqStrings(emitter_51251.s[chckIndx(k_51263, 0, emitter_51251.s.length)-0].Field0, event_51252)) {
-F.line = 90;
-result_51253 = k_51263;
+k_51265 = res_51270;
+if (eqStrings(emitter_51253.s[chckIndx(k_51265, 0, emitter_51253.s.length)-0].Field0, event_51254)) {
+F.line = 93;
+result_51255 = k_51265;
 break BeforeRet;
 }
 
-res_51268 = addInt(res_51268, 1);
+res_51270 = addInt(res_51270, 1);
 }
 } while(false);
 } while(false);
-F.line = 91;
-result_51253 = -1;
+F.line = 94;
+result_51255 = -1;
 break BeforeRet;
 } while (false); 
 framePtr = F.prev;
-return result_51253;
+return result_51255;
 }
 function sysfatal_21221(message_21227) {
 
@@ -532,17 +532,17 @@ framePtr = F;
 raiseassert_21216(msg_21241);
 framePtr = F.prev;
 }
-function emit_51295(emitter_51298, eventhandler_51300, args_51301) {
+function emit_51297(emitter_51300, eventhandler_51302, args_51303) {
 
 var F={procname:"events.emit",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
 L1: do {
-F.line = 107;
+F.line = 110;
 var fn_51402 = null;
 F.line = 3495;
 var HEX3Atmp_51404 = null;
-F.line = 107;
-HEX3Atmp_51404 = eventhandler_51300.Field1;
+F.line = 110;
+HEX3Atmp_51404 = eventhandler_51302.Field1;
 F.line = 3497;
 var i_51407 = 0;
 F.line = 3498;
@@ -553,7 +553,7 @@ L3: while (true) {
 if (!(i_51407 < L_51409)) break L3;
 F.line = 3500;
 fn_51402 = HEX3Atmp_51404[chckIndx(i_51407, 0, HEX3Atmp_51404.length)-0];
-fn_51402(args_51301);
+fn_51402(args_51303);
 i_51407 = addInt(i_51407, 1);
 if (!(((HEX3Atmp_51404 != null ? HEX3Atmp_51404.length : 0) == L_51409))) {
 failedassertimpl_21239(makeNimstrLit("len(a) == L seq modified while iterating over it"));
@@ -568,10 +568,10 @@ function emit_51410(emitter_51413, event_51414, args_51415) {
 
 var F={procname:"events.emit",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-F.line = 111;
-var i_51416 = geteventhandler_51248(emitter_51413, event_51414);
+F.line = 114;
+var i_51416 = geteventhandler_51250(emitter_51413, event_51414);
 if ((0 <= i_51416)) {
-emit_51295(emitter_51413, emitter_51413.s[chckIndx(i_51416, 0, emitter_51413.s.length)-0], args_51415);
+emit_51297(emitter_51413, emitter_51413.s[chckIndx(i_51416, 0, emitter_51413.s.length)-0], args_51415);
 }
 
 framePtr = F.prev;
@@ -684,35 +684,35 @@ function keyev_53204(e_53207) {
 
 var F={procname:"initEvents.keyev",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-emit_51410(result_53203[0], makeNimstrLit("keyEv"), {kind: 0, key: tojskc_49625(e_53207.keyCode), mods: 0, button: 0, kmods: 0});
+emit_51410(result_53203[0], makeNimstrLit("keyEv"), {kind: 0, key: tojskc_49625(e_53207.keyCode), mods: 0, button: 0, kmods: 0, dt: 0.0});
 framePtr = F.prev;
 }
 function mouseev_53211(e_53214) {
 
 var F={procname:"initEvents.mouseev",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-emit_51410(result_53203[0], makeNimstrLit("mouseEv"), {kind: 1, button: 0, key: 0, mods: 0, kmods: 0});
+emit_51410(result_53203[0], makeNimstrLit("mouseEv"), {kind: 1, button: 0, key: 0, mods: 0, kmods: 0, dt: 0.0});
 framePtr = F.prev;
 }
 var result_53203 = [{s: null}];
 var F={procname:"events.initEvents",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-F.line = 141;
-nimCopy(result_53203[0], initeventemitter_51418(), NTI51029);
+F.line = 144;
+nimCopy(result_53203[0], initeventemitter_51418(), NTI51031);
 document.addEventListener("keypress", keyev_53204, true);
 document.addEventListener("click", mouseev_53211, true);
 framePtr = F.prev;
 return result_53203[0];
 }
 var evloop_66001 = /**/[initevents_53201()];
-function getcontextwebgl_56111(c_56113) {
+function getcontextwebgl_56113(c_56115) {
 
-var result_56114 = null;
+var result_56116 = null;
 var F={procname:"webgl.getContextWebGL",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
-F.line = 316;
-result_56114 = c_56113.getContext('webgl') || c_56113.getContext('experimental-webgl');framePtr = F.prev;
-return result_56114;
+F.line = 318;
+result_56116 = c_56115.getContext('webgl') || c_56115.getContext('experimental-webgl');framePtr = F.prev;
+return result_56116;
 }
 function initwindow_57001() {
 
@@ -722,48 +722,49 @@ framePtr = F;
 F.line = 15;
 var canvas_57015 = document.getElementById("niwe-canvas");
 F.line = 17;
-result_57014.ctx = getcontextwebgl_56111(canvas_57015);
+result_57014.ctx = getcontextwebgl_56113(canvas_57015);
 F.line = 18;
 result_57014.width = canvas_57015.width;
 F.line = 19;
 result_57014.height = canvas_57015.height;
-framePtr = F.prev;
+F.line = 20;
+console.log(result_57014.width,result_57014.height);framePtr = F.prev;
 return result_57014;
 }
 var gl_66002 = /**/[initwindow_57001()];
-function initeventhandler_51042(name_51044) {
+function initeventhandler_51044(name_51046) {
 
-var result_51045 = {Field0: null, Field1: null};
+var result_51047 = {Field0: null, Field1: null};
 var F={procname:"events.initEventHandler",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-F.line = 65;
-result_51045.Field1 = nimCopy(null, [], NTI51061);
-F.line = 66;
-result_51045.Field0 = nimCopy(null, name_51044, NTI138);
+F.line = 68;
+result_51047.Field1 = nimCopy(null, [], NTI51063);
+F.line = 69;
+result_51047.Field0 = nimCopy(null, name_51046, NTI138);
 framePtr = F.prev;
-return result_51045;
+return result_51047;
 }
-function addhandler_51062(handler_51065, fn_51069) {
+function addhandler_51064(handler_51067, fn_51071) {
 
 var F={procname:"events.addHandler",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-if (handler_51065.Field1 != null) { handler_51065.Field1.push(fn_51069); } else { handler_51065.Field1 = [fn_51069]; };
+if (handler_51067.Field1 != null) { handler_51067.Field1.push(fn_51071); } else { handler_51067.Field1 = [fn_51071]; };
 framePtr = F.prev;
 }
-function on_51272(emitter_51275, event_51276, fn_51280) {
+function on_51274(emitter_51277, event_51278, fn_51282) {
 
 var F={procname:"events.on",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-F.line = 96;
-var i_51281 = geteventhandler_51248(emitter_51275, event_51276);
-if ((i_51281 < 0)) {
-F.line = 98;
-var eh_51282 = /**/[initeventhandler_51042(event_51276)];
-addhandler_51062(eh_51282[0], fn_51280);
-if (emitter_51275.s != null) { emitter_51275.s.push(eh_51282[0]); } else { emitter_51275.s = [eh_51282[0]]; };
+F.line = 99;
+var i_51283 = geteventhandler_51250(emitter_51277, event_51278);
+if ((i_51283 < 0)) {
+F.line = 101;
+var eh_51284 = /**/[initeventhandler_51044(event_51278)];
+addhandler_51064(eh_51284[0], fn_51282);
+if (emitter_51277.s != null) { emitter_51277.s.push(eh_51284[0]); } else { emitter_51277.s = [eh_51284[0]]; };
 }
 else {
-addhandler_51062(emitter_51275.s[chckIndx(i_51281, 0, emitter_51275.s.length)-0], fn_51280);
+addhandler_51064(emitter_51277.s[chckIndx(i_51283, 0, emitter_51277.s.length)-0], fn_51282);
 }
 
 framePtr = F.prev;
@@ -818,4 +819,4 @@ gl_66002[0].ctx.clearColor(random_60327(1.0000000000000000e+00), random_60327(1.
 gl_66002[0].ctx.clear(16384);
 framePtr = F.prev;
 }
-on_51272(evloop_66001[0], makeNimstrLit("mouseEv"), handlemouseevent_66003);
+on_51274(evloop_66001[0], makeNimstrLit("mouseEv"), handlemouseevent_66003);

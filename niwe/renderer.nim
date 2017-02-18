@@ -282,7 +282,7 @@ template frame*(body:untyped):untyped =
     requestAnimationFrame(innerframedraw)
   innerframedraw()
   
-proc `+=`(lf: var tuple[x:float,y:float],rg:tuple[x:float,y:float])=
+proc `+=`*(lf: var tuple[x:float,y:float],rg:tuple[x:float,y:float])=
   lf[0]+=rg[0]
   lf[1]+=rg[1]
 

@@ -1,8 +1,3 @@
-# Obtain a window/canvas and export it
-# A window is defined as a object with:
-# - a context ( gl , webgl )
-# - width
-# - height
 import ../niwe/events,../niwe/windows,random
 
 var evloop = initEvents()
