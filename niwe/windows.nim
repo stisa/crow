@@ -17,4 +17,4 @@ when defined js:
     result.ctx = getContextWebgl(canvas)
     result.width = canvas.width
     result.height = canvas.height
-
+    {.emit:"console.log(`result`.width,`result`.height);"}

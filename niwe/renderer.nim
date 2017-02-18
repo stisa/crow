@@ -117,7 +117,6 @@ proc setMatrixUnif(eng:Renderer,rend:Renderable,uniform:string) =
   let w = eng.context.drawingbufferwidth
   let h = eng.context.drawingbufferheight
 
-  let projMat = projection(eng.context.drawingbufferwidth.float,eng.context.drawingbufferheight.float)
   let uMatLoc = eng.context.getUniformLocation(eng.program, uniform)
 
   let mat = translation(
@@ -193,7 +192,7 @@ when isMainModule and defined(js):
   var speed = (0.0,0.0)
   var accel = (2.0,2.0)
  
-  var b = polygon(100,100,4,100,filled=true)
+  var b = polygon(100,100,32,100,filled=true)
   evq.on("mouseEv", 
     proc (e:EventArgs)=
       speed += accel)

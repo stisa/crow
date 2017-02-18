@@ -279,3 +279,7 @@ proc lookAt*(ex, ey, ez, cx, cy, cz, ux, uy, uz:float):Matrix =
   result[10] = f.z;
   result[11] = -f.dot(e);
   result[15] = 1;
+
+proc `*` *(l:float,r:Matrix):Matrix=
+  result = r
+  for i in result.mitems: i = i*l
