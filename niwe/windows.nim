@@ -10,7 +10,6 @@ type Window* [Context] = object
 
 when defined js:
   import webgl , dom
-  export webgl
   proc initWindow*():Window[WebglRenderingContext] =
     let canvas = document.getElementById("niwe-canvas").Canvas # TODO: personalize?
   # if undefined, TODO: append a canvas

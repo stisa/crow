@@ -1,4 +1,4 @@
-import gl, snail/[matrix,graphic]
+import gl,colors, snail/[matrix,graphic]
 
 from math import cos,sin,Pi
 
