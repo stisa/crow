@@ -1,5 +1,5 @@
-import ../niwe/[events,windows,gl,renderer]
-
+import ../niwe/[events,windows,gl,renderer,colors]
+from webgl import resize
 var evq = initEvents()
 var w = initWindow()
 var en = initRenderer(w.ctx)
