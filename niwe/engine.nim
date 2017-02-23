@@ -1,7 +1,7 @@
 import windows,events,colors,renderer,gl
 from dom import document,Event,addeventlistener
 from webgl import WebglRenderingContext
-export addEventListener,on
+export addEventListener,on,draw
 
 type Engine* = object
   window*: Window
@@ -17,7 +17,6 @@ converter toCtx*(e:Engine) : WebglRenderingContext = e.window.ctx
 
 converter toRend*(e:Engine) : Renderer = e.renderer
 
-#converter toEvL(e: var Engine) : EventEmitter = e.evloop
 
 template update*(en:var Engine,body:untyped):untyped =
   ## Computes body each frame, the variable dt is exported and can be used.

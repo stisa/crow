@@ -14,7 +14,7 @@
   <meta name="msapplication-TileColor" content="#FFFFFF">
   <meta name="msapplication-TileImage" content="http://stisa.space/favicon-144.png">
   <style>@media only screen and (min-width: 800px)  { .output { float:left; padding-right:1em;} } </style>
-  <title>Example: ex2</title>    
+  <title>Example: ex4</title>    
 </head>
 <body>
   <header class="sidebar">
@@ -33,48 +33,27 @@
   <section class="content">
     <section class="output" id="output">
       <!--TODO:meaningful output-->
-      <h2>Example: ex2</h2>
+      <h2>Example: ex4</h2>
       <canvas style="width:100%; height:100%; min-height:25em;" id="niwe-canvas">
         Your browser doesn't appear to support the 
         <code>&lt;canvas&gt;</code> element.
       </canvas>
-      <script type="text/javascript" src="./ex2.js"></script>
+      <script type="text/javascript" src="./ex4.js"></script>
     </section>
     <section class="examplecode">
       <h2>Code</h2>
-      <pre><code class="language-nim">import ../niwe/[events,windows,gl,renderer,colors,primitives]
-from webgl import resize
-var evq = initEvents()
-var w = initWindow()
-var en = initRenderer(w.ctx)
+      <pre><code class="language-nim">import ../niwe/[engine,primitives]
 
-var speed = (0.0,0.0)
-var accel = (2.0,2.0)
+var en = initEngine()
 
-var
-  p = polygon(100,100,5,10,filled=true,color=Green)
-  r = rect(200,200)
-  c = circle(50,50)
-  d = disk(150,150)
-  b = box(250,250)
-
-evq.on("mouseEv", 
-  proc (e:EventArgs)=
-  speed += accel)
-evq.on("update", 
-  proc (e:EventArgs)=
-  p.pos += speed)
-
-frame:
-  evq.emit("update",EventArgs(dt:dt))
-  en.context.canvas.resize()
-  en.context.viewport(0, 0, en.context.drawingBufferWidth, en.context.drawingBufferHeight)
-  en.draw(b)
-  en.draw(c)
-  en.draw(d)
+var p = polygon(100,100,filled=true)
+  
+onclick en:
+  echo "clk"
+  p.pos.x += 50
+   
+update en:
   en.draw(p)
-  en.draw(r)
-
 
 </code></pre>
     </section>
