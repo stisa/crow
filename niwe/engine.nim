@@ -47,6 +47,38 @@ template onclick*(en:var Engine,body:untyped)=
 
   en.evloop.on("mouseEv",ock)
 
+ 
+
+template setupFpsCounter*(onID:string = "body"){.dirty}=
+  import dom
+  from math import round
+  var fps_time = 0.0
+  var fps_frames = 0
+  proc appendFpsCounter*(toID:string="body") =
+    var fel = document.createElement("DIV")
+    fel.innerHTML = "FPS Counter"
+    #proc setAttribute*(n: Node, name, value: cstring)
+    fel.setAttribute("ID","_fpsCounter_")
+
+    if toID=="body":
+      document.body.appendChild(fel)
+    else:
+      let parent = document.getElementById(toID)
+      parent.appendChild(fel)
+  appendFpsCounter(onID)
+  proc updateFpsCounter*(dt : float) =
+
+    var dom_counter = dom.document.getElementById("_fpsCounter_")
+  
+    fps_time+=dt
+    inc fps_frames
+
+    if(fps_time>1000):
+      var fps=1000 * fps_frames.float/fps_time
+      dom_counter.innerHTML = $round(fps) & " FPS"
+      fps_time = 0.0
+      fps_frames = 0
+
 proc `+=`*(lf: var tuple[x:float,y:float],rg:tuple[x:float,y:float])=
   lf[0]+=rg[0]
   lf[1]+=rg[1]

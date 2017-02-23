@@ -61,7 +61,8 @@ proc setMatrixUnif(eng:Renderer,rend:Renderable,uniform:string) =
 
   let uMatLoc = eng.context.getUniformLocation(eng.program, uniform)
 
-  let mat = translation(
+  let mat = rotation(rend.rot)*
+            translation(
              rend.pos.x,rend.pos.y)*
             translation(
              rend.origin.x,rend.origin.y)*
