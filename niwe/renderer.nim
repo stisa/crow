@@ -186,6 +186,9 @@ proc draw*(eng:Renderer, pol:Polygon) =
       #log(verts[i],verts[i+1])
     eng.drawLineLoop( verts, pol.color)
 
+proc draw*[K:Renderables](r:Renderer,b:varargs[K])=
+  for e in b: r.draw(e)
+
 template batch*(eng:Renderer, body:untyped):untyped =
   # begin a new drawing context with engine ( for now it just erases previous draws )
   eng.context.clearWith(Green)
@@ -228,13 +231,14 @@ when isMainModule and defined(js):
   evq.on("update", 
     proc (e:EventArgs)=
       p.pos += speed)
-
+  
+  var d2 = disk(150,250,color=Green)
   frame:
     evq.emit("update",EventArgs(dt:dt))
     en.context.canvas.resize()
     en.context.viewport(0, 0, en.context.drawingBufferWidth, en.context.drawingBufferHeight)
-    en.draw(b)
-    en.draw(c)
-    en.draw(d)
+  #  en.draw(b,c)
+    # en.draw(c)
+    en.draw(d,d2)
     en.draw(p)
     en.draw(r)

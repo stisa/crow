@@ -31,6 +31,8 @@ type Polygon* = object of Renderable
   bcradius*:float
   filled*:bool
 
+type Renderables* = Rect|Box|Circle|Disk|Polygon
+
 proc rect*(
     x,y:float=0.0,
     w,h:float=10.0,
