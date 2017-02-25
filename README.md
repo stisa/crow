@@ -2,7 +2,8 @@ Niwe
 ----
 
 (A future) Modular graphic lib.
-
+  
+[Examples](http://stisa.space/niwe)
 
 ### Events
 Generic event emitter, taken from nim stdlib ( for now )
