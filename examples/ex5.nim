@@ -7,6 +7,7 @@ randomize()
 for i in 0..100:
   en.add(polygon(random(400.0),random(400.0),
                  boundingcircleradius=random(60.0),
+                 sides=(random(3..9)),
                  filled=true,
                  color=randomRGB()))
 

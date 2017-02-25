@@ -891,6 +891,18 @@ raiseRangeError();
 } while (false); 
 return result_19218;
 }
+function addInt(a_16256, b_16257) {
+
+      var result = a_16256 + b_16257;
+      if (result > 2147483647 || result < -2147483648) raiseOverflow();
+      return result;
+    }
+function subInt(a_16403, b_16404) {
+
+      var result = a_16403 - b_16404;
+      if (result > 2147483647 || result < -2147483648) raiseOverflow();
+      return result;
+    }
 function chckIndx(i_19209, a_19210, b_19211) {
 
 var Tmp1;
@@ -907,12 +919,6 @@ raiseIndexError();
 } while (false); 
 return result_19212;
 }
-function addInt(a_16256, b_16257) {
-
-      var result = a_16256 + b_16257;
-      if (result > 2147483647 || result < -2147483648) raiseOverflow();
-      return result;
-    }
 function mulInt(a_16603, b_16604) {
 
       var result = a_16603 * b_16604;
@@ -930,12 +936,6 @@ function divInt(a_16803, b_16804) {
       if (b_16804 == 0) raiseDivByZero();
       if (b_16804 == -1 && a_16803 == 2147483647) raiseOverflow();
       return Math.floor(a_16803 / b_16804);
-    }
-function subInt(a_16403, b_16404) {
-
-      var result = a_16403 - b_16404;
-      if (result > 2147483647 || result < -2147483648) raiseOverflow();
-      return result;
     }
 var nimvm_5887 = false;
 var nim_program_result = 0;
@@ -1380,18 +1380,18 @@ randomize_60427(gettime_62040().getTime());
 framePtr = F.prev;
 }
 randomize_65001();
-function add_86022(b_86026, rend_86028) {
+function add_86040(b_86044, rend_86046) {
 
 var F={procname:"add.add",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-if (b_86026.p != null) { b_86026.p.push(rend_86028); } else { b_86026.p = [rend_86028]; };
+if (b_86044.p != null) { b_86044.p.push(rend_86046); } else { b_86044.p = [rend_86046]; };
 framePtr = F.prev;
 }
-function add_86014(en_86018, d_86020) {
+function add_86032(en_86036, d_86038) {
 
 var F={procname:"add.add",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-add_86022(en_86018.renderer.b, d_86020);
+add_86040(en_86036.renderer.b, d_86038);
 framePtr = F.prev;
 }
 function sysfatal_21221(message_21227) {
@@ -1450,6 +1450,52 @@ result_60330 = ((x_60332 / 4294967295) * max_60329);
 framePtr = F.prev;
 return result_60330;
 }
+function random_60282(max_60284) {
+
+var result_60285 = 0;
+var F={procname:"random.random",prev:framePtr,filename:"lib/pure/random.nim",line:0};
+framePtr = F;
+BeforeRet: do {
+L1: do {
+F.line = 79;
+L2: while (true) {
+if (!true) break L2;
+F.line = 80;
+var x_60287 = next_59845(state_59605[0]);
+if ((x_60287 < ((4294967295 - (4294967295 % chckRange(max_60284, 0, 4294967295))) >>> 0))) {
+F.line = 82;
+result_60285 = ((x_60287 % max_60284)|0);
+break BeforeRet;
+}
+
+}
+} while(false);
+} while (false); 
+framePtr = F.prev;
+return result_60285;
+}
+function random_86024(x_86029) {
+
+var result_86030 = 0;
+var F={procname:"random.random",prev:framePtr,filename:"lib/pure/random.nim",line:0};
+framePtr = F;
+F.line = 98;
+result_86030 = addInt(random_60282(subInt(x_86029.b, x_86029.a)), x_86029.a);
+framePtr = F.prev;
+return result_86030;
+}
+function HEX2EHEX2E_42469(a_42473, b_42475) {
+
+var result_42477 = {a: 0, b: 0};
+var F={procname:".....",prev:framePtr,filename:"lib/system.nim",line:0};
+framePtr = F;
+F.line = 274;
+result_42477.a = a_42473;
+F.line = 275;
+result_42477.b = b_42475;
+framePtr = F.prev;
+return result_42477;
+}
 function randomrgb_66042() {
 
 var result_66044 = {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0};
@@ -1467,7 +1513,7 @@ L2: do {
 L3: while (true) {
 if (!(res_86216 <= 100)) break L3;
 i_86012[0] = res_86216;
-add_86014(en_86001[0], polygon_74074(random_60327(4.0000000000000000e+02), random_60327(4.0000000000000000e+02), 3, random_60327(6.0000000000000000e+01), true, randomrgb_66042()));
+add_86032(en_86001[0], polygon_74074(random_60327(4.0000000000000000e+02), random_60327(4.0000000000000000e+02), random_86024(HEX2EHEX2E_42469(3, 9)), random_60327(6.0000000000000000e+01), true, randomrgb_66042()));
 res_86216 += 1;
 }
 } while(false);
@@ -1642,7 +1688,7 @@ function ock_86273(e_86270) {
 var Tmp1;
 var F={procname:"ex5.ock",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 17;
+F.line = 18;
 if (clockwise_86268[0]) {
 Tmp1 = false;
 }
@@ -2586,7 +2632,7 @@ var F={procname:"ex5.upd",prev:framePtr,filename:"/data/data/com.termux/files/ho
 framePtr = F;
 if (clockwise_86268[0]) {
 L1: do {
-F.line = 21;
+F.line = 22;
 var p_86402 = null;
 F.line = 3506;
 var i_86456 = 0;
@@ -2610,7 +2656,7 @@ failedassertimpl_21239(makeNimstrLit("len(a) == L seq modified while iterating o
 }
 else {
 L7: do {
-F.line = 23;
+F.line = 24;
 var p_86429 = null;
 F.line = 3506;
 var i_86464 = 0;
