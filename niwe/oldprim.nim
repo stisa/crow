@@ -1,20 +1,27 @@
 import colors
 
-type Renderable* = object of Rootobj# Todo: concepts?
+type Renderable* = object of Rootobj # Todo: concepts?
   color*: Color
   pos*: tuple[x,y:float]
   scale*: float
   rot*: float 
   origin*: tuple[x,y:float]
   centered*: bool
-  filled*: bool
 
 type Rect* = object of Renderable
   ## A rectangle. For filled rectangles see box.
   size*: tuple[w,h:float]
 
+type Box* = object of Renderable
+  ## A filled rectangle
+  size*: tuple[w,h:float]
+
 type Circle* = object of Renderable
-  ## A circle.
+  ## A circle. For filled circles see disk.
+  radius*: float
+
+type Disk* = object of Renderable
+  ## A filled circle.
   radius*: float
 
 type Polygon* = object of Renderable
@@ -22,8 +29,37 @@ type Polygon* = object of Renderable
   ## If ``filled`` is true, then the polygon is filled (duh).
   sides*: int
   bcradius*:float
+  filled*:bool
 
-type Renderables* = Rect|Circle|Polygon
+type Batcher = object
+  r: seq[Rect]
+  b: seq[Box]
+  c: seq[Circle]
+  d: seq[Disk]
+  p: seq[Polygon]
+
+proc batcher():Batcher= 
+  Batcher(r: newSeq[Rect](),
+          b: newSeq[Box](),
+          c: newSeq[Circle](),
+          d: newSeq[Disk](),
+          p: newSeq[Polygon]())
+
+proc add[K](b:var Batcher,rend:K)=
+  if rend is Box:
+    echo rend is Box
+    b.b.add(rend)
+#[  if rend is Box:
+    b.b.add(rend)
+  if rend is Circle:
+    b.c.add(rend)
+  if rend is Disk:
+    b.d.add(rend)
+  if rend is Polygon:
+    b.p.add(rend)
+  #else: echo "unknown render primitive"]#
+
+type Renderables* = Rect|Box|Circle|Disk|Polygon
 
 proc rect*(
     x,y:float=0.0,
@@ -38,14 +74,13 @@ proc rect*(
   result.scale = 1.0
   result.centered =  centered
 
-proc box*(x,y:float=0.0,w,h:float=10.0,color:Color=Red,centered:bool=true):Rect =
+proc box*(x,y:float=0.0,w,h:float=10.0,color:Color=Red,centered:bool=true):Box =
   result.color = color
   result.pos = (x,y)
   #result.origin = (-w/2,-h/2)
   result.size=(w,h)
   result.scale = 1.0
   result.centered = centered
-  result.filled = true
 
 proc circle*(x,y:float=0.0,r:float=10.0,color:Color=Red):Circle =
   result.color = color
@@ -53,12 +88,11 @@ proc circle*(x,y:float=0.0,r:float=10.0,color:Color=Red):Circle =
   result.radius = r 
   result.scale = 1.0
 
-proc disk*(x,y:float=0.0,r:float=10.0,color:Color=Red):Circle =
+proc disk*(x,y:float=0.0,r:float=10.0,color:Color=Red):Disk =
   result.color = color
   result.pos = (x,y)
   result.radius = r 
   result.scale = 1.0
-  result.filled = true
 
 proc polygon* (
     x,y:float=0.0,
@@ -76,3 +110,6 @@ proc polygon* (
   result.filled = filled
   result.scale = 1.0
 
+when isMainModule:
+  var b = batcher()
+  b.add(rect())

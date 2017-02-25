@@ -12,45 +12,52 @@ if (typeof Uint16Array === 'undefined') Uint16Array = Array;
 if (typeof Uint32Array === 'undefined') Uint32Array = Array;
 if (typeof Float32Array === 'undefined') Float32Array = Array;
 if (typeof Float64Array === 'undefined') Float64Array = Array;
-var NTI62046 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
-var NTI65137 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
-var NTI65136 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
-var NTI65120 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI63908 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
-var NTI63907 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
-var NTI63891 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI63250 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
-var NTI63249 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
-var NTI63233 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI70046 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
+var NTI73137 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
+var NTI73136 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
+var NTI73120 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI71908 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
+var NTI71907 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
+var NTI71891 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI72147 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
+var NTI72146 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
+var NTI72130 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI71250 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
+var NTI71249 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
+var NTI71233 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI128 = {size: 0,kind: 36,base: null,node: null,finalizer: null};
-var NTI63211 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
+var NTI71211 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
 var NTI3456 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI72189 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
+var NTI72188 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
+var NTI72172 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI51063 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
-var NTI66063 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI66062 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI66071 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI66068 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI66057 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI66056 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI66050 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI66044 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI58004 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI66042 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI75010 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI75008 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI75006 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI75005 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI74027 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI74024 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI130 = {size: 0,kind: 1,base: null,node: null,finalizer: null};
+var NTI74011 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI74005 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI66002 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI74003 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI124 = {size: 0,kind: 36,base: null,node: null,finalizer: null};
-var NTI66074 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI74019 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI74018 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI114 = {size: 0,kind: 40,base: null,node: null,finalizer: null};
-var NTI62017 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
-var NTI55222 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI55220 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
-var NTI62015 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
-var NTI55242 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI55240 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
-var NTI62011 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI62002 = {size: 0, kind: 14, base: null, node: null, finalizer: null};
-var NTI55246 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI55244 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
-var NTI62006 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI70017 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI55213 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI55211 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
+var NTI70015 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI55233 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI55231 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
+var NTI70011 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI70002 = {size: 0, kind: 14, base: null, node: null, finalizer: null};
+var NTI55237 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI55235 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
+var NTI70006 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI3446 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI3448 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI3444 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
@@ -112,96 +119,104 @@ var NNI3446 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI3446.node = NNI3446;
 NTI3446.base = NTI3424;
 NTI3448.base = NTI3446;
-var NNI55246 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
-NTI55246.node = NNI55246;
-NTI55246.base = NTI3408;
-NTI55244.base = NTI55246;
-var NNI62002 = {kind: 2, offset: 0, typ: null, name: null, len: 2, sons: [{kind: 1, offset: 0, typ: NTI62002, name: "Fragment", len: 0, sons: null}, 
-{kind: 1, offset: 1, typ: NTI62002, name: "Vertex", len: 0, sons: null}]};
-NTI62002.node = NNI62002;
-var NNI62006 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "source", len: 0, typ: NTI138, name: "source", sons: null}, 
-{kind: 1, offset: "s", len: 0, typ: NTI55244, name: "s", sons: null}, 
-{kind: 1, offset: "kind", len: 0, typ: NTI62002, name: "kind", sons: null}]};
-NTI62006.node = NNI62006;
-var NNI55242 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
-NTI55242.node = NNI55242;
-NTI55242.base = NTI3408;
-NTI55240.base = NTI55242;
-var NNI55222 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
-NTI55222.node = NNI55222;
-NTI55222.base = NTI3408;
-NTI55220.base = NTI55222;
-NTI62015.base = NTI55220;
-NTI62017.base = NTI114;
-var NNI62011 = {kind: 2, len: 5, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "p", len: 0, typ: NTI55240, name: "p", sons: null}, 
-{kind: 1, offset: "vertex", len: 0, typ: NTI62006, name: "vertex", sons: null}, 
-{kind: 1, offset: "fragment", len: 0, typ: NTI62006, name: "fragment", sons: null}, 
-{kind: 1, offset: "colors", len: 0, typ: NTI62015, name: "colors", sons: null}, 
-{kind: 1, offset: "attributes", len: 0, typ: NTI62017, name: "attributes", sons: null}]};
-NTI62011.node = NNI62011;
-var NNI66074 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "sides", len: 0, typ: NTI104, name: "sides", sons: null}, 
-{kind: 1, offset: "bcradius", len: 0, typ: NTI124, name: "bcradius", sons: null}, 
-{kind: 1, offset: "filled", len: 0, typ: NTI130, name: "filled", sons: null}]};
-NTI66074.node = NNI66074;
-var NNI58004 = {kind: 2, len: 4, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI124, name: "Field0", sons: null}, 
+var NNI55237 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
+NTI55237.node = NNI55237;
+NTI55237.base = NTI3408;
+NTI55235.base = NTI55237;
+var NNI70002 = {kind: 2, offset: 0, typ: null, name: null, len: 2, sons: [{kind: 1, offset: 0, typ: NTI70002, name: "Fragment", len: 0, sons: null}, 
+{kind: 1, offset: 1, typ: NTI70002, name: "Vertex", len: 0, sons: null}]};
+NTI70002.node = NNI70002;
+var NNI70006 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "source", len: 0, typ: NTI138, name: "source", sons: null}, 
+{kind: 1, offset: "s", len: 0, typ: NTI55235, name: "s", sons: null}, 
+{kind: 1, offset: "kind", len: 0, typ: NTI70002, name: "kind", sons: null}]};
+NTI70006.node = NNI70006;
+var NNI55233 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
+NTI55233.node = NNI55233;
+NTI55233.base = NTI3408;
+NTI55231.base = NTI55233;
+var NNI55213 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
+NTI55213.node = NNI55213;
+NTI55213.base = NTI3408;
+NTI55211.base = NTI55213;
+NTI70015.base = NTI55211;
+NTI70017.base = NTI114;
+var NNI70011 = {kind: 2, len: 5, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "p", len: 0, typ: NTI55231, name: "p", sons: null}, 
+{kind: 1, offset: "vertex", len: 0, typ: NTI70006, name: "vertex", sons: null}, 
+{kind: 1, offset: "fragment", len: 0, typ: NTI70006, name: "fragment", sons: null}, 
+{kind: 1, offset: "colors", len: 0, typ: NTI70015, name: "colors", sons: null}, 
+{kind: 1, offset: "attributes", len: 0, typ: NTI70017, name: "attributes", sons: null}]};
+NTI70011.node = NNI70011;
+var NNI74019 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI124, name: "Field0", sons: null}, 
+{kind: 1, offset: "Field1", len: 0, typ: NTI124, name: "Field1", sons: null}]};
+NTI74019.node = NNI74019;
+var NNI74018 = {kind: 1, offset: "size", len: 0, typ: NTI74019, name: "size", sons: null};
+NTI74018.node = NNI74018;
+var NNI66002 = {kind: 2, len: 4, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI124, name: "Field0", sons: null}, 
 {kind: 1, offset: "Field1", len: 0, typ: NTI124, name: "Field1", sons: null}, 
 {kind: 1, offset: "Field2", len: 0, typ: NTI124, name: "Field2", sons: null}, 
 {kind: 1, offset: "Field3", len: 0, typ: NTI124, name: "Field3", sons: null}]};
-NTI58004.node = NNI58004;
-var NNI66044 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI124, name: "Field0", sons: null}, 
+NTI66002.node = NNI66002;
+var NNI74005 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI124, name: "Field0", sons: null}, 
 {kind: 1, offset: "Field1", len: 0, typ: NTI124, name: "Field1", sons: null}]};
-NTI66044.node = NNI66044;
-var NNI66050 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI124, name: "Field0", sons: null}, 
+NTI74005.node = NNI74005;
+var NNI74011 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI124, name: "Field0", sons: null}, 
 {kind: 1, offset: "Field1", len: 0, typ: NTI124, name: "Field1", sons: null}]};
-NTI66050.node = NNI66050;
-var NNI66042 = {kind: 2, len: 6, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "color", len: 0, typ: NTI58004, name: "color", sons: null}, 
-{kind: 1, offset: "pos", len: 0, typ: NTI66044, name: "pos", sons: null}, 
+NTI74011.node = NNI74011;
+var NNI74003 = {kind: 2, len: 7, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "color", len: 0, typ: NTI66002, name: "color", sons: null}, 
+{kind: 1, offset: "pos", len: 0, typ: NTI74005, name: "pos", sons: null}, 
 {kind: 1, offset: "scale", len: 0, typ: NTI124, name: "scale", sons: null}, 
 {kind: 1, offset: "rot", len: 0, typ: NTI124, name: "rot", sons: null}, 
-{kind: 1, offset: "origin", len: 0, typ: NTI66050, name: "origin", sons: null}, 
-{kind: 1, offset: "centered", len: 0, typ: NTI130, name: "centered", sons: null}]};
-NTI66042.node = NNI66042;
-NTI66042.base = NTI3408;
-NTI66074.base = NTI66042;
-var NNI66057 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI124, name: "Field0", sons: null}, 
-{kind: 1, offset: "Field1", len: 0, typ: NTI124, name: "Field1", sons: null}]};
-NTI66057.node = NNI66057;
-var NNI66056 = {kind: 1, offset: "size", len: 0, typ: NTI66057, name: "size", sons: null};
-NTI66056.node = NNI66056;
-NTI66056.base = NTI66042;
-var NNI66068 = {kind: 1, offset: "radius", len: 0, typ: NTI124, name: "radius", sons: null};
-NTI66068.node = NNI66068;
-NTI66068.base = NTI66042;
-var NNI66071 = {kind: 1, offset: "radius", len: 0, typ: NTI124, name: "radius", sons: null};
-NTI66071.node = NNI66071;
-NTI66071.base = NTI66042;
-var NNI66063 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI124, name: "Field0", sons: null}, 
-{kind: 1, offset: "Field1", len: 0, typ: NTI124, name: "Field1", sons: null}]};
-NTI66063.node = NNI66063;
-var NNI66062 = {kind: 1, offset: "size", len: 0, typ: NTI66063, name: "size", sons: null};
-NTI66062.node = NNI66062;
-NTI66062.base = NTI66042;
+{kind: 1, offset: "origin", len: 0, typ: NTI74011, name: "origin", sons: null}, 
+{kind: 1, offset: "centered", len: 0, typ: NTI130, name: "centered", sons: null}, 
+{kind: 1, offset: "filled", len: 0, typ: NTI130, name: "filled", sons: null}]};
+NTI74003.node = NNI74003;
+NTI74003.base = NTI3408;
+NTI74018.base = NTI74003;
+var NNI74024 = {kind: 1, offset: "radius", len: 0, typ: NTI124, name: "radius", sons: null};
+NTI74024.node = NNI74024;
+NTI74024.base = NTI74003;
+var NNI74027 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "sides", len: 0, typ: NTI104, name: "sides", sons: null}, 
+{kind: 1, offset: "bcradius", len: 0, typ: NTI124, name: "bcradius", sons: null}]};
+NTI74027.node = NNI74027;
+NTI74027.base = NTI74003;
+NTI75006.base = NTI74018;
+NTI75008.base = NTI74024;
+NTI75010.base = NTI74027;
+var NNI75005 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "r", len: 0, typ: NTI75006, name: "r", sons: null}, 
+{kind: 1, offset: "c", len: 0, typ: NTI75008, name: "c", sons: null}, 
+{kind: 1, offset: "p", len: 0, typ: NTI75010, name: "p", sons: null}]};
+NTI75005.node = NNI75005;
 NTI51063.base = NTI51019;
+NTI72189.base = NTI124;
+NTI72188.base = NTI72189;
+var NNI72172 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI72188, name: "data", sons: null}, 
+{kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []}]};
+NTI72172.node = NNI72172;
 var NNI3456 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI3456.node = NNI3456;
 NTI3456.base = NTI3424;
-NTI63211.base = NTI128;
-NTI63250.base = NTI124;
-NTI63249.base = NTI63250;
-var NNI63233 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI63249, name: "data", sons: null}, 
+NTI71211.base = NTI128;
+NTI71250.base = NTI124;
+NTI71249.base = NTI71250;
+var NNI71233 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI71249, name: "data", sons: null}, 
 {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []}]};
-NTI63233.node = NNI63233;
-NTI63908.base = NTI124;
-NTI63907.base = NTI63908;
-var NNI63891 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI63907, name: "data", sons: null}, 
+NTI71233.node = NNI71233;
+NTI72147.base = NTI124;
+NTI72146.base = NTI72147;
+var NNI72130 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI72146, name: "data", sons: null}, 
 {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []}]};
-NTI63891.node = NNI63891;
-NTI65137.base = NTI124;
-NTI65136.base = NTI65137;
-var NNI65120 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI65136, name: "data", sons: null}, 
+NTI72130.node = NNI72130;
+NTI71908.base = NTI124;
+NTI71907.base = NTI71908;
+var NNI71891 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI71907, name: "data", sons: null}, 
 {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []}]};
-NTI65120.node = NNI65120;
-NTI62046.base = NTI124;
+NTI71891.node = NNI71891;
+NTI73137.base = NTI124;
+NTI73136.base = NTI73137;
+var NNI73120 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI73136, name: "data", sons: null}, 
+{kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []}]};
+NTI73120.node = NNI73120;
+NTI70046.base = NTI124;
 function makeNimstrLit(c_13403) {
 
     var ln = c_13403.length;
@@ -596,6 +611,21 @@ e_13252.message = nimCopy(null, makeNimstrLit("division by zero"), NTI138);
 raiseException(e_13252, "DivByZeroError");
 }
 var objectid_42233 = /**/[0];
+var state_59605 = /**/[{a0: 1773455756, a1: 4275166512}];
+function gettime_62040() {
+
+var result_62413 = null;
+var F={procname:"times.getTime",prev:framePtr,filename:"lib/pure/times.nim",line:0};
+framePtr = F;
+BeforeRet: do {
+F.line = 586;
+result_62413 = new Date();
+break BeforeRet;
+} while (false); 
+framePtr = F.prev;
+return result_62413;
+}
+var startmilsecs_62448 = /**/[gettime_62040()];
 function initeventemitter_51418() {
 
 var result_51420 = {s: null};
@@ -850,257 +880,297 @@ document.addEventListener("click", mouseev_53211, true);
 framePtr = F.prev;
 return result_53203[0];
 }
-var evq_69001 = /**/[initevents_53201()];
-function getcontextwebgl_56113(c_56115) {
+var evq_85001 = /**/[initevents_53201()];
+function getcontextwebgl_56104(c_56106) {
 
-var result_56116 = null;
+var result_56107 = null;
 var F={procname:"webgl.getContextWebGL",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
 F.line = 318;
-result_56116 = c_56115.getContext('webgl') || c_56115.getContext('experimental-webgl');framePtr = F.prev;
-return result_56116;
+result_56107 = c_56106.getContext('webgl') || c_56106.getContext('experimental-webgl');framePtr = F.prev;
+return result_56107;
 }
-function initwindow_57001() {
+function initwindow_57206() {
 
-var result_57014 = {ctx: null, width: 0, height: 0};
+var result_57208 = {ctx: null, width: 0, height: 0};
 var F={procname:"windows.initWindow",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/windows.nim",line:0};
 framePtr = F;
-F.line = 14;
-var canvas_57015 = document.getElementById("niwe-canvas");
-F.line = 16;
-result_57014.ctx = getcontextwebgl_56113(canvas_57015);
-F.line = 17;
-result_57014.width = canvas_57015.width;
 F.line = 18;
-result_57014.height = canvas_57015.height;
-F.line = 19;
-console.log(result_57014.width,result_57014.height);framePtr = F.prev;
-return result_57014;
+var canvas_57209 = document.getElementById("niwe-canvas");
+F.line = 20;
+result_57208.ctx = getcontextwebgl_56104(canvas_57209);
+F.line = 21;
+result_57208.width = canvas_57209.width;
+F.line = 22;
+result_57208.height = canvas_57209.height;
+F.line = 23;
+console.log(result_57208.width,result_57208.height);framePtr = F.prev;
+return result_57208;
 }
-var w_69002 = /**/[initwindow_57001()];
-function resize_56133(canvas_56135) {
+var w_85002 = /**/[initwindow_57206()];
+function resize_56124(canvas_56126) {
 
 var Tmp1;
 var F={procname:"webgl.resize",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
-if (!((canvas_56135.width == canvas_56135.clientWidth))) Tmp1 = true; else {Tmp1 = !((canvas_56135.height == canvas_56135.clientHeight)); }if (Tmp1) {
+if (!((canvas_56126.width == canvas_56126.clientWidth))) Tmp1 = true; else {Tmp1 = !((canvas_56126.height == canvas_56126.clientHeight)); }if (Tmp1) {
 F.line = 332;
-canvas_56135.width = canvas_56135.clientWidth;
+canvas_56126.width = canvas_56126.clientWidth;
 F.line = 333;
-canvas_56135.height = canvas_56135.clientHeight;
+canvas_56126.height = canvas_56126.clientHeight;
 }
 
 framePtr = F.prev;
 }
-function getstatus_56123(gl_56125, what_56126) {
+function getstatus_56114(gl_56116, what_56117) {
 
-var result_56127 = false;
+var result_56118 = false;
 var F={procname:"webgl.getStatus",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
 F.line = 323;
-result_56127 = gl_56125.getShaderParameter(what_56126, gl_56125.COMPILE_STATUS);framePtr = F.prev;
-return result_56127;
+result_56118 = gl_56116.getShaderParameter(what_56117, gl_56116.COMPILE_STATUS);framePtr = F.prev;
+return result_56118;
 }
-function shader_62077(gl_62079, typ_62080, src_62081) {
+function shader_70077(gl_70079, typ_70080, src_70081) {
 
-var result_62082 = {source: null, s: null, kind: 0};
+var result_70082 = {source: null, s: null, kind: 0};
 var F={procname:"gl.shader",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
-if ((typ_62080 == 1)) {
+if ((typ_70080 == 1)) {
 F.line = 43;
-result_62082.s = gl_62079.createShader(35633);
+result_70082.s = gl_70079.createShader(35633);
 }
 else {
-if ((typ_62080 == 0)) {
+if ((typ_70080 == 0)) {
 F.line = 45;
-result_62082.s = gl_62079.createShader(35632);
+result_70082.s = gl_70079.createShader(35632);
 }
 else {
 console.log("Unknown Shader Type");
 }
 }
-gl_62079.shaderSource(result_62082.s, toJSStr(src_62081));
-gl_62079.compileShader(result_62082.s);
-if (!(getstatus_56123(gl_62079, result_62082.s))) {
-console.log(gl_62079.getShaderInfoLog(result_62082.s));
+gl_70079.shaderSource(result_70082.s, toJSStr(src_70081));
+gl_70079.compileShader(result_70082.s);
+if (!(getstatus_56114(gl_70079, result_70082.s))) {
+console.log(gl_70079.getShaderInfoLog(result_70082.s));
 }
 
 F.line = 50;
-result_62082.kind = typ_62080;
+result_70082.kind = typ_70080;
 F.line = 51;
-result_62082.source = nimCopy(null, src_62081, NTI138);
+result_70082.source = nimCopy(null, src_70081, NTI138);
 framePtr = F.prev;
-return result_62082;
+return result_70082;
 }
-function getstatus_56128(gl_56130, what_56131) {
+function getstatus_56119(gl_56121, what_56122) {
 
-var result_56132 = false;
+var result_56123 = false;
 var F={procname:"webgl.getStatus",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
 F.line = 325;
-result_56132 = gl_56130.getProgramParameter(what_56131, gl_56130.LINK_STATUS);framePtr = F.prev;
-return result_56132;
+result_56123 = gl_56121.getProgramParameter(what_56122, gl_56121.LINK_STATUS);framePtr = F.prev;
+return result_56123;
 }
-function program_62107(gl_62109, useit_62110, vertexsrc_62111, fragmentsrc_62112) {
+function program_70107(gl_70109, useit_70110, vertexsrc_70111, fragmentsrc_70112) {
 
-var result_62113 = {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null};
+var result_70113 = {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null};
 var F={procname:"gl.program",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
 BeforeRet: do {
 F.line = 56;
-var program_62114 = gl_62109.createProgram();
+var program_70114 = gl_70109.createProgram();
 F.line = 57;
-var vs_62115 = shader_62077(gl_62109, 1, vertexsrc_62111);
+var vs_70115 = shader_70077(gl_70109, 1, vertexsrc_70111);
 F.line = 58;
-var fs_62116 = shader_62077(gl_62109, 0, fragmentsrc_62112);
-gl_62109.attachShader(program_62114, vs_62115.s);
-gl_62109.attachShader(program_62114, fs_62116.s);
-gl_62109.linkProgram(program_62114);
+var fs_70116 = shader_70077(gl_70109, 0, fragmentsrc_70112);
+gl_70109.attachShader(program_70114, vs_70115.s);
+gl_70109.attachShader(program_70114, fs_70116.s);
+gl_70109.linkProgram(program_70114);
 F.line = 63;
-nimCopy(result_62113.vertex, vs_62115, NTI62006);
+nimCopy(result_70113.vertex, vs_70115, NTI70006);
 F.line = 64;
-nimCopy(result_62113.fragment, fs_62116, NTI62006);
-if (!(getstatus_56128(gl_62109, program_62114))) {
-console.log(gl_62109.getProgramInfoLog(program_62114));
+nimCopy(result_70113.fragment, fs_70116, NTI70006);
+if (!(getstatus_56119(gl_70109, program_70114))) {
+console.log(gl_70109.getProgramInfoLog(program_70114));
 F.line = 68;
 break BeforeRet;
 }
 
-if (useit_62110) {
-gl_62109.useProgram(program_62114);
+if (useit_70110) {
+gl_70109.useProgram(program_70114);
 }
 
 F.line = 70;
-result_62113.p = program_62114;
+result_70113.p = program_70114;
 } while (false); 
 framePtr = F.prev;
-return result_62113;
+return result_70113;
 }
-function clearwith_62073(gl_62075, color_62076) {
+function clearwith_70073(gl_70075, color_70076) {
 
 var F={procname:"gl.clearWith",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
-gl_62075.clearColor(color_62076.Field0, color_62076.Field1, color_62076.Field2, color_62076.Field3);
-gl_62075.clear(16384);
+gl_70075.clearColor(color_70076.Field0, color_70076.Field1, color_70076.Field2, color_70076.Field3);
+gl_70075.clear(16384);
 framePtr = F.prev;
 }
-function initrenderer_66009(gl_66011, clear_66012) {
+function newseq_75028(len_75032) {
 
-var result_66013 = {context: null, program: {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null}, buff: null};
+var result_75034 = null;
+var F={procname:"newSeq.newSeq",prev:framePtr,filename:"lib/system.nim",line:0};
+framePtr = F;
+result_75034 = new Array(len_75032); for (var i=0;i<len_75032;++i) {result_75034[i]={m_type: NTI74018, size: {Field0: 0.0, Field1: 0.0}, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};}framePtr = F.prev;
+return result_75034;
+}
+function newseq_75066(len_75070) {
+
+var result_75072 = null;
+var F={procname:"newSeq.newSeq",prev:framePtr,filename:"lib/system.nim",line:0};
+framePtr = F;
+result_75072 = new Array(len_75070); for (var i=0;i<len_75070;++i) {result_75072[i]={m_type: NTI74024, radius: 0.0, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};}framePtr = F.prev;
+return result_75072;
+}
+function newseq_75104(len_75108) {
+
+var result_75110 = null;
+var F={procname:"newSeq.newSeq",prev:framePtr,filename:"lib/system.nim",line:0};
+framePtr = F;
+result_75110 = new Array(len_75108); for (var i=0;i<len_75108;++i) {result_75110[i]={m_type: NTI74027, sides: 0, bcradius: 0.0, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};}framePtr = F.prev;
+return result_75110;
+}
+function batcher_75012() {
+
+var result_75014 = {r: null, c: null, p: null};
+var F={procname:"renderer.batcher",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+framePtr = F;
+F.line = 34;
+nimCopy(result_75014, {r: newseq_75028(0), c: newseq_75066(0), p: newseq_75104(0)}, NTI75005);
+framePtr = F.prev;
+return result_75014;
+}
+function initrenderer_75149(gl_75151, clear_75152) {
+
+var result_75153 = {context: null, program: {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null}, buff: null, b: {r: null, c: null, p: null}};
 var F={procname:"renderer.initRenderer",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-F.line = 35;
-result_66013.context = gl_66011;
-resize_56133(result_66013.context.canvas);
-F.line = 37;
-nimCopy(result_66013.program, program_62107(result_66013.context, true, makeNimstrLit("attribute vec4 aPosition;\x0Auniform mat4 uMatrix;\x0Avoid main() {\x0A  gl_Position = uMatrix*aPosition;\x0A}\x0A"), makeNimstrLit("#ifdef GL_ES\x0A  precision highp float;\x0A#endif\x0A\x0Auniform vec4 uColor;\x0Avoid main() {\x0A  gl_FragColor = uColor;\x0A}\x0A")), NTI62011);
-clearwith_62073(result_66013.context, clear_66012);
-F.line = 39;
-result_66013.buff = result_66013.context.createBuffer();
-gl_66011.viewport(0, 0, gl_66011.drawingBufferWidth, gl_66011.drawingBufferHeight);
+F.line = 56;
+result_75153.context = gl_75151;
+resize_56124(result_75153.context.canvas);
+F.line = 58;
+nimCopy(result_75153.program, program_70107(result_75153.context, true, makeNimstrLit("attribute vec4 aPosition;\x0Auniform mat4 uMatrix;\x0Avoid main() {\x0A  gl_Position = uMatrix*aPosition;\x0A}\x0A"), makeNimstrLit("#ifdef GL_ES\x0A  precision highp float;\x0A#endif\x0A\x0Auniform vec4 uColor;\x0Avoid main() {\x0A  gl_FragColor = uColor;\x0A}\x0A")), NTI70011);
+clearwith_70073(result_75153.context, clear_75152);
+F.line = 60;
+result_75153.buff = result_75153.context.createBuffer();
+gl_75151.viewport(0, 0, gl_75151.drawingBufferWidth, gl_75151.drawingBufferHeight);
+F.line = 62;
+nimCopy(result_75153.b, batcher_75012(), NTI75005);
 framePtr = F.prev;
-return result_66013;
+return result_75153;
 }
-var en_69003 = /**/[initrenderer_66009(w_69002[0].ctx, {Field0: 1.0000000000000000e+00, Field1: 1.0000000000000000e+00, Field2: 1.0000000000000000e+00, Field3: 1.0000000000000000e+00})];
-var speed_69005 = /**/[{Field0: 0.0, Field1: 0.0}];
-var accel_69007 = /**/[{Field0: 2.0000000000000000e+00, Field1: 2.0000000000000000e+00}];
-function polygon_66116(x_66118, y_66119, sides_66120, boundingcircleradius_66121, filled_66122, color_66123) {
+var en_85003 = /**/[initrenderer_75149(w_85002[0].ctx, {Field0: 1.0000000000000000e+00, Field1: 1.0000000000000000e+00, Field2: 1.0000000000000000e+00, Field3: 1.0000000000000000e+00})];
+var speed_85005 = /**/[{Field0: 0.0, Field1: 0.0}];
+var accel_85007 = /**/[{Field0: 2.0000000000000000e+00, Field1: 2.0000000000000000e+00}];
+function polygon_74074(x_74076, y_74077, sides_74078, boundingcircleradius_74079, filled_74080, color_74081) {
 
-var result_66124 = {m_type: NTI66074, sides: 0, bcradius: 0.0, filled: false, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false};
-var F={procname:"renderer.polygon",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+var result_74082 = {m_type: NTI74027, sides: 0, bcradius: 0.0, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};
+var F={procname:"primitives.polygon",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/primitives.nim",line:0};
 framePtr = F;
-if (!((3 <= sides_66120))) {
+if (!((3 <= sides_74078))) {
 raiseassert_21216(makeNimstrLit("\x0A  3 <= sides "));
 }
 
-F.line = 131;
-nimCopy(result_66124.color, color_66123, NTI58004);
-F.line = 132;
-nimCopy(result_66124.pos, {Field0: x_66118, Field1: y_66119}, NTI66044);
-F.line = 133;
-result_66124.sides = sides_66120;
-F.line = 134;
-result_66124.bcradius = boundingcircleradius_66121;
-F.line = 135;
-result_66124.filled = filled_66122;
-F.line = 136;
-result_66124.scale = 1.0000000000000000e+00;
+F.line = 72;
+nimCopy(result_74082.color, color_74081, NTI66002);
+F.line = 73;
+nimCopy(result_74082.pos, {Field0: x_74076, Field1: y_74077}, NTI74005);
+F.line = 74;
+result_74082.sides = sides_74078;
+F.line = 75;
+result_74082.bcradius = boundingcircleradius_74079;
+F.line = 76;
+result_74082.filled = filled_74080;
+F.line = 77;
+result_74082.scale = 1.0000000000000000e+00;
 framePtr = F.prev;
-return result_66124;
+return result_74082;
 }
-function rect_66078(x_66080, y_66081, w_66082, h_66083, color_66084, centered_66085) {
+function rect_74036(x_74038, y_74039, w_74040, h_74041, color_74042, centered_74043) {
 
-var result_66086 = {m_type: NTI66056, size: {Field0: 0.0, Field1: 0.0}, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false};
-var F={procname:"renderer.rect",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+var result_74044 = {m_type: NTI74018, size: {Field0: 0.0, Field1: 0.0}, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};
+var F={procname:"primitives.rect",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/primitives.nim",line:0};
 framePtr = F;
-F.line = 95;
-nimCopy(result_66086.color, color_66084, NTI58004);
-F.line = 96;
-nimCopy(result_66086.pos, {Field0: x_66080, Field1: y_66081}, NTI66044);
-F.line = 97;
-nimCopy(result_66086.size, {Field0: w_66082, Field1: h_66083}, NTI66057);
-F.line = 99;
-result_66086.scale = 1.0000000000000000e+00;
-F.line = 100;
-result_66086.centered = centered_66085;
+F.line = 34;
+nimCopy(result_74044.color, color_74042, NTI66002);
+F.line = 35;
+nimCopy(result_74044.pos, {Field0: x_74038, Field1: y_74039}, NTI74005);
+F.line = 36;
+nimCopy(result_74044.size, {Field0: w_74040, Field1: h_74041}, NTI74019);
+F.line = 38;
+result_74044.scale = 1.0000000000000000e+00;
+F.line = 39;
+result_74044.centered = centered_74043;
 framePtr = F.prev;
-return result_66086;
+return result_74044;
 }
-function circle_66100(x_66102, y_66103, r_66104, color_66105) {
+function circle_74058(x_74060, y_74061, r_74062, color_74063) {
 
-var result_66106 = {m_type: NTI66068, radius: 0.0, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false};
-var F={procname:"renderer.circle",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+var result_74064 = {m_type: NTI74024, radius: 0.0, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};
+var F={procname:"primitives.circle",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/primitives.nim",line:0};
 framePtr = F;
-F.line = 111;
-nimCopy(result_66106.color, color_66105, NTI58004);
-F.line = 112;
-nimCopy(result_66106.pos, {Field0: x_66102, Field1: y_66103}, NTI66044);
-F.line = 113;
-result_66106.radius = r_66104;
-F.line = 114;
-result_66106.scale = 1.0000000000000000e+00;
+F.line = 51;
+nimCopy(result_74064.color, color_74063, NTI66002);
+F.line = 52;
+nimCopy(result_74064.pos, {Field0: x_74060, Field1: y_74061}, NTI74005);
+F.line = 53;
+result_74064.radius = r_74062;
+F.line = 54;
+result_74064.scale = 1.0000000000000000e+00;
 framePtr = F.prev;
-return result_66106;
+return result_74064;
 }
-function disk_66108(x_66110, y_66111, r_66112, color_66113) {
+function disk_74066(x_74068, y_74069, r_74070, color_74071) {
 
-var result_66114 = {m_type: NTI66071, radius: 0.0, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false};
-var F={procname:"renderer.disk",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+var result_74072 = {m_type: NTI74024, radius: 0.0, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};
+var F={procname:"primitives.disk",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/primitives.nim",line:0};
 framePtr = F;
-F.line = 117;
-nimCopy(result_66114.color, color_66113, NTI58004);
-F.line = 118;
-nimCopy(result_66114.pos, {Field0: x_66110, Field1: y_66111}, NTI66044);
-F.line = 119;
-result_66114.radius = r_66112;
-F.line = 120;
-result_66114.scale = 1.0000000000000000e+00;
+F.line = 57;
+nimCopy(result_74072.color, color_74071, NTI66002);
+F.line = 58;
+nimCopy(result_74072.pos, {Field0: x_74068, Field1: y_74069}, NTI74005);
+F.line = 59;
+result_74072.radius = r_74070;
+F.line = 60;
+result_74072.scale = 1.0000000000000000e+00;
+F.line = 61;
+result_74072.filled = true;
 framePtr = F.prev;
-return result_66114;
+return result_74072;
 }
-function box_66089(x_66091, y_66092, w_66093, h_66094, color_66095, centered_66096) {
+function box_74047(x_74049, y_74050, w_74051, h_74052, color_74053, centered_74054) {
 
-var result_66097 = {m_type: NTI66062, size: {Field0: 0.0, Field1: 0.0}, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false};
-var F={procname:"renderer.box",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+var result_74055 = {m_type: NTI74018, size: {Field0: 0.0, Field1: 0.0}, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};
+var F={procname:"primitives.box",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/primitives.nim",line:0};
 framePtr = F;
-F.line = 103;
-nimCopy(result_66097.color, color_66095, NTI58004);
-F.line = 104;
-nimCopy(result_66097.pos, {Field0: x_66091, Field1: y_66092}, NTI66044);
-F.line = 106;
-nimCopy(result_66097.size, {Field0: w_66093, Field1: h_66094}, NTI66063);
-F.line = 107;
-result_66097.scale = 1.0000000000000000e+00;
-F.line = 108;
-result_66097.centered = centered_66096;
+F.line = 42;
+nimCopy(result_74055.color, color_74053, NTI66002);
+F.line = 43;
+nimCopy(result_74055.pos, {Field0: x_74049, Field1: y_74050}, NTI74005);
+F.line = 45;
+nimCopy(result_74055.size, {Field0: w_74051, Field1: h_74052}, NTI74019);
+F.line = 46;
+result_74055.scale = 1.0000000000000000e+00;
+F.line = 47;
+result_74055.centered = centered_74054;
+F.line = 48;
+result_74055.filled = true;
 framePtr = F.prev;
-return result_66097;
+return result_74055;
 }
-var p_69010 = /**/[polygon_66116(1.0000000000000000e+02, 1.0000000000000000e+02, 5, 1.0000000000000000e+01, true, {Field0: 0.0, Field1: 1.0000000000000000e+00, Field2: 0.0, Field3: 1.0000000000000000e+00})];
-var r_69013 = /**/[rect_66078(2.0000000000000000e+02, 2.0000000000000000e+02, 1.0000000000000000e+01, 1.0000000000000000e+01, {Field0: 1.0000000000000000e+00, Field1: 0.0, Field2: 0.0, Field3: 1.0000000000000000e+00}, true)];
-var c_69014 = /**/[circle_66100(5.0000000000000000e+01, 5.0000000000000000e+01, 1.0000000000000000e+01, {Field0: 1.0000000000000000e+00, Field1: 0.0, Field2: 0.0, Field3: 1.0000000000000000e+00})];
-var d_69017 = /**/[disk_66108(1.5000000000000000e+02, 1.5000000000000000e+02, 1.0000000000000000e+01, {Field0: 1.0000000000000000e+00, Field1: 0.0, Field2: 0.0, Field3: 1.0000000000000000e+00})];
-var b_69020 = /**/[box_66089(2.5000000000000000e+02, 2.5000000000000000e+02, 1.0000000000000000e+01, 1.0000000000000000e+01, {Field0: 1.0000000000000000e+00, Field1: 0.0, Field2: 0.0, Field3: 1.0000000000000000e+00}, true)];
+var p_85010 = /**/[polygon_74074(1.0000000000000000e+02, 1.0000000000000000e+02, 5, 1.0000000000000000e+01, true, {Field0: 0.0, Field1: 1.0000000000000000e+00, Field2: 0.0, Field3: 1.0000000000000000e+00})];
+var r_85013 = /**/[rect_74036(2.0000000000000000e+02, 2.0000000000000000e+02, 1.0000000000000000e+01, 1.0000000000000000e+01, {Field0: 1.0000000000000000e+00, Field1: 0.0, Field2: 0.0, Field3: 1.0000000000000000e+00}, true)];
+var c_85014 = /**/[circle_74058(5.0000000000000000e+01, 5.0000000000000000e+01, 1.0000000000000000e+01, {Field0: 1.0000000000000000e+00, Field1: 0.0, Field2: 0.0, Field3: 1.0000000000000000e+00})];
+var d_85017 = /**/[disk_74066(1.5000000000000000e+02, 1.5000000000000000e+02, 1.0000000000000000e+01, {Field0: 1.0000000000000000e+00, Field1: 0.0, Field2: 0.0, Field3: 1.0000000000000000e+00})];
+var b_85020 = /**/[box_74047(2.5000000000000000e+02, 2.5000000000000000e+02, 1.0000000000000000e+01, 1.0000000000000000e+01, {Field0: 1.0000000000000000e+00, Field1: 0.0, Field2: 0.0, Field3: 1.0000000000000000e+00}, true)];
 function initeventhandler_51044(name_51046) {
 
 var result_51047 = {Field0: null, Field1: null};
@@ -1146,227 +1216,258 @@ F.line = 3392;
 x_39709[x_39709_Idx] = (x_39709[x_39709_Idx] + y_39711);
 framePtr = F.prev;
 }
-function HEX2BHEX3D_68341(lf_68347, rg_68351) {
+function HEX2BHEX3D_84053(lf_84059, rg_84063) {
 
 var F={procname:"renderer.+=",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-HEX2BHEX3D_39704(lf_68347, "Field0", rg_68351["Field0"]);
-HEX2BHEX3D_39704(lf_68347, "Field1", rg_68351["Field1"]);
+HEX2BHEX3D_39704(lf_84059, "Field0", rg_84063["Field0"]);
+HEX2BHEX3D_39704(lf_84059, "Field1", rg_84063["Field1"]);
 framePtr = F.prev;
 }
-function HEX3Aanonymous_69032(e_69034) {
+function HEX3Aanonymous_85032(e_85034) {
 
 var F={procname:"ex2.:anonymous",prev:framePtr,filename:"ex2.nim",line:0};
 framePtr = F;
-HEX2BHEX3D_68341(speed_69005[0], accel_69007[0]);
+HEX2BHEX3D_84053(speed_85005[0], accel_85007[0]);
 framePtr = F.prev;
 }
-on_51274(evq_69001[0], makeNimstrLit("mouseEv"), HEX3Aanonymous_69032);
-function HEX3Aanonymous_69037(e_69039) {
+on_51274(evq_85001[0], makeNimstrLit("mouseEv"), HEX3Aanonymous_85032);
+function HEX3Aanonymous_85037(e_85039) {
 
 var F={procname:"ex2.:anonymous",prev:framePtr,filename:"ex2.nim",line:0};
 framePtr = F;
-HEX2BHEX3D_68341(p_69010[0].pos, speed_69005[0]);
+HEX2BHEX3D_84053(p_85010[0].pos, speed_85005[0]);
 framePtr = F.prev;
 }
-on_51274(evq_69001[0], makeNimstrLit("update"), HEX3Aanonymous_69037);
-function extractprogram_62061(program_62063) {
+on_51274(evq_85001[0], makeNimstrLit("update"), HEX3Aanonymous_85037);
+function extractprogram_70061(program_70063) {
 
-var result_62064 = null;
+var result_70064 = null;
 var F={procname:"gl.extractProgram",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
 F.line = 26;
-result_62064 = program_62063.p;
+result_70064 = program_70063.p;
 framePtr = F.prev;
-return result_62064;
+return result_70064;
 }
-function HEX5BHEX5DHEX3D_64412(m_64449, i_64451, j_64453, val_64455) {
+function HEX5BHEX5DHEX3D_72412(m_72449, i_72451, j_72453, val_72455) {
 
 var F={procname:"[]=.[]=",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/matrix.nim",line:0};
 framePtr = F;
-if (!((i_64451 < 4))) {
+if (!((i_72451 < 4))) {
 failedassertimpl_21239(makeNimstrLit("i < N Row index out of bounds"));
 }
 
-if (!((j_64453 < 4))) {
+if (!((j_72453 < 4))) {
 failedassertimpl_21239(makeNimstrLit("j < M Column index out of bounds"));
 }
 
 F.line = 32;
-m_64449.data[chckIndx(addInt(mulInt(i_64451, 4), j_64453), 0, m_64449.data.length)-0] = val_64455;
+m_72449.data[chckIndx(addInt(mulInt(i_72451, 4), j_72453), 0, m_72449.data.length)-0] = val_72455;
 framePtr = F.prev;
 }
-function low_67602(v_67606) {
+function low_76602(v_76606) {
 
-var result_67607 = 0;
+var result_76607 = 0;
 var F={procname:"low.low",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/vector.nim",line:0};
 framePtr = F;
 F.line = 84;
-result_67607 = 0;
+result_76607 = 0;
 framePtr = F.prev;
-return result_67607;
+return result_76607;
 }
-function high_67616(v_67620) {
+function high_76616(v_76620) {
 
-var result_67621 = 0;
+var result_76621 = 0;
 var F={procname:"high.high",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/vector.nim",line:0};
 framePtr = F;
 F.line = 85;
-result_67621 = 3;
+result_76621 = 3;
 framePtr = F.prev;
-return result_67621;
+return result_76621;
 }
-function HEX5BHEX5D_67640(v_67646, i_67648) {
+function HEX5BHEX5D_76640(v_76646, i_76648) {
 
-var result_67649 = 0.0;
+var result_76649 = 0.0;
 var F={procname:"[].[]",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/vector.nim",line:0};
 framePtr = F;
 F.line = 49;
-result_67649 = v_67646.data[chckIndx(i_67648, 0, v_67646.data.length)-0];
+result_76649 = v_76646.data[chckIndx(i_76648, 0, v_76646.data.length)-0];
 framePtr = F.prev;
-return result_67649;
+return result_76649;
 }
-function HEX5BHEX5D_67651(v_67657, i_67659) {
+function HEX5BHEX5D_76651(v_76657, i_76659) {
 
-var result_67660 = 0.0;
+var result_76660 = 0.0;
 var F={procname:"[].[]",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/vector.nim",line:0};
 framePtr = F;
 F.line = 49;
-result_67660 = v_67657.data[chckIndx(i_67659, 0, v_67657.data.length)-0];
+result_76660 = v_76657.data[chckIndx(i_76659, 0, v_76657.data.length)-0];
 framePtr = F.prev;
-return result_67660;
+return result_76660;
 }
-function dot_67417(v_67454, w_67489) {
+function dot_76417(v_76454, w_76489) {
 
-var result_67490 = [0.0];
+var result_76490 = [0.0];
 var F={procname:"dot.dot",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/vector.nim",line:0};
 framePtr = F;
 L1: do {
 F.line = 121;
-var i_67638 = 0;
+var i_76638 = 0;
 F.line = 1926;
-var HEX3Atmp_67672 = 0;
+var HEX3Atmp_76672 = 0;
 F.line = 1926;
-var HEX3Atmp_67673 = 0;
+var HEX3Atmp_76673 = 0;
 F.line = 121;
-HEX3Atmp_67672 = low_67602(v_67454);
+HEX3Atmp_76672 = low_76602(v_76454);
 F.line = 121;
-HEX3Atmp_67673 = high_67616(v_67454);
+HEX3Atmp_76673 = high_76616(v_76454);
 F.line = 1908;
-var res_67676 = HEX3Atmp_67672;
+var res_76676 = HEX3Atmp_76672;
 L2: do {
 F.line = 1909;
 L3: while (true) {
-if (!(res_67676 <= HEX3Atmp_67673)) break L3;
+if (!(res_76676 <= HEX3Atmp_76673)) break L3;
 F.line = 1910;
-i_67638 = res_67676;
-HEX2BHEX3D_39704(result_67490, 0, (HEX5BHEX5D_67640(v_67454, i_67638) * HEX5BHEX5D_67651(w_67489, i_67638)));
-res_67676 = addInt(res_67676, 1);
+i_76638 = res_76676;
+HEX2BHEX3D_39704(result_76490, 0, (HEX5BHEX5D_76640(v_76454, i_76638) * HEX5BHEX5D_76651(w_76489, i_76638)));
+res_76676 = addInt(res_76676, 1);
 }
 } while(false);
 } while(false);
 framePtr = F.prev;
-return result_67490[0];
+return result_76490[0];
 }
-function row_66622(m_66658, r_66660) {
+function row_75622(m_75658, r_75660) {
 
-var result_66694 = {data: null, p: [null, 0]};
+var result_75694 = {data: null, p: [null, 0]};
 var F={procname:"row.row",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/matrix.nim",line:0};
 framePtr = F;
-if (!((r_66660 < 4))) {
+if (!((r_75660 < 4))) {
 failedassertimpl_21239(makeNimstrLit("r < N The matrix has less rows than the requested row index"));
 }
 
-result_66694.data = new Float64Array(4);
+result_75694.data = new Float64Array(4);
 L1: do {
 F.line = 94;
-var i_67010 = 0;
+var i_76010 = 0;
 F.line = 3689;
-var i_67014 = 0;
+var i_76014 = 0;
 L2: do {
 F.line = 3690;
 L3: while (true) {
-if (!(i_67014 < 4)) break L3;
+if (!(i_76014 < 4)) break L3;
 F.line = 3691;
-i_67010 = i_67014;
+i_76010 = i_76014;
 F.line = 94;
-result_66694.data[chckIndx(i_67010, 0, result_66694.data.length)-0] = m_66658.data[chckIndx(addInt(mulInt(r_66660, 4), i_67010), 0, m_66658.data.length)-0];
-i_67014 = addInt(i_67014, 1);
+result_75694.data[chckIndx(i_76010, 0, result_75694.data.length)-0] = m_75658.data[chckIndx(addInt(mulInt(r_75660, 4), i_76010), 0, m_75658.data.length)-0];
+i_76014 = addInt(i_76014, 1);
 }
 } while(false);
 } while(false);
 framePtr = F.prev;
-return result_66694;
+return result_75694;
 }
-function col_67017(m_67053, c_67055) {
+function col_76017(m_76053, c_76055) {
 
-var result_67089 = {data: null, p: [null, 0]};
+var result_76089 = {data: null, p: [null, 0]};
 var F={procname:"col.col",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/matrix.nim",line:0};
 framePtr = F;
-if (!((c_67055 < 4))) {
+if (!((c_76055 < 4))) {
 failedassertimpl_21239(makeNimstrLit("c < M The matrix has less cols than the requested col index"));
 }
 
-result_67089.data = new Float64Array(4);
+result_76089.data = new Float64Array(4);
 L1: do {
 F.line = 107;
-var i_67410 = 0;
+var i_76410 = 0;
 F.line = 3689;
-var i_67414 = 0;
+var i_76414 = 0;
 L2: do {
 F.line = 3690;
 L3: while (true) {
-if (!(i_67414 < 4)) break L3;
+if (!(i_76414 < 4)) break L3;
 F.line = 3691;
-i_67410 = i_67414;
+i_76410 = i_76414;
 F.line = 107;
-result_67089.data[chckIndx(i_67410, 0, result_67089.data.length)-0] = m_67053.data[chckIndx(addInt(mulInt(i_67410, 4), c_67055), 0, m_67053.data.length)-0];
-i_67414 = addInt(i_67414, 1);
+result_76089.data[chckIndx(i_76410, 0, result_76089.data.length)-0] = m_76053.data[chckIndx(addInt(mulInt(i_76410, 4), c_76055), 0, m_76053.data.length)-0];
+i_76414 = addInt(i_76414, 1);
 }
 } while(false);
 } while(false);
 framePtr = F.prev;
-return result_67089;
+return result_76089;
 }
-function matmul_66138(m_66175, w_66208) {
+function matmul_75193(m_75230, w_75263) {
 
-var result_66240 = [{data: null}];
+var result_75295 = [{data: null}];
 var F={procname:"matMul.matMul",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/matrix.nim",line:0};
 framePtr = F;
-result_66240[0].data = new Float64Array(16);
+result_75295[0].data = new Float64Array(16);
 L1: do {
 F.line = 128;
-var r_66610 = 0;
+var r_75610 = 0;
 F.line = 3689;
-var i_67734 = 0;
+var i_76734 = 0;
 L2: do {
 F.line = 3690;
 L3: while (true) {
-if (!(i_67734 < 4)) break L3;
+if (!(i_76734 < 4)) break L3;
 F.line = 3691;
-r_66610 = i_67734;
+r_75610 = i_76734;
 L4: do {
 F.line = 129;
-var c_66620 = 0;
+var c_75620 = 0;
 F.line = 3689;
-var i_67730 = 0;
+var i_76730 = 0;
 L5: do {
 F.line = 3690;
 L6: while (true) {
-if (!(i_67730 < 4)) break L6;
+if (!(i_76730 < 4)) break L6;
 F.line = 3691;
-c_66620 = i_67730;
-HEX5BHEX5DHEX3D_64412(result_66240[0], r_66610, c_66620, dot_67417(row_66622(m_66175, r_66610), col_67017(w_66208, c_66620)));
-i_67730 = addInt(i_67730, 1);
+c_75620 = i_76730;
+HEX5BHEX5DHEX3D_72412(result_75295[0], r_75610, c_75620, dot_76417(row_75622(m_75230, r_75610), col_76017(w_75263, c_75620)));
+i_76730 = addInt(i_76730, 1);
 }
 } while(false);
 } while(false);
-i_67734 = addInt(i_67734, 1);
+i_76734 = addInt(i_76734, 1);
 }
 } while(false);
 } while(false);
 framePtr = F.prev;
-return result_66240[0];
+return result_75295[0];
+}
+function identity_72163() {
+
+var result_72201 = [{data: null}];
+var F={procname:"identity.identity",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/matrix.nim",line:0};
+framePtr = F;
+result_72201[0].data = new Float64Array(16);
+L1: do {
+F.line = 85;
+var i_72410 = 0;
+F.line = 3689;
+var i_72806 = 0;
+L2: do {
+F.line = 3690;
+L3: while (true) {
+if (!(i_72806 < 4)) break L3;
+F.line = 3691;
+i_72410 = i_72806;
+HEX5BHEX5DHEX3D_72412(result_72201[0], i_72410, i_72410, 1.0000000000000000e+00);
+i_72806 = addInt(i_72806, 1);
+}
+} while(false);
+} while(false);
+framePtr = F.prev;
+return result_72201[0];
+}
+function degtorad_72824(d_72828) {
+
+var result_72829 = 0.0;
+result_72829 = (d_72828 * 1.7453292519943295e-02);
+return result_72829;
 }
 function raiseRangeError() {
 
@@ -1375,12 +1476,12 @@ e_13268 = {m_type: NTI3456, parent: null, name: null, message: null, trace: null
 e_13268.message = nimCopy(null, makeNimstrLit("value out of range"), NTI138);
 raiseException(e_13268, "RangeError");
 }
-function tomatrix_63204(arr_63224) {
+function tomatrix_71204(arr_71224) {
 
-var result_63262 = {data: null};
+var result_71262 = {data: null};
 var F={procname:"toMatrix.toMatrix",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/matrix.nim",line:0};
 framePtr = F;
-result_63262.data = new Float64Array(16);
+result_71262.data = new Float64Array(16);
 if (!(true)) {
 failedassertimpl_21239(makeNimstrLit("\x0A  true "));
 }
@@ -1388,34 +1489,86 @@ failedassertimpl_21239(makeNimstrLit("\x0A  true "));
 if (false) {
 L1: do {
 F.line = 63;
-var i_63814 = 0;
+var i_71814 = 0;
 F.line = 1908;
-var res_63818 = 0;
+var res_71818 = 0;
 L2: do {
 F.line = 1909;
 L3: while (true) {
-if (!(res_63818 <= 15)) break L3;
+if (!(res_71818 <= 15)) break L3;
 F.line = 1910;
-i_63814 = chckRange(res_63818, 0, 15);
+i_71814 = chckRange(res_71818, 0, 15);
 F.line = 63;
-result_63262.data[chckIndx(i_63814, 0, result_63262.data.length)-0] = arr_63224[chckIndx(i_63814, 0, arr_63224.length)-0];
-res_63818 = addInt(res_63818, 1);
+result_71262.data[chckIndx(i_71814, 0, result_71262.data.length)-0] = arr_71224[chckIndx(i_71814, 0, arr_71224.length)-0];
+res_71818 = addInt(res_71818, 1);
 }
 } while(false);
 } while(false);
 }
 else {
 F.line = 65;
-nimCopy(result_63262.data, arr_63224, NTI63211);
+nimCopy(result_71262.data, arr_71224, NTI71211);
 }
 
 framePtr = F.prev;
-return result_63262;
+return result_71262;
 }
-function translation_63876(x_63882, y_63884, z_63886) {
+function rotation_72117(phi_72123, theta_72125) {
+
+var result_72159 = {data: null};
+var F={procname:"rotation.rotation",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/graphic.nim",line:0};
+framePtr = F;
+BeforeRet: do {
+if ((phi_72123 == 0.0)) {
+F.line = 46;
+nimCopy(result_72159, identity_72163(), NTI72172);
+break BeforeRet;
+}
+
+if (false) {
+raiseassert_21216(makeNimstrLit("true "));
+}
+
+F.line = 49;
+var resarr_72822 = new Float64Array(16);
+F.line = 50;
+var ra_72831 = degtorad_72824(phi_72123);
+F.line = 51;
+var s_72832 = Math.sin(ra_72831);
+F.line = 52;
+var c_72833 = Math.cos(ra_72831);
+F.line = 54;
+resarr_72822[0] = c_72833;
+F.line = 55;
+resarr_72822[1] = s_72832;
+F.line = 56;
+resarr_72822[4] = -(s_72832);
+F.line = 57;
+resarr_72822[5] = c_72833;
+F.line = 58;
+resarr_72822[10] = 1.0000000000000000e+00;
+F.line = 59;
+resarr_72822[15] = 1.0000000000000000e+00;
+F.line = 61;
+nimCopy(result_72159, tomatrix_71204(resarr_72822), NTI71233);
+} while (false); 
+framePtr = F.prev;
+return result_72159;
+}
+function rotation_72107(phi_72109, theta_72110) {
+
+var result_72114 = {data: null};
+var F={procname:"graphic.rotation",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/graphic.nim",line:0};
+framePtr = F;
+F.line = 64;
+nimCopy(result_72114, rotation_72117(phi_72109, theta_72110), NTI72130);
+framePtr = F.prev;
+return result_72114;
+}
+function translation_71876(x_71882, y_71884, z_71886) {
 
 var Tmp1;
-var result_63920 = {data: null};
+var result_71920 = {data: null};
 var F={procname:"translation.translation",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/graphic.nim",line:0};
 framePtr = F;
 if (!true) Tmp1 = false; else {Tmp1 = true; }if (!(Tmp1)) {
@@ -1423,35 +1576,35 @@ raiseassert_21216(makeNimstrLit("\x0A  true and true be careful with implicit co
 }
 
 F.line = 24;
-var resarr_63923 = new Float64Array(16);
+var resarr_71923 = new Float64Array(16);
 F.line = 25;
-resarr_63923[0] = 1.0000000000000000e+00;
+resarr_71923[0] = 1.0000000000000000e+00;
 F.line = 26;
-resarr_63923[5] = 1.0000000000000000e+00;
+resarr_71923[5] = 1.0000000000000000e+00;
 F.line = 27;
-resarr_63923[10] = 1.0000000000000000e+00;
+resarr_71923[10] = 1.0000000000000000e+00;
 F.line = 33;
-resarr_63923[12] = x_63882;
+resarr_71923[12] = x_71882;
 F.line = 34;
-resarr_63923[13] = y_63884;
+resarr_71923[13] = y_71884;
 F.line = 35;
-resarr_63923[14] = z_63886;
+resarr_71923[14] = z_71886;
 F.line = 36;
-resarr_63923[15] = 1.0000000000000000e+00;
+resarr_71923[15] = 1.0000000000000000e+00;
 F.line = 38;
-nimCopy(result_63920, tomatrix_63204(resarr_63923), NTI63233);
+nimCopy(result_71920, tomatrix_71204(resarr_71923), NTI71233);
 framePtr = F.prev;
-return result_63920;
+return result_71920;
 }
-function translation_63865(x_63867, y_63868, z_63869) {
+function translation_71865(x_71867, y_71868, z_71869) {
 
-var result_63873 = {data: null};
+var result_71873 = {data: null};
 var F={procname:"graphic.translation",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/graphic.nim",line:0};
 framePtr = F;
 F.line = 42;
-nimCopy(result_63873, translation_63876(x_63867, y_63868, z_63869), NTI63891);
+nimCopy(result_71873, translation_71876(x_71867, y_71868, z_71869), NTI71891);
 framePtr = F.prev;
-return result_63873;
+return result_71873;
 }
 function HEX2F_20407(x_20409, y_20410) {
 
@@ -1463,10 +1616,10 @@ result_20411 = (x_20409 / y_20410);
 framePtr = F.prev;
 return result_20411;
 }
-function scaling_65107(w_65113, h_65115) {
+function scaling_73107(w_73113, h_73115) {
 
 var Tmp1;
-var result_65149 = {data: null};
+var result_73149 = {data: null};
 var F={procname:"scaling.scaling",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/graphic.nim",line:0};
 framePtr = F;
 if (!true) Tmp1 = false; else {Tmp1 = true; }if (!(Tmp1)) {
@@ -1474,383 +1627,409 @@ raiseassert_21216(makeNimstrLit("\x0A  true and true be careful with implicit co
 }
 
 F.line = 69;
-var resarr_65152 = new Float64Array(16);
+var resarr_73152 = new Float64Array(16);
 F.line = 70;
-resarr_65152[0] = (1.0000000000000000e+00 / w_65113);
+resarr_73152[0] = (1.0000000000000000e+00 / w_73113);
 F.line = 71;
-resarr_65152[5] = (1.0000000000000000e+00 / h_65115);
+resarr_73152[5] = (1.0000000000000000e+00 / h_73115);
 F.line = 72;
-resarr_65152[10] = 0.0;
+resarr_73152[10] = 0.0;
 F.line = 74;
-resarr_65152[10] = 1.0000000000000000e+00;
+resarr_73152[10] = 1.0000000000000000e+00;
 F.line = 75;
-resarr_65152[15] = 1.0000000000000000e+00;
+resarr_73152[15] = 1.0000000000000000e+00;
 F.line = 77;
-nimCopy(result_65149, tomatrix_63204(resarr_65152), NTI63233);
+nimCopy(result_73149, tomatrix_71204(resarr_73152), NTI71233);
 framePtr = F.prev;
-return result_65149;
+return result_73149;
 }
-function scaling_65097(w_65099, h_65100) {
+function scaling_73097(w_73099, h_73100) {
 
-var result_65104 = {data: null};
+var result_73104 = {data: null};
 var F={procname:"graphic.scaling",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/snail/snail/graphic.nim",line:0};
 framePtr = F;
 F.line = 81;
-nimCopy(result_65104, scaling_65107(w_65099, h_65100), NTI65120);
+nimCopy(result_73104, scaling_73107(w_73099, h_73100), NTI73120);
 framePtr = F.prev;
-return result_65104;
+return result_73104;
 }
-function tof32a_62022(m_62058) {
+function tof32a_70022(m_70058) {
 
-var result_62059 = null;
+var result_70059 = null;
 var F={procname:"gl.toF32A",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
 F.line = 24;
-var am_62060 = nimCopy(null, m_62058.data, NTI62046);
+var am_70060 = nimCopy(null, m_70058.data, NTI70046);
 F.line = 25;
-result_62059 = new Float32Array(am_62060);
+result_70059 = new Float32Array(am_70060);
 framePtr = F.prev;
-return result_62059;
+return result_70059;
 }
-function setmatrixunif_66126(eng_66128, rend_66129, uniform_66130) {
+function setmatrixunif_75181(eng_75183, rend_75184, uniform_75185) {
 
 var F={procname:"renderer.setMatrixUnif",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-F.line = 139;
-var w_66131 = eng_66128.context.drawingBufferWidth;
-F.line = 140;
-var h_66132 = eng_66128.context.drawingBufferHeight;
-F.line = 142;
-var umatloc_66133 = eng_66128.context.getUniformLocation(extractprogram_62061(eng_66128.program), toJSStr(uniform_66130));
-F.line = 144;
-var mat_67950 = matmul_66138(matmul_66138(matmul_66138(translation_63865(rend_66129.pos.Field0, rend_66129.pos.Field1, 0.0), translation_63865(rend_66129.origin.Field0, rend_66129.origin.Field1, 0.0)), translation_63865(HEX2F_20407(negInt(w_66131), 2), HEX2F_20407(negInt(h_66132), 2), 0.0)), scaling_65097(HEX2F_20407(w_66131, 2), HEX2F_20407(h_66132, 2)));
-eng_66128.context.uniformMatrix4fv(umatloc_66133, false, tof32a_62022(mat_67950));
+F.line = 81;
+var w_75186 = eng_75183.context.drawingBufferWidth;
+F.line = 82;
+var h_75187 = eng_75183.context.drawingBufferHeight;
+F.line = 84;
+var umatloc_75188 = eng_75183.context.getUniformLocation(extractprogram_70061(eng_75183.program), toJSStr(uniform_75185));
+F.line = 86;
+var mat_77057 = matmul_75193(matmul_75193(matmul_75193(matmul_75193(rotation_72107(rend_75184.rot, 0.0), translation_71865(rend_75184.pos.Field0, rend_75184.pos.Field1, 0.0)), translation_71865(rend_75184.origin.Field0, rend_75184.origin.Field1, 0.0)), translation_71865(HEX2F_20407(negInt(w_75186), 2), HEX2F_20407(negInt(h_75187), 2), 0.0)), scaling_73097(HEX2F_20407(w_75186, 2), HEX2F_20407(h_75187, 2)));
+eng_75183.context.uniformMatrix4fv(umatloc_75188, false, tof32a_70022(mat_77057));
 framePtr = F.prev;
 }
-function bufferdata_55929(gl_55931, target_55932, data_55933, usage_55934) {
+function bufferdata_55920(gl_55922, target_55923, data_55924, usage_55925) {
 
 var F={procname:"webgl.bufferData",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
 F.line = 240;
-gl_55931.bufferData(target_55932,data_55933,usage_55934);framePtr = F.prev;
+gl_55922.bufferData(target_55923,data_55924,usage_55925);framePtr = F.prev;
 }
-function tofloat32array_56098(a_56101) {
+function tofloat32array_56089(a_56092) {
 
-var result_56102 = null;
+var result_56093 = null;
 var F={procname:"webgl.toFloat32Array",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
 F.line = 304;
-result_56102 = new Float32Array(a_56101);framePtr = F.prev;
-return result_56102;
+result_56093 = new Float32Array(a_56092);framePtr = F.prev;
+return result_56093;
 }
-function uploadvertices_62153(gl_62155, buff_62156, vertices_62158, drawmode_62159) {
+function uploadvertices_70153(gl_70155, buff_70156, vertices_70158, drawmode_70159) {
 
 var F={procname:"gl.uploadVertices",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
-gl_62155.bindBuffer(34962, buff_62156);
-bufferdata_55929(gl_62155, 34962, tofloat32array_56098(vertices_62158), drawmode_62159);
-gl_62155.bindBuffer(34962, buff_62156);
+gl_70155.bindBuffer(34962, buff_70156);
+bufferdata_55920(gl_70155, 34962, tofloat32array_56089(vertices_70158), drawmode_70159);
+gl_70155.bindBuffer(34962, buff_70156);
 framePtr = F.prev;
 }
-function bindcolor_62126(gl_62128, program_62129, colorname_62130, color_62131) {
+function bindcolor_70126(gl_70128, program_70129, colorname_70130, color_70131) {
 
 var F={procname:"gl.bindColor",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
 F.line = 82;
-var uloc_62132 = gl_62128.getUniformLocation(extractprogram_62061(program_62129), toJSStr(colorname_62130));
-gl_62128.uniform4fv(uloc_62132, tofloat32array_56098([color_62131.Field0, color_62131.Field1, color_62131.Field2, color_62131.Field3]));
+var uloc_70132 = gl_70128.getUniformLocation(extractprogram_70061(program_70129), toJSStr(colorname_70130));
+gl_70128.uniform4fv(uloc_70132, tofloat32array_56089([color_70131.Field0, color_70131.Field1, color_70131.Field2, color_70131.Field3]));
 framePtr = F.prev;
 }
-function enableattribute_62146(gl_62148, program_62149, attribname_62150, itemsize_62151) {
+function enableattribute_70146(gl_70148, program_70149, attribname_70150, itemsize_70151) {
 
 var F={procname:"gl.enableAttribute",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
 F.line = 87;
-var aloc_62152 = gl_62148.getAttribLocation(extractprogram_62061(program_62149), toJSStr(attribname_62150));
-gl_62148.enableVertexAttribArray(aloc_62152);
-gl_62148.vertexAttribPointer(aloc_62152, itemsize_62151, 5126, false, 0, 0);
+var aloc_70152 = gl_70148.getAttribLocation(extractprogram_70061(program_70149), toJSStr(attribname_70150));
+gl_70148.enableVertexAttribArray(aloc_70152);
+gl_70148.vertexAttribPointer(aloc_70152, itemsize_70151, 5126, false, 0, 0);
 framePtr = F.prev;
 }
-function drawtriangles_62160(gl_62162, buff_62163, p_62164, vertices_62166, color_62167, drawmode_62168) {
+function drawtriangles_70160(gl_70162, buff_70163, p_70164, vertices_70166, color_70167, drawmode_70168) {
 
 var F={procname:"gl.drawTriangles",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
-uploadvertices_62153(gl_62162, buff_62163, vertices_62166, drawmode_62168);
+uploadvertices_70153(gl_70162, buff_70163, vertices_70166, drawmode_70168);
 F.line = 104;
-var numvertices_62177 = divInt((vertices_62166 != null ? vertices_62166.length : 0), 4);
-bindcolor_62126(gl_62162, p_62164, makeNimstrLit("uColor"), color_62167);
-enableattribute_62146(gl_62162, p_62164, makeNimstrLit("aPosition"), 4);
-gl_62162.drawArrays(4, 0, numvertices_62177);
-gl_62162.flush();
+var numvertices_70177 = divInt((vertices_70166 != null ? vertices_70166.length : 0), 4);
+bindcolor_70126(gl_70162, p_70164, makeNimstrLit("uColor"), color_70167);
+enableattribute_70146(gl_70162, p_70164, makeNimstrLit("aPosition"), 4);
+gl_70162.drawArrays(4, 0, numvertices_70177);
+gl_70162.flush();
 framePtr = F.prev;
 }
-function drawtriangles_66020(eng_66022, vertices_66024, color_66025, drawmode_66026) {
+function drawtriangles_75160(eng_75162, vertices_75164, color_75165, drawmode_75166) {
 
 var F={procname:"renderer.drawTriangles",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-drawtriangles_62160(eng_66022.context, eng_66022.buff, eng_66022.program, vertices_66024, color_66025, drawmode_66026);
+drawtriangles_70160(eng_75162.context, eng_75162.buff, eng_75162.program, vertices_75164, color_75165, drawmode_75166);
 framePtr = F.prev;
 }
-function draw_67991(eng_67993, rect_67994) {
+function drawb_77099(eng_77101, rect_77102) {
 
-var F={procname:"renderer.draw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+var F={procname:"renderer.drawB",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-setmatrixunif_66126(eng_67993, rect_67994, makeNimstrLit("uMatrix"));
-if (rect_67994.centered) {
-F.line = 179;
-var hw_67996 = (rect_67994.size.Field0 / 2.0000000000000000e+00);
-F.line = 180;
-var hh_67998 = (rect_67994.size.Field1 / 2.0000000000000000e+00);
-drawtriangles_66020(eng_67993, [-(hw_67996), -(hh_67998), 0.0, (1.0000000000000000e+00 / rect_67994.scale), hw_67996, -(hh_67998), 0.0, (1.0000000000000000e+00 / rect_67994.scale), -(hw_67996), hh_67998, 0.0, (1.0000000000000000e+00 / rect_67994.scale), -(hw_67996), hh_67998, 0.0, (1.0000000000000000e+00 / rect_67994.scale), hw_67996, hh_67998, 0.0, (1.0000000000000000e+00 / rect_67994.scale), hw_67996, -(hh_67998), 0.0, (1.0000000000000000e+00 / rect_67994.scale)], rect_67994.color, 35044);
+setmatrixunif_75181(eng_77101, rect_77102, makeNimstrLit("uMatrix"));
+if (rect_77102.centered) {
+F.line = 123;
+var hw_77104 = (rect_77102.size.Field0 / 2.0000000000000000e+00);
+F.line = 124;
+var hh_77106 = (rect_77102.size.Field1 / 2.0000000000000000e+00);
+drawtriangles_75160(eng_77101, [-(hw_77104), -(hh_77106), 0.0, (1.0000000000000000e+00 / rect_77102.scale), hw_77104, -(hh_77106), 0.0, (1.0000000000000000e+00 / rect_77102.scale), -(hw_77104), hh_77106, 0.0, (1.0000000000000000e+00 / rect_77102.scale), -(hw_77104), hh_77106, 0.0, (1.0000000000000000e+00 / rect_77102.scale), hw_77104, hh_77106, 0.0, (1.0000000000000000e+00 / rect_77102.scale), hw_77104, -(hh_77106), 0.0, (1.0000000000000000e+00 / rect_77102.scale)], rect_77102.color, 35044);
 }
 else {
-drawtriangles_66020(eng_67993, [0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_67994.scale), rect_67994.size.Field0, 0.0, 0.0, (1.0000000000000000e+00 / rect_67994.scale), rect_67994.size.Field0, rect_67994.size.Field1, 0.0, (1.0000000000000000e+00 / rect_67994.scale), rect_67994.size.Field0, rect_67994.size.Field1, 0.0, (1.0000000000000000e+00 / rect_67994.scale), 0.0, rect_67994.size.Field1, 0.0, (1.0000000000000000e+00 / rect_67994.scale), 0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_67994.scale)], rect_67994.color, 35044);
+drawtriangles_75160(eng_77101, [0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77102.scale), rect_77102.size.Field0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77102.scale), rect_77102.size.Field0, rect_77102.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77102.scale), rect_77102.size.Field0, rect_77102.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77102.scale), 0.0, rect_77102.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77102.scale), 0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77102.scale)], rect_77102.color, 35044);
 }
 
 framePtr = F.prev;
 }
-function newseq_68046(len_68050) {
-
-var result_68052 = null;
-var F={procname:"newSeq.newSeq",prev:framePtr,filename:"lib/system.nim",line:0};
-framePtr = F;
-result_68052 = new Array(len_68050); for (var i=0;i<len_68050;++i) {result_68052[i]=0.0;}framePtr = F.prev;
-return result_68052;
-}
-function drawlineloop_62196(gl_62198, buff_62199, p_62200, vertices_62202, color_62203, drawmode_62204) {
+function drawlineloop_70196(gl_70198, buff_70199, p_70200, vertices_70202, color_70203, drawmode_70204) {
 
 var F={procname:"gl.drawLineLoop",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
-uploadvertices_62153(gl_62198, buff_62199, vertices_62202, drawmode_62204);
+uploadvertices_70153(gl_70198, buff_70199, vertices_70202, drawmode_70204);
 F.line = 123;
-var numvertices_62213 = divInt((vertices_62202 != null ? vertices_62202.length : 0), 4);
-bindcolor_62126(gl_62198, p_62200, makeNimstrLit("uColor"), color_62203);
-enableattribute_62146(gl_62198, p_62200, makeNimstrLit("aPosition"), 4);
-gl_62198.drawArrays(2, 0, numvertices_62213);
-gl_62198.flush();
+var numvertices_70213 = divInt((vertices_70202 != null ? vertices_70202.length : 0), 4);
+bindcolor_70126(gl_70198, p_70200, makeNimstrLit("uColor"), color_70203);
+enableattribute_70146(gl_70198, p_70200, makeNimstrLit("aPosition"), 4);
+gl_70198.drawArrays(2, 0, numvertices_70213);
+gl_70198.flush();
 framePtr = F.prev;
 }
-function drawlineloop_66034(eng_66036, vertices_66038, color_66039, drawmode_66040) {
+function drawlineloop_75174(eng_75176, vertices_75178, color_75179, drawmode_75180) {
 
 var F={procname:"renderer.drawLineLoop",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-drawlineloop_62196(eng_66036.context, eng_66036.buff, eng_66036.program, vertices_66038, color_66039, drawmode_66040);
+drawlineloop_70196(eng_75176.context, eng_75176.buff, eng_75176.program, vertices_75178, color_75179, drawmode_75180);
 framePtr = F.prev;
 }
-function draw_68111(eng_68113, circle_68114, roughness_68115) {
+function drawr_77062(eng_77064, rect_77065) {
+
+var F={procname:"renderer.drawR",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+framePtr = F;
+setmatrixunif_75181(eng_77064, rect_77065, makeNimstrLit("uMatrix"));
+if (rect_77065.centered) {
+F.line = 99;
+var hw_77067 = (rect_77065.size.Field0 / 2.0000000000000000e+00);
+F.line = 100;
+var hh_77069 = (rect_77065.size.Field1 / 2.0000000000000000e+00);
+drawlineloop_75174(eng_77064, [-(hw_77067), -(hh_77069), 0.0, (1.0000000000000000e+00 / rect_77065.scale), hw_77067, -(hh_77069), 0.0, (1.0000000000000000e+00 / rect_77065.scale), hw_77067, hh_77069, 0.0, (1.0000000000000000e+00 / rect_77065.scale), -(hw_77067), hh_77069, 0.0, (1.0000000000000000e+00 / rect_77065.scale)], rect_77065.color, 35044);
+}
+else {
+drawlineloop_75174(eng_77064, [0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77065.scale), rect_77065.size.Field0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77065.scale), rect_77065.size.Field0, rect_77065.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77065.scale), 0.0, rect_77065.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77065.scale)], rect_77065.color, 35044);
+}
+
+framePtr = F.prev;
+}
+function draw_77438(r_77440, rect_77441) {
 
 var F={procname:"renderer.draw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-setmatrixunif_66126(eng_68113, circle_68114, makeNimstrLit("uMatrix"));
-F.line = 223;
-var verts_68144 = newseq_68046(chckRange(mulInt(roughness_68115, 4), 0, 2147483647));
-L1: do {
-F.line = 226;
-var i_68164 = 0;
-F.line = 1918;
-var HEX3Atmp_68179 = 0;
-F.line = 226;
-HEX3Atmp_68179 = subInt((verts_68144 != null ? verts_68144.length : 0), 1);
-F.line = 1908;
-var res_68182 = 0;
-L2: do {
-F.line = 1909;
-L3: while (true) {
-if (!(res_68182 <= HEX3Atmp_68179)) break L3;
-F.line = 1910;
-i_68164 = res_68182;
-F.line = 227;
-verts_68144[chckIndx(i_68164, 0, verts_68144.length)-0] = (circle_68114.radius * Math.cos(((i_68164 * 3.1415926535897931e+00) / (2.0000000000000000e+00 * roughness_68115))));
-F.line = 228;
-verts_68144[chckIndx(addInt(i_68164, 1), 0, verts_68144.length)-0] = (circle_68114.radius * Math.sin(((i_68164 * 3.1415926535897931e+00) / (2.0000000000000000e+00 * roughness_68115))));
-F.line = 229;
-verts_68144[chckIndx(addInt(i_68164, 2), 0, verts_68144.length)-0] = 0.0;
-F.line = 230;
-verts_68144[chckIndx(addInt(i_68164, 3), 0, verts_68144.length)-0] = (1.0000000000000000e+00 / circle_68114.scale);
-res_68182 = addInt(res_68182, 4);
+if (rect_77441.filled) {
+drawb_77099(r_77440, rect_77441);
 }
-} while(false);
-} while(false);
-drawlineloop_66034(eng_68113, verts_68144, circle_68114.color, 35044);
+else {
+drawr_77062(r_77440, rect_77441);
+}
+
 framePtr = F.prev;
 }
-function drawtrianglefan_62178(gl_62180, buff_62181, p_62182, vertices_62184, color_62185, drawmode_62186) {
+function newseq_77154(len_77158) {
+
+var result_77160 = null;
+var F={procname:"newSeq.newSeq",prev:framePtr,filename:"lib/system.nim",line:0};
+framePtr = F;
+result_77160 = new Array(len_77158); for (var i=0;i<len_77158;++i) {result_77160[i]=0.0;}framePtr = F.prev;
+return result_77160;
+}
+function drawtrianglefan_70178(gl_70180, buff_70181, p_70182, vertices_70184, color_70185, drawmode_70186) {
 
 var F={procname:"gl.drawTriangleFan",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
-uploadvertices_62153(gl_62180, buff_62181, vertices_62184, drawmode_62186);
+uploadvertices_70153(gl_70180, buff_70181, vertices_70184, drawmode_70186);
 F.line = 113;
-var numvertices_62195 = divInt((vertices_62184 != null ? vertices_62184.length : 0), 4);
-bindcolor_62126(gl_62180, p_62182, makeNimstrLit("uColor"), color_62185);
-enableattribute_62146(gl_62180, p_62182, makeNimstrLit("aPosition"), 4);
-gl_62180.drawArrays(6, 0, numvertices_62195);
-gl_62180.flush();
+var numvertices_70195 = divInt((vertices_70184 != null ? vertices_70184.length : 0), 4);
+bindcolor_70126(gl_70180, p_70182, makeNimstrLit("uColor"), color_70185);
+enableattribute_70146(gl_70180, p_70182, makeNimstrLit("aPosition"), 4);
+gl_70180.drawArrays(6, 0, numvertices_70195);
+gl_70180.flush();
 framePtr = F.prev;
 }
-function drawtrianglefan_66027(eng_66029, vertices_66031, color_66032, drawmode_66033) {
+function drawtrianglefan_75167(eng_75169, vertices_75171, color_75172, drawmode_75173) {
 
 var F={procname:"renderer.drawTriangleFan",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-drawtrianglefan_62178(eng_66029.context, eng_66029.buff, eng_66029.program, vertices_66031, color_66032, drawmode_66033);
+drawtrianglefan_70178(eng_75169.context, eng_75169.buff, eng_75169.program, vertices_75171, color_75172, drawmode_75173);
 framePtr = F.prev;
 }
-function draw_68028(eng_68030, circle_68031, roughness_68032) {
+function drawd_77136(eng_77138, circle_77139, roughness_77140) {
 
-var F={procname:"renderer.draw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+var F={procname:"renderer.drawD",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-setmatrixunif_66126(eng_68030, circle_68031, makeNimstrLit("uMatrix"));
-F.line = 207;
-var verts_68071 = newseq_68046(chckRange(addInt(4, mulInt(mulInt(roughness_68032, 4), 2)), 0, 2147483647));
-F.line = 210;
-verts_68071[3] = (1.0000000000000000e+00 / circle_68031.scale);
+setmatrixunif_75181(eng_77138, circle_77139, makeNimstrLit("uMatrix"));
+F.line = 152;
+var verts_77179 = newseq_77154(chckRange(addInt(4, mulInt(mulInt(roughness_77140, 4), 2)), 0, 2147483647));
+F.line = 155;
+verts_77179[3] = (1.0000000000000000e+00 / circle_77139.scale);
 L1: do {
-F.line = 212;
-var i_68092 = 0;
+F.line = 157;
+var i_77200 = 0;
 F.line = 1918;
-var HEX3Atmp_68104 = 0;
-F.line = 212;
-HEX3Atmp_68104 = subInt((verts_68071 != null ? verts_68071.length : 0), 1);
+var HEX3Atmp_77212 = 0;
+F.line = 157;
+HEX3Atmp_77212 = subInt((verts_77179 != null ? verts_77179.length : 0), 1);
 F.line = 1908;
-var res_68107 = 4;
+var res_77215 = 4;
 L2: do {
 F.line = 1909;
 L3: while (true) {
-if (!(res_68107 <= HEX3Atmp_68104)) break L3;
+if (!(res_77215 <= HEX3Atmp_77212)) break L3;
 F.line = 1910;
-i_68092 = res_68107;
-F.line = 213;
-verts_68071[chckIndx(i_68092, 0, verts_68071.length)-0] = (circle_68031.radius * Math.cos((((HEX2F_20407(i_68092, 4) * 2.0000000000000000e+00) * 3.1415926535897931e+00) / roughness_68032)));
-F.line = 214;
-verts_68071[chckIndx(addInt(i_68092, 1), 0, verts_68071.length)-0] = (circle_68031.radius * Math.sin((((HEX2F_20407(i_68092, 4) * 2.0000000000000000e+00) * 3.1415926535897931e+00) / roughness_68032)));
-F.line = 215;
-verts_68071[chckIndx(addInt(i_68092, 2), 0, verts_68071.length)-0] = 0.0;
-F.line = 216;
-verts_68071[chckIndx(addInt(i_68092, 3), 0, verts_68071.length)-0] = (1.0000000000000000e+00 / circle_68031.scale);
-res_68107 = addInt(res_68107, 4);
+i_77200 = res_77215;
+F.line = 158;
+verts_77179[chckIndx(i_77200, 0, verts_77179.length)-0] = (circle_77139.radius * Math.cos((((HEX2F_20407(i_77200, 4) * 2.0000000000000000e+00) * 3.1415926535897931e+00) / roughness_77140)));
+F.line = 159;
+verts_77179[chckIndx(addInt(i_77200, 1), 0, verts_77179.length)-0] = (circle_77139.radius * Math.sin((((HEX2F_20407(i_77200, 4) * 2.0000000000000000e+00) * 3.1415926535897931e+00) / roughness_77140)));
+F.line = 160;
+verts_77179[chckIndx(addInt(i_77200, 2), 0, verts_77179.length)-0] = 0.0;
+F.line = 161;
+verts_77179[chckIndx(addInt(i_77200, 3), 0, verts_77179.length)-0] = (1.0000000000000000e+00 / circle_77139.scale);
+res_77215 = addInt(res_77215, 4);
 }
 } while(false);
 } while(false);
-drawtrianglefan_66027(eng_68030, verts_68071, circle_68031.color, 35044);
+drawtrianglefan_75167(eng_77138, verts_77179, circle_77139.color, 35044);
 framePtr = F.prev;
 }
-function draw_68186(eng_68188, pol_68189) {
+function drawc_77219(eng_77221, circle_77222, roughness_77223) {
 
-var F={procname:"renderer.draw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+var F={procname:"renderer.drawC",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-setmatrixunif_66126(eng_68188, pol_68189, makeNimstrLit("uMatrix"));
-if (pol_68189.filled) {
-F.line = 240;
-var verts_68218 = newseq_68046(chckRange(addInt(8, mulInt(pol_68189.sides, 4)), 0, 2147483647));
-F.line = 243;
-verts_68218[3] = (1.0000000000000000e+00 / pol_68189.scale);
+setmatrixunif_75181(eng_77221, circle_77222, makeNimstrLit("uMatrix"));
+F.line = 168;
+var verts_77252 = newseq_77154(chckRange(mulInt(roughness_77223, 4), 0, 2147483647));
 L1: do {
-F.line = 246;
-var i_68239 = 0;
+F.line = 171;
+var i_77272 = 0;
 F.line = 1918;
-var HEX3Atmp_68307 = 0;
-F.line = 246;
-HEX3Atmp_68307 = subInt((verts_68218 != null ? verts_68218.length : 0), 1);
+var HEX3Atmp_77287 = 0;
+F.line = 171;
+HEX3Atmp_77287 = subInt((verts_77252 != null ? verts_77252.length : 0), 1);
 F.line = 1908;
-var res_68310 = 4;
+var res_77290 = 0;
 L2: do {
 F.line = 1909;
 L3: while (true) {
-if (!(res_68310 <= HEX3Atmp_68307)) break L3;
+if (!(res_77290 <= HEX3Atmp_77287)) break L3;
 F.line = 1910;
-i_68239 = res_68310;
-F.line = 247;
-verts_68218[chckIndx(i_68239, 0, verts_68218.length)-0] = (pol_68189.bcradius * Math.cos(((i_68239 * 3.1415926535897931e+00) / (pol_68189.sides * 2.0000000000000000e+00))));
-F.line = 249;
-verts_68218[chckIndx(addInt(i_68239, 1), 0, verts_68218.length)-0] = (pol_68189.bcradius * Math.sin(((i_68239 * 3.1415926535897931e+00) / (pol_68189.sides * 2.0000000000000000e+00))));
-F.line = 251;
-verts_68218[chckIndx(addInt(i_68239, 2), 0, verts_68218.length)-0] = 0.0;
-F.line = 252;
-verts_68218[chckIndx(addInt(i_68239, 3), 0, verts_68218.length)-0] = (1.0000000000000000e+00 / pol_68189.scale);
-res_68310 = addInt(res_68310, 4);
+i_77272 = res_77290;
+F.line = 172;
+verts_77252[chckIndx(i_77272, 0, verts_77252.length)-0] = (circle_77222.radius * Math.cos(((i_77272 * 3.1415926535897931e+00) / (2.0000000000000000e+00 * roughness_77223))));
+F.line = 173;
+verts_77252[chckIndx(addInt(i_77272, 1), 0, verts_77252.length)-0] = (circle_77222.radius * Math.sin(((i_77272 * 3.1415926535897931e+00) / (2.0000000000000000e+00 * roughness_77223))));
+F.line = 174;
+verts_77252[chckIndx(addInt(i_77272, 2), 0, verts_77252.length)-0] = 0.0;
+F.line = 175;
+verts_77252[chckIndx(addInt(i_77272, 3), 0, verts_77252.length)-0] = (1.0000000000000000e+00 / circle_77222.scale);
+res_77290 = addInt(res_77290, 4);
 }
 } while(false);
 } while(false);
-drawtrianglefan_66027(eng_68188, verts_68218, pol_68189.color, 35044);
+drawlineloop_75174(eng_77221, verts_77252, circle_77222.color, 35044);
+framePtr = F.prev;
+}
+function draw_77442(r_77444, circle_77445, roughness_77446) {
+
+var F={procname:"renderer.draw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+framePtr = F;
+if (circle_77445.filled) {
+drawd_77136(r_77444, circle_77445, roughness_77446);
 }
 else {
-F.line = 257;
-var verts_68271 = newseq_68046(chckRange(mulInt(pol_68189.sides, 4), 0, 2147483647));
-L4: do {
-F.line = 260;
-var i_68291 = 0;
+drawc_77219(r_77444, circle_77445, roughness_77446);
+}
+
+framePtr = F.prev;
+}
+function draw_77294(eng_77296, pol_77297) {
+
+var F={procname:"renderer.draw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+framePtr = F;
+setmatrixunif_75181(eng_77296, pol_77297, makeNimstrLit("uMatrix"));
+if (pol_77297.filled) {
+F.line = 185;
+var verts_77326 = newseq_77154(chckRange(addInt(8, mulInt(pol_77297.sides, 4)), 0, 2147483647));
+F.line = 188;
+verts_77326[3] = (1.0000000000000000e+00 / pol_77297.scale);
+L1: do {
+F.line = 191;
+var i_77347 = 0;
 F.line = 1918;
-var HEX3Atmp_68323 = 0;
-F.line = 260;
-HEX3Atmp_68323 = subInt((verts_68271 != null ? verts_68271.length : 0), 1);
+var HEX3Atmp_77415 = 0;
+F.line = 191;
+HEX3Atmp_77415 = subInt((verts_77326 != null ? verts_77326.length : 0), 1);
 F.line = 1908;
-var res_68326 = 0;
+var res_77418 = 4;
+L2: do {
+F.line = 1909;
+L3: while (true) {
+if (!(res_77418 <= HEX3Atmp_77415)) break L3;
+F.line = 1910;
+i_77347 = res_77418;
+F.line = 192;
+verts_77326[chckIndx(i_77347, 0, verts_77326.length)-0] = (pol_77297.bcradius * Math.cos(((i_77347 * 3.1415926535897931e+00) / (pol_77297.sides * 2.0000000000000000e+00))));
+F.line = 194;
+verts_77326[chckIndx(addInt(i_77347, 1), 0, verts_77326.length)-0] = (pol_77297.bcradius * Math.sin(((i_77347 * 3.1415926535897931e+00) / (pol_77297.sides * 2.0000000000000000e+00))));
+F.line = 196;
+verts_77326[chckIndx(addInt(i_77347, 2), 0, verts_77326.length)-0] = 0.0;
+F.line = 197;
+verts_77326[chckIndx(addInt(i_77347, 3), 0, verts_77326.length)-0] = (1.0000000000000000e+00 / pol_77297.scale);
+res_77418 = addInt(res_77418, 4);
+}
+} while(false);
+} while(false);
+drawtrianglefan_75167(eng_77296, verts_77326, pol_77297.color, 35044);
+}
+else {
+F.line = 202;
+var verts_77379 = newseq_77154(chckRange(mulInt(pol_77297.sides, 4), 0, 2147483647));
+L4: do {
+F.line = 205;
+var i_77399 = 0;
+F.line = 1918;
+var HEX3Atmp_77431 = 0;
+F.line = 205;
+HEX3Atmp_77431 = subInt((verts_77379 != null ? verts_77379.length : 0), 1);
+F.line = 1908;
+var res_77434 = 0;
 L5: do {
 F.line = 1909;
 L6: while (true) {
-if (!(res_68326 <= HEX3Atmp_68323)) break L6;
+if (!(res_77434 <= HEX3Atmp_77431)) break L6;
 F.line = 1910;
-i_68291 = res_68326;
-F.line = 261;
-verts_68271[chckIndx(i_68291, 0, verts_68271.length)-0] = (pol_68189.bcradius * Math.cos(((i_68291 * 3.1415926535897931e+00) / (2.0000000000000000e+00 * pol_68189.sides))));
-F.line = 262;
-verts_68271[chckIndx(addInt(i_68291, 1), 0, verts_68271.length)-0] = (pol_68189.bcradius * Math.sin(((i_68291 * 3.1415926535897931e+00) / (2.0000000000000000e+00 * pol_68189.sides))));
-F.line = 263;
-verts_68271[chckIndx(addInt(i_68291, 2), 0, verts_68271.length)-0] = 0.0;
-F.line = 264;
-verts_68271[chckIndx(addInt(i_68291, 3), 0, verts_68271.length)-0] = (1.0000000000000000e+00 / pol_68189.scale);
-res_68326 = addInt(res_68326, 4);
+i_77399 = res_77434;
+F.line = 206;
+verts_77379[chckIndx(i_77399, 0, verts_77379.length)-0] = (pol_77297.bcradius * Math.cos(((i_77399 * 3.1415926535897931e+00) / (2.0000000000000000e+00 * pol_77297.sides))));
+F.line = 207;
+verts_77379[chckIndx(addInt(i_77399, 1), 0, verts_77379.length)-0] = (pol_77297.bcradius * Math.sin(((i_77399 * 3.1415926535897931e+00) / (2.0000000000000000e+00 * pol_77297.sides))));
+F.line = 208;
+verts_77379[chckIndx(addInt(i_77399, 2), 0, verts_77379.length)-0] = 0.0;
+F.line = 209;
+verts_77379[chckIndx(addInt(i_77399, 3), 0, verts_77379.length)-0] = (1.0000000000000000e+00 / pol_77297.scale);
+res_77434 = addInt(res_77434, 4);
 }
 } while(false);
 } while(false);
-drawlineloop_66034(eng_68188, verts_68271, pol_68189.color, 35044);
+drawlineloop_75174(eng_77296, verts_77379, pol_77297.color, 35044);
 }
 
 framePtr = F.prev;
 }
-function draw_67954(eng_67956, rect_67957) {
-
-var F={procname:"renderer.draw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
-framePtr = F;
-setmatrixunif_66126(eng_67956, rect_67957, makeNimstrLit("uMatrix"));
-if (rect_67957.centered) {
-F.line = 155;
-var hw_67959 = (rect_67957.size.Field0 / 2.0000000000000000e+00);
-F.line = 156;
-var hh_67961 = (rect_67957.size.Field1 / 2.0000000000000000e+00);
-drawlineloop_66034(eng_67956, [-(hw_67959), -(hh_67961), 0.0, (1.0000000000000000e+00 / rect_67957.scale), hw_67959, -(hh_67961), 0.0, (1.0000000000000000e+00 / rect_67957.scale), hw_67959, hh_67961, 0.0, (1.0000000000000000e+00 / rect_67957.scale), -(hw_67959), hh_67961, 0.0, (1.0000000000000000e+00 / rect_67957.scale)], rect_67957.color, 35044);
-}
-else {
-drawlineloop_66034(eng_67956, [0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_67957.scale), rect_67957.size.Field0, 0.0, 0.0, (1.0000000000000000e+00 / rect_67957.scale), rect_67957.size.Field0, rect_67957.size.Field1, 0.0, (1.0000000000000000e+00 / rect_67957.scale), 0.0, rect_67957.size.Field1, 0.0, (1.0000000000000000e+00 / rect_67957.scale)], rect_67957.color, 35044);
-}
-
-framePtr = F.prev;
-}
-function requestanimationframe_56117(fn_56122) {
+function requestanimationframe_56108(fn_56113) {
 
 var F={procname:"webgl.requestAnimationFrame",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
 F.line = 320;
-window.requestAnimationFrame(fn_56122);framePtr = F.prev;
+window.requestAnimationFrame(fn_56113);framePtr = F.prev;
 }
-function innerframedraw_69047(now_69045) {
+function innerframedraw_85047(now_85045) {
 
 var F={procname:"ex2.innerframedraw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-F.line = 279;
-dt_69046[0] = (now_69045 - lastt_69043[0]);
-emit_51410(evq_69001[0], makeNimstrLit("update"), {dt: dt_69046[0], kind: 0, key: 0, mods: 0, button: 0, kmods: 0});
-resize_56133(en_69003[0].context.canvas);
-en_69003[0].context.viewport(0, 0, en_69003[0].context.drawingBufferWidth, en_69003[0].context.drawingBufferHeight);
-draw_67991(en_69003[0], b_69020[0]);
-draw_68111(en_69003[0], c_69014[0], 32);
-draw_68028(en_69003[0], d_69017[0], 32);
-draw_68186(en_69003[0], p_69010[0]);
-draw_67954(en_69003[0], r_69013[0]);
-F.line = 281;
-lastt_69043[0] = now_69045;
-requestanimationframe_56117(innerframedraw_69047);
+F.line = 248;
+dt_85046[0] = (now_85045 - lastt_85043[0]);
+emit_51410(evq_85001[0], makeNimstrLit("update"), {dt: dt_85046[0], kind: 0, key: 0, mods: 0, button: 0, kmods: 0});
+resize_56124(en_85003[0].context.canvas);
+en_85003[0].context.viewport(0, 0, en_85003[0].context.drawingBufferWidth, en_85003[0].context.drawingBufferHeight);
+draw_77438(en_85003[0], b_85020[0]);
+draw_77442(en_85003[0], c_85014[0], 32);
+draw_77442(en_85003[0], d_85017[0], 32);
+draw_77294(en_85003[0], p_85010[0]);
+draw_77438(en_85003[0], r_85013[0]);
+F.line = 250;
+lastt_85043[0] = now_85045;
+requestanimationframe_56108(innerframedraw_85047);
 framePtr = F.prev;
 }
-var lastt_69043 = /**/[0.0];
-var dt_69046 = /**/[0.0];
-innerframedraw_69047(0.0);
+var lastt_85043 = /**/[0.0];
+var dt_85046 = /**/[0.0];
+innerframedraw_85047(0.0);

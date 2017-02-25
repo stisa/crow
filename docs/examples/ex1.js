@@ -705,33 +705,33 @@ framePtr = F.prev;
 return result_53203[0];
 }
 var evloop_66001 = /**/[initevents_53201()];
-function getcontextwebgl_56113(c_56115) {
+function getcontextwebgl_56104(c_56106) {
 
-var result_56116 = null;
+var result_56107 = null;
 var F={procname:"webgl.getContextWebGL",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
 F.line = 318;
-result_56116 = c_56115.getContext('webgl') || c_56115.getContext('experimental-webgl');framePtr = F.prev;
-return result_56116;
+result_56107 = c_56106.getContext('webgl') || c_56106.getContext('experimental-webgl');framePtr = F.prev;
+return result_56107;
 }
-function initwindow_57001() {
+function initwindow_57206() {
 
-var result_57014 = {ctx: null, width: 0, height: 0};
+var result_57208 = {ctx: null, width: 0, height: 0};
 var F={procname:"windows.initWindow",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/windows.nim",line:0};
 framePtr = F;
-F.line = 15;
-var canvas_57015 = document.getElementById("niwe-canvas");
-F.line = 17;
-result_57014.ctx = getcontextwebgl_56113(canvas_57015);
 F.line = 18;
-result_57014.width = canvas_57015.width;
-F.line = 19;
-result_57014.height = canvas_57015.height;
+var canvas_57209 = document.getElementById("niwe-canvas");
 F.line = 20;
-console.log(result_57014.width,result_57014.height);framePtr = F.prev;
-return result_57014;
+result_57208.ctx = getcontextwebgl_56104(canvas_57209);
+F.line = 21;
+result_57208.width = canvas_57209.width;
+F.line = 22;
+result_57208.height = canvas_57209.height;
+F.line = 23;
+console.log(result_57208.width,result_57208.height);framePtr = F.prev;
+return result_57208;
 }
-var gl_66002 = /**/[initwindow_57001()];
+var w_66002 = /**/[initwindow_57206()];
 function rotl_59802(x_59804, k_59805) {
 
 var result_59806 = 0;
@@ -774,8 +774,8 @@ result_60330 = ((x_60332 / 4294967295) * max_60329);
 framePtr = F.prev;
 return result_60330;
 }
-gl_66002[0].ctx.clearColor(random_60327(1.0000000000000000e+00), random_60327(1.0000000000000000e+00), random_60327(1.0000000000000000e+00), 1.0000000000000000e+00);
-gl_66002[0].ctx.clear(16384);
+w_66002[0].ctx.clearColor(random_60327(1.0000000000000000e+00), random_60327(1.0000000000000000e+00), random_60327(1.0000000000000000e+00), 1.0000000000000000e+00);
+w_66002[0].ctx.clear(16384);
 function initeventhandler_51044(name_51046) {
 
 var result_51047 = {Field0: null, Field1: null};
@@ -817,8 +817,8 @@ function handlemouseevent_66003(e_66005) {
 
 var F={procname:"ex1.handleMouseEvent",prev:framePtr,filename:"ex1.nim",line:0};
 framePtr = F;
-gl_66002[0].ctx.clearColor(random_60327(1.0000000000000000e+00), random_60327(1.0000000000000000e+00), random_60327(1.0000000000000000e+00), 1.0000000000000000e+00);
-gl_66002[0].ctx.clear(16384);
+w_66002[0].ctx.clearColor(random_60327(1.0000000000000000e+00), random_60327(1.0000000000000000e+00), random_60327(1.0000000000000000e+00), 1.0000000000000000e+00);
+w_66002[0].ctx.clear(16384);
 framePtr = F.prev;
 }
 on_51274(evloop_66001[0], makeNimstrLit("mouseEv"), handlemouseevent_66003);

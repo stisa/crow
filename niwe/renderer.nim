@@ -25,11 +25,32 @@ void main() {
 }
 """
 
+type Batcher* = object
+  r*: seq[Rect]
+  c*: seq[Circle]
+  p*: seq[Polygon]
+
+proc batcher*():Batcher= 
+  Batcher(r: newSeq[Rect](),
+          c: newSeq[Circle](),
+          p: newSeq[Polygon]())
+
+proc add*[K](b:var Batcher,rend:K)=
+  when rend is Rect:
+    b.r.add(rend)
+  elif rend is Circle:
+    b.c.add(rend)
+  elif rend is Polygon:
+    b.p.add(rend)
+  else: echo "unknown render primitive"
+
+
 type Renderer* = object
   context:GL
   program: Program
   buff : WebGLBuffer
   # shaders: seq[WebGlShader]
+  b*: Batcher
 
 proc initRenderer*(gl:GL,clear:Color=White):Renderer =
   result.context = gl
@@ -38,6 +59,7 @@ proc initRenderer*(gl:GL,clear:Color=White):Renderer =
   result.context.clearWith(clear)
   result.buff = result.context.createBuffer()
   gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight)
+  result.b = batcher() #default batcher 
 
 proc uploadVertices(eng:Renderer, vertices:seq[float], drawMode:GLenum=StaticDraw){.inline} =
   ## Bind vertices to the context
@@ -70,7 +92,8 @@ proc setMatrixUnif(eng:Renderer,rend:Renderable,uniform:string) =
             scaling(w/2,h/2)
   eng.context.uniformMatrix4fv(uMatLoc,false,mat)
 
-proc draw*(eng:Renderer, rect:Rect)=
+
+proc drawR(eng:Renderer, rect:Rect)=
   eng.setMatrixUnif(rect,"uMatrix")
   if rect.centered:
     let hw = rect.size.w/2
@@ -93,7 +116,7 @@ proc draw*(eng:Renderer, rect:Rect)=
       ],
     rect.color)
 
-proc draw*(eng:Renderer, rect:Box)=
+proc drawB(eng:Renderer, rect:Rect)=
   
   eng.setMatrixUnif(rect,"uMatrix")
   if rect.centered:
@@ -121,7 +144,8 @@ proc draw*(eng:Renderer, rect:Box)=
       ],
     rect.color)
 
-proc draw*(eng:Renderer, circle:Disk, roughness:int=32) =
+
+proc drawD(eng:Renderer, circle:Circle, roughness:int=32) =
   eng.setMatrixUnif(circle,"uMatrix")
 
   # 2 -> center(x,y), roughness * 4 are the two outer vertex of the trinagle
@@ -138,7 +162,7 @@ proc draw*(eng:Renderer, circle:Disk, roughness:int=32) =
   eng.drawTriangleFan( verts, circle.color)
 
 
-proc draw*(eng:Renderer, circle:Circle, roughness:int=32) =
+proc drawC(eng:Renderer, circle:Circle, roughness:int=32) =
   eng.setMatrixUnif(circle,"uMatrix")
 
   var verts = newSeq[float](roughness*VECSIZE) # each line has x,y x1,y1, the last one is the first
@@ -186,13 +210,34 @@ proc draw*(eng:Renderer, pol:Polygon) =
       #log(verts[i],verts[i+1])
     eng.drawLineLoop( verts, pol.color)
 
+proc draw*(r:Renderer, rect:Rect)=
+  if rect.filled: r.drawB(rect)
+  else: r.drawR(rect)
+
+proc draw*(r:Renderer, circle:Circle, roughness:int=32) =
+  if circle.filled: r.drawD(circle,roughness)
+  else: r.drawC(circle,roughness)
+
 proc draw*[K:Renderables](r:Renderer,b:varargs[K])=
   for e in b: r.draw(e)
 
-template batch*(eng:Renderer, body:untyped):untyped =
-  # begin a new drawing context with engine ( for now it just erases previous draws )
-  eng.context.clearWith(Green)
-  body
+proc draw*(r:Renderer,b:Batcher)=
+  for rc in b.r: r.draw(rc) 
+  for cr in b.c: r.draw(cr) 
+  for pl in b.p: r.draw(pl) 
+import macros
+
+
+macro batch*(b:Batcher, inner:varargs[untyped]):typed =
+  ## Adds elements to the batcher
+# TODO: error if inner is not renderable
+  result = newstmtlist()
+  if inner.len == 1:
+     for el in inner[0]:
+      result.add( newcall("add",b,el) )
+  else:
+    for el in inner:
+      result.add( newcall("add",b,el) )
 
 template frame*(body:untyped):untyped =
   ## Computes body each frame, the variable dt is exported and can be used.
@@ -216,7 +261,6 @@ when isMainModule and defined(js):
   var evq = initEvents()
   var w = initWindow()
   var en = initRenderer(w.ctx)
-  
   var speed = (0.0,0.0)
   var accel = (2.0,2.0)
  
@@ -225,6 +269,16 @@ when isMainModule and defined(js):
   var c = circle(50,50)
   var d = disk(150,150)
   var b = box(250,250)
+  var d2 = disk(150,250,color=Green)
+  
+  batch( en.b,
+    p,
+    r,
+    c,
+    d,
+    b,
+    d2)
+
   evq.on("mouseEv", 
     proc (e:EventArgs)=
       speed += accel)
@@ -232,13 +286,8 @@ when isMainModule and defined(js):
     proc (e:EventArgs)=
       p.pos += speed)
   
-  var d2 = disk(150,250,color=Green)
   frame:
     evq.emit("update",EventArgs(dt:dt))
     en.context.canvas.resize()
     en.context.viewport(0, 0, en.context.drawingBufferWidth, en.context.drawingBufferHeight)
-  #  en.draw(b,c)
-    # en.draw(c)
-    en.draw(d,d2)
-    en.draw(p)
-    en.draw(r)
+    en.draw(en.b)

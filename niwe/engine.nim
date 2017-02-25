@@ -3,6 +3,7 @@ from dom import document,Event,addeventlistener
 from webgl import WebglRenderingContext
 export addEventListener,on,draw
 
+
 type Engine* = object
   window*: Window
   renderer*: Renderer
@@ -15,7 +16,9 @@ proc initEngine*():Engine =
 
 converter toCtx*(e:Engine) : WebglRenderingContext = e.window.ctx
 
-converter toRend*(e:Engine) : Renderer = e.renderer
+converter toRend*(e: Engine) : Renderer = e.renderer
+
+converter toBatch*(e: Engine): Batcher = e.renderer.b
 
 
 template update*(en:var Engine,body:untyped):untyped =
@@ -59,11 +62,14 @@ template setupFpsCounter*(onID:string = "body"){.dirty}=
     fel.innerHTML = "FPS Counter"
     #proc setAttribute*(n: Node, name, value: cstring)
     fel.setAttribute("ID","_fpsCounter_")
-
+    fel.setAttribute("STYLE","position:absolute;top:2em;left:1em; z-index:10;")
     if toID=="body":
       document.body.appendChild(fel)
     else:
       let parent = document.getElementById(toID)
+      
+      #echo "appending to ",toid
+
       parent.appendChild(fel)
   appendFpsCounter(onID)
   proc updateFpsCounter*(dt : float) =
@@ -83,11 +89,27 @@ proc `+=`*(lf: var tuple[x:float,y:float],rg:tuple[x:float,y:float])=
   lf[0]+=rg[0]
   lf[1]+=rg[1]
 
+template batch*(en:Engine,body:untyped):typed =
+  batch en.renderer.b:
+    body
+
+proc draw*(en:var Engine) = en.draw(en.renderer.b)
+
+proc add*(en:var Engine,d:auto) = en.renderer.b.add(d)
+
+from primitives import Polygon
+
+proc p*(en:var Engine): var seq[Polygon] = en.renderer.b.p
+
 when isMainModule and defined(js):
+  import primitives
   var en = initEngine()
   
   onclick en:
     echo "clk"
+  
+  batch en:
+    polygon(100,100,filled=true)
    
   update en:
-    en.draw(polygon(100,100,filled=true))
+    en.draw()
