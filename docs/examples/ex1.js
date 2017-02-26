@@ -697,33 +697,41 @@ framePtr = F.prev;
 return result_53203[0];
 }
 var evloop_66001 = /**/[initevents_53201()];
-function getcontextwebgl_56104(c_56106) {
+function getcontextwebgl_56122(c_56124) {
 
-var result_56107 = null;
+var result_56125 = null;
 var F={procname:"webgl.getContextWebGL",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
-F.line = 318;
-result_56107 = c_56106.getContext('webgl') || c_56106.getContext('experimental-webgl');framePtr = F.prev;
-return result_56107;
+F.line = 329;
+result_56125 = c_56124.getContext('webgl') || c_56124.getContext('experimental-webgl');framePtr = F.prev;
+return result_56125;
 }
-function initwindow_57206() {
+function initwindow_57206(w_57208, h_57209) {
 
-var result_57208 = {ctx: null, width: 0, height: 0};
+var Tmp1;
+var result_57210 = {ctx: null, width: 0, height: 0};
 var F={procname:"windows.initWindow",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/windows.nim",line:0};
 framePtr = F;
 F.line = 18;
-var canvas_57209 = document.getElementById("niwe-canvas");
+var canvas_57211 = document.getElementById("niwe-canvas");
+if (!((w_57208 == -1))) Tmp1 = true; else {Tmp1 = !((h_57209 == -1)); }if (Tmp1) {
 F.line = 20;
-result_57208.ctx = getcontextwebgl_56104(canvas_57209);
+canvas_57211.width = w_57208;
 F.line = 21;
-result_57208.width = canvas_57209.width;
-F.line = 22;
-result_57208.height = canvas_57209.height;
-F.line = 23;
-console.log(result_57208.width,result_57208.height);framePtr = F.prev;
-return result_57208;
+canvas_57211.height = h_57209;
 }
-var w_66002 = /**/[initwindow_57206()];
+
+F.line = 23;
+result_57210.ctx = getcontextwebgl_56122(canvas_57211);
+F.line = 24;
+result_57210.width = canvas_57211.width;
+F.line = 25;
+result_57210.height = canvas_57211.height;
+F.line = 26;
+console.log(result_57210.width,result_57210.height);framePtr = F.prev;
+return result_57210;
+}
+var w_66002 = /**/[initwindow_57206(-1, -1)];
 function rotl_59802(x_59804, k_59805) {
 
 var result_59806 = 0;

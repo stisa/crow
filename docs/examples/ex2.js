@@ -873,55 +873,63 @@ framePtr = F.prev;
 return result_53203[0];
 }
 var evq_85001 = /**/[initevents_53201()];
-function getcontextwebgl_56104(c_56106) {
+function getcontextwebgl_56122(c_56124) {
 
-var result_56107 = null;
+var result_56125 = null;
 var F={procname:"webgl.getContextWebGL",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
-F.line = 318;
-result_56107 = c_56106.getContext('webgl') || c_56106.getContext('experimental-webgl');framePtr = F.prev;
-return result_56107;
+F.line = 329;
+result_56125 = c_56124.getContext('webgl') || c_56124.getContext('experimental-webgl');framePtr = F.prev;
+return result_56125;
 }
-function initwindow_57206() {
+function initwindow_57206(w_57208, h_57209) {
 
-var result_57208 = {ctx: null, width: 0, height: 0};
+var Tmp1;
+var result_57210 = {ctx: null, width: 0, height: 0};
 var F={procname:"windows.initWindow",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/windows.nim",line:0};
 framePtr = F;
 F.line = 18;
-var canvas_57209 = document.getElementById("niwe-canvas");
+var canvas_57211 = document.getElementById("niwe-canvas");
+if (!((w_57208 == -1))) Tmp1 = true; else {Tmp1 = !((h_57209 == -1)); }if (Tmp1) {
 F.line = 20;
-result_57208.ctx = getcontextwebgl_56104(canvas_57209);
+canvas_57211.width = w_57208;
 F.line = 21;
-result_57208.width = canvas_57209.width;
-F.line = 22;
-result_57208.height = canvas_57209.height;
-F.line = 23;
-console.log(result_57208.width,result_57208.height);framePtr = F.prev;
-return result_57208;
+canvas_57211.height = h_57209;
 }
-var w_85002 = /**/[initwindow_57206()];
-function resize_56124(canvas_56126) {
+
+F.line = 23;
+result_57210.ctx = getcontextwebgl_56122(canvas_57211);
+F.line = 24;
+result_57210.width = canvas_57211.width;
+F.line = 25;
+result_57210.height = canvas_57211.height;
+F.line = 26;
+console.log(result_57210.width,result_57210.height);framePtr = F.prev;
+return result_57210;
+}
+var w_85002 = /**/[initwindow_57206(-1, -1)];
+function resize_56142(canvas_56144) {
 
 var Tmp1;
 var F={procname:"webgl.resize",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
-if (!((canvas_56126.width == canvas_56126.clientWidth))) Tmp1 = true; else {Tmp1 = !((canvas_56126.height == canvas_56126.clientHeight)); }if (Tmp1) {
-F.line = 332;
-canvas_56126.width = canvas_56126.clientWidth;
-F.line = 333;
-canvas_56126.height = canvas_56126.clientHeight;
+if (!((canvas_56144.width == canvas_56144.clientWidth))) Tmp1 = true; else {Tmp1 = !((canvas_56144.height == canvas_56144.clientHeight)); }if (Tmp1) {
+F.line = 343;
+canvas_56144.width = canvas_56144.clientWidth;
+F.line = 344;
+canvas_56144.height = canvas_56144.clientHeight;
 }
 
 framePtr = F.prev;
 }
-function getstatus_56114(gl_56116, what_56117) {
+function getstatus_56132(gl_56134, what_56135) {
 
-var result_56118 = false;
+var result_56136 = false;
 var F={procname:"webgl.getStatus",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
-F.line = 323;
-result_56118 = gl_56116.getShaderParameter(what_56117, gl_56116.COMPILE_STATUS);framePtr = F.prev;
-return result_56118;
+F.line = 334;
+result_56136 = gl_56134.getShaderParameter(what_56135, gl_56134.COMPILE_STATUS);framePtr = F.prev;
+return result_56136;
 }
 function shader_70077(gl_70079, typ_70080, src_70081) {
 
@@ -943,7 +951,7 @@ console.log("Unknown Shader Type");
 }
 gl_70079.shaderSource(result_70082.s, toJSStr(src_70081));
 gl_70079.compileShader(result_70082.s);
-if (!(getstatus_56114(gl_70079, result_70082.s))) {
+if (!(getstatus_56132(gl_70079, result_70082.s))) {
 console.log(gl_70079.getShaderInfoLog(result_70082.s));
 }
 
@@ -954,14 +962,14 @@ result_70082.source = nimCopy(null, src_70081, NTI138);
 framePtr = F.prev;
 return result_70082;
 }
-function getstatus_56119(gl_56121, what_56122) {
+function getstatus_56137(gl_56139, what_56140) {
 
-var result_56123 = false;
+var result_56141 = false;
 var F={procname:"webgl.getStatus",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
-F.line = 325;
-result_56123 = gl_56121.getProgramParameter(what_56122, gl_56121.LINK_STATUS);framePtr = F.prev;
-return result_56123;
+F.line = 336;
+result_56141 = gl_56139.getProgramParameter(what_56140, gl_56139.LINK_STATUS);framePtr = F.prev;
+return result_56141;
 }
 function program_70107(gl_70109, useit_70110, vertexsrc_70111, fragmentsrc_70112) {
 
@@ -982,7 +990,7 @@ F.line = 63;
 nimCopy(result_70113.vertex, vs_70115, NTI70006);
 F.line = 64;
 nimCopy(result_70113.fragment, fs_70116, NTI70006);
-if (!(getstatus_56119(gl_70109, program_70114))) {
+if (!(getstatus_56137(gl_70109, program_70114))) {
 console.log(gl_70109.getProgramInfoLog(program_70114));
 F.line = 68;
 break BeforeRet;
@@ -1047,7 +1055,7 @@ var F={procname:"renderer.initRenderer",prev:framePtr,filename:"/data/data/com.t
 framePtr = F;
 F.line = 56;
 result_75153.context = gl_75151;
-resize_56124(result_75153.context.canvas);
+resize_56142(result_75153.context.canvas);
 F.line = 58;
 nimCopy(result_75153.program, program_70107(result_75153.context, true, makeNimstrLit("attribute vec4 aPosition;\x0Auniform mat4 uMatrix;\x0Avoid main() {\x0A  gl_Position = uMatrix*aPosition;\x0A}\x0A"), makeNimstrLit("#ifdef GL_ES\x0A  precision highp float;\x0A#endif\x0A\x0Auniform vec4 uColor;\x0Avoid main() {\x0A  gl_FragColor = uColor;\x0A}\x0A")), NTI70011);
 clearwith_70073(result_75153.context, clear_75152);
@@ -1672,28 +1680,28 @@ var mat_77057 = matmul_75193(matmul_75193(matmul_75193(matmul_75193(rotation_721
 eng_75183.context.uniformMatrix4fv(umatloc_75188, false, tof32a_70022(mat_77057));
 framePtr = F.prev;
 }
-function bufferdata_55920(gl_55922, target_55923, data_55924, usage_55925) {
+function bufferdata_55938(gl_55940, target_55941, data_55942, usage_55943) {
 
 var F={procname:"webgl.bufferData",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
-F.line = 240;
-gl_55922.bufferData(target_55923,data_55924,usage_55925);framePtr = F.prev;
+F.line = 251;
+gl_55940.bufferData(target_55941,data_55942,usage_55943);framePtr = F.prev;
 }
-function tofloat32array_56089(a_56092) {
+function tofloat32array_56107(a_56110) {
 
-var result_56093 = null;
+var result_56111 = null;
 var F={procname:"webgl.toFloat32Array",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
-F.line = 304;
-result_56093 = new Float32Array(a_56092);framePtr = F.prev;
-return result_56093;
+F.line = 315;
+result_56111 = new Float32Array(a_56110);framePtr = F.prev;
+return result_56111;
 }
 function uploadvertices_70153(gl_70155, buff_70156, vertices_70158, drawmode_70159) {
 
 var F={procname:"gl.uploadVertices",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
 gl_70155.bindBuffer(34962, buff_70156);
-bufferdata_55920(gl_70155, 34962, tofloat32array_56089(vertices_70158), drawmode_70159);
+bufferdata_55938(gl_70155, 34962, tofloat32array_56107(vertices_70158), drawmode_70159);
 gl_70155.bindBuffer(34962, buff_70156);
 framePtr = F.prev;
 }
@@ -1703,7 +1711,7 @@ var F={procname:"gl.bindColor",prev:framePtr,filename:"/data/data/com.termux/fil
 framePtr = F;
 F.line = 82;
 var uloc_70132 = gl_70128.getUniformLocation(extractprogram_70061(program_70129), toJSStr(colorname_70130));
-gl_70128.uniform4fv(uloc_70132, tofloat32array_56089([color_70131.Field0, color_70131.Field1, color_70131.Field2, color_70131.Field3]));
+gl_70128.uniform4fv(uloc_70132, tofloat32array_56107([color_70131.Field0, color_70131.Field1, color_70131.Field2, color_70131.Field3]));
 framePtr = F.prev;
 }
 function enableattribute_70146(gl_70148, program_70149, attribname_70150, itemsize_70151) {
@@ -1746,10 +1754,10 @@ F.line = 123;
 var hw_77104 = (rect_77102.size.Field0 / 2.0000000000000000e+00);
 F.line = 124;
 var hh_77106 = (rect_77102.size.Field1 / 2.0000000000000000e+00);
-drawtriangles_75160(eng_77101, [-(hw_77104), -(hh_77106), 0.0, (1.0000000000000000e+00 / rect_77102.scale), hw_77104, -(hh_77106), 0.0, (1.0000000000000000e+00 / rect_77102.scale), -(hw_77104), hh_77106, 0.0, (1.0000000000000000e+00 / rect_77102.scale), -(hw_77104), hh_77106, 0.0, (1.0000000000000000e+00 / rect_77102.scale), hw_77104, hh_77106, 0.0, (1.0000000000000000e+00 / rect_77102.scale), hw_77104, -(hh_77106), 0.0, (1.0000000000000000e+00 / rect_77102.scale)], rect_77102.color, 35044);
+drawtriangles_75160(eng_77101, [-(hw_77104), -(hh_77106), 0.0, (1.0000000000000000e+00 / rect_77102.scale), hw_77104, -(hh_77106), 0.0, (1.0000000000000000e+00 / rect_77102.scale), -(hw_77104), hh_77106, 0.0, (1.0000000000000000e+00 / rect_77102.scale), -(hw_77104), hh_77106, 0.0, (1.0000000000000000e+00 / rect_77102.scale), hw_77104, hh_77106, 0.0, (1.0000000000000000e+00 / rect_77102.scale), hw_77104, -(hh_77106), 0.0, (1.0000000000000000e+00 / rect_77102.scale)], rect_77102.color, 35048);
 }
 else {
-drawtriangles_75160(eng_77101, [0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77102.scale), rect_77102.size.Field0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77102.scale), rect_77102.size.Field0, rect_77102.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77102.scale), rect_77102.size.Field0, rect_77102.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77102.scale), 0.0, rect_77102.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77102.scale), 0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77102.scale)], rect_77102.color, 35044);
+drawtriangles_75160(eng_77101, [0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77102.scale), rect_77102.size.Field0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77102.scale), rect_77102.size.Field0, rect_77102.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77102.scale), rect_77102.size.Field0, rect_77102.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77102.scale), 0.0, rect_77102.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77102.scale), 0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77102.scale)], rect_77102.color, 35048);
 }
 
 framePtr = F.prev;
@@ -1869,7 +1877,7 @@ res_77215 = addInt(res_77215, 4);
 }
 } while(false);
 } while(false);
-drawtrianglefan_75167(eng_77138, verts_77179, circle_77139.color, 35044);
+drawtrianglefan_75167(eng_77138, verts_77179, circle_77139.color, 35048);
 framePtr = F.prev;
 }
 function drawc_77219(eng_77221, circle_77222, roughness_77223) {
@@ -1959,7 +1967,7 @@ res_77418 = addInt(res_77418, 4);
 }
 } while(false);
 } while(false);
-drawtrianglefan_75167(eng_77296, verts_77326, pol_77297.color, 35044);
+drawtrianglefan_75167(eng_77296, verts_77326, pol_77297.color, 35048);
 }
 else {
 F.line = 202;
@@ -1996,12 +2004,12 @@ drawlineloop_75174(eng_77296, verts_77379, pol_77297.color, 35044);
 
 framePtr = F.prev;
 }
-function requestanimationframe_56108(fn_56113) {
+function requestanimationframe_56126(fn_56131) {
 
 var F={procname:"webgl.requestAnimationFrame",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
 framePtr = F;
-F.line = 320;
-window.requestAnimationFrame(fn_56113);framePtr = F.prev;
+F.line = 331;
+window.requestAnimationFrame(fn_56131);framePtr = F.prev;
 }
 function innerframedraw_85047(now_85045) {
 
@@ -2010,7 +2018,7 @@ framePtr = F;
 F.line = 248;
 dt_85046[0] = (now_85045 - lastt_85043[0]);
 emit_51410(evq_85001[0], makeNimstrLit("update"), {dt: dt_85046[0], kind: 0, key: 0, mods: 0, button: 0, kmods: 0, pos: {Field0: 0.0, Field1: 0.0}});
-resize_56124(en_85003[0].context.canvas);
+resize_56142(en_85003[0].context.canvas);
 en_85003[0].context.viewport(0, 0, en_85003[0].context.drawingBufferWidth, en_85003[0].context.drawingBufferHeight);
 draw_77438(en_85003[0], b_85020[0]);
 draw_77442(en_85003[0], c_85014[0], 32);
@@ -2019,7 +2027,7 @@ draw_77294(en_85003[0], p_85010[0]);
 draw_77438(en_85003[0], r_85013[0]);
 F.line = 250;
 lastt_85043[0] = now_85045;
-requestanimationframe_56108(innerframedraw_85047);
+requestanimationframe_56126(innerframedraw_85047);
 framePtr = F.prev;
 }
 var lastt_85043 = /**/[0.0];

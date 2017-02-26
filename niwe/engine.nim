@@ -56,6 +56,7 @@ template update*(en:var Engine,body:untyped):untyped =
 
 template onclick*(en:var Engine,body:untyped){.dirty}=
   import dom
+  from webgl import getboundingclientrect
   proc ock(e:EventArgs)=
     body
 #[ TODO: this  ] 
@@ -68,10 +69,16 @@ function getMousePos(canvas, evt) {
 }]#
 
   proc clickev (e:dom.Event) =
+    let brect = en.window.ctx.canvas.getboundingclientrect()
     en.evloop.emit("click", EventArgs(
       kind:evClick,
       button:e.button,
-      pos:(e.clientX.float,e.clientY.float)))
+      pos:(
+        (e.clientX.float-brect.left),
+        (e.clientY.float-brect.top)
+        )
+      )
+    )
   
   document.addEventlistener("click",clickev,true)
 

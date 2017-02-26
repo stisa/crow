@@ -2,7 +2,7 @@ import gl,colors, snail/[matrix,graphic]
 import primitives
 from math import cos,sin,Pi
 
-from webgl import WebglBuffer,Canvas,resize,Glenum,StaticDraw # TODO: move these out to gl, abstract 'em all
+from webgl import WebglBuffer,Canvas,resize,Glenum,StaticDraw,DynamicDraw # TODO: move these out to gl, abstract 'em all
 
 const VECSIZE = 4
 
@@ -65,11 +65,11 @@ proc uploadVertices(eng:Renderer, vertices:seq[float], drawMode:GLenum=StaticDra
   ## Bind vertices to the context
   eng.context.uploadvertices(eng.buff,vertices,drawmode)
 
-proc drawTriangles(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:GLenum=StaticDraw) =
+proc drawTriangles(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:GLenum=DynamicDraw) =
   ## Draw triangles
   eng.context.drawtriangles(eng.buff,eng.program,vertices,color,drawmode)
   
-proc drawTriangleFan(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:GLenum=StaticDraw) =
+proc drawTriangleFan(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:GLenum=DynamicDraw) =
   ## Draw a fan of triangles
   eng.context.drawtrianglefan(eng.buff,eng.program,vertices,color,drawmode)
 
