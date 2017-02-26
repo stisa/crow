@@ -1,8 +1,10 @@
 import windows,events,colors,renderer,gl
-from dom import document,Event,addeventlistener
-from webgl import WebglRenderingContext
-export addEventListener,on,draw
-
+when defined js:
+  from webgl import WebglRenderingContext
+  import dom except Window
+  export addEventListener
+export draw
+export events
 
 type Engine* = object
   window*: Window
@@ -38,17 +40,42 @@ template update*(en:var Engine,body:untyped):untyped =
     en.evloop.emit("update",EventArgs(dt:dt))
     requestAnimationFrame(innerframedraw)
   innerframedraw()
-  
-template onclick*(en:var Engine,body:untyped)=
-  proc ock(e:EventArgs)=
+
+#[template onresize*(en:var Engine,body:untyped)=
+  proc ors(e:EventArgs)=
     body
   
-  proc mouseev(e:dom.Event) =
-    en.evloop.emit("mouseEv", EventArgs(kind:evMouse,button:0))
+  proc resizeev(e:dom.Event) =
+    en.evloop.emit("resize", EventArgs(kind:evResize,))
   
-  document.addEventlistener("click",mouseev,true)
+  document.addEventlistener("resize",resizeev,true)
 
-  en.evloop.on("mouseEv",ock)
+  en.evloop.on("resize",ors)]#
+
+
+
+template onclick*(en:var Engine,body:untyped){.dirty}=
+  import dom
+  proc ock(e:EventArgs)=
+    body
+#[ TODO: this  ] 
+function getMousePos(canvas, evt) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+        x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
+        y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+    };
+}]#
+
+  proc clickev (e:dom.Event) =
+    en.evloop.emit("click", EventArgs(
+      kind:evClick,
+      button:e.button,
+      pos:(e.clientX.float,e.clientY.float)))
+  
+  document.addEventlistener("click",clickev,true)
+
+  en.evloop.on("click",ock)
 
  
 
@@ -99,17 +126,19 @@ proc add*(en:var Engine,d:auto) = en.renderer.b.add(d)
 
 from primitives import Polygon
 
-proc p*(en:var Engine): var seq[Polygon] = en.renderer.b.p
+proc polygonlist*(en:var Engine): var seq[Polygon] = en.renderer.b.p
 
 when isMainModule and defined(js):
   import primitives
   var en = initEngine()
   
+  var p = polygon(100,100,filled=true)
+
   onclick en:
-    echo "clk"
-  
+    p.pos = e.pos
+
   batch en:
-    polygon(100,100,filled=true)
-   
+   p
+
   update en:
     en.draw()

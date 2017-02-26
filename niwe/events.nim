@@ -38,6 +38,7 @@ import keymap
 
 type EvKind* = enum
   evKey
+  evClick
   evMouse
   evUpdate
 
@@ -47,11 +48,13 @@ type
     of evKey:
       key*:keymap.KeyCode
       mods*:int
-    of evMouse:
+    of evClick:
       button*:int
       kmods*:int
+      pos*: tuple[x,y:float]
     of evUpdate:
       dt*:float
+    else: discard
 
   EventHandler* = tuple[name: string, handlers: seq[proc(e: EventArgs) {.closure.}]] ## An eventhandler for an event.
 
@@ -147,11 +150,11 @@ when defined js:
   
     document.addEventlistener("keypress",keyev,true)
   
-    proc mouseev(e:dom.Event) =
+#[   proc mouseev(e:dom.Event) =
       result.emit("mouseEv", EventArgs(kind:evMouse,button:0))
   
     document.addEventlistener("click",mouseev,true)
-
+]#
 else: 
   import windows
 

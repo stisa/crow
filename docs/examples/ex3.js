@@ -31,14 +31,14 @@ var NTI3456 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI72189 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
 var NTI72188 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
 var NTI72172 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI57063 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI57068 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
 var NTI3452 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI3444 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI57034 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
-var NTI57031 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI57019 = {size: 0,kind: 25,base: null,node: null,finalizer: null};
-var NTI57018 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
-var NTI57009 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI57039 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI57036 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI57024 = {size: 0,kind: 25,base: null,node: null,finalizer: null};
+var NTI57023 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI57010 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI57436 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
 var NTI27223 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI27221 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
@@ -659,21 +659,21 @@ var NNI75144 = {kind: 2, len: 4, offset: 0, typ: null, name: null, sons: [{kind:
 {kind: 1, offset: "buff", len: 0, typ: NTI27221, name: "buff", sons: null}, 
 {kind: 1, offset: "b", len: 0, typ: NTI75005, name: "b", sons: null}]};
 NTI75144.node = NNI75144;
-NTI57018.base = NTI57019;
-var NNI57009 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI138, name: "Field0", sons: null}, 
-{kind: 1, offset: "Field1", len: 0, typ: NTI57018, name: "Field1", sons: null}]};
-NTI57009.node = NNI57009;
-NTI57436.base = NTI57009;
-NTI57034.base = NTI57009;
-var NNI57031 = {kind: 1, offset: "s", len: 0, typ: NTI57034, name: "s", sons: null};
-NTI57031.node = NNI57031;
+NTI57023.base = NTI57024;
+var NNI57010 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI138, name: "Field0", sons: null}, 
+{kind: 1, offset: "Field1", len: 0, typ: NTI57023, name: "Field1", sons: null}]};
+NTI57010.node = NNI57010;
+NTI57436.base = NTI57010;
+NTI57039.base = NTI57010;
+var NNI57036 = {kind: 1, offset: "s", len: 0, typ: NTI57039, name: "s", sons: null};
+NTI57036.node = NNI57036;
 var NNI3444 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI3444.node = NNI3444;
 NTI3444.base = NTI3424;
 var NNI3452 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI3452.node = NNI3452;
 NTI3452.base = NTI3424;
-NTI57063.base = NTI57019;
+NTI57068.base = NTI57024;
 NTI72189.base = NTI124;
 NTI72188.base = NTI72189;
 var NNI72172 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI72188, name: "data", sons: null}, 
@@ -1303,26 +1303,26 @@ function initeventemitter_57418() {
 var result_57420 = {s: null};
 var F={procname:"events.initEventEmitter",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-F.line = 120;
+F.line = 123;
 result_57420.s = nimCopy(null, [], NTI57436);
 framePtr = F.prev;
 return result_57420;
 }
-function initengine_85006() {
+function initengine_85206() {
 
-var result_85008 = {window: {ctx: null, width: 0, height: 0}, renderer: {context: null, program: {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null}, buff: null, b: {r: null, c: null, p: null}}, evloop: {s: null}};
+var result_85208 = {window: {ctx: null, width: 0, height: 0}, renderer: {context: null, program: {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null}, buff: null, b: {r: null, c: null, p: null}}, evloop: {s: null}};
 var F={procname:"engine.initEngine",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 13;
-nimCopy(result_85008.window, initwindow_29206(), NTI29202);
-F.line = 14;
-nimCopy(result_85008.renderer, initrenderer_75149(result_85008.window.ctx, {Field0: 1.0000000000000000e+00, Field1: 1.0000000000000000e+00, Field2: 1.0000000000000000e+00, Field3: 1.0000000000000000e+00}), NTI75144);
 F.line = 15;
-nimCopy(result_85008.evloop, initeventemitter_57418(), NTI57031);
+nimCopy(result_85208.window, initwindow_29206(), NTI29202);
+F.line = 16;
+nimCopy(result_85208.renderer, initrenderer_75149(result_85208.window.ctx, {Field0: 1.0000000000000000e+00, Field1: 1.0000000000000000e+00, Field2: 1.0000000000000000e+00, Field3: 1.0000000000000000e+00}), NTI75144);
+F.line = 17;
+nimCopy(result_85208.evloop, initeventemitter_57418(), NTI57036);
 framePtr = F.prev;
-return result_85008;
+return result_85208;
 }
-var en_86001 = /**/[initengine_85006()];
+var en_86001 = /**/[initengine_85206()];
 function sysfatal_21221(message_21227) {
 
 var F={procname:"sysFatal.sysFatal",prev:framePtr,filename:"lib/system.nim",line:0};
@@ -1373,9 +1373,9 @@ function appendfpscounter_86016(toid_86018) {
 
 var F={procname:"ex3.appendFpsCounter",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 61;
+F.line = 80;
 var fel_86019 = document.createElement("DIV");
-F.line = 62;
+F.line = 81;
 fel_86019.innerHTML = "FPS Counter";
 fel_86019.setAttribute("ID", "_fpsCounter_");
 fel_86019.setAttribute("STYLE", "position:absolute;top:2em;left:1em; z-index:10;");
@@ -1383,7 +1383,7 @@ if (eqStrings(toid_86018, makeNimstrLit("body"))) {
 document.body.appendChild(fel_86019);
 }
 else {
-F.line = 69;
+F.line = 88;
 var parent_86020 = document.getElementById(toJSStr(toid_86018));
 parent_86020.appendChild(fel_86019);
 }
@@ -1401,43 +1401,43 @@ e_13284 = {m_type: NTI3452, parent: null, name: null, message: null, trace: null
 e_13284.message = nimCopy(null, makeNimstrLit("index out of bounds"), NTI138);
 raiseException(e_13284, "IndexError");
 }
-function geteventhandler_57250(emitter_57253, event_57254) {
+function geteventhandler_57255(emitter_57258, event_57259) {
 
-var result_57255 = 0;
+var result_57260 = 0;
 var F={procname:"events.getEventHandler",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
 BeforeRet: do {
 L1: do {
-F.line = 92;
-var k_57265 = 0;
+F.line = 95;
+var k_57270 = 0;
 F.line = 1926;
-var HEX3Atmp_57267 = 0;
-F.line = 92;
-HEX3Atmp_57267 = (emitter_57253.s != null ? (emitter_57253.s.length-1) : -1);
+var HEX3Atmp_57272 = 0;
+F.line = 95;
+HEX3Atmp_57272 = (emitter_57258.s != null ? (emitter_57258.s.length-1) : -1);
 F.line = 1908;
-var res_57270 = 0;
+var res_57275 = 0;
 L2: do {
 F.line = 1909;
 L3: while (true) {
-if (!(res_57270 <= HEX3Atmp_57267)) break L3;
+if (!(res_57275 <= HEX3Atmp_57272)) break L3;
 F.line = 1910;
-k_57265 = res_57270;
-if (eqStrings(emitter_57253.s[chckIndx(k_57265, 0, emitter_57253.s.length)-0].Field0, event_57254)) {
-F.line = 93;
-result_57255 = k_57265;
+k_57270 = res_57275;
+if (eqStrings(emitter_57258.s[chckIndx(k_57270, 0, emitter_57258.s.length)-0].Field0, event_57259)) {
+F.line = 96;
+result_57260 = k_57270;
 break BeforeRet;
 }
 
-res_57270 = addInt(res_57270, 1);
+res_57275 = addInt(res_57275, 1);
 }
 } while(false);
 } while(false);
-F.line = 94;
-result_57255 = -1;
+F.line = 97;
+result_57260 = -1;
 break BeforeRet;
 } while (false); 
 framePtr = F.prev;
-return result_57255;
+return result_57260;
 }
 function failedassertimpl_21239(msg_21241) {
 
@@ -1446,17 +1446,17 @@ framePtr = F;
 raiseassert_21216(msg_21241);
 framePtr = F.prev;
 }
-function emit_57297(emitter_57300, eventhandler_57302, args_57303) {
+function emit_57302(emitter_57305, eventhandler_57307, args_57308) {
 
 var F={procname:"events.emit",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
 L1: do {
-F.line = 110;
+F.line = 113;
 var fn_57402 = null;
 F.line = 3495;
 var HEX3Atmp_57404 = null;
-F.line = 110;
-HEX3Atmp_57404 = eventhandler_57302.Field1;
+F.line = 113;
+HEX3Atmp_57404 = eventhandler_57307.Field1;
 F.line = 3497;
 var i_57407 = 0;
 F.line = 3498;
@@ -1467,7 +1467,7 @@ L3: while (true) {
 if (!(i_57407 < L_57409)) break L3;
 F.line = 3500;
 fn_57402 = HEX3Atmp_57404[chckIndx(i_57407, 0, HEX3Atmp_57404.length)-0];
-fn_57402(args_57303);
+fn_57402(args_57308);
 i_57407 = addInt(i_57407, 1);
 if (!(((HEX3Atmp_57404 != null ? HEX3Atmp_57404.length : 0) == L_57409))) {
 failedassertimpl_21239(makeNimstrLit("len(a) == L seq modified while iterating over it"));
@@ -1482,64 +1482,64 @@ function emit_57410(emitter_57413, event_57414, args_57415) {
 
 var F={procname:"events.emit",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-F.line = 114;
-var i_57416 = geteventhandler_57250(emitter_57413, event_57414);
+F.line = 117;
+var i_57416 = geteventhandler_57255(emitter_57413, event_57414);
 if ((0 <= i_57416)) {
-emit_57297(emitter_57413, emitter_57413.s[chckIndx(i_57416, 0, emitter_57413.s.length)-0], args_57415);
+emit_57302(emitter_57413, emitter_57413.s[chckIndx(i_57416, 0, emitter_57413.s.length)-0], args_57415);
 }
 
 framePtr = F.prev;
 }
-function mouseev_86069(e_86066) {
+function clickev_86066(e_86069) {
 
-var F={procname:"ex3.mouseev",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
+var F={procname:"ex3.clickev",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-emit_57410(en_86001[0].evloop, makeNimstrLit("mouseEv"), {kind: 1, button: 0, key: 0, mods: 0, kmods: 0, dt: 0.0});
+emit_57410(en_86001[0].evloop, makeNimstrLit("click"), {kind: 1, button: e_86069.button, pos: {Field0: e_86069.clientX, Field1: e_86069.clientY}, key: 0, mods: 0, kmods: 0, dt: 0.0});
 framePtr = F.prev;
 }
-function initeventhandler_57044(name_57046) {
+function initeventhandler_57049(name_57051) {
 
-var result_57047 = {Field0: null, Field1: null};
+var result_57052 = {Field0: null, Field1: null};
 var F={procname:"events.initEventHandler",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-F.line = 68;
-result_57047.Field1 = nimCopy(null, [], NTI57063);
-F.line = 69;
-result_57047.Field0 = nimCopy(null, name_57046, NTI138);
+F.line = 71;
+result_57052.Field1 = nimCopy(null, [], NTI57068);
+F.line = 72;
+result_57052.Field0 = nimCopy(null, name_57051, NTI138);
 framePtr = F.prev;
-return result_57047;
+return result_57052;
 }
-function addhandler_57064(handler_57067, fn_57071) {
+function addhandler_57069(handler_57072, fn_57076) {
 
 var F={procname:"events.addHandler",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-if (handler_57067.Field1 != null) { handler_57067.Field1.push(fn_57071); } else { handler_57067.Field1 = [fn_57071]; };
+if (handler_57072.Field1 != null) { handler_57072.Field1.push(fn_57076); } else { handler_57072.Field1 = [fn_57076]; };
 framePtr = F.prev;
 }
-function on_57274(emitter_57277, event_57278, fn_57282) {
+function on_57279(emitter_57282, event_57283, fn_57287) {
 
 var F={procname:"events.on",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-F.line = 99;
-var i_57283 = geteventhandler_57250(emitter_57277, event_57278);
-if ((i_57283 < 0)) {
-F.line = 101;
-var eh_57284 = /**/[initeventhandler_57044(event_57278)];
-addhandler_57064(eh_57284[0], fn_57282);
-if (emitter_57277.s != null) { emitter_57277.s.push(eh_57284[0]); } else { emitter_57277.s = [eh_57284[0]]; };
+F.line = 102;
+var i_57288 = geteventhandler_57255(emitter_57282, event_57283);
+if ((i_57288 < 0)) {
+F.line = 104;
+var eh_57289 = /**/[initeventhandler_57049(event_57283)];
+addhandler_57069(eh_57289[0], fn_57287);
+if (emitter_57282.s != null) { emitter_57282.s.push(eh_57289[0]); } else { emitter_57282.s = [eh_57289[0]]; };
 }
 else {
-addhandler_57064(emitter_57277.s[chckIndx(i_57283, 0, emitter_57277.s.length)-0], fn_57282);
+addhandler_57069(emitter_57282.s[chckIndx(i_57288, 0, emitter_57282.s.length)-0], fn_57287);
 }
 
 framePtr = F.prev;
 }
-function ock_86067(e_86064) {
+function ock_86063(e_86065) {
 
 var Tmp1;
 var F={procname:"ex3.ock",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 17;
+F.line = 18;
 if (clockwise_86062[0]) {
 Tmp1 = false;
 }
@@ -1550,8 +1550,8 @@ Tmp1 = true;
 clockwise_86062[0] = Tmp1;
 framePtr = F.prev;
 }
-document.addEventListener("click", mouseev_86069, true);
-on_57274(en_86001[0].evloop, makeNimstrLit("mouseEv"), ock_86067);
+document.addEventListener("click", clickev_86066, true);
+on_57279(en_86001[0].evloop, makeNimstrLit("click"), ock_86063);
 function HEX2BHEX3D_45704(x_45709, x_45709_Idx, y_45711) {
 
 var F={procname:"+=.+=",prev:framePtr,filename:"lib/system.nim",line:0};
@@ -2004,7 +2004,7 @@ var h_75187 = eng_75183.context.drawingBufferHeight;
 F.line = 84;
 var umatloc_75188 = eng_75183.context.getUniformLocation(extractprogram_70061(eng_75183.program), toJSStr(uniform_75185));
 F.line = 86;
-var mat_77057 = matmul_75193(matmul_75193(matmul_75193(matmul_75193(rotation_72107(rend_75184.rot, 0.0), translation_71865(rend_75184.pos.Field0, rend_75184.pos.Field1, 0.0)), translation_71865(rend_75184.origin.Field0, rend_75184.origin.Field1, 0.0)), translation_71865(HEX2F_20407(negInt(w_75186), 2), HEX2F_20407(negInt(h_75187), 2), 0.0)), scaling_73097(HEX2F_20407(w_75186, 2), HEX2F_20407(h_75187, 2)));
+var mat_77057 = matmul_75193(matmul_75193(matmul_75193(matmul_75193(rotation_72107(rend_75184.rot, 0.0), translation_71865(rend_75184.pos.Field0, rend_75184.pos.Field1, 0.0)), translation_71865(rend_75184.origin.Field0, rend_75184.origin.Field1, 0.0)), translation_71865(HEX2F_20407(negInt(w_75186), 2), HEX2F_20407(negInt(h_75187), 2), 0.0)), scaling_73097(HEX2F_20407(w_75186, 2), HEX2F_20407(negInt(h_75187), 2)));
 eng_75183.context.uniformMatrix4fv(umatloc_75188, false, tof32a_70022(mat_77057));
 framePtr = F.prev;
 }
@@ -2174,15 +2174,15 @@ drawlineloop_75174(eng_77296, verts_77379, pol_77297.color, 35044);
 
 framePtr = F.prev;
 }
-function torend_85013(e_85015) {
+function torend_85213(e_85215) {
 
-var result_85016 = {context: null, program: {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null}, buff: null, b: {r: null, c: null, p: null}};
+var result_85216 = {context: null, program: {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null}, buff: null, b: {r: null, c: null, p: null}};
 var F={procname:"engine.toRend",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 19;
-nimCopy(result_85016, e_85015.renderer, NTI75144);
+F.line = 21;
+nimCopy(result_85216, e_85215.renderer, NTI75144);
 framePtr = F.prev;
-return result_85016;
+return result_85216;
 }
 function round_45664(x_45668, places_45670) {
 
@@ -2201,39 +2201,39 @@ function updatefpscounter_86021(dt_86023) {
 
 var F={procname:"ex3.updateFpsCounter",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 77;
+F.line = 96;
 var domcounter_86024 = document.getElementById("_fpsCounter_");
 HEX2BHEX3D_45704(fpstime_86014, 0, dt_86023);
 fpsframes_86015[0] = addInt(fpsframes_86015[0], 1);
 if ((1.0000000000000000e+03 < fpstime_86014[0])) {
-F.line = 83;
+F.line = 102;
 var fps_86049 = ((1.0000000000000000e+03 * fpsframes_86015[0]) / fpstime_86014[0]);
-F.line = 84;
+F.line = 103;
 domcounter_86024.innerHTML = toJSStr((cstrToNimstr((round_45664(fps_86049, 0))+"").slice(0,-1)).concat(makeNimstrLit(" FPS")));
-F.line = 85;
+F.line = 104;
 fpstime_86014[0] = 0.0;
-F.line = 86;
+F.line = 105;
 fpsframes_86015[0] = 0;
 }
 
 framePtr = F.prev;
 }
-function upd_86082(e_86078) {
+function upd_86085(e_86081) {
 
 var F={procname:"ex3.upd",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
 if (clockwise_86062[0]) {
-HEX2BHEX3D_45704(p_86004[0], "rot", ((3.0000000000000000e+01 * dt_86081[0]) / 1.0000000000000000e+03));
-HEX2DHEX3D_62183(p2_86010[0], "rot", ((3.0000000000000000e+01 * dt_86081[0]) / 1.0000000000000000e+03));
+HEX2BHEX3D_45704(p_86004[0], "rot", ((3.0000000000000000e+01 * dt_86084[0]) / 1.0000000000000000e+03));
+HEX2DHEX3D_62183(p2_86010[0], "rot", ((3.0000000000000000e+01 * dt_86084[0]) / 1.0000000000000000e+03));
 }
 else {
-HEX2DHEX3D_62183(p_86004[0], "rot", ((3.0000000000000000e+01 * dt_86081[0]) / 1.0000000000000000e+03));
-HEX2BHEX3D_45704(p2_86010[0], "rot", ((3.0000000000000000e+01 * dt_86081[0]) / 1.0000000000000000e+03));
+HEX2DHEX3D_62183(p_86004[0], "rot", ((3.0000000000000000e+01 * dt_86084[0]) / 1.0000000000000000e+03));
+HEX2BHEX3D_45704(p2_86010[0], "rot", ((3.0000000000000000e+01 * dt_86084[0]) / 1.0000000000000000e+03));
 }
 
-draw_77294(torend_85013(en_86001[0]), p_86004[0]);
-draw_77294(torend_85013(en_86001[0]), p2_86010[0]);
-updatefpscounter_86021(dt_86081[0]);
+draw_77294(torend_85213(en_86001[0]), p_86004[0]);
+draw_77294(torend_85213(en_86001[0]), p2_86010[0]);
+updatefpscounter_86021(dt_86084[0]);
 framePtr = F.prev;
 }
 function requestanimationframe_28106(fn_28111) {
@@ -2243,19 +2243,19 @@ framePtr = F;
 F.line = 320;
 window.requestAnimationFrame(fn_28111);framePtr = F.prev;
 }
-function innerframedraw_86155(now_86080) {
+function innerframedraw_86158(now_86083) {
 
 var F={procname:"ex3.innerframedraw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 36;
-dt_86081[0] = (now_86080 - lastt_86076[0]);
-F.line = 37;
-lastt_86076[0] = now_86080;
-emit_57410(en_86001[0].evloop, makeNimstrLit("update"), {dt: dt_86081[0], kind: 0, key: 0, mods: 0, button: 0, kmods: 0});
-requestanimationframe_28106(innerframedraw_86155);
+F.line = 38;
+dt_86084[0] = (now_86083 - lastt_86079[0]);
+F.line = 39;
+lastt_86079[0] = now_86083;
+emit_57410(en_86001[0].evloop, makeNimstrLit("update"), {dt: dt_86084[0], kind: 0, key: 0, mods: 0, button: 0, kmods: 0, pos: {Field0: 0.0, Field1: 0.0}});
+requestanimationframe_28106(innerframedraw_86158);
 framePtr = F.prev;
 }
-var lastt_86076 = /**/[0.0];
-var dt_86081 = /**/[0.0];
-on_57274(en_86001[0].evloop, makeNimstrLit("update"), upd_86082);
-innerframedraw_86155(0.0);
+var lastt_86079 = /**/[0.0];
+var dt_86084 = /**/[0.0];
+on_57279(en_86001[0].evloop, makeNimstrLit("update"), upd_86085);
+innerframedraw_86158(0.0);

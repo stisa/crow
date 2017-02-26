@@ -6,7 +6,7 @@ from webgl import WebglBuffer,Canvas,resize,Glenum,StaticDraw # TODO: move these
 
 const VECSIZE = 4
 
-const vmsrc = r"""
+const vmsrc =  """
 attribute vec4 aPosition;
 uniform mat4 uMatrix;
 void main() {
@@ -14,7 +14,7 @@ void main() {
 }
 """
 
-const fsrc = r"""
+const fsrc = """
 #ifdef GL_ES
   precision highp float;
 #endif
@@ -89,7 +89,7 @@ proc setMatrixUnif(eng:Renderer,rend:Renderable,uniform:string) =
             translation(
              rend.origin.x,rend.origin.y)*
             translation(-w/2,-h/2)*
-            scaling(w/2,h/2)
+            scaling(w/2,-h/2)
   eng.context.uniformMatrix4fv(uMatLoc,false,mat)
 
 

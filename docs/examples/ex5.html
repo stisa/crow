@@ -63,9 +63,9 @@ onclick en:
    
 update en:
   if clockwise:
-    for p in en.p.mitems :  p.rot += 30*dt/1000
+    for p in en.polygonlist.mitems :  p.rot += 30*dt/1000
   else:
-    for p in en.p.mitems :  p.rot -= 30*dt/1000
+    for p in en.polygonlist.mitems :  p.rot -= 30*dt/1000
  
   en.draw()
   updatefpscounter(dt)

@@ -50,13 +50,13 @@ proc box*(x,y:float=0.0,w,h:float=10.0,color:Color=Red,centered:bool=true):Rect 
 proc circle*(x,y:float=0.0,r:float=10.0,color:Color=Red):Circle =
   result.color = color
   result.pos = (x,y)
-  result.radius = r 
+  result.radius = r
   result.scale = 1.0
 
 proc disk*(x,y:float=0.0,r:float=10.0,color:Color=Red):Circle =
   result.color = color
   result.pos = (x,y)
-  result.radius = r 
+  result.radius = r
   result.scale = 1.0
   result.filled = true
 

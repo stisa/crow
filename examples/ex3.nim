@@ -13,6 +13,7 @@ var p2 = polygon(300,300,
 setupFpsCounter()
 
 var clockwise = true
+
 onclick en:
   clockwise = if clockwise:false else: true
    
