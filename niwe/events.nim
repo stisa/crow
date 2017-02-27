@@ -141,8 +141,7 @@ when defined js:
 []#
 
 when defined js:
-  
-
+  # TODO: this needs work, maybe move template in engine to here?
   proc initEvents*():EventEmitter =
     result = initeventemitter()
     proc keyev(e:dom.Event) =
@@ -150,11 +149,11 @@ when defined js:
   
     document.addEventlistener("keypress",keyev,true)
   
-#[   proc mouseev(e:dom.Event) =
-      result.emit("mouseEv", EventArgs(kind:evMouse,button:0))
+    proc mouseev(e:dom.Event) =
+      result.emit("click", EventArgs(kind:evMouse,button:0))
   
     document.addEventlistener("click",mouseev,true)
-]#
+
 else: 
   import windows
 

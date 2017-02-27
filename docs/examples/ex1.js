@@ -687,12 +687,20 @@ framePtr = F;
 emit_51410(result_53203[0], makeNimstrLit("keyEv"), {kind: 0, key: tojskc_49625(e_53207.keyCode), mods: 0, button: 0, kmods: 0, pos: {Field0: 0.0, Field1: 0.0}, dt: 0.0});
 framePtr = F.prev;
 }
+function mouseev_53211(e_53214) {
+
+var F={procname:"initEvents.mouseev",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
+framePtr = F;
+emit_51410(result_53203[0], makeNimstrLit("click"), {kind: 2, button: 0, key: 0, mods: 0, kmods: 0, pos: {Field0: 0.0, Field1: 0.0}, dt: 0.0});
+framePtr = F.prev;
+}
 var result_53203 = [{s: null}];
 var F={procname:"events.initEvents",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/events.nim",line:0};
 framePtr = F;
-F.line = 147;
+F.line = 146;
 nimCopy(result_53203[0], initeventemitter_51418(), NTI51036);
 document.addEventListener("keypress", keyev_53204, true);
+document.addEventListener("click", mouseev_53211, true);
 framePtr = F.prev;
 return result_53203[0];
 }
