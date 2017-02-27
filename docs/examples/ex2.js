@@ -1231,7 +1231,7 @@ framePtr = F;
 HEX2BHEX3D_84053(speed_85005[0], accel_85007[0]);
 framePtr = F.prev;
 }
-on_51279(evq_85001[0], makeNimstrLit("mouseEv"), HEX3Aanonymous_85032);
+on_51279(evq_85001[0], makeNimstrLit("click"), HEX3Aanonymous_85032);
 function HEX3Aanonymous_85037(e_85039) {
 
 var F={procname:"ex2.:anonymous",prev:framePtr,filename:"ex2.nim",line:0};

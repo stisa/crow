@@ -821,4 +821,4 @@ w_66002[0].ctx.clearColor(random_60327(1.0000000000000000e+00), random_60327(1.0
 w_66002[0].ctx.clear(16384);
 framePtr = F.prev;
 }
-on_51279(evloop_66001[0], makeNimstrLit("mouseEv"), handlemouseevent_66003);
+on_51279(evloop_66001[0], makeNimstrLit("click"), handlemouseevent_66003);

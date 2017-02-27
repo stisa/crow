@@ -17,4 +17,4 @@ proc handleMouseEvent(e: EventArgs) =
   )
   w.ctx.clear(ColorBufferBit)
 
-evloop.on("mouseEv", handleMouseEvent)
+evloop.on("click", handleMouseEvent)

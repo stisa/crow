@@ -14,7 +14,7 @@ var
   d = disk(150,150)
   b = box(250,250)
 
-evq.on("mouseEv", 
+evq.on("click", 
   proc (e:EventArgs)=
   speed += accel)
 evq.on("update", 
