@@ -1387,9 +1387,9 @@ function appendfpscounter_86016(toid_86018) {
 
 var F={procname:"ex3.appendFpsCounter",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 91;
-var fel_86019 = document.createElement("DIV");
 F.line = 92;
+var fel_86019 = document.createElement("DIV");
+F.line = 93;
 fel_86019.innerHTML = "FPS Counter";
 fel_86019.setAttribute("ID", "_fpsCounter_");
 fel_86019.setAttribute("STYLE", "position:relative;top:-2em;left:1em;border:0.1em solid black; max-width:5em;text-align:right;background-color:ghostwhite; z-index:10;");
@@ -1397,7 +1397,7 @@ if (eqStrings(toid_86018, makeNimstrLit("body"))) {
 document.body.appendChild(fel_86019);
 }
 else {
-F.line = 99;
+F.line = 100;
 var parent_86020 = document.getElementById(toJSStr(toid_86018));
 parent_86020.appendChild(fel_86019);
 }
@@ -1408,6 +1408,16 @@ var fpstime_86014 = /**/[0.0];
 var fpsframes_86015 = /**/[0];
 appendfpscounter_86016(makeNimstrLit("body"));
 var clockwise_86062 = /**/[true];
+function canvas_85209(en_85211) {
+
+var result_85212 = null;
+var F={procname:"engine.canvas",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
+framePtr = F;
+F.line = 19;
+result_85212 = en_85211.window.ctx.canvas;
+framePtr = F.prev;
+return result_85212;
+}
 function getboundingclientrect_27912(c_27914) {
 
 var result_27920 = {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0};
@@ -1532,8 +1542,8 @@ function clickev_86066(e_86069) {
 
 var F={procname:"ex3.clickev",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 70;
-var brect_86070 = getboundingclientrect_27912(en_86001[0].window.ctx.canvas);
+F.line = 71;
+var brect_86070 = getboundingclientrect_27912(canvas_85209(en_86001[0]));
 emit_57410(en_86001[0].evloop, makeNimstrLit("click"), {kind: 1, button: e_86069.button, pos: {Field0: (e_86069.clientX - brect_86070.Field2), Field1: (e_86069.clientY - brect_86070.Field0)}, key: 0, mods: 0, kmods: 0, dt: 0.0});
 framePtr = F.prev;
 }
@@ -1590,7 +1600,7 @@ Tmp1 = true;
 clockwise_86062[0] = Tmp1;
 framePtr = F.prev;
 }
-document.addEventListener("click", clickev_86066, true);
+canvas_85209(en_86001[0]).addEventListener("click", clickev_86066, true);
 on_57279(en_86001[0].evloop, makeNimstrLit("click"), ock_86063);
 function HEX2BHEX3D_45704(x_45709, x_45709_Idx, y_45711) {
 
@@ -2214,15 +2224,15 @@ drawlineloop_75174(eng_77296, verts_77379, pol_77297.color, 35044);
 
 framePtr = F.prev;
 }
-function torend_85213(e_85215) {
+function torend_85217(e_85219) {
 
-var result_85216 = {context: null, program: {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null}, buff: null, b: {r: null, c: null, p: null}};
+var result_85220 = {context: null, program: {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null}, buff: null, b: {r: null, c: null, p: null}};
 var F={procname:"engine.toRend",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 21;
-nimCopy(result_85216, e_85215.renderer, NTI75144);
+F.line = 23;
+nimCopy(result_85220, e_85219.renderer, NTI75144);
 framePtr = F.prev;
-return result_85216;
+return result_85220;
 }
 function round_45664(x_45668, places_45670) {
 
@@ -2241,18 +2251,18 @@ function updatefpscounter_86021(dt_86023) {
 
 var F={procname:"ex3.updateFpsCounter",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 109;
+F.line = 110;
 var domcounter_86024 = document.getElementById("_fpsCounter_");
 HEX2BHEX3D_45704(fpstime_86014, 0, dt_86023);
 fpsframes_86015[0] = addInt(fpsframes_86015[0], 1);
 if ((1.0000000000000000e+03 < fpstime_86014[0])) {
-F.line = 115;
-var fps_86049 = ((1.0000000000000000e+03 * fpsframes_86015[0]) / fpstime_86014[0]);
 F.line = 116;
-domcounter_86024.innerHTML = toJSStr((cstrToNimstr((round_45664(fps_86049, 0))+"").slice(0,-1)).concat(makeNimstrLit(" FPS")));
+var fps_86049 = ((1.0000000000000000e+03 * fpsframes_86015[0]) / fpstime_86014[0]);
 F.line = 117;
-fpstime_86014[0] = 0.0;
+domcounter_86024.innerHTML = toJSStr((cstrToNimstr((round_45664(fps_86049, 0))+"").slice(0,-1)).concat(makeNimstrLit(" FPS")));
 F.line = 118;
+fpstime_86014[0] = 0.0;
+F.line = 119;
 fpsframes_86015[0] = 0;
 }
 
@@ -2271,8 +2281,8 @@ HEX2DHEX3D_62183(p_86004[0], "rot", ((3.0000000000000000e+01 * dt_86085[0]) / 1.
 HEX2BHEX3D_45704(p2_86010[0], "rot", ((3.0000000000000000e+01 * dt_86085[0]) / 1.0000000000000000e+03));
 }
 
-draw_77294(torend_85213(en_86001[0]), p_86004[0]);
-draw_77294(torend_85213(en_86001[0]), p2_86010[0]);
+draw_77294(torend_85217(en_86001[0]), p_86004[0]);
+draw_77294(torend_85217(en_86001[0]), p2_86010[0]);
 updatefpscounter_86021(dt_86085[0]);
 framePtr = F.prev;
 }
@@ -2287,9 +2297,9 @@ function innerframedraw_86159(now_86084) {
 
 var F={procname:"ex3.innerframedraw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 38;
-dt_86085[0] = (now_86084 - lastt_86080[0]);
 F.line = 39;
+dt_86085[0] = (now_86084 - lastt_86080[0]);
+F.line = 40;
 lastt_86080[0] = now_86084;
 emit_57410(en_86001[0].evloop, makeNimstrLit("update"), {dt: dt_86085[0], kind: 0, key: 0, mods: 0, button: 0, kmods: 0, pos: {Field0: 0.0, Field1: 0.0}});
 requestanimationframe_28124(innerframedraw_86159);

@@ -1382,6 +1382,16 @@ framePtr = F.prev;
 return result_74082;
 }
 var p_86004 = /**/[polygon_74074(1.0000000000000000e+02, 1.0000000000000000e+02, 3, 1.0000000000000000e+01, true, {Field0: 1.0000000000000000e+00, Field1: 0.0, Field2: 0.0, Field3: 1.0000000000000000e+00})];
+function canvas_85209(en_85211) {
+
+var result_85212 = null;
+var F={procname:"engine.canvas",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
+framePtr = F;
+F.line = 19;
+result_85212 = en_85211.window.ctx.canvas;
+framePtr = F.prev;
+return result_85212;
+}
 function getboundingclientrect_27912(c_27914) {
 
 var result_27920 = {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0};
@@ -1506,8 +1516,8 @@ function clickev_86011(e_86014) {
 
 var F={procname:"ex4.clickev",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 70;
-var brect_86015 = getboundingclientrect_27912(en_86001[0].window.ctx.canvas);
+F.line = 71;
+var brect_86015 = getboundingclientrect_27912(canvas_85209(en_86001[0]));
 emit_57410(en_86001[0].evloop, makeNimstrLit("click"), {kind: 1, button: e_86014.button, pos: {Field0: (e_86014.clientX - brect_86015.Field2), Field1: (e_86014.clientY - brect_86015.Field0)}, key: 0, mods: 0, kmods: 0, dt: 0.0});
 framePtr = F.prev;
 }
@@ -1556,7 +1566,7 @@ F.line = 8;
 nimCopy(p_86004[0].pos, e_86009.pos, NTI74005);
 framePtr = F.prev;
 }
-document.addEventListener("click", clickev_86011, true);
+canvas_85209(en_86001[0]).addEventListener("click", clickev_86011, true);
 on_57279(en_86001[0].evloop, makeNimstrLit("click"), ock_86007);
 function extractprogram_70061(program_70063) {
 
@@ -2172,21 +2182,21 @@ drawlineloop_75174(eng_77296, verts_77379, pol_77297.color, 35044);
 
 framePtr = F.prev;
 }
-function torend_85213(e_85215) {
+function torend_85217(e_85219) {
 
-var result_85216 = {context: null, program: {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null}, buff: null, b: {r: null, c: null, p: null}};
+var result_85220 = {context: null, program: {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null}, buff: null, b: {r: null, c: null, p: null}};
 var F={procname:"engine.toRend",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 21;
-nimCopy(result_85216, e_85215.renderer, NTI75144);
+F.line = 23;
+nimCopy(result_85220, e_85219.renderer, NTI75144);
 framePtr = F.prev;
-return result_85216;
+return result_85220;
 }
 function upd_86031(e_86027) {
 
 var F={procname:"ex4.upd",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-draw_77294(torend_85213(en_86001[0]), p_86004[0]);
+draw_77294(torend_85217(en_86001[0]), p_86004[0]);
 framePtr = F.prev;
 }
 function requestanimationframe_28124(fn_28129) {
@@ -2200,9 +2210,9 @@ function innerframedraw_86037(now_86029) {
 
 var F={procname:"ex4.innerframedraw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 38;
-dt_86030[0] = (now_86029 - lastt_86025[0]);
 F.line = 39;
+dt_86030[0] = (now_86029 - lastt_86025[0]);
+F.line = 40;
 lastt_86025[0] = now_86029;
 emit_57410(en_86001[0].evloop, makeNimstrLit("update"), {dt: dt_86030[0], kind: 0, key: 0, mods: 0, button: 0, kmods: 0, pos: {Field0: 0.0, Field1: 0.0}});
 requestanimationframe_28124(innerframedraw_86037);

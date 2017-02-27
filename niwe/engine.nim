@@ -1,6 +1,6 @@
 import windows,events,colors,renderer,gl
 when defined js:
-  from webgl import WebglRenderingContext
+  from webgl import WebglRenderingContext,Canvas
   import dom except Window
   export addEventListener
 export draw
@@ -16,12 +16,13 @@ proc initEngine*():Engine =
   result.renderer = initrenderer(result.window.ctx)
   result.evloop = initEventEmitter()
 
+proc canvas*(en:Engine):Canvas{.inline} = en.window.ctx.canvas
+
 converter toCtx*(e:Engine) : WebglRenderingContext = e.window.ctx
 
 converter toRend*(e: Engine) : Renderer = e.renderer
 
 converter toBatch*(e: Engine): Batcher = e.renderer.b
-
 
 template update*(en:var Engine,body:untyped):untyped =
   ## Computes body each frame, the variable dt is exported and can be used.
@@ -67,7 +68,7 @@ function getMousePos(canvas, evt) {
 }]#
 
   proc clickev (e:dom.Event) =
-    let brect = en.window.ctx.canvas.getboundingclientrect()
+    let brect = en.canvas.getboundingclientrect()
     en.evloop.emit("click", EventArgs(
       kind:evClick,
       button:e.button,
@@ -78,7 +79,7 @@ function getMousePos(canvas, evt) {
       )
     )
   
-  document.addEventlistener("click",clickev,true)
+  en.canvas.addEventlistener("click",clickev,true)
 
   en.evloop.on("click",ock)
 
