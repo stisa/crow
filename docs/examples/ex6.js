@@ -27,14 +27,14 @@ var NTI71249 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
 var NTI71233 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI128 = {size: 0,kind: 36,base: null,node: null,finalizer: null};
 var NTI71211 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
-var NTI3456 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI72189 = {size: 0,kind: 16,base: null,node: null,finalizer: null};
 var NTI72188 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
 var NTI72172 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI57068 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI3444 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI3452 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI27915 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI3444 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI3456 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI57039 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
 var NTI57036 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI57024 = {size: 0,kind: 25,base: null,node: null,finalizer: null};
@@ -668,9 +668,9 @@ NTI57436.base = NTI57010;
 NTI57039.base = NTI57010;
 var NNI57036 = {kind: 1, offset: "s", len: 0, typ: NTI57039, name: "s", sons: null};
 NTI57036.node = NNI57036;
-var NNI3444 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
-NTI3444.node = NNI3444;
-NTI3444.base = NTI3424;
+var NNI3456 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
+NTI3456.node = NNI3456;
+NTI3456.base = NTI3424;
 var NNI27915 = {kind: 2, len: 4, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI124, name: "Field0", sons: null}, 
 {kind: 1, offset: "Field1", len: 0, typ: NTI124, name: "Field1", sons: null}, 
 {kind: 1, offset: "Field2", len: 0, typ: NTI124, name: "Field2", sons: null}, 
@@ -679,15 +679,15 @@ NTI27915.node = NNI27915;
 var NNI3452 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI3452.node = NNI3452;
 NTI3452.base = NTI3424;
+var NNI3444 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
+NTI3444.node = NNI3444;
+NTI3444.base = NTI3424;
 NTI57068.base = NTI57024;
 NTI72189.base = NTI124;
 NTI72188.base = NTI72189;
 var NNI72172 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "data", len: 0, typ: NTI72188, name: "data", sons: null}, 
 {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []}]};
 NTI72172.node = NNI72172;
-var NNI3456 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
-NTI3456.node = NNI3456;
-NTI3456.base = NTI3424;
 NTI71211.base = NTI128;
 NTI71250.base = NTI124;
 NTI71249.base = NTI71250;
@@ -881,6 +881,22 @@ unhandledException(e_12806);
 
 e_12806.trace = nimCopy(null, rawwritestacktrace_12628(), NTI138);
 throw e_12806;}
+function chckRange(i_19215, a_19216, b_19217) {
+
+var Tmp1;
+var result_19218 = 0;
+BeforeRet: do {
+if (!(a_19216 <= i_19215)) Tmp1 = false; else {Tmp1 = (i_19215 <= b_19217); }if (Tmp1) {
+result_19218 = i_19215;
+break BeforeRet;
+}
+else {
+raiseRangeError();
+}
+
+} while (false); 
+return result_19218;
+}
 function chckIndx(i_19209, a_19210, b_19211) {
 
 var Tmp1;
@@ -909,39 +925,23 @@ function mulInt(a_16603, b_16604) {
       if (result > 2147483647 || result < -2147483648) raiseOverflow();
       return result;
     }
-function chckRange(i_19215, a_19216, b_19217) {
-
-var Tmp1;
-var result_19218 = 0;
-BeforeRet: do {
-if (!(a_19216 <= i_19215)) Tmp1 = false; else {Tmp1 = (i_19215 <= b_19217); }if (Tmp1) {
-result_19218 = i_19215;
-break BeforeRet;
-}
-else {
-raiseRangeError();
-}
-
-} while (false); 
-return result_19218;
-}
 function negInt(a_18203) {
 
 var result_18204 = 0;
 result_18204 = (a_18203 * -1);
 return result_18204;
 }
-function subInt(a_16403, b_16404) {
-
-      var result = a_16403 - b_16404;
-      if (result > 2147483647 || result < -2147483648) raiseOverflow();
-      return result;
-    }
 function divInt(a_16803, b_16804) {
 
       if (b_16804 == 0) raiseDivByZero();
       if (b_16804 == -1 && a_16803 == 2147483647) raiseOverflow();
       return Math.floor(a_16803 / b_16804);
+    }
+function subInt(a_16403, b_16404) {
+
+      var result = a_16403 - b_16404;
+      if (result > 2147483647 || result < -2147483648) raiseOverflow();
+      return result;
     }
 var nimvm_5887 = false;
 var nim_program_result = 0;
@@ -1337,51 +1337,169 @@ framePtr = F.prev;
 return result_85208;
 }
 var en_86001 = /**/[initengine_85206()];
-function sysfatal_21221(message_21227) {
+function raiseRangeError() {
 
-var F={procname:"sysFatal.sysFatal",prev:framePtr,filename:"lib/system.nim",line:0};
+var e_13268 = null;
+e_13268 = {m_type: NTI3456, parent: null, name: null, message: null, trace: null};
+e_13268.message = nimCopy(null, makeNimstrLit("value out of range"), NTI138);
+raiseException(e_13268, "RangeError");
+}
+function rotl_59802(x_59804, k_59805) {
+
+var result_59806 = 0;
+var F={procname:"random.rotl",prev:framePtr,filename:"lib/pure/random.nim",line:0};
 framePtr = F;
-F.line = 2578;
-var e_21229 = null;
-e_21229 = {m_type: NTI3444, parent: null, name: null, message: null, trace: null};
-F.line = 2580;
-e_21229.message = nimCopy(null, message_21227, NTI138);
-F.line = 2581;
-raiseException(e_21229, "AssertionError");
+F.line = 44;
+result_59806 = ((x_59804 << k_59805) | ((x_59804 >>> 0) >>> ((64 - k_59805) >>> 0)));
+framePtr = F.prev;
+return result_59806;
+}
+function next_59845(s_59848) {
+
+var result_59849 = 0;
+var F={procname:"random.next",prev:framePtr,filename:"lib/pure/random.nim",line:0};
+framePtr = F;
+F.line = 47;
+var s0_59850 = s_59848.a0;
+F.line = 48;
+var s1_59851 = s_59848.a1;
+F.line = 49;
+result_59849 = ((s0_59850 + s1_59851) >>> 0);
+F.line = 50;
+s1_59851 = (s1_59851 ^ s0_59850);
+F.line = 51;
+s_59848.a0 = ((rotl_59802(s0_59850, 55) ^ s1_59851) ^ (s1_59851 << 14));
+F.line = 52;
+s_59848.a1 = rotl_59802(s1_59851, 36);
+framePtr = F.prev;
+return result_59849;
+}
+function randomize_60427(seed_60429) {
+
+var F={procname:"random.randomize",prev:framePtr,filename:"lib/pure/random.nim",line:0};
+framePtr = F;
+F.line = 106;
+state_59605[0].a0 = chckRange(((seed_60429 >>> 0) >>> 16), 0, 4294967295);
+F.line = 107;
+state_59605[0].a1 = (seed_60429 & 65535);
+F.line = 108;
+next_59845(state_59605[0]);
 framePtr = F.prev;
 }
-function raiseassert_21216(msg_21218) {
+function randomize_65001() {
 
-var F={procname:"system.raiseAssert",prev:framePtr,filename:"lib/system.nim",line:0};
+var F={procname:"random.randomize",prev:framePtr,filename:"lib/pure/random.nim",line:0};
 framePtr = F;
-sysfatal_21221(msg_21218);
+randomize_60427(gettime_62040().getTime());
 framePtr = F.prev;
 }
-function polygon_74074(x_74076, y_74077, sides_74078, boundingcircleradius_74079, filled_74080, color_74081) {
+randomize_65001();
+var squarew_86002 = /**/[Math.floor(en_86001[0].window.width / 20)];
+var squareh_86003 = /**/[Math.floor(en_86001[0].window.height / 20)];
+function add_86035(b_86039, rend_86041) {
 
-var result_74082 = {m_type: NTI74027, sides: 0, bcradius: 0.0, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};
-var F={procname:"primitives.polygon",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/primitives.nim",line:0};
+var F={procname:"add.add",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-if (!((3 <= sides_74078))) {
-raiseassert_21216(makeNimstrLit("\x0A  3 <= sides "));
+if (b_86039.r != null) { b_86039.r.push(rend_86041); } else { b_86039.r = [rend_86041]; };
+framePtr = F.prev;
+}
+function add_86027(en_86031, d_86033) {
+
+var F={procname:"add.add",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
+framePtr = F;
+add_86035(en_86031.renderer.b, d_86033);
+framePtr = F.prev;
+}
+function box_74047(x_74049, y_74050, w_74051, h_74052, color_74053, centered_74054) {
+
+var result_74055 = {m_type: NTI74018, size: {Field0: 0.0, Field1: 0.0}, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};
+var F={procname:"primitives.box",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/primitives.nim",line:0};
+framePtr = F;
+F.line = 42;
+nimCopy(result_74055.color, color_74053, NTI66002);
+F.line = 43;
+nimCopy(result_74055.pos, {Field0: x_74049, Field1: y_74050}, NTI74005);
+F.line = 45;
+nimCopy(result_74055.size, {Field0: w_74051, Field1: h_74052}, NTI74019);
+F.line = 46;
+result_74055.scale = 1.0000000000000000e+00;
+F.line = 47;
+result_74055.centered = centered_74054;
+F.line = 48;
+result_74055.filled = true;
+framePtr = F.prev;
+return result_74055;
+}
+function random_60327(max_60329) {
+
+var result_60330 = 0.0;
+var F={procname:"random.random",prev:framePtr,filename:"lib/pure/random.nim",line:0};
+framePtr = F;
+F.line = 89;
+var x_60332 = next_59845(state_59605[0]);
+F.line = 91;
+result_60330 = ((x_60332 / 4294967295) * max_60329);
+framePtr = F.prev;
+return result_60330;
+}
+function randomrgb_66042() {
+
+var result_66044 = {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0};
+var F={procname:"colors.randomRGB",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/colors.nim",line:0};
+framePtr = F;
+F.line = 11;
+nimCopy(result_66044, {Field0: random_60327(1.0000000000000000e+00), Field1: random_60327(1.0000000000000000e+00), Field2: random_60327(1.0000000000000000e+00), Field3: 1.0000000000000000e+00}, NTI66002);
+framePtr = F.prev;
+return result_66044;
+}
+L1: do {
+var j_86013 = [0];
+var res_86231 = 0;
+L2: do {
+L3: while (true) {
+if (!(res_86231 <= squarew_86002[0])) break L3;
+j_86013[0] = res_86231;
+L4: do {
+var i_86023 = [0];
+var res_86225 = 0;
+L5: do {
+L6: while (true) {
+if (!(res_86225 <= squareh_86003[0])) break L6;
+i_86023[0] = res_86225;
+add_86027(en_86001[0], box_74047((j_86013[0] * squarew_86002[0]), (i_86023[0] * squareh_86003[0]), (squarew_86002[0] - 1.0000000000000000e+00), (squareh_86003[0] - 1.0000000000000000e+00), randomrgb_66042(), true));
+res_86225 += 1;
+}
+} while(false);
+} while(false);
+res_86231 += 1;
+}
+} while(false);
+} while(false);
+function appendfpscounter_86237(toid_86239) {
+
+var F={procname:"ex6.appendFpsCounter",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
+framePtr = F;
+F.line = 91;
+var fel_86240 = document.createElement("DIV");
+F.line = 92;
+fel_86240.innerHTML = "FPS Counter";
+fel_86240.setAttribute("ID", "_fpsCounter_");
+fel_86240.setAttribute("STYLE", "position:relative;top:-2em;left:1em;border:0.1em solid black; max-width:5em;text-align:right;background-color:ghostwhite; z-index:10;");
+if (eqStrings(toid_86239, makeNimstrLit("body"))) {
+document.body.appendChild(fel_86240);
+}
+else {
+F.line = 99;
+var parent_86241 = document.getElementById(toJSStr(toid_86239));
+parent_86241.appendChild(fel_86240);
 }
 
-F.line = 72;
-nimCopy(result_74082.color, color_74081, NTI66002);
-F.line = 73;
-nimCopy(result_74082.pos, {Field0: x_74076, Field1: y_74077}, NTI74005);
-F.line = 74;
-result_74082.sides = sides_74078;
-F.line = 75;
-result_74082.bcradius = boundingcircleradius_74079;
-F.line = 76;
-result_74082.filled = filled_74080;
-F.line = 77;
-result_74082.scale = 1.0000000000000000e+00;
 framePtr = F.prev;
-return result_74082;
 }
-var p_86004 = /**/[polygon_74074(1.0000000000000000e+02, 1.0000000000000000e+02, 3, 1.0000000000000000e+01, true, {Field0: 1.0000000000000000e+00, Field1: 0.0, Field2: 0.0, Field3: 1.0000000000000000e+00})];
+var fpstime_86235 = /**/[0.0];
+var fpsframes_86236 = /**/[0];
+appendfpscounter_86237(makeNimstrLit("output"));
+var down_86283 = /**/[false];
 function getboundingclientrect_27912(c_27914) {
 
 var result_27920 = {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0};
@@ -1451,6 +1569,26 @@ break BeforeRet;
 framePtr = F.prev;
 return result_57260;
 }
+function sysfatal_21221(message_21227) {
+
+var F={procname:"sysFatal.sysFatal",prev:framePtr,filename:"lib/system.nim",line:0};
+framePtr = F;
+F.line = 2578;
+var e_21229 = null;
+e_21229 = {m_type: NTI3444, parent: null, name: null, message: null, trace: null};
+F.line = 2580;
+e_21229.message = nimCopy(null, message_21227, NTI138);
+F.line = 2581;
+raiseException(e_21229, "AssertionError");
+framePtr = F.prev;
+}
+function raiseassert_21216(msg_21218) {
+
+var F={procname:"system.raiseAssert",prev:framePtr,filename:"lib/system.nim",line:0};
+framePtr = F;
+sysfatal_21221(msg_21218);
+framePtr = F.prev;
+}
 function failedassertimpl_21239(msg_21241) {
 
 var F={procname:"system.failedAssertImpl",prev:framePtr,filename:"lib/system.nim",line:0};
@@ -1502,13 +1640,13 @@ emit_57302(emitter_57413, emitter_57413.s[chckIndx(i_57416, 0, emitter_57413.s.l
 
 framePtr = F.prev;
 }
-function clickev_86011(e_86014) {
+function clickev_86287(e_86290) {
 
-var F={procname:"ex4.clickev",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
+var F={procname:"ex6.clickev",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
 F.line = 70;
-var brect_86015 = getboundingclientrect_27912(en_86001[0].window.ctx.canvas);
-emit_57410(en_86001[0].evloop, makeNimstrLit("click"), {kind: 1, button: e_86014.button, pos: {Field0: (e_86014.clientX - brect_86015.Field2), Field1: (e_86014.clientY - brect_86015.Field0)}, key: 0, mods: 0, kmods: 0, dt: 0.0});
+var brect_86291 = getboundingclientrect_27912(en_86001[0].window.ctx.canvas);
+emit_57410(en_86001[0].evloop, makeNimstrLit("click"), {kind: 1, button: e_86290.button, pos: {Field0: (e_86290.clientX - brect_86291.Field2), Field1: (e_86290.clientY - brect_86291.Field0)}, key: 0, mods: 0, kmods: 0, dt: 0.0});
 framePtr = F.prev;
 }
 function initeventhandler_57049(name_57051) {
@@ -1548,16 +1686,43 @@ addhandler_57069(emitter_57282.s[chckIndx(i_57288, 0, emitter_57282.s.length)-0]
 
 framePtr = F.prev;
 }
-function ock_86007(e_86009) {
+function ock_86284(e_86286) {
 
-var F={procname:"ex4.ock",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
+var Tmp1;
+var F={procname:"ex6.ock",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 8;
-nimCopy(p_86004[0].pos, e_86009.pos, NTI74005);
+F.line = 20;
+if (down_86283[0]) {
+Tmp1 = false;
+}
+else {
+Tmp1 = true;
+}
+
+down_86283[0] = Tmp1;
 framePtr = F.prev;
 }
-document.addEventListener("click", clickev_86011, true);
-on_57279(en_86001[0].evloop, makeNimstrLit("click"), ock_86007);
+document.addEventListener("click", clickev_86287, true);
+on_57279(en_86001[0].evloop, makeNimstrLit("click"), ock_86284);
+function rectlist_85299(en_85302) {
+
+var result_85305 = [null, 0];
+var result_85305_Idx = 0;
+var F={procname:"engine.rectlist",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
+framePtr = F;
+F.line = 136;
+result_85305 = en_85302.renderer.b; result_85305_Idx = "r";
+framePtr = F.prev;
+return [result_85305, result_85305_Idx];
+}
+function HEX2BHEX3D_45704(x_45709, x_45709_Idx, y_45711) {
+
+var F={procname:"+=.+=",prev:framePtr,filename:"lib/system.nim",line:0};
+framePtr = F;
+F.line = 3392;
+x_45709[x_45709_Idx] = (x_45709[x_45709_Idx] + y_45711);
+framePtr = F.prev;
+}
 function extractprogram_70061(program_70063) {
 
 var result_70064 = null;
@@ -1603,14 +1768,6 @@ F.line = 85;
 result_76621 = 3;
 framePtr = F.prev;
 return result_76621;
-}
-function HEX2BHEX3D_45704(x_45709, x_45709_Idx, y_45711) {
-
-var F={procname:"+=.+=",prev:framePtr,filename:"lib/system.nim",line:0};
-framePtr = F;
-F.line = 3392;
-x_45709[x_45709_Idx] = (x_45709[x_45709_Idx] + y_45711);
-framePtr = F.prev;
 }
 function HEX5BHEX5D_76640(v_76646, i_76648) {
 
@@ -1794,13 +1951,6 @@ function degtorad_72824(d_72828) {
 var result_72829 = 0.0;
 result_72829 = (d_72828 * 1.7453292519943295e-02);
 return result_72829;
-}
-function raiseRangeError() {
-
-var e_13268 = null;
-e_13268 = {m_type: NTI3456, parent: null, name: null, message: null, trace: null};
-e_13268.message = nimCopy(null, makeNimstrLit("value out of range"), NTI138);
-raiseException(e_13268, "RangeError");
 }
 function tomatrix_71204(arr_71224) {
 
@@ -2006,14 +2156,6 @@ var mat_77057 = matmul_75193(matmul_75193(matmul_75193(matmul_75193(rotation_721
 eng_75183.context.uniformMatrix4fv(umatloc_75188, false, tof32a_70022(mat_77057));
 framePtr = F.prev;
 }
-function newseq_77154(len_77158) {
-
-var result_77160 = null;
-var F={procname:"newSeq.newSeq",prev:framePtr,filename:"lib/system.nim",line:0};
-framePtr = F;
-result_77160 = new Array(len_77158); for (var i=0;i<len_77158;++i) {result_77160[i]=0.0;}framePtr = F.prev;
-return result_77160;
-}
 function bufferdata_27936(gl_27938, target_27939, data_27940, usage_27941) {
 
 var F={procname:"webgl.bufferData",prev:framePtr,filename:"/data/data/com.termux/files/home/.nimble/pkgs/webgl/webgl.nim",line:0};
@@ -2058,24 +2200,42 @@ gl_70148.enableVertexAttribArray(aloc_70152);
 gl_70148.vertexAttribPointer(aloc_70152, itemsize_70151, 5126, false, 0, 0);
 framePtr = F.prev;
 }
-function drawtrianglefan_70178(gl_70180, buff_70181, p_70182, vertices_70184, color_70185, drawmode_70186) {
+function drawtriangles_70160(gl_70162, buff_70163, p_70164, vertices_70166, color_70167, drawmode_70168) {
 
-var F={procname:"gl.drawTriangleFan",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
+var F={procname:"gl.drawTriangles",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
 framePtr = F;
-uploadvertices_70153(gl_70180, buff_70181, vertices_70184, drawmode_70186);
-F.line = 113;
-var numvertices_70195 = divInt((vertices_70184 != null ? vertices_70184.length : 0), 4);
-bindcolor_70126(gl_70180, p_70182, makeNimstrLit("uColor"), color_70185);
-enableattribute_70146(gl_70180, p_70182, makeNimstrLit("aPosition"), 4);
-gl_70180.drawArrays(6, 0, numvertices_70195);
-gl_70180.flush();
+uploadvertices_70153(gl_70162, buff_70163, vertices_70166, drawmode_70168);
+F.line = 104;
+var numvertices_70177 = divInt((vertices_70166 != null ? vertices_70166.length : 0), 4);
+bindcolor_70126(gl_70162, p_70164, makeNimstrLit("uColor"), color_70167);
+enableattribute_70146(gl_70162, p_70164, makeNimstrLit("aPosition"), 4);
+gl_70162.drawArrays(4, 0, numvertices_70177);
+gl_70162.flush();
 framePtr = F.prev;
 }
-function drawtrianglefan_75167(eng_75169, vertices_75171, color_75172, drawmode_75173) {
+function drawtriangles_75160(eng_75162, vertices_75164, color_75165, drawmode_75166) {
 
-var F={procname:"renderer.drawTriangleFan",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+var F={procname:"renderer.drawTriangles",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
-drawtrianglefan_70178(eng_75169.context, eng_75169.buff, eng_75169.program, vertices_75171, color_75172, drawmode_75173);
+drawtriangles_70160(eng_75162.context, eng_75162.buff, eng_75162.program, vertices_75164, color_75165, drawmode_75166);
+framePtr = F.prev;
+}
+function drawb_77099(eng_77101, rect_77102) {
+
+var F={procname:"renderer.drawB",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+framePtr = F;
+setmatrixunif_75181(eng_77101, rect_77102, makeNimstrLit("uMatrix"));
+if (rect_77102.centered) {
+F.line = 123;
+var hw_77104 = (rect_77102.size.Field0 / 2.0000000000000000e+00);
+F.line = 124;
+var hh_77106 = (rect_77102.size.Field1 / 2.0000000000000000e+00);
+drawtriangles_75160(eng_77101, [-(hw_77104), -(hh_77106), 0.0, (1.0000000000000000e+00 / rect_77102.scale), hw_77104, -(hh_77106), 0.0, (1.0000000000000000e+00 / rect_77102.scale), -(hw_77104), hh_77106, 0.0, (1.0000000000000000e+00 / rect_77102.scale), -(hw_77104), hh_77106, 0.0, (1.0000000000000000e+00 / rect_77102.scale), hw_77104, hh_77106, 0.0, (1.0000000000000000e+00 / rect_77102.scale), hw_77104, -(hh_77106), 0.0, (1.0000000000000000e+00 / rect_77102.scale)], rect_77102.color, 35048);
+}
+else {
+drawtriangles_75160(eng_77101, [0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77102.scale), rect_77102.size.Field0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77102.scale), rect_77102.size.Field0, rect_77102.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77102.scale), rect_77102.size.Field0, rect_77102.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77102.scale), 0.0, rect_77102.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77102.scale), 0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77102.scale)], rect_77102.color, 35048);
+}
+
 framePtr = F.prev;
 }
 function drawlineloop_70196(gl_70198, buff_70199, p_70200, vertices_70202, color_70203, drawmode_70204) {
@@ -2096,6 +2256,154 @@ function drawlineloop_75174(eng_75176, vertices_75178, color_75179, drawmode_751
 var F={procname:"renderer.drawLineLoop",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
 framePtr = F;
 drawlineloop_70196(eng_75176.context, eng_75176.buff, eng_75176.program, vertices_75178, color_75179, drawmode_75180);
+framePtr = F.prev;
+}
+function drawr_77062(eng_77064, rect_77065) {
+
+var F={procname:"renderer.drawR",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+framePtr = F;
+setmatrixunif_75181(eng_77064, rect_77065, makeNimstrLit("uMatrix"));
+if (rect_77065.centered) {
+F.line = 99;
+var hw_77067 = (rect_77065.size.Field0 / 2.0000000000000000e+00);
+F.line = 100;
+var hh_77069 = (rect_77065.size.Field1 / 2.0000000000000000e+00);
+drawlineloop_75174(eng_77064, [-(hw_77067), -(hh_77069), 0.0, (1.0000000000000000e+00 / rect_77065.scale), hw_77067, -(hh_77069), 0.0, (1.0000000000000000e+00 / rect_77065.scale), hw_77067, hh_77069, 0.0, (1.0000000000000000e+00 / rect_77065.scale), -(hw_77067), hh_77069, 0.0, (1.0000000000000000e+00 / rect_77065.scale)], rect_77065.color, 35044);
+}
+else {
+drawlineloop_75174(eng_77064, [0.0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77065.scale), rect_77065.size.Field0, 0.0, 0.0, (1.0000000000000000e+00 / rect_77065.scale), rect_77065.size.Field0, rect_77065.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77065.scale), 0.0, rect_77065.size.Field1, 0.0, (1.0000000000000000e+00 / rect_77065.scale)], rect_77065.color, 35044);
+}
+
+framePtr = F.prev;
+}
+function draw_77438(r_77440, rect_77441) {
+
+var F={procname:"renderer.draw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+framePtr = F;
+if (rect_77441.filled) {
+drawb_77099(r_77440, rect_77441);
+}
+else {
+drawr_77062(r_77440, rect_77441);
+}
+
+framePtr = F.prev;
+}
+function newseq_77154(len_77158) {
+
+var result_77160 = null;
+var F={procname:"newSeq.newSeq",prev:framePtr,filename:"lib/system.nim",line:0};
+framePtr = F;
+result_77160 = new Array(len_77158); for (var i=0;i<len_77158;++i) {result_77160[i]=0.0;}framePtr = F.prev;
+return result_77160;
+}
+function drawtrianglefan_70178(gl_70180, buff_70181, p_70182, vertices_70184, color_70185, drawmode_70186) {
+
+var F={procname:"gl.drawTriangleFan",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/gl.nim",line:0};
+framePtr = F;
+uploadvertices_70153(gl_70180, buff_70181, vertices_70184, drawmode_70186);
+F.line = 113;
+var numvertices_70195 = divInt((vertices_70184 != null ? vertices_70184.length : 0), 4);
+bindcolor_70126(gl_70180, p_70182, makeNimstrLit("uColor"), color_70185);
+enableattribute_70146(gl_70180, p_70182, makeNimstrLit("aPosition"), 4);
+gl_70180.drawArrays(6, 0, numvertices_70195);
+gl_70180.flush();
+framePtr = F.prev;
+}
+function drawtrianglefan_75167(eng_75169, vertices_75171, color_75172, drawmode_75173) {
+
+var F={procname:"renderer.drawTriangleFan",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+framePtr = F;
+drawtrianglefan_70178(eng_75169.context, eng_75169.buff, eng_75169.program, vertices_75171, color_75172, drawmode_75173);
+framePtr = F.prev;
+}
+function drawd_77136(eng_77138, circle_77139, roughness_77140) {
+
+var F={procname:"renderer.drawD",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+framePtr = F;
+setmatrixunif_75181(eng_77138, circle_77139, makeNimstrLit("uMatrix"));
+F.line = 152;
+var verts_77179 = newseq_77154(chckRange(addInt(4, mulInt(mulInt(roughness_77140, 4), 2)), 0, 2147483647));
+F.line = 155;
+verts_77179[3] = (1.0000000000000000e+00 / circle_77139.scale);
+L1: do {
+F.line = 157;
+var i_77200 = 0;
+F.line = 1918;
+var HEX3Atmp_77212 = 0;
+F.line = 157;
+HEX3Atmp_77212 = subInt((verts_77179 != null ? verts_77179.length : 0), 1);
+F.line = 1908;
+var res_77215 = 4;
+L2: do {
+F.line = 1909;
+L3: while (true) {
+if (!(res_77215 <= HEX3Atmp_77212)) break L3;
+F.line = 1910;
+i_77200 = res_77215;
+F.line = 158;
+verts_77179[chckIndx(i_77200, 0, verts_77179.length)-0] = (circle_77139.radius * Math.cos((((HEX2F_20407(i_77200, 4) * 2.0000000000000000e+00) * 3.1415926535897931e+00) / roughness_77140)));
+F.line = 159;
+verts_77179[chckIndx(addInt(i_77200, 1), 0, verts_77179.length)-0] = (circle_77139.radius * Math.sin((((HEX2F_20407(i_77200, 4) * 2.0000000000000000e+00) * 3.1415926535897931e+00) / roughness_77140)));
+F.line = 160;
+verts_77179[chckIndx(addInt(i_77200, 2), 0, verts_77179.length)-0] = 0.0;
+F.line = 161;
+verts_77179[chckIndx(addInt(i_77200, 3), 0, verts_77179.length)-0] = (1.0000000000000000e+00 / circle_77139.scale);
+res_77215 = addInt(res_77215, 4);
+}
+} while(false);
+} while(false);
+drawtrianglefan_75167(eng_77138, verts_77179, circle_77139.color, 35048);
+framePtr = F.prev;
+}
+function drawc_77219(eng_77221, circle_77222, roughness_77223) {
+
+var F={procname:"renderer.drawC",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+framePtr = F;
+setmatrixunif_75181(eng_77221, circle_77222, makeNimstrLit("uMatrix"));
+F.line = 168;
+var verts_77252 = newseq_77154(chckRange(mulInt(roughness_77223, 4), 0, 2147483647));
+L1: do {
+F.line = 171;
+var i_77272 = 0;
+F.line = 1918;
+var HEX3Atmp_77287 = 0;
+F.line = 171;
+HEX3Atmp_77287 = subInt((verts_77252 != null ? verts_77252.length : 0), 1);
+F.line = 1908;
+var res_77290 = 0;
+L2: do {
+F.line = 1909;
+L3: while (true) {
+if (!(res_77290 <= HEX3Atmp_77287)) break L3;
+F.line = 1910;
+i_77272 = res_77290;
+F.line = 172;
+verts_77252[chckIndx(i_77272, 0, verts_77252.length)-0] = (circle_77222.radius * Math.cos(((i_77272 * 3.1415926535897931e+00) / (2.0000000000000000e+00 * roughness_77223))));
+F.line = 173;
+verts_77252[chckIndx(addInt(i_77272, 1), 0, verts_77252.length)-0] = (circle_77222.radius * Math.sin(((i_77272 * 3.1415926535897931e+00) / (2.0000000000000000e+00 * roughness_77223))));
+F.line = 174;
+verts_77252[chckIndx(addInt(i_77272, 2), 0, verts_77252.length)-0] = 0.0;
+F.line = 175;
+verts_77252[chckIndx(addInt(i_77272, 3), 0, verts_77252.length)-0] = (1.0000000000000000e+00 / circle_77222.scale);
+res_77290 = addInt(res_77290, 4);
+}
+} while(false);
+} while(false);
+drawlineloop_75174(eng_77221, verts_77252, circle_77222.color, 35044);
+framePtr = F.prev;
+}
+function draw_77442(r_77444, circle_77445, roughness_77446) {
+
+var F={procname:"renderer.draw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+framePtr = F;
+if (circle_77445.filled) {
+drawd_77136(r_77444, circle_77445, roughness_77446);
+}
+else {
+drawc_77219(r_77444, circle_77445, roughness_77446);
+}
+
 framePtr = F.prev;
 }
 function draw_77294(eng_77296, pol_77297) {
@@ -2172,6 +2480,90 @@ drawlineloop_75174(eng_77296, verts_77379, pol_77297.color, 35044);
 
 framePtr = F.prev;
 }
+function draw_77456(r_77458, b_77459) {
+
+var F={procname:"renderer.draw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/renderer.nim",line:0};
+framePtr = F;
+L1: do {
+F.line = 225;
+var rc_77602 = {m_type: NTI74018, size: {Field0: 0.0, Field1: 0.0}, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};
+F.line = 3495;
+var HEX3Atmp_78007 = null;
+F.line = 225;
+HEX3Atmp_78007 = b_77459.r;
+F.line = 3497;
+var i_78010 = 0;
+F.line = 3498;
+var L_78012 = (HEX3Atmp_78007 != null ? HEX3Atmp_78007.length : 0);
+L2: do {
+F.line = 3499;
+L3: while (true) {
+if (!(i_78010 < L_78012)) break L3;
+F.line = 3500;
+rc_77602 = HEX3Atmp_78007[chckIndx(i_78010, 0, HEX3Atmp_78007.length)-0];
+draw_77438(r_77458, rc_77602);
+i_78010 = addInt(i_78010, 1);
+if (!(((HEX3Atmp_78007 != null ? HEX3Atmp_78007.length : 0) == L_78012))) {
+failedassertimpl_21239(makeNimstrLit("len(a) == L seq modified while iterating over it"));
+}
+
+}
+} while(false);
+} while(false);
+L4: do {
+F.line = 226;
+var cr_77802 = {m_type: NTI74024, radius: 0.0, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};
+F.line = 3495;
+var HEX3Atmp_78014 = null;
+F.line = 226;
+HEX3Atmp_78014 = b_77459.c;
+F.line = 3497;
+var i_78017 = 0;
+F.line = 3498;
+var L_78019 = (HEX3Atmp_78014 != null ? HEX3Atmp_78014.length : 0);
+L5: do {
+F.line = 3499;
+L6: while (true) {
+if (!(i_78017 < L_78019)) break L6;
+F.line = 3500;
+cr_77802 = HEX3Atmp_78014[chckIndx(i_78017, 0, HEX3Atmp_78014.length)-0];
+draw_77442(r_77458, cr_77802, 32);
+i_78017 = addInt(i_78017, 1);
+if (!(((HEX3Atmp_78014 != null ? HEX3Atmp_78014.length : 0) == L_78019))) {
+failedassertimpl_21239(makeNimstrLit("len(a) == L seq modified while iterating over it"));
+}
+
+}
+} while(false);
+} while(false);
+L7: do {
+F.line = 227;
+var pl_78002 = {m_type: NTI74027, sides: 0, bcradius: 0.0, color: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false};
+F.line = 3495;
+var HEX3Atmp_78021 = null;
+F.line = 227;
+HEX3Atmp_78021 = b_77459.p;
+F.line = 3497;
+var i_78024 = 0;
+F.line = 3498;
+var L_78026 = (HEX3Atmp_78021 != null ? HEX3Atmp_78021.length : 0);
+L8: do {
+F.line = 3499;
+L9: while (true) {
+if (!(i_78024 < L_78026)) break L9;
+F.line = 3500;
+pl_78002 = HEX3Atmp_78021[chckIndx(i_78024, 0, HEX3Atmp_78021.length)-0];
+draw_77294(r_77458, pl_78002);
+i_78024 = addInt(i_78024, 1);
+if (!(((HEX3Atmp_78021 != null ? HEX3Atmp_78021.length : 0) == L_78026))) {
+failedassertimpl_21239(makeNimstrLit("len(a) == L seq modified while iterating over it"));
+}
+
+}
+} while(false);
+} while(false);
+framePtr = F.prev;
+}
 function torend_85213(e_85215) {
 
 var result_85216 = {context: null, program: {p: null, vertex: {source: null, s: null, kind: 0}, fragment: {source: null, s: null, kind: 0}, colors: null, attributes: null}, buff: null, b: {r: null, c: null, p: null}};
@@ -2182,11 +2574,81 @@ nimCopy(result_85216, e_85215.renderer, NTI75144);
 framePtr = F.prev;
 return result_85216;
 }
-function upd_86031(e_86027) {
+function draw_85279(en_85282) {
 
-var F={procname:"ex4.upd",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
+var F={procname:"engine.draw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-draw_77294(torend_85213(en_86001[0]), p_86004[0]);
+draw_77456(torend_85213(en_85282), en_85282.renderer.b);
+framePtr = F.prev;
+}
+function round_45664(x_45668, places_45670) {
+
+var result_45671 = 0.0;
+if ((places_45670 == 0)) {
+result_45671 = Math.round(x_45668);
+}
+else {
+var mult_45672 = Math.pow(1.0000000000000000e+01, places_45670);
+result_45671 = (Math.round((x_45668 * mult_45672)) / mult_45672);
+}
+
+return result_45671;
+}
+function updatefpscounter_86242(dt_86244) {
+
+var F={procname:"ex6.updateFpsCounter",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
+framePtr = F;
+F.line = 109;
+var domcounter_86245 = document.getElementById("_fpsCounter_");
+HEX2BHEX3D_45704(fpstime_86235, 0, dt_86244);
+fpsframes_86236[0] = addInt(fpsframes_86236[0], 1);
+if ((1.0000000000000000e+03 < fpstime_86235[0])) {
+F.line = 115;
+var fps_86270 = ((1.0000000000000000e+03 * fpsframes_86236[0]) / fpstime_86235[0]);
+F.line = 116;
+domcounter_86245.innerHTML = toJSStr((cstrToNimstr((round_45664(fps_86270, 0))+"").slice(0,-1)).concat(makeNimstrLit(" FPS")));
+F.line = 117;
+fpstime_86235[0] = 0.0;
+F.line = 118;
+fpsframes_86236[0] = 0;
+}
+
+framePtr = F.prev;
+}
+function upd_86307(e_86303) {
+
+var Tmp2;
+var Tmp5;
+var Tmp6;
+var F={procname:"ex6.upd",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
+framePtr = F;
+if (down_86283[0]) {
+L1: do {
+F.line = 24;
+var p_86402 = null;
+F.line = 3506;
+var i_86429 = 0;
+F.line = 3507;
+var L_86431 = ((Tmp2 = rectlist_85299(en_86001[0]), Tmp2[0])[Tmp2[1]] != null ? (Tmp2 = rectlist_85299(en_86001[0]), Tmp2[0])[Tmp2[1]].length : 0);
+L3: do {
+F.line = 3508;
+L4: while (true) {
+if (!(i_86429 < L_86431)) break L4;
+F.line = 3509;
+p_86402 = (Tmp5 = rectlist_85299(en_86001[0]), Tmp5[0])[Tmp5[1]][chckIndx(i_86429, 0, (Tmp5 = rectlist_85299(en_86001[0]), Tmp5[0])[Tmp5[1]].length)-0];
+HEX2BHEX3D_45704(p_86402.pos, "Field1", ((3.0000000000000000e+01 * dt_86306[0]) / 1.0000000000000000e+03));
+i_86429 = addInt(i_86429, 1);
+if (!((((Tmp6 = rectlist_85299(en_86001[0]), Tmp6[0])[Tmp6[1]] != null ? (Tmp6 = rectlist_85299(en_86001[0]), Tmp6[0])[Tmp6[1]].length : 0) == L_86431))) {
+failedassertimpl_21239(makeNimstrLit("len(a) == L seq modified while iterating over it"));
+}
+
+}
+} while(false);
+} while(false);
+}
+
+draw_85279(en_86001[0]);
+updatefpscounter_86242(dt_86306[0]);
 framePtr = F.prev;
 }
 function requestanimationframe_28124(fn_28129) {
@@ -2196,19 +2658,19 @@ framePtr = F;
 F.line = 331;
 window.requestAnimationFrame(fn_28129);framePtr = F.prev;
 }
-function innerframedraw_86037(now_86029) {
+function innerframedraw_86433(now_86305) {
 
-var F={procname:"ex4.innerframedraw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
+var F={procname:"ex6.innerframedraw",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
 F.line = 38;
-dt_86030[0] = (now_86029 - lastt_86025[0]);
+dt_86306[0] = (now_86305 - lastt_86301[0]);
 F.line = 39;
-lastt_86025[0] = now_86029;
-emit_57410(en_86001[0].evloop, makeNimstrLit("update"), {dt: dt_86030[0], kind: 0, key: 0, mods: 0, button: 0, kmods: 0, pos: {Field0: 0.0, Field1: 0.0}});
-requestanimationframe_28124(innerframedraw_86037);
+lastt_86301[0] = now_86305;
+emit_57410(en_86001[0].evloop, makeNimstrLit("update"), {dt: dt_86306[0], kind: 0, key: 0, mods: 0, button: 0, kmods: 0, pos: {Field0: 0.0, Field1: 0.0}});
+requestanimationframe_28124(innerframedraw_86433);
 framePtr = F.prev;
 }
-var lastt_86025 = /**/[0.0];
-var dt_86030 = /**/[0.0];
-on_57279(en_86001[0].evloop, makeNimstrLit("update"), upd_86031);
-innerframedraw_86037(0.0);
+var lastt_86301 = /**/[0.0];
+var dt_86306 = /**/[0.0];
+on_57279(en_86001[0].evloop, makeNimstrLit("update"), upd_86307);
+innerframedraw_86433(0.0);

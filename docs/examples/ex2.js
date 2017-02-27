@@ -900,9 +900,9 @@ canvas_57211.height = h_57209;
 F.line = 23;
 result_57210.ctx = getcontextwebgl_56122(canvas_57211);
 F.line = 24;
-result_57210.width = canvas_57211.width;
+result_57210.width = canvas_57211.clientWidth;
 F.line = 25;
-result_57210.height = canvas_57211.height;
+result_57210.height = canvas_57211.clientHeight;
 F.line = 26;
 console.log(result_57210.width,result_57210.height);framePtr = F.prev;
 return result_57210;
@@ -1262,7 +1262,7 @@ if (!((j_72453 < 4))) {
 failedassertimpl_21239(makeNimstrLit("j < M Column index out of bounds"));
 }
 
-F.line = 32;
+F.line = 36;
 m_72449.data[chckIndx(addInt(mulInt(i_72451, 4), j_72453), 0, m_72449.data.length)-0] = val_72455;
 framePtr = F.prev;
 }
@@ -1349,7 +1349,7 @@ failedassertimpl_21239(makeNimstrLit("r < N The matrix has less rows than the re
 
 result_75694.data = new Float64Array(4);
 L1: do {
-F.line = 94;
+F.line = 99;
 var i_76010 = 0;
 F.line = 3689;
 var i_76014 = 0;
@@ -1359,7 +1359,7 @@ L3: while (true) {
 if (!(i_76014 < 4)) break L3;
 F.line = 3691;
 i_76010 = i_76014;
-F.line = 94;
+F.line = 99;
 result_75694.data[chckIndx(i_76010, 0, result_75694.data.length)-0] = m_75658.data[chckIndx(addInt(mulInt(r_75660, 4), i_76010), 0, m_75658.data.length)-0];
 i_76014 = addInt(i_76014, 1);
 }
@@ -1379,7 +1379,7 @@ failedassertimpl_21239(makeNimstrLit("c < M The matrix has less cols than the re
 
 result_76089.data = new Float64Array(4);
 L1: do {
-F.line = 107;
+F.line = 112;
 var i_76410 = 0;
 F.line = 3689;
 var i_76414 = 0;
@@ -1389,7 +1389,7 @@ L3: while (true) {
 if (!(i_76414 < 4)) break L3;
 F.line = 3691;
 i_76410 = i_76414;
-F.line = 107;
+F.line = 112;
 result_76089.data[chckIndx(i_76410, 0, result_76089.data.length)-0] = m_76053.data[chckIndx(addInt(mulInt(i_76410, 4), c_76055), 0, m_76053.data.length)-0];
 i_76414 = addInt(i_76414, 1);
 }
@@ -1405,7 +1405,7 @@ var F={procname:"matMul.matMul",prev:framePtr,filename:"/data/data/com.termux/fi
 framePtr = F;
 result_75295[0].data = new Float64Array(16);
 L1: do {
-F.line = 128;
+F.line = 133;
 var r_75610 = 0;
 F.line = 3689;
 var i_76734 = 0;
@@ -1416,7 +1416,7 @@ if (!(i_76734 < 4)) break L3;
 F.line = 3691;
 r_75610 = i_76734;
 L4: do {
-F.line = 129;
+F.line = 134;
 var c_75620 = 0;
 F.line = 3689;
 var i_76730 = 0;
@@ -1445,7 +1445,7 @@ var F={procname:"identity.identity",prev:framePtr,filename:"/data/data/com.termu
 framePtr = F;
 result_72201[0].data = new Float64Array(16);
 L1: do {
-F.line = 85;
+F.line = 90;
 var i_72410 = 0;
 F.line = 3689;
 var i_72806 = 0;
@@ -1488,7 +1488,7 @@ failedassertimpl_21239(makeNimstrLit("\x0A  true "));
 
 if (false) {
 L1: do {
-F.line = 63;
+F.line = 67;
 var i_71814 = 0;
 F.line = 1908;
 var res_71818 = 0;
@@ -1498,7 +1498,7 @@ L3: while (true) {
 if (!(res_71818 <= 15)) break L3;
 F.line = 1910;
 i_71814 = chckRange(res_71818, 0, 15);
-F.line = 63;
+F.line = 67;
 result_71262.data[chckIndx(i_71814, 0, result_71262.data.length)-0] = arr_71224[chckIndx(i_71814, 0, arr_71224.length)-0];
 res_71818 = addInt(res_71818, 1);
 }
@@ -1506,7 +1506,7 @@ res_71818 = addInt(res_71818, 1);
 } while(false);
 }
 else {
-F.line = 65;
+F.line = 69;
 nimCopy(result_71262.data, arr_71224, NTI71211);
 }
 

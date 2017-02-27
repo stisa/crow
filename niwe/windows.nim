@@ -21,6 +21,6 @@ when defined js:
       canvas.height = h
   # if undefined, TODO: append a canvas
     result.ctx = getContextWebgl(canvas)
-    result.width = canvas.width
-    result.height = canvas.height
+    result.width = canvas.clientwidth
+    result.height = canvas.clientheight
     {.emit:"console.log(`result`.width,`result`.height);"}

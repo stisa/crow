@@ -52,8 +52,6 @@ template update*(en:var Engine,body:untyped):untyped =
 
   en.evloop.on("resize",ors)]#
 
-
-
 template onclick*(en:var Engine,body:untyped){.dirty}=
   import dom
   from webgl import getboundingclientrect
@@ -84,8 +82,6 @@ function getMousePos(canvas, evt) {
 
   en.evloop.on("click",ock)
 
- 
-
 template setupFpsCounter*(onID:string = "body"){.dirty}=
   import dom
   from math import round
@@ -96,7 +92,7 @@ template setupFpsCounter*(onID:string = "body"){.dirty}=
     fel.innerHTML = "FPS Counter"
     #proc setAttribute*(n: Node, name, value: cstring)
     fel.setAttribute("ID","_fpsCounter_")
-    fel.setAttribute("STYLE","position:absolute;top:2em;left:1em; z-index:10;")
+    fel.setAttribute("STYLE","position:relative;top:-2em;left:1em;border:0.1em solid black; max-width:5em;text-align:right;background-color:ghostwhite; z-index:10;")
     if toID=="body":
       document.body.appendChild(fel)
     else:
@@ -105,7 +101,9 @@ template setupFpsCounter*(onID:string = "body"){.dirty}=
       #echo "appending to ",toid
 
       parent.appendChild(fel)
+
   appendFpsCounter(onID)
+
   proc updateFpsCounter*(dt : float) =
 
     var dom_counter = dom.document.getElementById("_fpsCounter_")
@@ -131,9 +129,13 @@ proc draw*(en:var Engine) = en.draw(en.renderer.b)
 
 proc add*(en:var Engine,d:auto) = en.renderer.b.add(d)
 
-from primitives import Polygon
+from primitives import Polygon,Rect,Circle
 
 proc polygonlist*(en:var Engine): var seq[Polygon] = en.renderer.b.p
+
+proc rectlist*(en:var Engine): var seq[Rect] = en.renderer.b.r
+
+proc circlelist*(en:var Engine): var seq[Circle] = en.renderer.b.c
 
 when isMainModule and defined(js):
   import primitives

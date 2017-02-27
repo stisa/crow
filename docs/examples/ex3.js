@@ -1146,9 +1146,9 @@ canvas_29211.height = h_29209;
 F.line = 23;
 result_29210.ctx = getcontextwebgl_28120(canvas_29211);
 F.line = 24;
-result_29210.width = canvas_29211.width;
+result_29210.width = canvas_29211.clientWidth;
 F.line = 25;
-result_29210.height = canvas_29211.height;
+result_29210.height = canvas_29211.clientHeight;
 F.line = 26;
 console.log(result_29210.width,result_29210.height);framePtr = F.prev;
 return result_29210;
@@ -1387,17 +1387,17 @@ function appendfpscounter_86016(toid_86018) {
 
 var F={procname:"ex3.appendFpsCounter",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 95;
+F.line = 91;
 var fel_86019 = document.createElement("DIV");
-F.line = 96;
+F.line = 92;
 fel_86019.innerHTML = "FPS Counter";
 fel_86019.setAttribute("ID", "_fpsCounter_");
-fel_86019.setAttribute("STYLE", "position:absolute;top:2em;left:1em; z-index:10;");
+fel_86019.setAttribute("STYLE", "position:relative;top:-2em;left:1em;border:0.1em solid black; max-width:5em;text-align:right;background-color:ghostwhite; z-index:10;");
 if (eqStrings(toid_86018, makeNimstrLit("body"))) {
 document.body.appendChild(fel_86019);
 }
 else {
-F.line = 103;
+F.line = 99;
 var parent_86020 = document.getElementById(toJSStr(toid_86018));
 parent_86020.appendChild(fel_86019);
 }
@@ -1532,7 +1532,7 @@ function clickev_86066(e_86069) {
 
 var F={procname:"ex3.clickev",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 72;
+F.line = 70;
 var brect_86070 = getboundingclientrect_27912(en_86001[0].window.ctx.canvas);
 emit_57410(en_86001[0].evloop, makeNimstrLit("click"), {kind: 1, button: e_86069.button, pos: {Field0: (e_86069.clientX - brect_86070.Field2), Field1: (e_86069.clientY - brect_86070.Field0)}, key: 0, mods: 0, kmods: 0, dt: 0.0});
 framePtr = F.prev;
@@ -1630,7 +1630,7 @@ if (!((j_72453 < 4))) {
 failedassertimpl_21239(makeNimstrLit("j < M Column index out of bounds"));
 }
 
-F.line = 32;
+F.line = 36;
 m_72449.data[chckIndx(addInt(mulInt(i_72451, 4), j_72453), 0, m_72449.data.length)-0] = val_72455;
 framePtr = F.prev;
 }
@@ -1717,7 +1717,7 @@ failedassertimpl_21239(makeNimstrLit("r < N The matrix has less rows than the re
 
 result_75694.data = new Float64Array(4);
 L1: do {
-F.line = 94;
+F.line = 99;
 var i_76010 = 0;
 F.line = 3689;
 var i_76014 = 0;
@@ -1727,7 +1727,7 @@ L3: while (true) {
 if (!(i_76014 < 4)) break L3;
 F.line = 3691;
 i_76010 = i_76014;
-F.line = 94;
+F.line = 99;
 result_75694.data[chckIndx(i_76010, 0, result_75694.data.length)-0] = m_75658.data[chckIndx(addInt(mulInt(r_75660, 4), i_76010), 0, m_75658.data.length)-0];
 i_76014 = addInt(i_76014, 1);
 }
@@ -1747,7 +1747,7 @@ failedassertimpl_21239(makeNimstrLit("c < M The matrix has less cols than the re
 
 result_76089.data = new Float64Array(4);
 L1: do {
-F.line = 107;
+F.line = 112;
 var i_76410 = 0;
 F.line = 3689;
 var i_76414 = 0;
@@ -1757,7 +1757,7 @@ L3: while (true) {
 if (!(i_76414 < 4)) break L3;
 F.line = 3691;
 i_76410 = i_76414;
-F.line = 107;
+F.line = 112;
 result_76089.data[chckIndx(i_76410, 0, result_76089.data.length)-0] = m_76053.data[chckIndx(addInt(mulInt(i_76410, 4), c_76055), 0, m_76053.data.length)-0];
 i_76414 = addInt(i_76414, 1);
 }
@@ -1773,7 +1773,7 @@ var F={procname:"matMul.matMul",prev:framePtr,filename:"/data/data/com.termux/fi
 framePtr = F;
 result_75295[0].data = new Float64Array(16);
 L1: do {
-F.line = 128;
+F.line = 133;
 var r_75610 = 0;
 F.line = 3689;
 var i_76734 = 0;
@@ -1784,7 +1784,7 @@ if (!(i_76734 < 4)) break L3;
 F.line = 3691;
 r_75610 = i_76734;
 L4: do {
-F.line = 129;
+F.line = 134;
 var c_75620 = 0;
 F.line = 3689;
 var i_76730 = 0;
@@ -1813,7 +1813,7 @@ var F={procname:"identity.identity",prev:framePtr,filename:"/data/data/com.termu
 framePtr = F;
 result_72201[0].data = new Float64Array(16);
 L1: do {
-F.line = 85;
+F.line = 90;
 var i_72410 = 0;
 F.line = 3689;
 var i_72806 = 0;
@@ -1856,7 +1856,7 @@ failedassertimpl_21239(makeNimstrLit("\x0A  true "));
 
 if (false) {
 L1: do {
-F.line = 63;
+F.line = 67;
 var i_71814 = 0;
 F.line = 1908;
 var res_71818 = 0;
@@ -1866,7 +1866,7 @@ L3: while (true) {
 if (!(res_71818 <= 15)) break L3;
 F.line = 1910;
 i_71814 = chckRange(res_71818, 0, 15);
-F.line = 63;
+F.line = 67;
 result_71262.data[chckIndx(i_71814, 0, result_71262.data.length)-0] = arr_71224[chckIndx(i_71814, 0, arr_71224.length)-0];
 res_71818 = addInt(res_71818, 1);
 }
@@ -1874,7 +1874,7 @@ res_71818 = addInt(res_71818, 1);
 } while(false);
 }
 else {
-F.line = 65;
+F.line = 69;
 nimCopy(result_71262.data, arr_71224, NTI71211);
 }
 
@@ -2241,18 +2241,18 @@ function updatefpscounter_86021(dt_86023) {
 
 var F={procname:"ex3.updateFpsCounter",prev:framePtr,filename:"/data/data/com.termux/files/home/proj/niwe/niwe/engine.nim",line:0};
 framePtr = F;
-F.line = 111;
+F.line = 109;
 var domcounter_86024 = document.getElementById("_fpsCounter_");
 HEX2BHEX3D_45704(fpstime_86014, 0, dt_86023);
 fpsframes_86015[0] = addInt(fpsframes_86015[0], 1);
 if ((1.0000000000000000e+03 < fpstime_86014[0])) {
-F.line = 117;
+F.line = 115;
 var fps_86049 = ((1.0000000000000000e+03 * fpsframes_86015[0]) / fpstime_86014[0]);
-F.line = 118;
+F.line = 116;
 domcounter_86024.innerHTML = toJSStr((cstrToNimstr((round_45664(fps_86049, 0))+"").slice(0,-1)).concat(makeNimstrLit(" FPS")));
-F.line = 119;
+F.line = 117;
 fpstime_86014[0] = 0.0;
-F.line = 120;
+F.line = 118;
 fpsframes_86015[0] = 0;
 }
 
