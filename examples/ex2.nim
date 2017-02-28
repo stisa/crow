@@ -1,4 +1,4 @@
-import ../niwe/[events,windows,gl,renderer,colors,primitives]
+import ../crow/[events,windows,gl,renderer,colors,primitives]
 from webgl import resize
 var evq = initEvents()
 var w = initWindow()

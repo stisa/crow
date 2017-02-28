@@ -1,6 +1,6 @@
 # Click to change color
 
-import ../niwe/[events,windows],random
+import ../crow/[events,windows],random
 from webgl import ColorBufferBit
 var evloop = initEvents()
 
