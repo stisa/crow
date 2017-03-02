@@ -21,8 +21,7 @@ type GL* = WebglRenderingContext # shorthand
 const VECSIZE :int = 4
 
 converter toF32A*(m:Matrix[4,4]):Float32Array = 
-  var am = m.data[]
-  {.emit: "`result` = new Float32Array(`am`);\n".}
+  {.emit: "`result` = `m`.data;\n".}
 converter extractProgram*(program: Program): WebglProgram = program.p
 converter extractShader*(sh:Shader): WebglShader = sh.s
 

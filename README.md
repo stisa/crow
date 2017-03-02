@@ -18,3 +18,12 @@ Draw primitives using `gl.nim`
 
 Notes:
 - currently only webgl sort of works
+
+
+Todo:
+
+- avoid recreating all float32array
+- don't lie using emit
+- drop emits from webgl
+- use importcpp, exportcpp in webgl
+

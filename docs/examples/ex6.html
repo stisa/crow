@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="description" content="Examples for niwe">
+  <meta name="description" content="Examples for crow">
   <meta name="author" content="stisa">
   <link rel="stylesheet" href="http://stisa.space/css/main.css">
   <link rel="stylesheet" href="http://stisa.space/css/prism.css">
@@ -27,7 +27,7 @@
       <a href="/projects/">Projects</a>
       <a href="/about/">About Me</a>
       <br/>
-      <a href="/niwe/">niwe</a>
+      <a href="/crow/">crow</a>
     </div>
   </header>
   <section class="content">
@@ -42,7 +42,7 @@
     </section>
     <section class="examplecode">
       <h2>Code</h2>
-      <pre><code class="language-nim">import ../niwe/[engine,primitives,colors]
+      <pre><code class="language-nim">import ../crow/[engine,primitives,colors]
 import random
 var en = initEngine()
 
@@ -53,8 +53,9 @@ var squareh = en.window.height div 20
 
 for j in 0..squarew:
   for i in 0..squareh:
-    en.add(box(j.float*squarew.float,i.float*squareh.float,
-                squarew.float-1,squareh.float-1,
+    en.add(polygon(j.float*squarew.float,i.float*squareh.float,
+                sides = 3,
+                boundingcircleradius = squarew.float-1,
                 color=randomRGB()))
 
 setupFpsCounter("output")
@@ -65,7 +66,7 @@ onclick en:
    
 update en:
   if down:
-    for p in en.rectlist.mitems :  p.pos.y += 30*dt/1000
+    for p in en.polygonlist.mitems :  p.pos.y += 30*dt/1000
  
   en.draw()
   updatefpscounter(dt)

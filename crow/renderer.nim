@@ -83,13 +83,14 @@ proc setMatrixUnif(eng:Renderer,rend:Renderable,uniform:string) =
 
   let uMatLoc = eng.context.getUniformLocation(eng.program, uniform)
 
-  let mat = rotation(rend.rot)*
+  let mat = rotation(rend.rot)*# TODO: a single proc for all 3 ops
             translation(
              rend.pos.x,rend.pos.y)*
             translation(
              rend.origin.x,rend.origin.y)*
-            translation(-w/2,-h/2)*
-            scaling(w/2,-h/2)
+            projection(w.float,h.float)
+          #  translation(-w/2,-h/2)*
+          #  scaling(w/2,-h/2)
   eng.context.uniformMatrix4fv(uMatLoc,false,mat)
 
 
@@ -180,6 +181,8 @@ proc draw*(eng:Renderer, pol:Polygon) =
   eng.setMatrixUnif(pol,"uMatrix")
   
   if pol.filled:
+ 
+    #[
     # each line has x,y x1,y1
     # the last one is the first
     var verts = newSeq[float](
@@ -195,10 +198,11 @@ proc draw*(eng:Renderer, pol:Polygon) =
                    sin( i.float*Pi/(pol.sides.float*2)) # y
       verts[i+2] = 0 # z
       verts[i+3] = 1/pol.scale # w
-    
-    eng.drawTriangleFan( verts, pol.color)
+    ]#
+    eng.drawTriangleFan( pol.verts, pol.color)
     
   else:
+    #[
     var verts = newSeq[float](pol.sides*VECSIZE) # each line has x,y x1,y1, the last one is the first
     
     #Set outer vertices
@@ -208,7 +212,8 @@ proc draw*(eng:Renderer, pol:Polygon) =
       verts[i+2] = 0 # z
       verts[i+3] = 1/pol.scale # w
       #log(verts[i],verts[i+1])
-    eng.drawLineLoop( verts, pol.color)
+    ]#
+    eng.drawLineLoop( pol.verts, pol.color)
 
 proc draw*(r:Renderer, rect:Rect)=
   if rect.filled: r.drawB(rect)

@@ -9,8 +9,9 @@ var squareh = en.window.height div 20
 
 for j in 0..squarew:
   for i in 0..squareh:
-    en.add(box(j.float*squarew.float,i.float*squareh.float,
-                squarew.float-1,squareh.float-1,
+    en.add(polygon(j.float*squarew.float,i.float*squareh.float,
+                sides = 3,
+                boundingcircleradius = squarew.float-1,
                 color=randomRGB()))
 
 setupFpsCounter("output")
@@ -21,7 +22,7 @@ onclick en:
    
 update en:
   if down:
-    for p in en.rectlist.mitems :  p.pos.y += 30*dt/1000
+    for p in en.polygonlist.mitems :  p.pos.y += 30*dt/1000
  
   en.draw()
   updatefpscounter(dt)
