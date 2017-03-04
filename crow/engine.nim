@@ -1,4 +1,5 @@
-import windows,events,colors,renderer,gl
+import windows,events,colors,renderer
+import gl except Renderer
 when defined js:
   from webgl import WebglRenderingContext,Canvas
   import dom except Window
@@ -89,7 +90,7 @@ template setupFpsCounter*(onID:string = "body"){.dirty}=
   var fps_time = 0.0
   var fps_frames = 0
   proc appendFpsCounter*(toID:string="body") =
-    var fel = document.createElement("DIV")
+    var fel = document.createElement("P")
     fel.innerHTML = "FPS Counter"
     #proc setAttribute*(n: Node, name, value: cstring)
     fel.setAttribute("ID","_fpsCounter_")

@@ -1,8 +1,8 @@
-import gl,colors, snail/[matrix,graphic]
+import colors, snail/[matrix,graphic]
 import primitives
 from math import cos,sin,Pi
-
-from webgl import WebglBuffer,Canvas,resize,Glenum,StaticDraw,DynamicDraw # TODO: move these out to gl, abstract 'em all
+import ./gl except Color
+#from webgl import  # TODO: move these out to gl, abstract 'em all
 
 const VECSIZE = 4
 

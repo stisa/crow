@@ -1,6 +1,6 @@
 import webgl except Color,Red,Black,Green,Renderer
 import colors, snail/matrix
-export webgl.requestAnimationFrame
+export webgl except COLOR # webgl.requestAnimationFrame,createbuffer,WebglBuffer,Canvas,resize,Glenum,StaticDraw,DynamicDraw
 
 type ShaderKind* = enum
   Fragment, Vertex
@@ -20,8 +20,8 @@ type GL* = WebglRenderingContext # shorthand
 
 const VECSIZE :int = 4
 
-converter toF32A*(m:Matrix[4,4]):Float32Array = 
-  {.emit: "`result` = `m`.data;\n".}
+converter toF32A*(m:Matrix[4,4]):Float32Array {.importcpp: "new Float32Array(#.data)"}
+
 converter extractProgram*(program: Program): WebglProgram = program.p
 converter extractShader*(sh:Shader): WebglShader = sh.s
 

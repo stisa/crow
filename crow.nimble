@@ -9,9 +9,11 @@ requires: "nim >= 0.14.0"
 requires: "webgl"
 requires: "snail"
 
+import ospaths
 
-task exampler:
-  exec("../exampler/exampler")
-  withdir "docs/examples":
-    exec("nim js -o:ex1.js ex1.nim")
-    exec("nim js -o:ex2.js ex2.nim")
+task exampler, "Builds examples":
+  exec("exampler")
+  withdir "examples":
+    for file in listfiles("."):
+      if splitfile(file).ext == ".nim":
+        exec "nim js -o:../docs/examples/"&file.changefileext("js")&" "&file
