@@ -39,7 +39,7 @@ template update*(en:var Engine,body:untyped):untyped =
   proc innerframedraw(now:float=0)=
     dt = now-last_t
     last_t = now
-    en.evloop.emit("update",EventArgs(dt:dt))
+    en.evloop.emit("update",EventArgs(kind:evUpdate, dt:dt))
     requestAnimationFrame(innerframedraw)
   innerframedraw()
 

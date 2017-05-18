@@ -11,7 +11,7 @@ for i in 0..100:
                  filled=true,
                  color=randomRGB()))
 
-setupFpsCounter("output")
+setupFpsCounter()
 
 var clockwise = true
 onclick en:

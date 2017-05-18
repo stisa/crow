@@ -2,44 +2,42 @@
  
 type
   Entity* = ref object of Rootobj
-    id: Natural
-    name: string
-    parent : Entity
-    components: seq[Component]
+    id: string
 
   Component* = ref object of Rootobj
     id: Natural
     entity: Entity 
 
-proc hash(str:string):Natural =
-    result = 0x67
-    for i in 0..<str.len:
-      result += str[i].int
-      result *= 0x6F
+proc jenkins_one_at_a_time_hash(key:string):string =
+  var hash = 0
+  for c in key:
+    hash += c.int
+    hash += hash shl 10
+    hash = hash xor ( hash shr 6)
+
+  hash += hash shl 3;
+  hash =  hash xor (hash shr 11)
+  hash += hash shl 15;
+  return $hash
 
 proc entity(name:string):Entity =
   new result
-  result.id = hash name
-  result.name = name
-  result.components = newSeq[Component]()
+  result.id = name&"_"&jenkins_one_at_a_time_hash(name)
 
 type Pos = ref object of Component
   x,y:float
 
-proc pos(x,y:float):Pos= new result
+proc pos(e:Entity,x,y:float):Pos= 
+  result.entity = e
+  result.x = x
+  result.y = y
 
 proc `entity=`(c: var Component,e : var Entity)=
   c.entity = e
-  e.components &= c
 
-proc add(e : var Entity,c: var Component)=
+proc add(e : Entity,c: var Component)=
   c.entity = e
-  e.components &= c
-
-proc add(e : var Entity,c: Component)=
-  c.entity = e
-  e.components &= c
 
 var e = entity("one")
-e.add(pos(0.0,0.0))
+e.pos(0.0,0.0)
 echo repr e

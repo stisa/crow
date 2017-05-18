@@ -4,7 +4,7 @@
 # - width
 # - height
 when defined js :
-  from webgl import WebGlRenderingContext,Canvas,getContext
+  from webgl import WebGlRenderingContext,Canvas,getContextwebgl
 
 
 type Window* = object
@@ -20,7 +20,7 @@ when defined js:
       canvas.width = w
       canvas.height = h
   # if undefined, TODO: append a canvas
-    result.ctx = canvas.getContext("webgl")
+    result.ctx = canvas.getContextwebgl()
     result.width = canvas.clientwidth
     result.height = canvas.clientheight
     #{.emit:"console.log(`result`.width,`result`.height);"}

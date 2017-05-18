@@ -61,29 +61,30 @@ proc initRenderer*(gl:GL,clear:Color=White):Renderer =
   gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight)
   result.b = batcher() #default batcher 
 
-proc uploadVertices(eng:Renderer, vertices:seq[float], drawMode:GLenum=StaticDraw){.inline} =
+proc uploadVertices(eng:Renderer, vertices:seq[float], drawMode:BufferEnum=beStaticDraw){.inline} =
   ## Bind vertices to the context
   eng.context.uploadvertices(eng.buff,vertices,drawmode)
 
-proc drawTriangles(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:GLenum=DynamicDraw) =
+proc drawTriangles(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:BufferEnum=beStaticDraw) =
   ## Draw triangles
   eng.context.drawtriangles(eng.buff,eng.program,vertices,color,drawmode)
   
-proc drawTriangleFan(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:GLenum=DynamicDraw) =
+proc drawTriangleFan(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:BufferEnum=beStaticDraw) =
   ## Draw a fan of triangles
   eng.context.drawtrianglefan(eng.buff,eng.program,vertices,color,drawmode)
 
-proc drawLineLoop(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:GLenum=StaticDraw) =
+proc drawLineLoop(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:BufferEnum=beStaticDraw) =
   ## Draw a closed loop of lines
   eng.context.drawlineloop(eng.buff,eng.program,vertices,color,drawmode)
 
 proc setMatrixUnif(eng:Renderer,rend:Renderable,uniform:string) =
+  if not rend.dirty: return
   let w = eng.context.drawingbufferwidth
   let h = eng.context.drawingbufferheight
 
   let uMatLoc = eng.context.getUniformLocation(eng.program, uniform)
 
-  let mat = rotation(rend.rot)*# TODO: a single proc for all 3 ops
+  let mat = rotation(rend.rot) * # TODO: a single proc for all 3 ops
             translation(
              rend.pos.x,rend.pos.y)*
             translation(

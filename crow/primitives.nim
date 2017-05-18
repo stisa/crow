@@ -10,6 +10,7 @@ type Renderable* = object of Rootobj# Todo: concepts?
   centered*: bool
   filled*: bool
   verts*: seq[float]
+  dirty*:bool
 
 type Rect* = object of Renderable
   ## A rectangle. For filled rectangles see box.
@@ -63,10 +64,11 @@ proc `sides=`*(p:var Polygon,news:Natural)=
 proc `bcradius=`*(p:var Polygon,bcr:float)=
   p.bcradius = bcr
   p.setupvertices
+  p.dirty = true
 proc `scale=`*(p:var Polygon,scale:float)=
   p.scale = scale
   p.setupvertices
-
+  p.dirty = true
 proc rect*(
     x,y:float=0.0,
     w,h:float=10.0,
@@ -79,6 +81,7 @@ proc rect*(
   #result.origin = (-w/2,-h/2) # default to centered for consistency
   result.scale = 1.0
   result.centered =  centered
+  result.dirty = true
 
 proc box*(x,y:float=0.0,w,h:float=10.0,color:Color=Red,centered:bool=true):Rect =
   result.color = color
@@ -88,12 +91,14 @@ proc box*(x,y:float=0.0,w,h:float=10.0,color:Color=Red,centered:bool=true):Rect 
   result.scale = 1.0
   result.centered = centered
   result.filled = true
+  result.dirty = true
 
 proc circle*(x,y:float=0.0,r:float=10.0,color:Color=Red):Circle =
   result.color = color
   result.pos = (x,y)
   result.radius = r
   result.scale = 1.0
+  result.dirty = true
 
 proc disk*(x,y:float=0.0,r:float=10.0,color:Color=Red):Circle =
   result.color = color
@@ -101,6 +106,7 @@ proc disk*(x,y:float=0.0,r:float=10.0,color:Color=Red):Circle =
   result.radius = r
   result.scale = 1.0
   result.filled = true
+  result.dirty = true
 
 proc polygon* (
     x,y:float=0.0,
@@ -117,5 +123,17 @@ proc polygon* (
   result.bcradius = boundingcircleradius
   result.filled = filled
   result.scale = 1.0
+  result.dirty = true
   result.setupvertices
 
+proc `rot=`*(r:var Renderable,rot:float) = 
+  r.rot = rot
+  r.dirty = true
+
+proc `color=`*(r:var Renderable,col:Color) = 
+  r.color = col
+  r.dirty = true
+
+proc `pos=`*(r:var Renderable,pos:tuple[x,y:float]) = 
+  r.pos = pos
+  r.dirty = true

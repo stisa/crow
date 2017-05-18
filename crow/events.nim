@@ -48,7 +48,7 @@ type
     of evKey:
       key*:keymap.KeyCode
       mods*:int
-    of evClick:
+    of evClick,evMouse:
       button*:int
       kmods*:int
       pos*: tuple[x,y:float]
