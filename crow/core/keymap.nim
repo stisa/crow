@@ -355,5 +355,4 @@ else:
     348: kMENU }.toTable
 
   proc toGLFWKC*(k:int):KeyCode = native_scan_codes[k]
-  
-  
+

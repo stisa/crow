@@ -156,16 +156,17 @@ when defined js:
 
 else: 
   import windows
-
-  proc keyCb(o: Win, key: Key, scanCode: int, action: KeyAction,
-      modKeys: ModifierKeySet) =
-    
-    evloop.emit("keyEv", EventArgs(kind:evKey,key:key.int.toGLFWKC()))
+  import glfw
+  proc initEvents*(w:Window):EventEmitter =
+    result = initeventemitter()
+    proc keyCb(o: Win, key: Key, scanCode: int, action: KeyAction,
+        modKeys: ModifierKeySet) =
+      result.emit("keyEv", EventArgs(kind:evKey,key:key.int.toGLFWKC())) 
+      
+    w.ctx.keyCb = keyCb
 
 #    echo("Key: ", key, " (scan code: ", scanCode, "): ", action)
 
- #   if action != kaUp:
-  #    if key == keyEscape:
-   #     o.shouldClose = true
-  
-  window.ctx.keyCb = keyCb
+#   if action != kaUp:
+#    if key == keyEscape:
+#     o.shouldClose = true
