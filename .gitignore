@@ -12,3 +12,7 @@ niwe/index.html
 ignoreme
 tgl.nim
 crow/gl/*.html
+ttriang.nim
+*.ini
+*.dll
+tests

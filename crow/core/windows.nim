@@ -30,10 +30,16 @@ when defined js:
     if w != -1 and h != -1:
       canvas.Canvas.width = w
       canvas.Canvas.height = h
+      canvas.setAttribute("WIDTH",$w)
+      canvas.setAttribute("HEIGHT",$h)
+    else:
+      canvas.setAttribute("WIDTH","640")
+      canvas.setAttribute("HEIGHT","480")
     result.ctx = canvas.Canvas.getContextwebgl()
     result.view = canvas.Canvas
-    result.width = canvas.Canvas.clientwidth
-    result.height = canvas.Canvas.clientheight
+    result.width = result.view.clientwidth
+    result.height = result.view.clientheight
+    result.ctx.viewport(0,0,result.ctx.canvas.width,result.ctx.canvas.height)
 
   proc destroySurface*(s:Surface) =
     s.view.parentNode.removeChild(s.view)
@@ -49,6 +55,8 @@ elif not defined android:
       result.view = newOpenglWindow()
     (result.width,result.height) = result.view.size
     loadExtensions()
+    
+    result.ctx.viewport(0,0,result.width,result.height)
 
   proc destroySurface*(s:Surface) =
     s.view.destroy()

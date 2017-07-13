@@ -22,8 +22,8 @@ when defined js:
 else:
   type BufferKind* = enum
     bkNone, # FIXME: uninitialized warning
-    bkElement = GL_INDEX_ARRAY,
     bkArray = GL_ARRAY_BUFFER
+    bkElement = GL_ELEMENT_ARRAY_BUFFER    
 
 when defined js:
   type DrawMode* = enum
@@ -132,6 +132,12 @@ when defined js:
 
 const VecSize  {.intdefine.} : int = 4
 
+proc viewport*(gl:GL,x=0,y=0, w,h:int) =
+  when defined js:
+    webgl.viewport(gl, x,y, w,h)
+  else:
+    glViewport(x.GLint,y.GLint,w.GLsizei,h.GLsizei)
+
 proc aspectRatio*(gl:GL):float =
   ## Returns the viewport aspect ratio ( width / height )
   when defined js:
@@ -169,7 +175,9 @@ proc createShader*(gl:GL, kind:ShaderKind, src:string):Shader =
     webgl.shaderSource(gl, result.s,src)
     webgl.compileShader(gl, result.s)
     if not webgl.getStatus(gl, result.s): doassert(false,$webgl.getShaderInfoLog(gl, result.s))
+  
   elif not defined android:
+  
     result.s  = glCreateShader(GLenum(kind))
     glShaderSource(result.s, 1, [src].allocCStringArray, nil)
     glCompileShader(result.s)
@@ -234,11 +242,11 @@ proc bindBuffer*(gl:GL,kind:BufferKind, buffer:Buffer) =
   else:
     glBindBuffer(GLenum(kind),buffer.b)
 
-proc bufferData(gl:GL, kind:BufferKind, data:openArray[float|int],usage:DrawMode) =
+proc bufferData*(gl:GL, kind:BufferKind, data:openArray[SomeNumber],usage:DrawMode) =
   when defined js:
-    webgl.bufferData(gl, kind.BufferEnum,data.toJSA,usage.BufferEnum)
+    webgl.bufferData(gl, BufferEnum(kind), data.toJSA,BufferEnum(usage))
   else:
-    glBufferData(GLenum(kind), data.len, unsafeAddr data, GLenum(usage))
+    glBufferData(GLenum(kind), sizeof(data[0])*data.len, unsafeAddr data, GLenum(usage))
 
 proc bindVertices*(gl:GL, vertices:openarray[float], drawMode:DrawMode=dmStatic) =
   ## Bind vertices to the context
@@ -249,13 +257,13 @@ proc bindVertices*(gl:GL, vertices:openarray[float], drawMode:DrawMode=dmStatic)
   gl.bindBuffer(bkArray, gl.createBuffer())
   gl.bufferData(bkArray, vertices, drawMode)
 
-proc getUniformLocation(gl: GL, program: Program, name: string): UniformLocation =  
+proc getUniformLocation*(gl: GL, program: Program, name: string): UniformLocation =  
   when defined js:
     webgl.getUniformLocation(gl, program.p, name.cstring)
   else:
     glGetUniformLocation(program.p, name.cstring)
 
-proc uniform4fv(gl:GL, loc:UniformLocation, val:openarray[float|float32]) =
+proc uniform4fv*(gl:GL, loc:UniformLocation, val:openarray[float|float32]) =
   when defined js:
     webgl.uniform4fv(gl, loc,val)
   else:
@@ -265,7 +273,7 @@ proc bindColor*(gl:GL,program:Program,colorname:string,color:Color) =
   let uloc = gl.getUniformLocation(program, colorname)
   gl.uniform4fv(uloc, @[color.r,color.g,color.b,color.a])
 
-proc getAttribLocation(gl: GL, program: Program, name: string): AttribLocation =  
+proc getAttribLocation*(gl: GL, program: Program, name: string): AttribLocation =  
   when defined js:
     webgl.getAttribLocation(gl, program.p, name.cstring)
   else:
@@ -273,13 +281,13 @@ proc getAttribLocation(gl: GL, program: Program, name: string): AttribLocation =
     doassert(unchckresult>=0, "getAttribLocation:" & $name & "not found")
     result = unchckresult.GLuint
 
-proc enableVertexAttribArray(gl: GL, attr: AttribLocation) =  
+proc enableVertexAttribArray*(gl: GL, attr: AttribLocation) =  
   when defined js:
     webgl.enableVertexAttribArray(gl,attr)
   else:
     glEnableVertexAttribArray(attr)
 
-proc vertexAttribPointer(gl:GL,index:AttribLocation, size:int, typ: DataKind,
+proc vertexAttribPointer*(gl:GL,index:AttribLocation, size:int, typ: DataKind,
   normalized: bool, stride: int, offset: int64) =
   when defined js:
     webgl.vertexAttribPointer(gl, index, size, typ.DataType, normalized, stride, offset)
@@ -303,14 +311,20 @@ proc uploadVertices*(gl:GL, buff:Buffer, vertices:seq[float], drawMode:DrawMode=
   gl.bufferData(bkArray, vertices, drawMode)
   gl.bindBuffer(bkArray, buff)
 
-proc drawArrays(gl:GL, mode:PrimitiveKind, first:int, count:int) =
+proc drawArrays*(gl:GL, mode:PrimitiveKind, first:int, count:int) =
   when defined js:
     webgl.drawArrays(gl, mode.PrimitiveMode,first,count)
   else:
     glDrawArrays(mode.GLenum, first.GLint, count.GLsizei)
 
+proc drawElements*(gl:GL, mode:PrimitiveKind, count:int, kind:DataKind,offset: int64) =
+  doAssert( kind in {dkUByte, dkUShort, dkUInt} )
+  when defined js:
+    webgl.drawElements(gl, mode.PrimitiveMode,count, kind.DataType, offset)
+  else:
+    glDrawElements(mode.GLenum, count.GLsizei, kind.GLenum, cast[pointer](offset))
 
-proc flush(gl:GL) =
+proc flush*(gl:GL) =
   when defined js:
     webgl.flush(gl)
   else:
