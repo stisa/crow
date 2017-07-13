@@ -16,3 +16,4 @@ ttriang.nim
 *.ini
 *.dll
 tests
+crow/index.html

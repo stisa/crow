@@ -1,5 +1,5 @@
 when defined js:
-  import webgl
+  import webgl except flush
 elif not defined android:
   import opengl
 
@@ -149,6 +149,7 @@ proc clearColor*(gl:ContextGL, r,g,b,a:float) =
     webgl.clearColor(gl, r, g, b, a)
   elif not defined android:
     glClearColor(r, g, b, a)
+proc clearColor*(gl:ContextGL, c:Color) = gl.clearColor(c.r,c.g,c.b,c.a)
 
 proc clear*(gl:ContextGL, color=true,depth:bool=false) =
   when defined js:
@@ -265,9 +266,15 @@ proc getUniformLocation*(gl: ContextGL, program: Program, name: string): Uniform
 
 proc uniform4fv*(gl:ContextGL, loc:UniformLocation, val:openarray[float|float32]) =
   when defined js:
-    webgl.uniform4fv(gl, loc,val)
+    webgl.uniform4fv(gl, loc,val.toJSA)
   else:
-    glUniform4fv(loc, val.len, cast[ptr GLfloat](unsafeAddr(val)))
+    glUniform4fv(GLInt(loc), GLSizei(1), cast[ptr GLfloat](unsafeAddr(val)))
+
+proc uniformMatrix4fv*(gl:ContextGL, loc:UniformLocation,transp:bool, val:openarray[float|float32]) =
+  when defined js:
+    webgl.uniformMatrix4fv(gl, loc,transp,val.toJSA)
+  else:
+    glUniformMatrix4fv(GLInt(loc), 1, transp , cast[ptr GLfloat](unsafeAddr(val[0])))
 
 proc bindColor*(gl:ContextGL,program:Program,colorname:string,color:Color) =
   let uloc = gl.getUniformLocation(program, colorname)
@@ -337,7 +344,7 @@ proc drawTriangles*(gl:ContextGL,buff:Buffer,p:Program,vertices:seq[float], colo
   gl.bindColor(p, "uColor", color)
   gl.enableAttribute(p, "aPosition")
   gl.drawArrays(pkTRIANGLES, 0, numvertices)
-  gl.flush()
+  sharedgl.flush(gl)
 
 proc drawTriangleFan*(gl:ContextGL,buff:Buffer,p:Program,vertices:seq[float], color:Color,drawMode:DrawMode=dmStatic) =
   ## Draw a fan of triangles

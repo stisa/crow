@@ -4,7 +4,7 @@
 # - width
 # - height
 when defined js :
-  from webgl import WebGlRenderingContext,Canvas,getContextwebgl
+  from webgl import WebGlRenderingContext,Canvas,getContextwebgl,requestAnimationFrame
 elif not defined android:
   import glfw,opengl
 
@@ -40,7 +40,10 @@ when defined js:
   proc destroySurface*(s:Surface) =
     s.view.parentNode.removeChild(s.view)
   
-  proc swap*(s:Surface) = discard
+  template loop*(s:Surface,body:untyped):untyped =
+    proc innerframedraw(now:float=0)=
+      body
+    requestAnimationFrame(innerframedraw)
 
 elif not defined android:
   proc initSurface*(w = 640, h:int = 480):Surface =
@@ -54,4 +57,9 @@ elif not defined android:
   proc destroySurface*(s:Surface) =
     s.view.destroy()
     glfw.terminate()
-  proc swap*(s:Surface) = s.view.swapBuffers()
+  export swapBuffers
+  template loop*(s:Surface,body:untyped):untyped =
+    bind swapBuffers
+    while true:
+      body
+      s.view.swapBuffers()

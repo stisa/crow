@@ -1,7 +1,8 @@
-import colors, snail/[matrix,graphic]
-import primitives
 from math import cos,sin,Pi
-import ../gl/gl
+
+import snail/[matrix,graphic]
+
+import ../core/sharedgl, colors, primitives
 
 const VECSIZE = 4
 
@@ -45,41 +46,42 @@ proc add*[K](b:var Batcher,rend:K)=
 
 
 type Renderer* = object
-  context:GL
+  context: ContextGL
   program: Program
-  buff : WebGLBuffer
+  buff : Buffer
+  size: tuple[w,h:float]
   # shaders: seq[WebGlShader]
   b*: Batcher
 
-proc initRenderer*(gl:GL,clear:Color=White):Renderer =
+proc initRenderer*(gl:ContextGL,w=640,h=480,clear:Color=White):Renderer =
   result.context = gl
-  result.context.canvas.resize()
-  result.program = result.context.program(true,vmsrc,fsrc)
-  result.context.clearWith(clear)
+  #result.context.canvas.resize()
+  result.program = result.context.createProgram(true,vmsrc,fsrc)
+  result.context.clearColor(clear)
+  result.context.clear()
   result.buff = result.context.createBuffer()
-  gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight)
+  #gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight)
+  result.size = (w.float,h.float)
   result.b = batcher() #default batcher 
 
-proc uploadVertices(eng:Renderer, vertices:seq[float], drawMode:BufferEnum=beStaticDraw){.inline} =
+proc uploadVertices(eng:Renderer, vertices:seq[float], drawMode:DrawMode=dmStatic){.inline} =
   ## Bind vertices to the context
   eng.context.uploadvertices(eng.buff,vertices,drawmode)
 
-proc drawTriangles(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:BufferEnum=beStaticDraw) =
+proc drawTriangles(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:DrawMode=dmStatic) =
   ## Draw triangles
   eng.context.drawtriangles(eng.buff,eng.program,vertices,color,drawmode)
   
-proc drawTriangleFan(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:BufferEnum=beStaticDraw) =
+proc drawTriangleFan(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:DrawMode=dmStatic) =
   ## Draw a fan of triangles
   eng.context.drawtrianglefan(eng.buff,eng.program,vertices,color,drawmode)
 
-proc drawLineLoop(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:BufferEnum=beStaticDraw) =
+proc drawLineLoop(eng:Renderer,vertices:seq[float], color:Color=Green,drawMode:DrawMode=dmStatic) =
   ## Draw a closed loop of lines
   eng.context.drawlineloop(eng.buff,eng.program,vertices,color,drawmode)
 
 proc setMatrixUnif(eng:Renderer,rend:Renderable,uniform:string) =
   if not rend.dirty: return
-  let w = eng.context.drawingbufferwidth
-  let h = eng.context.drawingbufferheight
 
   let uMatLoc = eng.context.getUniformLocation(eng.program, uniform)
 
@@ -88,10 +90,10 @@ proc setMatrixUnif(eng:Renderer,rend:Renderable,uniform:string) =
              rend.pos.x,rend.pos.y)*
             translation(
              rend.origin.x,rend.origin.y)*
-            projection(w.float,h.float)
+            projection(eng.size.w, eng.size.h)
           #  translation(-w/2,-h/2)*
           #  scaling(w/2,-h/2)
-  eng.context.uniformMatrix4fv(uMatLoc,false,mat)
+  eng.context.uniformMatrix4fv(uMatLoc,false,mat.data[])
 
 
 proc drawR(eng:Renderer, rect:Rect)=
@@ -243,7 +245,7 @@ macro batch*(b:Batcher, inner:varargs[untyped]):typed =
   else:
     for el in inner:
       result.add( newcall("add",b,el) )
-
+#[
 template frame*(body:untyped):untyped =
   ## Computes body each frame, the variable dt is exported and can be used.
   ## The timestep is NOT fixed (currently, will be in the future.)
@@ -254,20 +256,21 @@ template frame*(body:untyped):untyped =
     body
     last_t = now
     requestAnimationFrame(innerframedraw)
-  innerframedraw()
+  innerframedraw()]#
   
 proc `+=`*(lf: var tuple[x:float,y:float],rg:tuple[x:float,y:float])=
   lf[0]+=rg[0]
   lf[1]+=rg[1]
 
-when isMainModule and defined(js):
-  import events,windows
+when isMainModule:# and defined(js):
+  import ../core/[events,window]
   #http:#codeincomplete.com/posts/javascript-game-foundations-the-game-loop/
-  var evq = initEvents()
-  var w = initWindow()
+  var w = initSurface()
+  #var evq = initEvents(w)
+  
   var en = initRenderer(w.ctx)
-  var speed = (0.0,0.0)
-  var accel = (2.0,2.0)
+  #var speed = (0.0,0.0)
+  #var accel = (2.0,2.0)
  
   var p = polygon(100,100,5,10,filled=true,color=Green)
   var r = rect(200,200)
@@ -283,16 +286,16 @@ when isMainModule and defined(js):
     d,
     b,
     d2)
-
+#[
   evq.on("mouseEv", 
     proc (e:EventArgs)=
       speed += accel)
   evq.on("update", 
     proc (e:EventArgs)=
       p.pos += speed)
-  
-  frame:
-    evq.emit("update",EventArgs(dt:dt))
-    en.context.canvas.resize()
-    en.context.viewport(0, 0, en.context.drawingBufferWidth, en.context.drawingBufferHeight)
+]#
+  loop w:
+    #evq.emit("update",EventArgs(dt:dt))
+    #en.context.canvas.resize()
+    #en.context.viewport(0, 0, en.size,.drawingBufferWidth, en.context.drawingBufferHeight)
     en.draw(en.b)

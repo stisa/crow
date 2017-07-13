@@ -141,8 +141,9 @@ when defined js:
 []#
 
 when defined js:
+  import window
   # TODO: this needs work, maybe move template in engine to here?
-  proc initEvents*():EventEmitter =
+  proc initEvents*(w:Surface):EventEmitter =
     result = initeventemitter()
     proc keyev(e:dom.Event) =
       result.emit("keyEv", EventArgs(kind:evKey,key:e.keycode.toJSKC()))
@@ -155,15 +156,16 @@ when defined js:
     document.addEventlistener("click",mouseev,true)
 
 else: 
-  import windows
+  import window
   import glfw
-  proc initEvents*(w:Window):EventEmitter =
-    result = initeventemitter()
-    proc keyCb(o: Win, key: Key, scanCode: int, action: KeyAction,
-        modKeys: ModifierKeySet) =
-      result.emit("keyEv", EventArgs(kind:evKey,key:key.int.toGLFWKC())) 
-      
-    w.ctx.keyCb = keyCb
+  proc initEvents*(w:Surface):EventEmitter =
+    var emv = initeventemitter()
+    proc keyCb(o: Window, key: Key, scanCode: int32, action: KeyAction,
+        modKeys: set[ModifierKey]){.closure.} =
+      emv.emit("keyEv", EventArgs(kind:evKey,key:key.int.toGLFWKC())) 
+    
+    w.view.keyCb = keyCb
+    result = emv
 
 #    echo("Key: ", key, " (scan code: ", scanCode, "): ", action)
 
