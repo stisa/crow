@@ -17,8 +17,8 @@ else:
 when defined js:
   type BufferKind* = enum
     bkNone,
-    bkElement = beElement_ARRAY_BUFFER,
-    bkArray = beARRAY_BUFFER
+    bkArray = beARRAY_BUFFER,
+    bkElement = beElement_ARRAY_BUFFER    
 else:
   type BufferKind* = enum
     bkNone, # FIXME: uninitialized warning
@@ -100,8 +100,7 @@ type
       b:WebglBuffer
     else:
       b:GLuint
-  
-  
+
 when defined js:
   type UniformLocation* = WebglUniformLocation
 else:
@@ -123,6 +122,14 @@ type Color = concept c
   c.b is float or c.b is float32
   c.a is float or c.a is float32
 
+when defined js:
+  proc toJSA*(v:openarray[float32]) :Float32Array {.importcpp: "new Float32Array(#)".} # might be a lie
+  proc toJSA*(v:openarray[float]) :Float32Array {.importcpp: "new Float32Array(#)".} # might be a lie
+  proc toJSA*(v:openarray[uint16]) :Uint16Array {.importcpp: "new Uint16Array(#)".} # might be a lie
+  proc toJSA*(v:openarray[int32]) :Int32Array {.importcpp: "new Uint16Array(#)".} # might be a lie
+  proc toJSA*(v:openarray[int]) :Int32Array {.importcpp: "new Int32Array(#)".} # might be a lie
+
+
 const VecSize  {.intdefine.} : int = 4
 
 proc aspectRatio*(gl:GL):float =
@@ -140,7 +147,7 @@ proc clearColor*(gl:GL, r,g,b,a:float) =
 proc clear*(gl:GL, color=true,depth:bool=false) =
   when defined js:
     if color and depth:
-      webgl.clear(gl, ord bbColor or ord bbDepth)
+      webgl.clear(gl, ord(bbColor) or ord(bbDepth))
     elif color:
       webgl.clear(gl,bbColor)
     elif depth:
@@ -158,10 +165,10 @@ proc createShader*(gl:GL, kind:ShaderKind, src:string):Shader =
   result.kind = kind
   result.source = src
   when defined js:
-    result.s = webgl.createShader(gl, ord kind)
+    result.s = webgl.createShader(gl, kind.ShaderEnum)
     webgl.shaderSource(gl, result.s,src)
     webgl.compileShader(gl, result.s)
-    if not webgl.getStatus(gl, result.s): doassert(false,webgl.getShaderInfoLog(gl, result.s))
+    if not webgl.getStatus(gl, result.s): doassert(false,$webgl.getShaderInfoLog(gl, result.s))
   elif not defined android:
     result.s  = glCreateShader(GLenum(kind))
     glShaderSource(result.s, 1, [src].allocCStringArray, nil)
@@ -194,7 +201,7 @@ proc createProgram*(gl:GL, useIt:bool=false ,vertex_src:string, fragment_src:str
     webgl.attachShader(gl,program, fs.s)
     webgl.linkProgram(gl,program)
     if not webgl.getStatus(gl,program): 
-      doassert(false, webgl.getProgramInfoLog(gl,program))
+      doassert(false, $webgl.getProgramInfoLog(gl,program))
     if useIt: webgl.useProgram(gl,program)
   elif not defined android:
     var program = glCreateProgram()
@@ -217,19 +224,19 @@ proc createProgram*(gl:GL, useIt:bool=false ,vertex_src:string, fragment_src:str
 
 proc createBuffer*(gl:GL):Buffer =
   when defined js:
-    result.b = gl.createBuffer()
+    result.b = webgl.createBuffer(gl)
   else:
     glGenBuffers(1,addr result.b)
 
 proc bindBuffer*(gl:GL,kind:BufferKind, buffer:Buffer) =
   when defined js:
-    webgl.bindBuffer(gl, kind,buffer.b)
+    webgl.bindBuffer(gl, kind.BufferEnum,buffer.b)
   else:
     glBindBuffer(GLenum(kind),buffer.b)
 
 proc bufferData(gl:GL, kind:BufferKind, data:openArray[float|int],usage:DrawMode) =
   when defined js:
-    webgl.bufferData(gl, kind,data,usage)
+    webgl.bufferData(gl, kind.BufferEnum,data.toJSA,usage.BufferEnum)
   else:
     glBufferData(GLenum(kind), data.len, unsafeAddr data, GLenum(usage))
 
@@ -275,7 +282,7 @@ proc enableVertexAttribArray(gl: GL, attr: AttribLocation) =
 proc vertexAttribPointer(gl:GL,index:AttribLocation, size:int, typ: DataKind,
   normalized: bool, stride: int, offset: int64) =
   when defined js:
-    webgl.vertexAttribPointer(gl, index, size, typ, normalized, stride, offset)
+    webgl.vertexAttribPointer(gl, index, size, typ.DataType, normalized, stride, offset)
   else:
     glVertexAttribPointer(index, size.GLint, typ.GLenum, normalized.GLboolean, 
       stride.GLSizei, cast[pointer](offset))
@@ -298,7 +305,7 @@ proc uploadVertices*(gl:GL, buff:Buffer, vertices:seq[float], drawMode:DrawMode=
 
 proc drawArrays(gl:GL, mode:PrimitiveKind, first:int, count:int) =
   when defined js:
-    webgl.drawArrays(gl, mode,first,count)
+    webgl.drawArrays(gl, mode.PrimitiveMode,first,count)
   else:
     glDrawArrays(mode.GLenum, first.GLint, count.GLsizei)
 

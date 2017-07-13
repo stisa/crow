@@ -1,8 +1,7 @@
 import colors, snail/[matrix,graphic]
 import primitives
 from math import cos,sin,Pi
-import ./gl except Color
-#from webgl import  # TODO: move these out to gl, abstract 'em all
+import ../gl/gl
 
 const VECSIZE = 4
 
