@@ -112,9 +112,9 @@ else:
   type AttribLocation* = GLuint
 
 when defined js:
-  type GL* = WebglRenderingContext # shorthand
+  type ContextGL* = WebglRenderingContext # shorthand
 elif not defined android:
-  type GL* = object
+  type ContextGL* = object
 
 type Color = concept c
   c.r is float or c.r is float32
@@ -132,25 +132,25 @@ when defined js:
 
 const VecSize  {.intdefine.} : int = 4
 
-proc viewport*(gl:GL,x=0,y=0, w,h:int) =
+proc viewport*(gl:ContextGL,x=0,y=0, w,h:int) =
   when defined js:
     webgl.viewport(gl, x,y, w,h)
   else:
     glViewport(x.GLint,y.GLint,w.GLsizei,h.GLsizei)
 
-proc aspectRatio*(gl:GL):float =
+proc aspectRatio*(gl:ContextGL):float =
   ## Returns the viewport aspect ratio ( width / height )
   when defined js:
     result = gl.drawingBufferWidth/gl.drawingBufferHeight
 
-proc clearColor*(gl:GL, r,g,b,a:float) =
+proc clearColor*(gl:ContextGL, r,g,b,a:float) =
   ## Set clear color
   when defined js:
     webgl.clearColor(gl, r, g, b, a)
   elif not defined android:
     glClearColor(r, g, b, a)
 
-proc clear*(gl:GL, color=true,depth:bool=false) =
+proc clear*(gl:ContextGL, color=true,depth:bool=false) =
   when defined js:
     if color and depth:
       webgl.clear(gl, ord(bbColor) or ord(bbDepth))
@@ -166,7 +166,7 @@ proc clear*(gl:GL, color=true,depth:bool=false) =
     elif depth:
       glclear(GL_DEPTH_BUFFER_BIT)
 
-proc createShader*(gl:GL, kind:ShaderKind, src:string):Shader =
+proc createShader*(gl:ContextGL, kind:ShaderKind, src:string):Shader =
   ## Init and compile a shader
   result.kind = kind
   result.source = src
@@ -194,7 +194,7 @@ proc createShader*(gl:GL, kind:ShaderKind, src:string):Shader =
       glGetShaderInfoLog(result.s, logLength, addr logLength, errorLog)
       echo(errorLog)
 
-proc createProgram*(gl:GL, useIt:bool=false ,vertex_src:string, fragment_src:string):Program =
+proc createProgram*(gl:ContextGL, useIt:bool=false ,vertex_src:string, fragment_src:string):Program =
   ## Init, compile and link a program.
   ## If `useIt` is true, also sets the program as current
   let 
@@ -230,25 +230,25 @@ proc createProgram*(gl:GL, useIt:bool=false ,vertex_src:string, fragment_src:str
   
   result.p = program
 
-proc createBuffer*(gl:GL):Buffer =
+proc createBuffer*(gl:ContextGL):Buffer =
   when defined js:
     result.b = webgl.createBuffer(gl)
   else:
     glGenBuffers(1,addr result.b)
 
-proc bindBuffer*(gl:GL,kind:BufferKind, buffer:Buffer) =
+proc bindBuffer*(gl:ContextGL,kind:BufferKind, buffer:Buffer) =
   when defined js:
     webgl.bindBuffer(gl, kind.BufferEnum,buffer.b)
   else:
     glBindBuffer(GLenum(kind),buffer.b)
 
-proc bufferData*(gl:GL, kind:BufferKind, data:openArray[SomeNumber],usage:DrawMode) =
+proc bufferData*(gl:ContextGL, kind:BufferKind, data:openArray[SomeNumber],usage:DrawMode) =
   when defined js:
     webgl.bufferData(gl, BufferEnum(kind), data.toJSA,BufferEnum(usage))
   else:
     glBufferData(GLenum(kind), sizeof(data[0])*data.len, unsafeAddr data, GLenum(usage))
 
-proc bindVertices*(gl:GL, vertices:openarray[float], drawMode:DrawMode=dmStatic) =
+proc bindVertices*(gl:ContextGL, vertices:openarray[float], drawMode:DrawMode=dmStatic) =
   ## Bind vertices to the context
   ## drawMode must be one of : # TODO: check this
   ## STATIC_DRAW: Contents of the buffer are likely to be used often and not change often. Contents are written to the buffer, but not read.
@@ -257,23 +257,23 @@ proc bindVertices*(gl:GL, vertices:openarray[float], drawMode:DrawMode=dmStatic)
   gl.bindBuffer(bkArray, gl.createBuffer())
   gl.bufferData(bkArray, vertices, drawMode)
 
-proc getUniformLocation*(gl: GL, program: Program, name: string): UniformLocation =  
+proc getUniformLocation*(gl: ContextGL, program: Program, name: string): UniformLocation =  
   when defined js:
     webgl.getUniformLocation(gl, program.p, name.cstring)
   else:
     glGetUniformLocation(program.p, name.cstring)
 
-proc uniform4fv*(gl:GL, loc:UniformLocation, val:openarray[float|float32]) =
+proc uniform4fv*(gl:ContextGL, loc:UniformLocation, val:openarray[float|float32]) =
   when defined js:
     webgl.uniform4fv(gl, loc,val)
   else:
     glUniform4fv(loc, val.len, cast[ptr GLfloat](unsafeAddr(val)))
 
-proc bindColor*(gl:GL,program:Program,colorname:string,color:Color) =
+proc bindColor*(gl:ContextGL,program:Program,colorname:string,color:Color) =
   let uloc = gl.getUniformLocation(program, colorname)
   gl.uniform4fv(uloc, @[color.r,color.g,color.b,color.a])
 
-proc getAttribLocation*(gl: GL, program: Program, name: string): AttribLocation =  
+proc getAttribLocation*(gl: ContextGL, program: Program, name: string): AttribLocation =  
   when defined js:
     webgl.getAttribLocation(gl, program.p, name.cstring)
   else:
@@ -281,13 +281,13 @@ proc getAttribLocation*(gl: GL, program: Program, name: string): AttribLocation 
     doassert(unchckresult>=0, "getAttribLocation:" & $name & "not found")
     result = unchckresult.GLuint
 
-proc enableVertexAttribArray*(gl: GL, attr: AttribLocation) =  
+proc enableVertexAttribArray*(gl: ContextGL, attr: AttribLocation) =  
   when defined js:
     webgl.enableVertexAttribArray(gl,attr)
   else:
     glEnableVertexAttribArray(attr)
 
-proc vertexAttribPointer*(gl:GL,index:AttribLocation, size:int, typ: DataKind,
+proc vertexAttribPointer*(gl:ContextGL,index:AttribLocation, size:int, typ: DataKind,
   normalized: bool, stride: int, offset: int64) =
   when defined js:
     webgl.vertexAttribPointer(gl, index, size, typ.DataType, normalized, stride, offset)
@@ -295,13 +295,13 @@ proc vertexAttribPointer*(gl:GL,index:AttribLocation, size:int, typ: DataKind,
     glVertexAttribPointer(index, size.GLint, typ.GLenum, normalized.GLboolean, 
       stride.GLSizei, cast[pointer](offset))
 
-proc enableAttribute*(gl:GL,program:Program,attribname:string,itemSize:int=VECSIZE) =
+proc enableAttribute*(gl:ContextGL,program:Program,attribname:string,itemSize:int=VECSIZE) =
   ## Enable the attribute `attribname` with `itemsize`
   let aloc = gl.getAttribLocation(program, attribname)
   gl.enableVertexAttribArray(aloc)
   gl.vertexAttribPointer(aloc, itemSize, dkFloat, false, 0, 0)
 
-proc uploadVertices*(gl:GL, buff:Buffer, vertices:seq[float], drawMode:DrawMode=dmStatic) =
+proc uploadVertices*(gl:ContextGL, buff:Buffer, vertices:seq[float], drawMode:DrawMode=dmStatic) =
   ## Bind vertices to the context
   ## drawMode must be one of : # TODO: check this
   ## STATIC_DRAW: Contents of the buffer are likely to be used often and not change often. Contents are written to the buffer, but not read.
@@ -311,26 +311,26 @@ proc uploadVertices*(gl:GL, buff:Buffer, vertices:seq[float], drawMode:DrawMode=
   gl.bufferData(bkArray, vertices, drawMode)
   gl.bindBuffer(bkArray, buff)
 
-proc drawArrays*(gl:GL, mode:PrimitiveKind, first:int, count:int) =
+proc drawArrays*(gl:ContextGL, mode:PrimitiveKind, first:int, count:int) =
   when defined js:
     webgl.drawArrays(gl, mode.PrimitiveMode,first,count)
   else:
     glDrawArrays(mode.GLenum, first.GLint, count.GLsizei)
 
-proc drawElements*(gl:GL, mode:PrimitiveKind, count:int, kind:DataKind,offset: int64) =
+proc drawElements*(gl:ContextGL, mode:PrimitiveKind, count:int, kind:DataKind,offset: int64) =
   doAssert( kind in {dkUByte, dkUShort, dkUInt} )
   when defined js:
     webgl.drawElements(gl, mode.PrimitiveMode,count, kind.DataType, offset)
   else:
     glDrawElements(mode.GLenum, count.GLsizei, kind.GLenum, cast[pointer](offset))
 
-proc flush*(gl:GL) =
+proc flush*(gl:ContextGL) =
   when defined js:
     webgl.flush(gl)
   else:
     glFlush()
 
-proc drawTriangles*(gl:GL,buff:Buffer,p:Program,vertices:seq[float], color:Color,drawMode:DrawMode=dmStatic) =
+proc drawTriangles*(gl:ContextGL,buff:Buffer,p:Program,vertices:seq[float], color:Color,drawMode:DrawMode=dmStatic) =
   ## Draw triangles
   gl.uploadVertices(buff,vertices,drawMode)
   let numvertices = vertices.len div 4 # 4 is hardcoded for now, it means each vertices has x,y,z,scale
@@ -339,7 +339,7 @@ proc drawTriangles*(gl:GL,buff:Buffer,p:Program,vertices:seq[float], color:Color
   gl.drawArrays(pkTRIANGLES, 0, numvertices)
   gl.flush()
 
-proc drawTriangleFan*(gl:GL,buff:Buffer,p:Program,vertices:seq[float], color:Color,drawMode:DrawMode=dmStatic) =
+proc drawTriangleFan*(gl:ContextGL,buff:Buffer,p:Program,vertices:seq[float], color:Color,drawMode:DrawMode=dmStatic) =
   ## Draw a fan of triangles
   gl.uploadVertices(buff,vertices,drawMode)
   let numvertices = vertices.len div 4 # 4 is hardcoded for now, it means each vertices has x,y,z,scale
@@ -348,7 +348,7 @@ proc drawTriangleFan*(gl:GL,buff:Buffer,p:Program,vertices:seq[float], color:Col
   gl.drawArrays(pkTRIANGLE_FAN, 0, numvertices)
   gl.flush()
 
-proc drawLineLoop*(gl:GL,buff:Buffer,p:Program,vertices:seq[float], color:Color,drawMode:DrawMode=dmStatic) =
+proc drawLineLoop*(gl:ContextGL,buff:Buffer,p:Program,vertices:seq[float], color:Color,drawMode:DrawMode=dmStatic) =
   ## Draw a closed loop of lines
   gl.uploadVertices(buff,vertices,drawMode)
   let numvertices = vertices.len div 4 # 4 is hardcoded for now, it means each vertices has x,y,z,scale

@@ -8,10 +8,10 @@ when defined js :
 elif not defined android:
   import glfw,opengl
 
-import ../gl/gl
+import sharedgl
 
 type Surface* = object
-  ctx*: GL
+  ctx*: ContextGL
   width*,height*:int  
   when defined js:
     view*: Canvas
@@ -20,21 +20,17 @@ type Surface* = object
 
 when defined js:
   import dom
-  proc initSurface*(w = -1, h:int = -1):Surface =
+  proc initSurface*(w = 640, h:int = 480):Surface =
     var canvas = document.getElementById("crow-canvas") # TODO: personalize?
     if canvas.isNil:
       canvas = document.createElement("CANVAS")
       canvas.setAttribute("ID","crow-canvas")
-      canvas.setAttribute("STYLE","border: 1em solid black; width:90%; height:90%;")
+      #canvas.setAttribute("STYLE","border: 1em solid black; width:90%; height:90%;")
       document.body.appendChild(canvas)
-    if w != -1 and h != -1:
-      canvas.Canvas.width = w
-      canvas.Canvas.height = h
-      canvas.setAttribute("WIDTH",$w)
-      canvas.setAttribute("HEIGHT",$h)
-    else:
-      canvas.setAttribute("WIDTH","640")
-      canvas.setAttribute("HEIGHT","480")
+    
+    canvas.setAttribute("WIDTH",$w)
+    canvas.setAttribute("HEIGHT",$h)
+    
     result.ctx = canvas.Canvas.getContextwebgl()
     result.view = canvas.Canvas
     result.width = result.view.clientwidth
@@ -47,12 +43,9 @@ when defined js:
   proc swap*(s:Surface) = discard
 
 elif not defined android:
-  proc initSurface*(w = -1, h:int = -1):Surface =
+  proc initSurface*(w = 640, h:int = 480):Surface =
     glfw.initialize()
-    if w != -1 and h != -1:
-      result.view = newOpenglWindow((w,h))
-    else:
-      result.view = newOpenglWindow()
+    result.view = newOpenglWindow((w,h))
     (result.width,result.height) = result.view.size
     loadExtensions()
     
