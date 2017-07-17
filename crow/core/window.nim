@@ -6,21 +6,30 @@
 when defined js :
   from webgl import WebGlRenderingContext,Canvas,getContextwebgl,requestAnimationFrame
 elif not defined android:
-  import glfw,opengl
+  from opengl import loadExtensions
+  from glfw import nil
 
-import sharedgl
+import ngl, event,keymap
 
-type Surface* = object
+
+type Window* = object
   ctx*: ContextGL
   width*,height*:int  
   when defined js:
     view*: Canvas
   elif not defined android:
-    view*:Window
+    view*:glfw.Window
+  eventLoop: EventEmitter
 
 when defined js:
   import dom
-  proc initSurface*(w = 640, h:int = 480):Surface =
+  proc initDefaultEvents*(w:Window) =
+    proc keyev(e:dom.Event) =
+      w.eventLoop.emit("keyEv", EventArgs(kind:evKey,key:e.keycode.toJSKC()))
+      echo "ha"
+    document.addEventlistener("keypress",keyev,true)
+  
+  proc initWindow*(w = 640, h:int = 480):Window =
     var canvas = document.getElementById("crow-canvas") # TODO: personalize?
     if canvas.isNil:
       canvas = document.createElement("CANVAS")
@@ -36,30 +45,56 @@ when defined js:
     result.width = result.view.clientwidth
     result.height = result.view.clientheight
     result.ctx.viewport(0,0,result.ctx.canvas.width,result.ctx.canvas.height)
-
-  proc destroySurface*(s:Surface) =
+    result.eventLoop = initEventEmitter()
+    result.initDefaultEvents()
+  
+  proc destroyWindow*(s:Window) =
     s.view.parentNode.removeChild(s.view)
   
-  template loop*(s:Surface,body:untyped):untyped =
+  template loop*(s:Window,body:untyped):untyped =
+    #from times import epochTime
+    #var oldtime = times.epochTime()
     proc innerframedraw(now:float=0)=
+      #if times.epochTime() - oldTime > 1/60:
       body
+      #  oldTime = times.epochTime()
     requestAnimationFrame(innerframedraw)
 
 elif not defined android:
-  proc initSurface*(w = 640, h:int = 480):Surface =
+  proc initDefaultEvents*(w:Window) =
+    proc keyCb(o: glfw.Window, key: glfw.Key, scanCode: int32, action: glfw.KeyAction,
+        modKeys: set[glfw.ModifierKey]){.closure.} =
+      if action == glfw.kaDown:
+        w.eventLoop.emit("keyEv", EventArgs(kind:evKey,key:key.int.toGLFWKC()))
+        echo "ha"
+    
+    w.view.keyCb = keyCb
+
+  proc initWindow*(w = 640, h:int = 480):Window =
     glfw.initialize()
-    result.view = newOpenglWindow((w,h))
-    (result.width,result.height) = result.view.size
+    result.view = glfw.newOpenglWindow((w.int32,h.int32))
+    (result.width,result.height) = glfw.size(result.view)
     loadExtensions()
     
     result.ctx.viewport(0,0,result.width,result.height)
+    result.eventLoop = initEventEmitter()
+    result.initDefaultEvents()
 
-  proc destroySurface*(s:Surface) =
-    s.view.destroy()
+  proc destroyWindow*(s:Window) =
+    glfw.destroy(s.view)
     glfw.terminate()
-  export swapBuffers
-  template loop*(s:Surface,body:untyped):untyped =
-    bind swapBuffers
-    while true:
-      body
-      s.view.swapBuffers()
+  
+  export glfw.swapBuffers
+  template loop*(s:Window,body:untyped):untyped =
+    from times import epochTime
+    bind glfw.swapBuffers
+    var oldTime = times.epochTime()
+    #glfw.swapBuffers(s.view)
+    while not glfw.shouldClose(s.view):
+      if times.epochTime() - oldTime > 1/60:
+        body
+        glfw.swapBuffers(s.view)
+        oldTime = times.epochTime()
+      glfw.pollEvents()
+    s.destroyWindow()
+

@@ -344,7 +344,7 @@ proc drawTriangles*(gl:ContextGL,buff:Buffer,p:Program,vertices:seq[float], colo
   gl.bindColor(p, "uColor", color)
   gl.enableAttribute(p, "aPosition")
   gl.drawArrays(pkTRIANGLES, 0, numvertices)
-  sharedgl.flush(gl)
+  ngl.flush(gl)
 
 proc drawTriangleFan*(gl:ContextGL,buff:Buffer,p:Program,vertices:seq[float], color:Color,drawMode:DrawMode=dmStatic) =
   ## Draw a fan of triangles
