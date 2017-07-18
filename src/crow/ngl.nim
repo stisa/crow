@@ -1,3 +1,15 @@
+from colors import Color, colRed
+proc a(c:Color):float {.inline.} =
+  1.0 - (c.int shr 24 and 0xff).float / 255.0
+proc r(c:Color):float {.inline.} = 
+  (c.int shr 16 and 0xff).float / 255.0
+proc g(c:Color):float {.inline.} = 
+  (c.int shr 8 and 0xff).float / 255.0
+proc b(c:Color):float {.inline.} = 
+  (c.int shr 0 and 0xff).float / 255.0
+
+#------------------------------------------------------------#
+
 when defined js:
   import webgl except flush
 elif not defined android:
@@ -116,12 +128,6 @@ when defined js:
 elif not defined android:
   type ContextGL* = object
 
-type Color = concept c
-  c.r is float or c.r is float32
-  c.g is float or c.g is float32
-  c.b is float or c.b is float32
-  c.a is float or c.a is float32
-
 when defined js:
   proc toJSA*(v:openarray[float32]) :Float32Array {.importcpp: "new Float32Array(#)".} # might be a lie
   proc toJSA*(v:openarray[float]) :Float32Array {.importcpp: "new Float32Array(#)".} # might be a lie
@@ -149,6 +155,7 @@ proc clearColor*(gl:ContextGL, r,g,b,a:float) =
     webgl.clearColor(gl, r, g, b, a)
   elif not defined android:
     glClearColor(r, g, b, a)
+
 proc clearColor*(gl:ContextGL, c:Color) = gl.clearColor(c.r,c.g,c.b,c.a)
 
 proc clear*(gl:ContextGL, color=true,depth:bool=false) =

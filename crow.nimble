@@ -26,15 +26,10 @@ task examples, "Build examples":
 
 task docs, "Builds documentation":
   mkDir("docs"/"crow")
-  mkDir("docs"/"crow"/"core")
   mkDir("docs"/"crow"/"graphic")
   withdir "src":
     exec "nim doc2 --verbosity:0 --hints:off -o:"& ".."/"docs"/"crow.html  crow.nim"
     for file in listfiles("crow"):
-      if splitfile(file).ext == ".nim":
-        echo ".."/"docs" / "crow" / file.changefileext("html") & " " & file
-        exec "nim doc2 --verbosity:0 --hints:off -o:" & ".." / "docs" / file.changefileext("html") & " " & file
-    for file in listfiles("crow"/"core"):
       if splitfile(file).ext == ".nim":
         echo ".."/"docs" / "crow" / file.changefileext("html") & " " & file
         exec "nim doc2 --verbosity:0 --hints:off -o:" & ".." / "docs" / file.changefileext("html") & " " & file

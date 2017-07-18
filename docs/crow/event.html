@@ -1313,9 +1313,9 @@ function main() {
 <dd>
 
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L39"
+href="/tree/master/crow/event.nim#L39"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L39" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L39" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="EventArgs"><a name="EventArgs"></a><pre><span class="Identifier">EventArgs</span> <span class="Other">=</span> <span class="Keyword">object</span>
@@ -1337,18 +1337,18 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L46"
+href="/tree/master/crow/event.nim#L46"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L46" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L46" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="EventHandler"><a name="EventHandler"></a><pre><span class="Identifier">EventHandler</span> <span class="Other">=</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">name</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">,</span> <span class="Identifier">handlers</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">e</span><span class="Other">:</span> <span class="Identifier">EventArgs</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">closure</span></div><span class="Other pragmaend">.}</span><span class="Other">]</span><span class="Other">]</span></pre></dt>
 <dd>
 An eventhandler for an event.
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L59"
+href="/tree/master/crow/event.nim#L59"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L59" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L59" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="EventEmitter"><a name="EventEmitter"></a><pre><span class="Identifier">EventEmitter</span> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span>
@@ -1357,18 +1357,18 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 An object that fires events and holds event handlers for an object.
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L62"
+href="/tree/master/crow/event.nim#L62"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L62" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L62" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="EventError"><a name="EventError"></a><pre><span class="Identifier">EventError</span> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">ValueError</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L64"
+href="/tree/master/crow/event.nim#L64"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L64" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L64" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -1380,9 +1380,9 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 Initializes an EventHandler with the specified name and returns it.
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L69"
+href="/tree/master/crow/event.nim#L69"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L69" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L69" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="addHandler"><a name="addHandler,EventHandler,proc(EventArgs)"></a><pre><span class="Keyword">proc</span> <span class="Identifier">addHandler</span><span class="Other">(</span><span class="Identifier">handler</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">EventHandler</span><span class="Other">;</span> <span class="Identifier">fn</span><span class="Other">:</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">e</span><span class="Other">:</span> <span class="Identifier">EventArgs</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">closure</span></div><span class="Other pragmaend">.}</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma">
@@ -1390,9 +1390,9 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 Adds the callback to the specified event handler.
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L74"
+href="/tree/master/crow/event.nim#L74"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L74" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L74" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="removeHandler"><a name="removeHandler,EventHandler,proc(EventArgs)"></a><pre><span class="Keyword">proc</span> <span class="Identifier">removeHandler</span><span class="Other">(</span><span class="Identifier">handler</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">EventHandler</span><span class="Other">;</span> <span class="Identifier">fn</span><span class="Other">:</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">e</span><span class="Other">:</span> <span class="Identifier">EventArgs</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">closure</span></div><span class="Other pragmaend">.}</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma">
@@ -1400,9 +1400,9 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 Removes the callback from the specified event handler.
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L78"
+href="/tree/master/crow/event.nim#L78"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L78" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L78" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="containsHandler"><a name="containsHandler,EventHandler,proc(EventArgs)"></a><pre><span class="Keyword">proc</span> <span class="Identifier">containsHandler</span><span class="Other">(</span><span class="Identifier">handler</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">EventHandler</span><span class="Other">;</span> <span class="Identifier">fn</span><span class="Other">:</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">e</span><span class="Other">:</span> <span class="Identifier">EventArgs</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">closure</span></div><span class="Other pragmaend">.}</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other pragmabegin">{.</span><div class="pragma">
@@ -1410,18 +1410,18 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 Checks if a callback is registered to this event handler.
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L85"
+href="/tree/master/crow/event.nim#L85"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L85" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L85" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="clearHandlers"><a name="clearHandlers,EventHandler"></a><pre><span class="Keyword">proc</span> <span class="Identifier">clearHandlers</span><span class="Other">(</span><span class="Identifier">handler</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">EventHandler</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
 <dd>
 Clears all of the callbacks from the event handler.
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L90"
+href="/tree/master/crow/event.nim#L90"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L90" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L90" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="on"><a name="on,EventEmitter,string,proc(EventArgs)"></a><pre><span class="Keyword">proc</span> <span class="Identifier">on</span><span class="Other">(</span><span class="Identifier">emitter</span><span class="Other">:</span> <span class="Identifier">EventEmitter</span><span class="Other">;</span> <span class="Identifier">event</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">fn</span><span class="Other">:</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">e</span><span class="Other">:</span> <span class="Identifier">EventArgs</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">closure</span></div><span class="Other pragmaend">.}</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma">
@@ -1429,9 +1429,9 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 Assigns a event handler with the specified callback. If the event doesn't exist, it will be created.
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L99"
+href="/tree/master/crow/event.nim#L99"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L99" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L99" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="emit"><a name="emit,EventEmitter,EventHandler,EventArgs"></a><pre><span class="Keyword">proc</span> <span class="Identifier">emit</span><span class="Other">(</span><span class="Identifier">emitter</span><span class="Other">:</span> <span class="Identifier">EventEmitter</span><span class="Other">;</span> <span class="Identifier">eventhandler</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">EventHandler</span><span class="Other">;</span> <span class="Identifier">args</span><span class="Other">:</span> <span class="Identifier">EventArgs</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma">
@@ -1439,9 +1439,9 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 Fires an event handler with specified event arguments.
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L110"
+href="/tree/master/crow/event.nim#L110"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L110" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L110" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="emit"><a name="emit,EventEmitter,string,EventArgs"></a><pre><span class="Keyword">proc</span> <span class="Identifier">emit</span><span class="Other">(</span><span class="Identifier">emitter</span><span class="Other">:</span> <span class="Identifier">EventEmitter</span><span class="Other">;</span> <span class="Identifier">event</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">args</span><span class="Other">:</span> <span class="Identifier">EventArgs</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span>
@@ -1449,18 +1449,18 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 Fires an event handler with specified event arguments.
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L115"
+href="/tree/master/crow/event.nim#L115"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L115" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L115" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="initEventEmitter"><a name="initEventEmitter,"></a><pre><span class="Keyword">proc</span> <span class="Identifier">initEventEmitter</span><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">EventEmitter</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
 <dd>
 Creates and returns a new EventEmitter.
 &nbsp;&nbsp;<a
-href="/tree/master/crow/core/event.nim#L121"
+href="/tree/master/crow/event.nim#L121"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/core/event.nim#L121" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/event.nim#L121" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -1473,7 +1473,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2017-07-18 00:10:57 UTC</small>
+        <small>Made with Nim. Generated: 2017-07-18 19:38:17 UTC</small>
       </div>
     </div>
   </div>

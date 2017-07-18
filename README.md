@@ -1,29 +1,14 @@
 Crow
 ----
 
-(A future) Modular graphic lib.
-  
-[Examples](http://stisa.space/crow)
+An abstraction that gives you an OpenGL/WebGL context and an event loop.
+Allows to compile the same code to js or native.
 
-### Events
-Generic event emitter, taken from nim stdlib ( for now )
-### Windows
-An abstraction over a window.
+Backends:
 
-### GL
-Attempts to abstract webgl and opengl to a common api.
-
-### Renderer
-Draw primitives using `gl.nim`
-
-Notes:
-- currently only webgl sort of works
+- WebGL ( js only )
+- SDL2 ( native only, may work on android in the future )
+- GLFW3 ( native only )
 
 
-Todo:
-
-- avoid recreating all float32array
-- don't lie using emit
-- drop emits from webgl
-- use importcpp, exportcpp in webgl
-
+[Examples and some documentation](http://stisa.space/crow)

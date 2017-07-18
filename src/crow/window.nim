@@ -55,13 +55,14 @@ when defined js:
     s.view.parentNode.removeChild(s.view)
   
   template loop*(s:Window,body:untyped):untyped =
-    #from times import epochTime
-    #var oldtime = times.epochTime()
+    from times import epochTime
+    var oldtime = times.epochTime()
     proc innerframedraw(now:float=0)=
-      #if times.epochTime() - oldTime > 1/60:
-      body
-      #  oldTime = times.epochTime()
-    requestAnimationFrame(innerframedraw)
+      if times.epochTime() - oldTime > 1/60:
+        body
+        oldTime = times.epochTime()
+      requestAnimationFrame(innerframedraw)
+    innerframedraw()
 
 elif defined useGLFW:
   proc initDefaultEvents(w:Window) =

@@ -1,2 +1,3 @@
-import crow/core/[window,ngl]
+import crow/window
+import crow/ngl
 export window, ngl

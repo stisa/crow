@@ -72,7 +72,7 @@ proc `scale=`*(p:var Polygon,scale:float)=
 proc rect*(
     x,y:float=0.0,
     w,h:float=10.0,
-    color:Color=Red,
+    color:Color=colRed,
     centered:bool=true
   ):Rect =
   result.color = color
@@ -83,7 +83,7 @@ proc rect*(
   result.centered =  centered
   result.dirty = true
 
-proc box*(x,y:float=0.0,w,h:float=10.0,color:Color=Red,centered:bool=true):Rect =
+proc box*(x,y:float=0.0,w,h:float=10.0,color:Color=colRed,centered:bool=true):Rect =
   result.color = color
   result.pos = (x,y)
   #result.origin = (-w/2,-h/2)
@@ -93,14 +93,14 @@ proc box*(x,y:float=0.0,w,h:float=10.0,color:Color=Red,centered:bool=true):Rect 
   result.filled = true
   result.dirty = true
 
-proc circle*(x,y:float=0.0,r:float=10.0,color:Color=Red):Circle =
+proc circle*(x,y:float=0.0,r:float=10.0,color:Color=colRed):Circle =
   result.color = color
   result.pos = (x,y)
   result.radius = r
   result.scale = 1.0
   result.dirty = true
 
-proc disk*(x,y:float=0.0,r:float=10.0,color:Color=Red):Circle =
+proc disk*(x,y:float=0.0,r:float=10.0,color:Color=colRed):Circle =
   result.color = color
   result.pos = (x,y)
   result.radius = r
@@ -113,7 +113,7 @@ proc polygon* (
     sides:int=3,
     boundingcircleradius:float=10.0,
     filled:bool=false,
-    color:Color=Red
+    color:Color=colRed
   ) : Polygon =
   
   doassert(sides>=3)
