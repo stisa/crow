@@ -222,37 +222,6 @@ var NNI31402 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind:
 {kind: 1, offset: "s", len: 0, typ: NTI28076, name: "s", sons: null}]};
 NTI31402.node = NNI31402;
 
-function cstrToNimstr(c_14603) {
-		  var ln = c_14603.length;
-  var result = new Array(ln);
-  var r = 0;
-  for (var i = 0; i < ln; ++i) {
-    var ch = c_14603.charCodeAt(i);
-
-    if (ch < 128) {
-      result[r] = ch;
-    }
-    else if((ch > 127) && (ch < 2048)) {
-      result[r] = (ch >> 6) | 192;
-      ++r;
-      result[r] = (ch & 63) | 128;
-    }
-    else {
-      result[r] = (ch >> 12) | 224;
-      ++r;
-      result[r] = ((ch >> 6) & 63) | 128;
-      ++r;
-      result[r] = (ch & 63) | 128;
-    }
-    ++r;
-  }
-  result[r] = 0; // terminating zero
-  return result;
-  
-
-	
-}
-
 function toJSStr(s_14803) {
 		    var len = s_14803.length-1;
     var asciiPart = new Array(len);
@@ -281,6 +250,37 @@ function toJSStr(s_14803) {
     asciiPart = asciiPart.join("");
     return (nonAsciiPart === null) ?
         asciiPart : asciiPart + decodeURIComponent(nonAsciiPart.join(""));
+  
+
+	
+}
+
+function cstrToNimstr(c_14603) {
+		  var ln = c_14603.length;
+  var result = new Array(ln);
+  var r = 0;
+  for (var i = 0; i < ln; ++i) {
+    var ch = c_14603.charCodeAt(i);
+
+    if (ch < 128) {
+      result[r] = ch;
+    }
+    else if((ch > 127) && (ch < 2048)) {
+      result[r] = (ch >> 6) | 192;
+      ++r;
+      result[r] = (ch & 63) | 128;
+    }
+    else {
+      result[r] = (ch >> 12) | 224;
+      ++r;
+      result[r] = ((ch >> 6) & 63) | 128;
+      ++r;
+      result[r] = (ch & 63) | 128;
+    }
+    ++r;
+  }
+  result[r] = 0; // terminating zero
+  return result;
   
 
 	
@@ -1016,9 +1016,9 @@ function initDefaultEvents_66008(w_66010) {
 		function keyev_66011(e_66014) {
 			var F={procname:"initDefaultEvents.keyev",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\core\\window.nim",line:0};
 			framePtr = F;
-				F.line = 28;
+				F.line = 27;
 				emit_65410(w_66010.eventLoop, makeNimstrLit("keyEv"), {kind: 0, key: toJSKC_64115(e_66014.keyCode), mods: 0, button: 0, kmods: 0, pos: {Field0: 0.0, Field1: 0.0}, dt: 0.0});
-				F.line = 29;
+				F.line = 28;
 				rawEcho(makeNimstrLit("ha"));
 			framePtr = F.prev;
 
@@ -1027,53 +1027,53 @@ function initDefaultEvents_66008(w_66010) {
 
 	var F={procname:"window.initDefaultEvents",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\core\\window.nim",line:0};
 	framePtr = F;
-		F.line = 30;
+		F.line = 29;
 		document.addEventListener("keypress", keyev_66011, true);
 	framePtr = F.prev;
 
 	
 }
 
-function initWindow_66018(w_66021, h_66023) {
-	var result_66024 = {ctx: null, width: 0, height: 0, view: null, eventLoop: null};
+function initWindow_66018(name_66020, w_66022, h_66024) {
+	var result_66025 = {ctx: null, width: 0, height: 0, view: null, eventLoop: null};
 
 	var F={procname:"window.initWindow",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\core\\window.nim",line:0};
 	framePtr = F;
-		F.line = 33;
-		var canvas_66025 = document.getElementById("crow-canvas");
-		if ((canvas_66025 === null)) {
+		F.line = 32;
+		var canvas_66026 = document.getElementById(toJSStr(name_66020));
+		if ((canvas_66026 === null)) {
+		F.line = 34;
+		canvas_66026 = document.createElement("CANVAS");
 		F.line = 35;
-		canvas_66025 = document.createElement("CANVAS");
-		F.line = 36;
-		canvas_66025.setAttribute("ID", "crow-canvas");
-		F.line = 38;
-		document.body.appendChild(canvas_66025);
+		canvas_66026.setAttribute("ID", toJSStr(name_66020));
+		F.line = 37;
+		document.body.appendChild(canvas_66026);
 		}
 		
+		F.line = 39;
+		canvas_66026.setAttribute("WIDTH", toJSStr(cstrToNimstr((w_66022)+"")));
 		F.line = 40;
-		canvas_66025.setAttribute("WIDTH", toJSStr(cstrToNimstr((w_66021)+"")));
-		F.line = 41;
-		canvas_66025.setAttribute("HEIGHT", toJSStr(cstrToNimstr((h_66023)+"")));
+		canvas_66026.setAttribute("HEIGHT", toJSStr(cstrToNimstr((h_66024)+"")));
+		F.line = 42;
+		result_66025.ctx = getContextWebgl_28964(canvas_66026);
 		F.line = 43;
-		result_66024.ctx = getContextWebgl_28964(canvas_66025);
+		result_66025.view = canvas_66026;
 		F.line = 44;
-		result_66024.view = canvas_66025;
+		result_66025.width = result_66025.view.clientWidth;
 		F.line = 45;
-		result_66024.width = result_66024.view.clientWidth;
+		result_66025.height = result_66025.view.clientHeight;
 		F.line = 46;
-		result_66024.height = result_66024.view.clientHeight;
+		viewport_32202(result_66025.ctx, 0, 0, result_66025.ctx.canvas.width, result_66025.ctx.canvas.height);
 		F.line = 47;
-		viewport_32202(result_66024.ctx, 0, 0, result_66024.ctx.canvas.width, result_66024.ctx.canvas.height);
+		result_66025.eventLoop = initEventEmitter_65417();
 		F.line = 48;
-		result_66024.eventLoop = initEventEmitter_65417();
-		F.line = 49;
-		initDefaultEvents_66008(result_66024);
+		initDefaultEvents_66008(result_66025);
 	framePtr = F.prev;
 
-	return result_66024;
+	return result_66025;
 
 }
-var surface_67001 = [initWindow_66018(640, 480)];
+var surface_67001 = [initWindow_66018(makeNimstrLit("crow-canvas"), 640, 480)];
 var vertices_67007 = [nimCopy(null, [-5.0000000000000000e-001, 5.0000000000000000e-001, 0.0, -5.0000000000000000e-001, -5.0000000000000000e-001, 0.0, 5.0000000000000000e-001, -5.0000000000000000e-001, 0.0], NTI67002)];
 var indices_67010 = [nimCopy(null, [0, 1, 2], NTI67008)];
 

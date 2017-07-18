@@ -11,7 +11,6 @@ elif not defined android:
 
 import ngl, event,keymap
 
-
 type Window* = object
   ctx*: ContextGL
   width*,height*:int  
@@ -29,11 +28,11 @@ when defined js:
       echo "ha"
     document.addEventlistener("keypress",keyev,true)
   
-  proc initWindow*(w = 640, h:int = 480):Window =
-    var canvas = document.getElementById("crow-canvas") # TODO: personalize?
+  proc initWindow*(name:string = "crow-canvas", w = 640, h:int = 480):Window =
+    var canvas = document.getElementById(name) # TODO: personalize?
     if canvas.isNil:
       canvas = document.createElement("CANVAS")
-      canvas.setAttribute("ID","crow-canvas")
+      canvas.setAttribute("ID",name)
       #canvas.setAttribute("STYLE","border: 1em solid black; width:90%; height:90%;")
       document.body.appendChild(canvas)
     
@@ -70,7 +69,7 @@ elif not defined android:
     
     w.view.keyCb = keyCb
 
-  proc initWindow*(w = 640, h:int = 480):Window =
+  proc initWindow*(name:string="crow-canvas", w = 640, h:int = 480):Window =
     glfw.initialize()
     result.view = glfw.newOpenglWindow((w.int32,h.int32))
     (result.width,result.height) = glfw.size(result.view)
