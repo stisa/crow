@@ -5,9 +5,12 @@
 # - height
 when defined js :
   from webgl import WebGlRenderingContext,Canvas,getContextwebgl,requestAnimationFrame
-elif not defined android:
+elif defined useGLFW:
   from opengl import loadExtensions
   from glfw import nil
+else:
+  from opengl import loadExtensions
+  from sdl2 import nil
 
 import ngl, event,keymap
 
@@ -16,16 +19,17 @@ type Window* = object
   width*,height*:int  
   when defined js:
     view*: Canvas
-  elif not defined android:
+  elif defined useGLFW:
     view*:glfw.Window
-  eventLoop: EventEmitter
+  else:
+    view*: sdl2.WindowPtr
+  eventLoop*: EventEmitter
 
 when defined js:
   import dom
-  proc initDefaultEvents*(w:Window) =
+  proc initDefaultEvents(w:Window) =
     proc keyev(e:dom.Event) =
-      w.eventLoop.emit("keyEv", EventArgs(kind:evKey,key:e.keycode.toJSKC()))
-      echo "ha"
+      w.eventLoop.emit("keyEv", EventArgs(kind:evKey,key:e.keycode.toKC()))
     document.addEventlistener("keypress",keyev,true)
   
   proc initWindow*(name:string = "crow-canvas", w = 640, h:int = 480):Window =
@@ -59,12 +63,12 @@ when defined js:
       #  oldTime = times.epochTime()
     requestAnimationFrame(innerframedraw)
 
-elif not defined android:
-  proc initDefaultEvents*(w:Window) =
+elif defined useGLFW:
+  proc initDefaultEvents(w:Window) =
     proc keyCb(o: glfw.Window, key: glfw.Key, scanCode: int32, action: glfw.KeyAction,
         modKeys: set[glfw.ModifierKey]){.closure.} =
       if action == glfw.kaDown:
-        w.eventLoop.emit("keyEv", EventArgs(kind:evKey,key:key.int.toGLFWKC()))
+        w.eventLoop.emit("keyEv", EventArgs(kind:evKey,key:key.int.toKC()))
         echo "ha"
     
     w.view.keyCb = keyCb
@@ -96,4 +100,42 @@ elif not defined android:
         oldTime = times.epochTime()
       glfw.pollEvents()
     s.destroyWindow()
+else:
+  proc checkDefaultEvents*(w:Window, e: var sdl2.Event) = 
+    if e.kind == sdl2.KeyDown:
+      var kbEvent = cast[sdl2.KeyboardEventPtr](addr(e))
+      w.eventLoop.emit("keyEv", EventArgs(kind:evKey,key:kbEvent.keysym.sym.int.toKC()))
 
+  proc initWindow*(name:string="crow-canvas", w = 640, h:int = 480):Window =
+    sdl2.init(sdl2.INIT_EVERYTHING)
+    result.view = sdl2.createWindow(name.cstring, 100, 100, w.cint, h.cint, sdl2.SDL_WINDOW_OPENGL or sdl2.SDL_WINDOW_RESIZABLE)
+    (result.width,result.height) = (w,h)
+    discard sdl2.glcreateContext(result.view)
+    loadExtensions()
+    
+    result.ctx.viewport(0,0,result.width,result.height)
+    result.eventLoop = initEventEmitter()
+    sdl2.glSwapWindow(result.view)
+
+  proc destroyWindow*(s:Window) =
+    sdl2.destroyWindow(s.view)
+  
+  template loop*(s:Window,body:untyped):untyped =
+    from times import nil
+    from sdl2 import nil
+    var
+      evt = sdl2.defaultEvent
+      runGame = true
+      oldTime = times.epochTime()
+    while runGame:
+      while sdl2.pollEvent(evt).bool:
+        if evt.kind == sdl2.QuitEvent:
+          runGame = false
+          break
+        else:
+          s.checkDefaultEvents(evt)
+        if times.epochTime() - oldTime > 1/60:
+          body
+          sdl2.glSwapWindow(s.view)
+          oldTime = times.epochTime()
+    s.destroyWindow()    

@@ -9,6 +9,7 @@ requires: "nim >= 0.14.0"
 requires: "webgl"
 requires: "opengl"
 requires: "nim-glfw"
+requires: "sdl2"
 
 srcDir = "src"
 

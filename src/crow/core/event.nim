@@ -123,14 +123,9 @@ proc initEventEmitter*(): EventEmitter =
   result = new EventEmitter
   result.s = @[]
 
-# Define and export the event loop
-
-when defined js:
-  import dom
-
-#var evloop* = initEventEmitter()
-
 #[ example hook event ]
+# import dom
+# var evloop* = initEventEmitter()
 # proc handleKeyEvent(e: EventArgs) =
 #  when defined js:
 #    log("handle :".cstring,$e.key)
@@ -138,39 +133,4 @@ when defined js:
 #    echo("Handled!")
 #    echo $e.key
 
-#evloop.on("keyEv", handleKeyEvent)
-##########################à
-when defined js:
-  # TODO: this needs work, maybe move template in engine to here?
-  proc initEvents*(w:Window):EventEmitter =
-    result = initEventEmitter()
-    proc keyev(e:dom.Event) =
-      result.emit("keyEv", EventArgs(kind:evKey,key:e.keycode.toJSKC()))
-  
-    document.addEventlistener("keypress",keyev,true)
-  
-    proc mouseev(e:dom.Event) =
-      result.emit("click", EventArgs(kind:evMouse,button:0))
-  
-    document.addEventlistener("click",mouseev,true)
-
-else: 
-  proc initEvents*(w:Window):EventEmitter =
-    var emv = initEventEmitter()
-    proc keyCb(o: Window, key: Key, scanCode: int32, action: KeyAction,
-        modKeys: set[ModifierKey]){.closure.} =
-      emv.emit("keyEv", EventArgs(kind:evKey,key:key.int.toGLFWKC())) 
-    
-    w.view.keyCb = keyCb
-    result = emv
-
-
-#
-
-
-#    echo("Key: ", key, " (scan code: ", scanCode, "): ", action)
-
-#   if action != kaUp:
-#    if key == keyEscape:
-#     o.shouldClose = true
-]#
+# evloop.on("keyEv", handleKeyEvent) ]#

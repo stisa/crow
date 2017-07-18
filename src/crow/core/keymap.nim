@@ -228,10 +228,10 @@ when defined js:
     18 : kLEFT_ALT                       
   }.toTable
 
-  proc toJSKC*(k:int):KeyCode = js_scan_codes[k]
+  proc toKC*(k:int):KeyCode = js_scan_codes[k]
 
-else:
-  const native_scan_codes* = {
+elif defined useGLFW:
+  const glfw_scan_codes* = {
     0: kUNKNOWN,          
     32: kSPACE,            
     39: kAPOSTROPHE,         # '  
@@ -354,5 +354,128 @@ else:
     347: kRIGHT_SUPER,       
     348: kMENU }.toTable
 
-  proc toGLFWKC*(k:int):KeyCode = native_scan_codes[k]
+  proc toKC*(k:int):KeyCode = glfw_scan_codes[k]
+else:
+  import sdl2
+  const sdl_scan_codes* = {
+    0: kUNKNOWN,          
+    K_Space.int : kSPACE,            
+    K_QUOTE.int: kAPOSTROPHE,         # '  
+    K_COMMA.int: kCOMMA,              # , 
+    K_MINUS.int: kMINUS,              # -  
+    K_PERIOD.int: kPERIOD,             # .  
+    K_SLASH.int: kSLASH,              # /  
+    K_0.int: k0,                
+    K_1.int: k1,                
+    K_2.int: k2,                
+    K_3.int: k3,                
+    K_4.int: k4,                
+    K_5.int: k5,                
+    K_6.int: k6,                
+    K_7.int: k7,                
+    K_8.int: k8,                
+    K_9.int: k9,                
+    K_SEMICOLON.int: kSEMICOLON,          # ;
+    K_EQUALS.int: kEQUAL,              #=  
+    K_A.int: kA,                
+    K_B.int: kB,                
+    K_C.int: kC,                
+    K_D.int: kD,                
+    K_E.int: kE,                
+    K_F.int: kF,                
+    K_G.int: kG,                
+    K_H.int: kH,                
+    K_I.int: kI,                
+    K_J.int: kJ,                
+    K_K.int: kK,                
+    K_L.int: kL,                
+    K_M.int: kM,                
+    K_N.int: kN,                
+    K_O.int: kO,                
+    K_P.int: kP,                
+    K_Q.int: kQ,                
+    K_R.int: kR,                
+    K_S.int: kS,                
+    K_T.int: kT,                
+    K_U.int: kU,                
+    K_V.int: kV,                
+    K_W.int: kW,                
+    K_X.int: kX,                
+    K_Y.int: kY,                
+    K_Z.int: kZ,                
+    K_LEFT_BRACKET.int: kLEFT_BRACKET,       # [
+    K_BACKSLASH.int: kBACKSLASH,          # \
+    K_RIGHT_BRACKET.int: kRIGHT_BRACKET,      # ]
+    K_BACKQUOTE.int: kGRAVE_ACCENT,       # `
+    K_ESCAPE.int: kESCAPE,            
+    K_RETURN.int: kENTER,             
+    K_TAB.int: kTAB,               
+    K_BACKSPACE.int: kBACKSPACE,         
+    K_INSERT.int: kINSERT,            
+    K_DELETE.int: kDELETE,            
+    K_RIGHT.int: kRIGHT,             
+    K_LEFT.int: kLEFT,              
+    K_DOWN.int: kDOWN,              
+    K_UP.int: kUP,                
+    K_PAGE_UP.int: kPAGE_UP,           
+    K_PAGE_DOWN.int: kPAGE_DOWN,         
+    K_HOME.int: kHOME,              
+    K_END.int: kEND,               
+    K_CAPS_LOCK.int: kCAPS_LOCK,         
+    K_SCROLL_LOCK.int: kSCROLL_LOCK,       
+    K_NUMLOCKCLEAR.int: kNUM_LOCK,          
+    K_PRINT_SCREEN.int: kPRINT_SCREEN,      
+    K_PAUSE.int: kPAUSE,             
+    K_F1.int: kF1,                
+    K_F2.int: kF2,                
+    K_F3.int: kF3,                
+    K_F4.int: kF4,                
+    K_F5.int: kF5,                
+    K_F6.int: kF6,                
+    K_F7.int: kF7,                
+    K_F8.int: kF8,                
+    K_F9.int: kF9,                
+    K_F10.int: kF10,               
+    K_F11.int: kF11,               
+    K_F12.int: kF12,               
+    K_F13.int: kF13,               
+    K_F14.int: kF14,               
+    K_F15.int: kF15,               
+    K_F16.int: kF16,               
+    K_F17.int: kF17,               
+    K_F18.int: kF18,               
+    K_F19.int: kF19,               
+    K_F20.int: kF20,               
+    K_F21.int: kF21,               
+    K_F22.int: kF22,               
+    K_F23.int: kF23,               
+    K_F24.int: kF24,      
+    K_KP_0.int: kKP_0,              
+    K_KP_1.int: kKP_1,              
+    K_KP_2.int: kKP_2,              
+    K_KP_3.int: kKP_3,              
+    K_KP_4.int: kKP_4,              
+    K_KP_5.int: kKP_5,              
+    K_KP_6.int: kKP_6,              
+    K_KP_7.int: kKP_7,              
+    K_KP_8.int: kKP_8,              
+    K_KP_9.int: kKP_9,              
+    K_KP_DECIMAL.int: kKP_DECIMAL,        
+    K_KP_DIVIDE.int: kKP_DIVIDE,         
+    K_KP_MULTIPLY.int: kKP_MULTIPLY,       
+    K_KP_MINUS.int: kKP_SUBTRACT,       
+    K_KP_PLUS.int: kKP_ADD,            
+    K_KP_ENTER.int: kKP_ENTER,          
+    K_KP_EQUALS.int: kKP_EQUAL,          
+    K_LSHIFT.int: kLEFT_SHIFT,        
+    K_LCTRL.int: kLEFT_CONTROL,      
+    K_LALT.int: kLEFT_ALT,          
+    K_LGUI.int: kLEFT_SUPER,        
+    K_RSHIFT.int: kRIGHT_SHIFT,       
+    K_RCTRL.int: kRIGHT_CONTROL,     
+    K_RALT.int: kRIGHT_ALT,         
+    K_RGUI.int: kRIGHT_SUPER,       
+    K_MENU.int: kMENU }.toTable
+
+  proc toKC*(k:int):KeyCode = sdl_scan_codes[k]
 
