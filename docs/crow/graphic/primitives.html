@@ -1221,42 +1221,36 @@ function main() {
 <li>
   <a class="reference reference-toplevel" href="#7" id="57">Types</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#Renderable"
-    title="Renderable = object of RootObj
-  color*: Color
-  pos*: tuple[x, y: float]
-  scale*: float
-  rot*: float
+      <li><a class="reference" href="#Primitive"
+    title="Primitive = object of RootObj
+  color: Color
+  pos: tuple[x, y: float]
+  scale: float
+  rot: float
   origin*: tuple[x, y: float]
   centered*: bool
   filled*: bool
   verts*: seq[float]
-  dirty*: bool"><wbr />Renderable<span class="attachedType" style="visibility:hidden"></span></a></li>
+  dirty*: bool"><wbr />Primitive<span class="attachedType" style="visibility:hidden"></span></a></li>
   <li><a class="reference" href="#Rect"
-    title="Rect = object of Renderable
+    title="Rect = object of Primitive
   size*: tuple[w, h: float]"><wbr />Rect<span class="attachedType" style="visibility:hidden"></span></a></li>
   <li><a class="reference" href="#Circle"
-    title="Circle = object of Renderable
-  radius*: float"><wbr />Circle<span class="attachedType" style="visibility:hidden"></span></a></li>
+    title="Circle = object of Primitive
+  r: float"><wbr />Circle<span class="attachedType" style="visibility:hidden"></span></a></li>
   <li><a class="reference" href="#Polygon"
-    title="Polygon = object of Renderable
-  sides*: int
-  bcradius*: float"><wbr />Polygon<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#Renderables"
-    title="Renderables = Rect | Circle | Polygon"><wbr />Renderables<span class="attachedType" style="visibility:hidden"></span></a></li>
+    title="Polygon = object of Primitive
+  sides: int
+  r: float"><wbr />Polygon<span class="attachedType" style="visibility:hidden"></span></a></li>
+  <li><a class="reference" href="#Primitives"
+    title="Primitives = Rect | Circle | Polygon"><wbr />Primitives<span class="attachedType" style="visibility:hidden"></span></a></li>
 
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#sides=,Polygon,Natural"
-    title="sides=(p: var Polygon; news: Natural)"><wbr />sides=<span class="attachedType" style="visibility:hidden">Polygon</span></a></li>
-  <li><a class="reference" href="#bcradius=,Polygon,float"
-    title="bcradius=(p: var Polygon; bcr: float)"><wbr />bcradius=<span class="attachedType" style="visibility:hidden">Polygon</span></a></li>
-  <li><a class="reference" href="#scale=,Polygon,float"
-    title="scale=(p: var Polygon; scale: float)"><wbr />scale=<span class="attachedType" style="visibility:hidden">Polygon</span></a></li>
-  <li><a class="reference" href="#rect,float,float,float,float,Color,bool"
+      <li><a class="reference" href="#rect,float,float,float,float,Color,bool"
     title="rect(x, y: float = 0.0; w, h: float = 10.0; color: Color = colRed; centered: bool = true): Rect"><wbr />rect<span class="attachedType" style="visibility:hidden">Rect</span></a></li>
   <li><a class="reference" href="#box,float,float,float,float,Color,bool"
     title="box(x, y: float = 0.0; w, h: float = 10.0; color: Color = colRed; centered: bool = true): Rect"><wbr />box<span class="attachedType" style="visibility:hidden">Rect</span></a></li>
@@ -1265,14 +1259,34 @@ function main() {
   <li><a class="reference" href="#disk,float,float,float,Color"
     title="disk(x, y: float = 0.0; r: float = 10.0; color: Color = colRed): Circle"><wbr />disk<span class="attachedType" style="visibility:hidden">Circle</span></a></li>
   <li><a class="reference" href="#polygon,float,float,int,float,bool,Color"
-    title="polygon(x, y: float = 0.0; sides: int = 3; boundingcircleradius: float = 10.0;
-        filled: bool = false; color: Color = colRed): Polygon"><wbr />polygon<span class="attachedType" style="visibility:hidden">Polygon</span></a></li>
-  <li><a class="reference" href="#rot=,Renderable,float"
-    title="rot=(r: var Renderable; rot: float)"><wbr />rot=<span class="attachedType" style="visibility:hidden">Renderable</span></a></li>
-  <li><a class="reference" href="#color=,Renderable,Color"
-    title="color=(r: var Renderable; col: Color)"><wbr />color=<span class="attachedType" style="visibility:hidden">Renderable</span></a></li>
-  <li><a class="reference" href="#pos=,Renderable,tuple[float,float]"
-    title="pos=(r: var Renderable; pos: tuple[x, y: float])"><wbr />pos=<span class="attachedType" style="visibility:hidden">Renderable</span></a></li>
+    title="polygon(x, y: float = 0.0; sides: int = 3; radius: float = 10.0; filled: bool = false;
+        color: Color = colRed): Polygon"><wbr />polygon<span class="attachedType" style="visibility:hidden">Polygon</span></a></li>
+  <li><a class="reference" href="#rot=,Primitive,float"
+    title="rot=(r: var Primitive; rot: float)"><wbr />rot=<span class="attachedType" style="visibility:hidden">Primitive</span></a></li>
+  <li><a class="reference" href="#rot,Primitive"
+    title="rot(r: Primitive): float"><wbr />rot<span class="attachedType" style="visibility:hidden">Primitive</span></a></li>
+  <li><a class="reference" href="#color=,Primitive,Color"
+    title="color=(r: var Primitive; col: Color)"><wbr />color=<span class="attachedType" style="visibility:hidden">Primitive</span></a></li>
+  <li><a class="reference" href="#color,"
+    title="color(r: Primitive | ptr Primitive): Color"><wbr />color<span class="attachedType" style="visibility:hidden">Primitive</span></a></li>
+  <li><a class="reference" href="#pos=,Primitive,tuple[float,float]"
+    title="pos=(r: var Primitive; pos: tuple[x, y: float])"><wbr />pos=<span class="attachedType" style="visibility:hidden">Primitive</span></a></li>
+  <li><a class="reference" href="#pos,Primitive"
+    title="pos(r: Primitive): tuple[x, y: float]"><wbr />pos<span class="attachedType" style="visibility:hidden">Primitive</span></a></li>
+  <li><a class="reference" href="#scale=,Primitive,float"
+    title="scale=(p: var Primitive; scale: float)"><wbr />scale=<span class="attachedType" style="visibility:hidden">Primitive</span></a></li>
+  <li><a class="reference" href="#scale,Primitive"
+    title="scale(p: Primitive): float"><wbr />scale<span class="attachedType" style="visibility:hidden">Primitive</span></a></li>
+  <li><a class="reference" href="#sides=,Polygon,Natural"
+    title="sides=(p: var Polygon; news: Natural)"><wbr />sides=<span class="attachedType" style="visibility:hidden">Polygon</span></a></li>
+  <li><a class="reference" href="#sides,Polygon"
+    title="sides(p: Polygon): Natural"><wbr />sides<span class="attachedType" style="visibility:hidden">Polygon</span></a></li>
+  <li><a class="reference" href="#radius=,Polygon,float"
+    title="radius=(p: var Polygon; bcr: float)"><wbr />radius=<span class="attachedType" style="visibility:hidden">Polygon</span></a></li>
+  <li><a class="reference" href="#radius=,Circle,float"
+    title="radius=(p: var Circle; bcr: float)"><wbr />radius=<span class="attachedType" style="visibility:hidden">Circle</span></a></li>
+  <li><a class="reference" href="#radius,"
+    title="radius(p: Polygon | Circle): float"><wbr />radius<span class="attachedType" style="visibility:hidden">Polygon</span></a></li>
 
   </ul>
 </li>
@@ -1291,11 +1305,11 @@ function main() {
 <div class="section" id="7">
 <h1><a class="toc-backref" href="#7">Types</a></h1>
 <dl class="item">
-<dt id="Renderable"><a name="Renderable"></a><pre><span class="Identifier">Renderable</span> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">RootObj</span>
-  <span class="Identifier">color</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Color</span>
-  <span class="Identifier">pos</span><span class="Operator">*</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">]</span>
-  <span class="Identifier">scale</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">float</span>
-  <span class="Identifier">rot</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">float</span>
+<dt id="Primitive"><a name="Primitive"></a><pre><span class="Identifier">Primitive</span> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">RootObj</span>
+  <span class="Identifier">color</span><span class="Other">:</span> <span class="Identifier">Color</span>
+  <span class="Identifier">pos</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">]</span>
+  <span class="Identifier">scale</span><span class="Other">:</span> <span class="Identifier">float</span>
+  <span class="Identifier">rot</span><span class="Other">:</span> <span class="Identifier">float</span>
   <span class="Identifier">origin</span><span class="Operator">*</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">]</span>
   <span class="Identifier">centered</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">bool</span>
   <span class="Identifier">filled</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">bool</span>
@@ -1310,7 +1324,7 @@ class="link-seesrc" target="_blank">Source</a>
 <a href="/edit/devel/crow/graphic/primitives.nim#L4" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<dt id="Rect"><a name="Rect"></a><pre><span class="Identifier">Rect</span> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">Renderable</span>
+<dt id="Rect"><a name="Rect"></a><pre><span class="Identifier">Rect</span> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">Primitive</span>
   <span class="Identifier">size</span><span class="Operator">*</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">w</span><span class="Other">,</span> <span class="Identifier">h</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">]</span>
 </pre></dt>
 <dd>
@@ -1321,8 +1335,8 @@ class="link-seesrc" target="_blank">Source</a>
 <a href="/edit/devel/crow/graphic/primitives.nim#L15" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<dt id="Circle"><a name="Circle"></a><pre><span class="Identifier">Circle</span> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">Renderable</span>
-  <span class="Identifier">radius</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">float</span>
+<dt id="Circle"><a name="Circle"></a><pre><span class="Identifier">Circle</span> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">Primitive</span>
+  <span class="Identifier">r</span><span class="Other">:</span> <span class="Identifier">float</span>
 </pre></dt>
 <dd>
 A circle.
@@ -1332,19 +1346,19 @@ class="link-seesrc" target="_blank">Source</a>
 <a href="/edit/devel/crow/graphic/primitives.nim#L19" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<dt id="Polygon"><a name="Polygon"></a><pre><span class="Identifier">Polygon</span> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">Renderable</span>
-  <span class="Identifier">sides</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">int</span>
-  <span class="Identifier">bcradius</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">float</span>
+<dt id="Polygon"><a name="Polygon"></a><pre><span class="Identifier">Polygon</span> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">Primitive</span>
+  <span class="Identifier">sides</span><span class="Other">:</span> <span class="Identifier">int</span>
+  <span class="Identifier">r</span><span class="Other">:</span> <span class="Identifier">float</span>
 </pre></dt>
 <dd>
-A polygon. <tt class="docutils literal"><span class="pre">bcradius</span></tt> is the radius of the bounding circle. If <tt class="docutils literal"><span class="pre">filled</span></tt> is true, then the polygon is filled (duh).
+A polygon. <tt class="docutils literal"><span class="pre">radius</span></tt> is the radius of the bounding circle. If <tt class="docutils literal"><span class="pre">filled</span></tt> is true, then the polygon is filled (duh).
 &nbsp;&nbsp;<a
 href="/tree/master/crow/graphic/primitives.nim#L23"
 class="link-seesrc" target="_blank">Source</a>
 <a href="/edit/devel/crow/graphic/primitives.nim#L23" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<dt id="Renderables"><a name="Renderables"></a><pre><span class="Identifier">Renderables</span> <span class="Other">=</span> <span class="Identifier">Rect</span> <span class="Operator">|</span> <span class="Identifier">Circle</span> <span class="Operator">|</span> <span class="Identifier">Polygon</span></pre></dt>
+<dt id="Primitives"><a name="Primitives"></a><pre><span class="Identifier">Primitives</span> <span class="Other">=</span> <span class="Identifier">Rect</span> <span class="Operator">|</span> <span class="Identifier">Circle</span> <span class="Operator">|</span> <span class="Identifier">Polygon</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
@@ -1358,41 +1372,14 @@ class="link-seesrc" target="_blank">Source</a>
 <div class="section" id="12">
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
-<dt id="sides="><a name="sides=,Polygon,Natural"></a><pre><span class="Keyword">proc</span> <span class="Identifier">sides=</span><span class="Other">(</span><span class="Identifier">p</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Polygon</span><span class="Other">;</span> <span class="Identifier">news</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">AssertionError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
-<dd>
-
-&nbsp;&nbsp;<a
-href="/tree/master/crow/graphic/primitives.nim#L60"
-class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/graphic/primitives.nim#L60" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-<dt id="bcradius="><a name="bcradius=,Polygon,float"></a><pre><span class="Keyword">proc</span> <span class="Identifier">bcradius=</span><span class="Other">(</span><span class="Identifier">p</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Polygon</span><span class="Other">;</span> <span class="Identifier">bcr</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
-<dd>
-
-&nbsp;&nbsp;<a
-href="/tree/master/crow/graphic/primitives.nim#L64"
-class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/graphic/primitives.nim#L64" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-<dt id="scale="><a name="scale=,Polygon,float"></a><pre><span class="Keyword">proc</span> <span class="Identifier">scale=</span><span class="Other">(</span><span class="Identifier">p</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Polygon</span><span class="Other">;</span> <span class="Identifier">scale</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
-<dd>
-
-&nbsp;&nbsp;<a
-href="/tree/master/crow/graphic/primitives.nim#L68"
-class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/graphic/primitives.nim#L68" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
 <dt id="rect"><a name="rect,float,float,float,float,Color,bool"></a><pre><span class="Keyword">proc</span> <span class="Identifier">rect</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other">=</span> <span class="FloatNumber">0.0</span><span class="Other">;</span> <span class="Identifier">w</span><span class="Other">,</span> <span class="Identifier">h</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other">=</span> <span class="FloatNumber">10.0</span><span class="Other">;</span> <span class="Identifier">color</span><span class="Other">:</span> <span class="Identifier">Color</span> <span class="Other">=</span> <span class="Identifier">colRed</span><span class="Other">;</span> <span class="Identifier">centered</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Rect</span> <span class="Other pragmabegin">{.</span><div class="pragma">
     <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="/tree/master/crow/graphic/primitives.nim#L72"
+href="/tree/master/crow/graphic/primitives.nim#L126"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/graphic/primitives.nim#L72" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L126" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="box"><a name="box,float,float,float,float,Color,bool"></a><pre><span class="Keyword">proc</span> <span class="Identifier">box</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other">=</span> <span class="FloatNumber">0.0</span><span class="Other">;</span> <span class="Identifier">w</span><span class="Other">,</span> <span class="Identifier">h</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other">=</span> <span class="FloatNumber">10.0</span><span class="Other">;</span> <span class="Identifier">color</span><span class="Other">:</span> <span class="Identifier">Color</span> <span class="Other">=</span> <span class="Identifier">colRed</span><span class="Other">;</span> <span class="Identifier">centered</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Rect</span> <span class="Other pragmabegin">{.</span><div class="pragma">
@@ -1400,9 +1387,9 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 
 &nbsp;&nbsp;<a
-href="/tree/master/crow/graphic/primitives.nim#L86"
+href="/tree/master/crow/graphic/primitives.nim#L141"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/graphic/primitives.nim#L86" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L141" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="circle"><a name="circle,float,float,float,Color"></a><pre><span class="Keyword">proc</span> <span class="Identifier">circle</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other">=</span> <span class="FloatNumber">0.0</span><span class="Other">;</span> <span class="Identifier">r</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other">=</span> <span class="FloatNumber">10.0</span><span class="Other">;</span> <span class="Identifier">color</span><span class="Other">:</span> <span class="Identifier">Color</span> <span class="Other">=</span> <span class="Identifier">colRed</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Circle</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
@@ -1410,9 +1397,9 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 
 &nbsp;&nbsp;<a
-href="/tree/master/crow/graphic/primitives.nim#L96"
+href="/tree/master/crow/graphic/primitives.nim#L152"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/graphic/primitives.nim#L96" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L152" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 <dt id="disk"><a name="disk,float,float,float,Color"></a><pre><span class="Keyword">proc</span> <span class="Identifier">disk</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other">=</span> <span class="FloatNumber">0.0</span><span class="Other">;</span> <span class="Identifier">r</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other">=</span> <span class="FloatNumber">10.0</span><span class="Other">;</span> <span class="Identifier">color</span><span class="Other">:</span> <span class="Identifier">Color</span> <span class="Other">=</span> <span class="Identifier">colRed</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Circle</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
@@ -1420,47 +1407,136 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 
 &nbsp;&nbsp;<a
-href="/tree/master/crow/graphic/primitives.nim#L103"
+href="/tree/master/crow/graphic/primitives.nim#L160"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/graphic/primitives.nim#L103" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L160" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<dt id="polygon"><a name="polygon,float,float,int,float,bool,Color"></a><pre><span class="Keyword">proc</span> <span class="Identifier">polygon</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other">=</span> <span class="FloatNumber">0.0</span><span class="Other">;</span> <span class="Identifier">sides</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="DecNumber">3</span><span class="Other">;</span> <span class="Identifier">boundingcircleradius</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other">=</span> <span class="FloatNumber">10.0</span><span class="Other">;</span>
-            <span class="Identifier">filled</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">false</span><span class="Other">;</span> <span class="Identifier">color</span><span class="Other">:</span> <span class="Identifier">Color</span> <span class="Other">=</span> <span class="Identifier">colRed</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Polygon</span> <span class="Other pragmabegin">{.</span><div class="pragma">
-    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">AssertionError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dt id="polygon"><a name="polygon,float,float,int,float,bool,Color"></a><pre><span class="Keyword">proc</span> <span class="Identifier">polygon</span><span class="Other">(</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other">=</span> <span class="FloatNumber">0.0</span><span class="Other">;</span> <span class="Identifier">sides</span><span class="Other">:</span> <span class="Identifier">int</span> <span class="Other">=</span> <span class="DecNumber">3</span><span class="Other">;</span> <span class="Identifier">radius</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other">=</span> <span class="FloatNumber">10.0</span><span class="Other">;</span> <span class="Identifier">filled</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">false</span><span class="Other">;</span>
+            <span class="Identifier">color</span><span class="Other">:</span> <span class="Identifier">Color</span> <span class="Other">=</span> <span class="Identifier">colRed</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Polygon</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">AssertionError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="/tree/master/crow/graphic/primitives.nim#L111"
+href="/tree/master/crow/graphic/primitives.nim#L169"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/graphic/primitives.nim#L111" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L169" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<dt id="rot="><a name="rot=,Renderable,float"></a><pre><span class="Keyword">proc</span> <span class="Identifier">rot=</span><span class="Other">(</span><span class="Identifier">r</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Renderable</span><span class="Other">;</span> <span class="Identifier">rot</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dt id="rot="><a name="rot=,Primitive,float"></a><pre><span class="Keyword">proc</span> <span class="Identifier">rot=</span><span class="Other">(</span><span class="Identifier">r</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Primitive</span><span class="Other">;</span> <span class="Identifier">rot</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="/tree/master/crow/graphic/primitives.nim#L129"
+href="/tree/master/crow/graphic/primitives.nim#L187"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/graphic/primitives.nim#L129" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L187" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<dt id="color="><a name="color=,Renderable,Color"></a><pre><span class="Keyword">proc</span> <span class="Identifier">color=</span><span class="Other">(</span><span class="Identifier">r</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Renderable</span><span class="Other">;</span> <span class="Identifier">col</span><span class="Other">:</span> <span class="Identifier">Color</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dt id="rot"><a name="rot,Primitive"></a><pre><span class="Keyword">proc</span> <span class="Identifier">rot</span><span class="Other">(</span><span class="Identifier">r</span><span class="Other">:</span> <span class="Identifier">Primitive</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="/tree/master/crow/graphic/primitives.nim#L133"
+href="/tree/master/crow/graphic/primitives.nim#L190"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/graphic/primitives.nim#L133" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L190" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
-<dt id="pos="><a name="pos=,Renderable,tuple[float,float]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">pos=</span><span class="Other">(</span><span class="Identifier">r</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Renderable</span><span class="Other">;</span> <span class="Identifier">pos</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">]</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dt id="color="><a name="color=,Primitive,Color"></a><pre><span class="Keyword">proc</span> <span class="Identifier">color=</span><span class="Other">(</span><span class="Identifier">r</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Primitive</span><span class="Other">;</span> <span class="Identifier">col</span><span class="Other">:</span> <span class="Identifier">Color</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
 <dd>
 
 &nbsp;&nbsp;<a
-href="/tree/master/crow/graphic/primitives.nim#L137"
+href="/tree/master/crow/graphic/primitives.nim#L192"
 class="link-seesrc" target="_blank">Source</a>
-<a href="/edit/devel/crow/graphic/primitives.nim#L137" class="link-seesrc" target="_blank" >Edit</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L192" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<dt id="color"><a name="color,"></a><pre><span class="Keyword">proc</span> <span class="Identifier">color</span><span class="Other">(</span><span class="Identifier">r</span><span class="Other">:</span> <span class="Identifier">Primitive</span> <span class="Operator">|</span> <span class="Keyword">ptr</span> <span class="Identifier">Primitive</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Color</span></pre></dt>
+<dd>
+
+&nbsp;&nbsp;<a
+href="/tree/master/crow/graphic/primitives.nim#L195"
+class="link-seesrc" target="_blank">Source</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L195" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<dt id="pos="><a name="pos=,Primitive,tuple[float,float]"></a><pre><span class="Keyword">proc</span> <span class="Identifier">pos=</span><span class="Other">(</span><span class="Identifier">r</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Primitive</span><span class="Other">;</span> <span class="Identifier">pos</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">]</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dd>
+
+&nbsp;&nbsp;<a
+href="/tree/master/crow/graphic/primitives.nim#L197"
+class="link-seesrc" target="_blank">Source</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L197" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<dt id="pos"><a name="pos,Primitive"></a><pre><span class="Keyword">proc</span> <span class="Identifier">pos</span><span class="Other">(</span><span class="Identifier">r</span><span class="Other">:</span> <span class="Identifier">Primitive</span><span class="Other">)</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">]</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dd>
+
+&nbsp;&nbsp;<a
+href="/tree/master/crow/graphic/primitives.nim#L200"
+class="link-seesrc" target="_blank">Source</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L200" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<dt id="scale="><a name="scale=,Primitive,float"></a><pre><span class="Keyword">proc</span> <span class="Identifier">scale=</span><span class="Other">(</span><span class="Identifier">p</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Primitive</span><span class="Other">;</span> <span class="Identifier">scale</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dd>
+
+&nbsp;&nbsp;<a
+href="/tree/master/crow/graphic/primitives.nim#L202"
+class="link-seesrc" target="_blank">Source</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L202" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<dt id="scale"><a name="scale,Primitive"></a><pre><span class="Keyword">proc</span> <span class="Identifier">scale</span><span class="Other">(</span><span class="Identifier">p</span><span class="Other">:</span> <span class="Identifier">Primitive</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">float</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dd>
+
+&nbsp;&nbsp;<a
+href="/tree/master/crow/graphic/primitives.nim#L205"
+class="link-seesrc" target="_blank">Source</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L205" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<dt id="sides="><a name="sides=,Polygon,Natural"></a><pre><span class="Keyword">proc</span> <span class="Identifier">sides=</span><span class="Other">(</span><span class="Identifier">p</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Polygon</span><span class="Other">;</span> <span class="Identifier">news</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">AssertionError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dd>
+
+&nbsp;&nbsp;<a
+href="/tree/master/crow/graphic/primitives.nim#L207"
+class="link-seesrc" target="_blank">Source</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L207" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<dt id="sides"><a name="sides,Polygon"></a><pre><span class="Keyword">proc</span> <span class="Identifier">sides</span><span class="Other">(</span><span class="Identifier">p</span><span class="Other">:</span> <span class="Identifier">Polygon</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Natural</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dd>
+
+&nbsp;&nbsp;<a
+href="/tree/master/crow/graphic/primitives.nim#L211"
+class="link-seesrc" target="_blank">Source</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L211" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<dt id="radius="><a name="radius=,Polygon,float"></a><pre><span class="Keyword">proc</span> <span class="Identifier">radius=</span><span class="Other">(</span><span class="Identifier">p</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Polygon</span><span class="Other">;</span> <span class="Identifier">bcr</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dd>
+
+&nbsp;&nbsp;<a
+href="/tree/master/crow/graphic/primitives.nim#L213"
+class="link-seesrc" target="_blank">Source</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L213" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<dt id="radius="><a name="radius=,Circle,float"></a><pre><span class="Keyword">proc</span> <span class="Identifier">radius=</span><span class="Other">(</span><span class="Identifier">p</span><span class="Other">:</span> <span class="Keyword">var</span> <span class="Identifier">Circle</span><span class="Other">;</span> <span class="Identifier">bcr</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">)</span> <span class="Other pragmabegin">{.</span><div class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></div><span class="Other pragmaend">.}</span></pre></dt>
+<dd>
+
+&nbsp;&nbsp;<a
+href="/tree/master/crow/graphic/primitives.nim#L217"
+class="link-seesrc" target="_blank">Source</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L217" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+<dt id="radius"><a name="radius,"></a><pre><span class="Keyword">proc</span> <span class="Identifier">radius</span><span class="Other">(</span><span class="Identifier">p</span><span class="Other">:</span> <span class="Identifier">Polygon</span> <span class="Operator">|</span> <span class="Identifier">Circle</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">float</span></pre></dt>
+<dd>
+
+&nbsp;&nbsp;<a
+href="/tree/master/crow/graphic/primitives.nim#L222"
+class="link-seesrc" target="_blank">Source</a>
+<a href="/edit/devel/crow/graphic/primitives.nim#L222" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 
@@ -1473,7 +1549,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2017-07-18 19:38:22 UTC</small>
+        <small>Made with Nim. Generated: 2017-07-25 12:14:12 UTC</small>
       </div>
     </div>
   </div>

@@ -343,30 +343,3 @@ proc flush*(gl:ContextGL) =
     webgl.flush(gl)
   else:
     glFlush()
-
-proc drawTriangles*(gl:ContextGL,buff:Buffer,p:Program,vertices:seq[float], color:Color,drawMode:DrawMode=dmStatic) =
-  ## Draw triangles
-  gl.uploadVertices(buff,vertices,drawMode)
-  let numvertices = vertices.len div 4 # 4 is hardcoded for now, it means each vertices has x,y,z,scale
-  gl.bindColor(p, "uColor", color)
-  gl.enableAttribute(p, "aPosition")
-  gl.drawArrays(pkTRIANGLES, 0, numvertices)
-  ngl.flush(gl)
-
-proc drawTriangleFan*(gl:ContextGL,buff:Buffer,p:Program,vertices:seq[float], color:Color,drawMode:DrawMode=dmStatic) =
-  ## Draw a fan of triangles
-  gl.uploadVertices(buff,vertices,drawMode)
-  let numvertices = vertices.len div 4 # 4 is hardcoded for now, it means each vertices has x,y,z,scale
-  gl.bindColor(p, "uColor", color)
-  gl.enableAttribute(p, "aPosition")
-  gl.drawArrays(pkTRIANGLE_FAN, 0, numvertices)
-  gl.flush()
-
-proc drawLineLoop*(gl:ContextGL,buff:Buffer,p:Program,vertices:seq[float], color:Color,drawMode:DrawMode=dmStatic) =
-  ## Draw a closed loop of lines
-  gl.uploadVertices(buff,vertices,drawMode)
-  let numvertices = vertices.len div 4 # 4 is hardcoded for now, it means each vertices has x,y,z,scale
-  gl.bindColor(p, "uColor", color)
-  gl.enableAttribute(p, "aPosition")
-  gl.drawArrays(pkLineLoop, 0, numvertices)
-  gl.flush()

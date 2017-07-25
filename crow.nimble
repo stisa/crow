@@ -1,7 +1,7 @@
 # Package
 version       = "0.1.1"
 author        = "stisa"
-description   = "Toy game engine"
+description   = "Toy game lib"
 license       = "MIT"
 
 # Deps

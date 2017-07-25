@@ -17,3 +17,5 @@ ttriang.nim
 *.dll
 tests
 crow/index.html
+examples/*.html
+examples/*.js

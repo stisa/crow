@@ -12,6 +12,25 @@ if (typeof Uint16Array === 'undefined') Uint16Array = Array;
 if (typeof Uint32Array === 'undefined') Uint32Array = Array;
 if (typeof Float32Array === 'undefined') Float32Array = Array;
 if (typeof Float64Array === 'undefined') Float64Array = Array;
+var NTI3440 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI28074 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI28072 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
+var NTI50204 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI28066 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI28064 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
+var NTI50206 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI69064 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI69018 = {size: 0,kind: 24,base: null,node: null,finalizer: null};
+var NTI130 = {size: 0,kind: 1,base: null,node: null,finalizer: null};
+var NTI69012 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI69006 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI69004 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI124 = {size: 0,kind: 36,base: null,node: null,finalizer: null};
+var NTI69031 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI28078 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI28076 = {size: 0,kind: 22,base: null,node: null,finalizer: null};
+var NTI49202 = {size: 0, kind: 14, base: null, node: null, finalizer: null};
+var NTI50202 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI3458 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI62002 = {size: 0, kind: 14, base: null, node: null, finalizer: null};
 var NTI55006 = {size: 0,kind: 31,base: null,node: null,finalizer: null};
@@ -199,6 +218,58 @@ NTI62333.base = NTI62336;
 var NNI3458 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI3458.node = NNI3458;
 NTI3458.base = NTI3424;
+var NNI49202 = {kind: 2, offset: 0, typ: null, name: null, len: 3, sons: {"0": {kind: 1, offset: 0, typ: NTI49202, name: "skNone", len: 0, sons: null}, 
+"35632": {kind: 1, offset: 35632, typ: NTI49202, name: "skFragment", len: 0, sons: null}, 
+"35633": {kind: 1, offset: 35633, typ: NTI49202, name: "skVertex", len: 0, sons: null}}};
+NTI49202.node = NNI49202;
+var NNI28078 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
+NTI28078.node = NNI28078;
+NTI28078.base = NTI3408;
+NTI28076.base = NTI28078;
+var NNI50202 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "source", len: 0, typ: NTI138, name: "source", sons: null}, 
+{kind: 1, offset: "kind", len: 0, typ: NTI49202, name: "kind", sons: null}, 
+{kind: 1, offset: "s", len: 0, typ: NTI28076, name: "s", sons: null}]};
+NTI50202.node = NNI50202;
+var NNI69031 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "sides", len: 0, typ: NTI104, name: "sides", sons: null}, 
+{kind: 1, offset: "r", len: 0, typ: NTI124, name: "r", sons: null}]};
+NTI69031.node = NNI69031;
+var NNI69006 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI124, name: "Field0", sons: null}, 
+{kind: 1, offset: "Field1", len: 0, typ: NTI124, name: "Field1", sons: null}]};
+NTI69006.node = NNI69006;
+var NNI69012 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "Field0", len: 0, typ: NTI124, name: "Field0", sons: null}, 
+{kind: 1, offset: "Field1", len: 0, typ: NTI124, name: "Field1", sons: null}]};
+NTI69012.node = NNI69012;
+NTI69018.base = NTI124;
+var NNI69004 = {kind: 2, len: 9, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "color", len: 0, typ: NTI104, name: "color", sons: null}, 
+{kind: 1, offset: "pos", len: 0, typ: NTI69006, name: "pos", sons: null}, 
+{kind: 1, offset: "scale", len: 0, typ: NTI124, name: "scale", sons: null}, 
+{kind: 1, offset: "rot", len: 0, typ: NTI124, name: "rot", sons: null}, 
+{kind: 1, offset: "origin", len: 0, typ: NTI69012, name: "origin", sons: null}, 
+{kind: 1, offset: "centered", len: 0, typ: NTI130, name: "centered", sons: null}, 
+{kind: 1, offset: "filled", len: 0, typ: NTI130, name: "filled", sons: null}, 
+{kind: 1, offset: "verts", len: 0, typ: NTI69018, name: "verts", sons: null}, 
+{kind: 1, offset: "dirty", len: 0, typ: NTI130, name: "dirty", sons: null}]};
+NTI69004.node = NNI69004;
+NTI69004.base = NTI3408;
+NTI69031.base = NTI69004;
+NTI69064.base = NTI124;
+var NNI28066 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
+NTI28066.node = NNI28066;
+NTI28066.base = NTI3408;
+NTI28064.base = NTI28066;
+var NNI50206 = {kind: 1, offset: "b", len: 0, typ: NTI28064, name: "b", sons: null};
+NTI50206.node = NNI50206;
+var NNI28074 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
+NTI28074.node = NNI28074;
+NTI28074.base = NTI3408;
+NTI28072.base = NTI28074;
+var NNI50204 = {kind: 2, len: 3, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "vertex", len: 0, typ: NTI50202, name: "vertex", sons: null}, 
+{kind: 1, offset: "fragment", len: 0, typ: NTI50202, name: "fragment", sons: null}, 
+{kind: 1, offset: "p", len: 0, typ: NTI28072, name: "p", sons: null}]};
+NTI50204.node = NNI50204;
+var NNI3440 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
+NTI3440.node = NNI3440;
+NTI3440.base = NTI3438;
 
 function toJSStr(s_14803) {
 		    var len = s_14803.length-1;
@@ -466,30 +537,60 @@ function chckRange(i_20209, a_20210, b_20211) {
 	return result_20212;
 
 }
+
+function mulInt(a_17603, b_17604) {
+		      var result = a_17603 * b_17604;
+      if (result > 2147483647 || result < -2147483648) raiseOverflow();
+      return result;
+    
+
+	
+}
+
+function rawEcho() {
+		      var buf = "";
+      for (var i = 0; i < arguments.length; ++i) {
+        buf += toJSStr(arguments[i]);
+      }
+      console.log(buf);
+    
+
+	
+}
+
+function divInt(a_17803, b_17804) {
+		      if (b_17804 == 0) raiseDivByZero();
+      if (b_17804 == -1 && a_17803 == 2147483647) raiseOverflow();
+      return Math.floor(a_17803 / b_17804);
+    
+
+	
+}
+		var VecSize_51001 = 4;
 var nimvm_5887 = false;
 var nim_program_result = 0;
 var globalRaiseHook_11405 = [null];
 var localRaiseHook_11410 = [null];
 var outOfMemHook_11413 = [null];
 var objectID_55232 = [0];
-var state_70605 = [{a0: 1773455756, a1: 4275166512}];
 
-function getTime_73040() {
-	var result_75413 = 0.0;
+function getTime_72640() {
+	var result_75013 = 0.0;
 
 	var F={procname:"times.getTime",prev:framePtr,filename:"lib\\pure\\times.nim",line:0};
 	framePtr = F;
 	BeforeRet: do {
 		F.line = 1304;
-		result_75413 = new Date();
+		result_75013 = new Date();
 		break BeforeRet;
 	} while (false);
 	framePtr = F.prev;
 
-	return result_75413;
+	return result_75013;
 
 }
-var startMilsecs_75512 = [getTime_73040()];
+var startMilsecs_75112 = [getTime_72640()];
+var state_77605 = [{a0: 1773455756, a1: 4275166512}];
 
 function isFatPointer_19601(ti_19603) {
 	var result_19604 = false;
@@ -1055,13 +1156,479 @@ function initWindow_68016(name_68018, w_68020, h_68022) {
 	return result_68023;
 
 }
-var surface_78001 = [initWindow_68016(makeNimstrLit("crow-canvas"), 640, 480)];
+var surface_80001 = [initWindow_68016(makeNimstrLit("crow-canvas"), 640, 480)];
+
+function raiseRangeError() {
+		var e_14276 = null;
+		e_14276 = {m_type: NTI3458, parent: null, name: null, message: null, trace: null};
+		e_14276.message = nimCopy(null, makeNimstrLit("value out of range"), NTI138);
+		e_14276.parent = null;
+		raiseException(e_14276, "RangeError");
+
+	
+}
+
+function getStatus_29029(gl_29031, what_29032) {
+	var result_29033 = false;
+
+	var F={procname:"webgl.getStatus",prev:framePtr,filename:"C:\\Users\\stisa\\.nimble\\pkgs\\webgl-#head\\webgl.nim",line:0};
+	framePtr = F;
+		F.line = 449;
+		result_29033 = gl_29031.getShaderParameter(what_29032, gl_29031.COMPILE_STATUS);
+	framePtr = F.prev;
+
+	return result_29033;
+
+}
+
+function createShader_51842(gl_51844, kind_51845, src_51846) {
+	var result_51847 = {source: null, kind: 0, s: null};
+
+	var F={procname:"ngl.createShader",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
+	framePtr = F;
+		F.line = 179;
+		result_51847.kind = kind_51845;
+		F.line = 180;
+		result_51847.source = nimCopy(null, src_51846, NTI138);
+		F.line = 182;
+		result_51847.s = gl_51844.createShader(chckRange(kind_51845, 34921, 36349));
+		F.line = 183;
+		gl_51844.shaderSource(result_51847.s, toJSStr(src_51846));
+		F.line = 184;
+		gl_51844.compileShader(result_51847.s);
+		if (!(getStatus_29029(gl_51844, result_51847.s))) {
+		if (true) {
+		F.line = 185;
+		raiseAssert_22216((makeNimstrLit("false ").slice(0,-1)).concat(cstrToNimstr(gl_51844.getShaderInfoLog(result_51847.s))));
+		}
+		
+		}
+		
+	framePtr = F.prev;
+
+	return result_51847;
+
+}
+
+function getStatus_29034(gl_29036, what_29037) {
+	var result_29038 = false;
+
+	var F={procname:"webgl.getStatus",prev:framePtr,filename:"C:\\Users\\stisa\\.nimble\\pkgs\\webgl-#head\\webgl.nim",line:0};
+	framePtr = F;
+		F.line = 451;
+		result_29038 = gl_29036.getProgramParameter(what_29037, gl_29036.LINK_STATUS);
+	framePtr = F.prev;
+
+	return result_29038;
+
+}
+
+function createProgram_52009(gl_52011, useIt_52012, vertex_src_52013, fragment_src_52014) {
+	var result_52015 = {vertex: {source: null, kind: 0, s: null}, fragment: {source: null, kind: 0, s: null}, p: null};
+
+	var F={procname:"ngl.createProgram",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
+	framePtr = F;
+		F.line = 209;
+		var vs_52016 = createShader_51842(gl_52011, 35633, vertex_src_52013);
+		F.line = 210;
+		var fs_52017 = createShader_51842(gl_52011, 35632, fragment_src_52014);
+		F.line = 211;
+		nimCopy(result_52015.vertex, vs_52016, NTI50202);
+		F.line = 212;
+		nimCopy(result_52015.fragment, fs_52017, NTI50202);
+		F.line = 215;
+		var program_52201 = gl_52011.createProgram();
+		F.line = 216;
+		gl_52011.attachShader(program_52201, vs_52016.s);
+		F.line = 217;
+		gl_52011.attachShader(program_52201, fs_52017.s);
+		F.line = 218;
+		gl_52011.linkProgram(program_52201);
+		if (!(getStatus_29034(gl_52011, program_52201))) {
+		if (true) {
+		F.line = 220;
+		raiseAssert_22216((makeNimstrLit("false ").slice(0,-1)).concat(cstrToNimstr(gl_52011.getProgramInfoLog(program_52201))));
+		}
+		
+		}
+		
+		if (useIt_52012) {
+		F.line = 221;
+		gl_52011.useProgram(program_52201);
+		}
+		
+		F.line = 239;
+		result_52015.p = program_52201;
+	framePtr = F.prev;
+
+	return result_52015;
+
+}
+var shaderProgram_80004 = [createProgram_52009(surface_80001[0].ctx, true, makeNimstrLit("attribute vec4 aPosition;\x0Avoid main() {\x0A  gl_Position = aPosition;\x0A}\x0A"), makeNimstrLit("#ifdef GL_ES\x0A  precision highp float;\x0A#endif\x0A\x0Auniform vec4 uColor;\x0Avoid main() {\x0A  gl_FragColor = uColor;\x0A}\x0A\x0A"))];
 
 function clearColor_51401(gl_51403, r_51404, g_51405, b_51406, a_51407) {
 	var F={procname:"ngl.clearColor",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
 	framePtr = F;
 		F.line = 155;
 		gl_51403.clearColor(r_51404, g_51405, b_51406, a_51407);
+	framePtr = F.prev;
+
+	
+}
+clearColor_51401(surface_80001[0].ctx, 5.0000000000000000e-001, 5.0000000000000000e-001, 5.0000000000000000e-001, 1.0000000000000000e+000);
+
+function newSeq_69059(len_69063) {
+	var result_69065 = null;
+
+	var F={procname:"newSeq.newSeq",prev:framePtr,filename:"lib\\system.nim",line:0};
+	framePtr = F;
+		F.line = 696;
+		result_69065 = new Array(len_69063); for (var i=0;i<len_69063;++i) {result_69065[i]=0.0;}	framePtr = F.prev;
+
+	return result_69065;
+
+}
+
+function setupVertices_69040(pol_69043) {
+	var F={procname:"primitives.setupVertices",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\graphic\\primitives.nim",line:0};
+	framePtr = F;
+		F.line = 32;
+		var Vecsize_69044 = 4;
+		if (pol_69043.filled) {
+		F.line = 36;
+		pol_69043.verts = nimCopy(null, newSeq_69059(chckRange(addInt(mulInt(2, Vecsize_69044), mulInt(pol_69043.sides, Vecsize_69044)), 0, 2147483647)), NTI69064);
+		F.line = 39;
+		pol_69043.verts[chckIndx(3, 0, pol_69043.verts.length-1)-0] = (1.0000000000000000e+000 / pol_69043.scale);
+		L1: do {
+			F.line = 42;
+			var i_69102 = 0;
+			F.line = 1965;
+			var colontmp__69167 = 0;
+			F.line = 42;
+			colontmp__69167 = subInt((pol_69043.verts != null ? pol_69043.verts.length : 0), 1);
+			F.line = 1955;
+			var res_69170 = 4;
+			L2: do {
+				F.line = 1956;
+					L3: while (true) {
+					if (!(res_69170 <= colontmp__69167)) break L3;
+						F.line = 1957;
+						i_69102 = res_69170;
+						F.line = 43;
+						pol_69043.verts[chckIndx(i_69102, 0, pol_69043.verts.length-1)-0] = (pol_69043.r * Math.cos(((i_69102 * 3.1415926535897931e+000) / (pol_69043.sides * 2.0000000000000000e+000))));
+						F.line = 45;
+						pol_69043.verts[chckIndx(addInt(i_69102, 1), 0, pol_69043.verts.length-1)-0] = (pol_69043.r * Math.sin(((i_69102 * 3.1415926535897931e+000) / (pol_69043.sides * 2.0000000000000000e+000))));
+						F.line = 47;
+						pol_69043.verts[chckIndx(addInt(i_69102, 2), 0, pol_69043.verts.length-1)-0] = 0.0;
+						F.line = 48;
+						pol_69043.verts[chckIndx(addInt(i_69102, 3), 0, pol_69043.verts.length-1)-0] = (1.0000000000000000e+000 / pol_69043.scale);
+						F.line = 1971;
+						res_69170 = addInt(res_69170, 4);
+					}
+			} while(false);
+		} while(false);
+		}
+		else {
+			F.line = 51;
+			pol_69043.verts = nimCopy(null, newSeq_69059(chckRange(mulInt(pol_69043.sides, Vecsize_69044), 0, 2147483647)), NTI69064);
+			L4: do {
+				F.line = 54;
+				var i_69151 = 0;
+				F.line = 1965;
+				var colontmp__69183 = 0;
+				F.line = 54;
+				colontmp__69183 = subInt((pol_69043.verts != null ? pol_69043.verts.length : 0), 1);
+				F.line = 1955;
+				var res_69186 = 0;
+				L5: do {
+					F.line = 1956;
+						L6: while (true) {
+						if (!(res_69186 <= colontmp__69183)) break L6;
+							F.line = 1957;
+							i_69151 = res_69186;
+							F.line = 55;
+							pol_69043.verts[chckIndx(i_69151, 0, pol_69043.verts.length-1)-0] = (pol_69043.r * Math.cos(((i_69151 * 3.1415926535897931e+000) / (2.0000000000000000e+000 * pol_69043.sides))));
+							F.line = 56;
+							pol_69043.verts[chckIndx(addInt(i_69151, 1), 0, pol_69043.verts.length-1)-0] = (pol_69043.r * Math.sin(((i_69151 * 3.1415926535897931e+000) / (2.0000000000000000e+000 * pol_69043.sides))));
+							F.line = 57;
+							pol_69043.verts[chckIndx(addInt(i_69151, 2), 0, pol_69043.verts.length-1)-0] = 0.0;
+							F.line = 58;
+							pol_69043.verts[chckIndx(addInt(i_69151, 3), 0, pol_69043.verts.length-1)-0] = (1.0000000000000000e+000 / pol_69043.scale);
+							F.line = 1971;
+							res_69186 = addInt(res_69186, 4);
+						}
+				} while(false);
+			} while(false);
+		}
+		
+	framePtr = F.prev;
+
+	
+}
+
+function polygon_69465(x_69467, y_69468, sides_69469, radius_69470, filled_69471, color_69472) {
+	var result_69473 = [{m_type: NTI69031, sides: 0, r: 0.0, color: 0, pos: {Field0: 0.0, Field1: 0.0}, scale: 0.0, rot: 0.0, origin: {Field0: 0.0, Field1: 0.0}, centered: false, filled: false, verts: null, dirty: false}];
+
+	var F={procname:"primitives.polygon",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\graphic\\primitives.nim",line:0};
+	framePtr = F;
+		if (!((3 <= sides_69469))) {
+		F.line = 177;
+		raiseAssert_22216(makeNimstrLit("\x0D\x0A  3 <= sides "));
+		}
+		
+		F.line = 178;
+		result_69473[0].color = color_69472;
+		F.line = 179;
+		nimCopy(result_69473[0].pos, {Field0: x_69467, Field1: y_69468}, NTI69006);
+		F.line = 180;
+		result_69473[0].sides = sides_69469;
+		F.line = 181;
+		result_69473[0].r = radius_69470;
+		F.line = 182;
+		result_69473[0].filled = filled_69471;
+		F.line = 183;
+		result_69473[0].scale = 1.0000000000000000e+000;
+		F.line = 184;
+		result_69473[0].dirty = true;
+		F.line = 185;
+		setupVertices_69040(result_69473[0]);
+	framePtr = F.prev;
+
+	return result_69473[0];
+
+}
+
+function createBuffer_52202(gl_52204) {
+	var result_52205 = {b: null};
+
+	var F={procname:"ngl.createBuffer",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
+	framePtr = F;
+		F.line = 243;
+		result_52205.b = gl_52204.createBuffer();
+	framePtr = F.prev;
+
+	return result_52205;
+
+}
+
+function initRenderable_70068(prim_70071, gl_70072, buff_70073, p_70074, colorUniform_70075, attribName_70076, drawMode_70077) {
+	var result_70078 = {ctx: null, buff: {b: null}, p: {vertex: {source: null, kind: 0, s: null}, fragment: {source: null, kind: 0, s: null}, p: null}, colorUniformName: null, attribName: null, drawMode: 0, primitive: null};
+
+	var F={procname:"drawing.initRenderable",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\graphic\\drawing.nim",line:0};
+	framePtr = F;
+		F.line = 44;
+		result_70078.ctx = gl_70072;
+		F.line = 45;
+		nimCopy(result_70078.buff, buff_70073, NTI50206);
+		F.line = 46;
+		nimCopy(result_70078.p, p_70074, NTI50204);
+		F.line = 47;
+		result_70078.colorUniformName = nimCopy(null, colorUniform_70075, NTI138);
+		F.line = 48;
+		result_70078.attribName = nimCopy(null, attribName_70076, NTI138);
+		F.line = 49;
+		result_70078.drawMode = drawMode_70077;
+		F.line = 50;
+		result_70078.primitive = prim_70071;
+	framePtr = F.prev;
+
+	return result_70078;
+
+}
+
+function slash__21407(x_21409, y_21410) {
+	var result_21411 = 0.0;
+
+	var F={procname:"system./",prev:framePtr,filename:"lib\\system.nim",line:0};
+	framePtr = F;
+		F.line = 3365;
+		result_21411 = (x_21409 / y_21410);
+	framePtr = F.prev;
+
+	return result_21411;
+
+}
+
+function toSeconds_72662(time_72664) {
+	var result_75126 = 0.0;
+
+	var F={procname:"times.toSeconds",prev:framePtr,filename:"lib\\pure\\times.nim",line:0};
+	framePtr = F;
+		F.line = 1353;
+		result_75126 = slash__21407(time_72664.getTime(), 1000);
+	framePtr = F.prev;
+
+	return result_75126;
+
+}
+
+function epochTime_75131() {
+	var result_75133 = 0.0;
+
+	var F={procname:"times.epochTime",prev:framePtr,filename:"lib\\pure\\times.nim",line:0};
+	framePtr = F;
+		F.line = 1357;
+		result_75133 = toSeconds_72662(new Date());
+	framePtr = F.prev;
+
+	return result_75133;
+
+}
+var p_80006 = [polygon_69465(0.0, 0.0, 5, 1.0000000000000000e+000, false, 16711680)];
+var b_80007 = [createBuffer_52202(surface_80001[0].ctx)];
+var renderer_80008 = [initRenderable_70068(p_80006[0], surface_80001[0].ctx, b_80007[0], shaderProgram_80004[0], makeNimstrLit("uColor"), makeNimstrLit("aPosition"), 35044)];
+var oldTime_80009 = [epochTime_75131()];
+
+function clear_51605(gl_51607, color_51608, depth_51609) {
+	var F={procname:"ngl.clear",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
+	framePtr = F;
+		if ((color_51608 && depth_51609)) {
+		F.line = 164;
+		gl_51607.clear(16640);
+		}
+		else {
+		if (color_51608) {
+		F.line = 166;
+		gl_51607.clear(16384);
+		}
+		else {
+		if (depth_51609) {
+		F.line = 168;
+		gl_51607.clear(256);
+		}
+		}}
+	framePtr = F.prev;
+
+	
+}
+
+function radiuseq__69532(p_69535, bcr_69536) {
+	var F={procname:"primitives.radius=",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\graphic\\primitives.nim",line:0};
+	framePtr = F;
+		F.line = 214;
+		p_69535.r = bcr_69536;
+		F.line = 215;
+		setupVertices_69040(p_69535);
+		F.line = 216;
+		p_69535.dirty = true;
+	framePtr = F.prev;
+
+	
+}
+
+function rotl_77802(x_77804, k_77805) {
+	var result_77806 = 0;
+
+	var F={procname:"random.rotl",prev:framePtr,filename:"lib\\pure\\random.nim",line:0};
+	framePtr = F;
+		F.line = 44;
+		result_77806 = ((x_77804 << k_77805) | ((x_77804 >>> 0) >>> ((64 - k_77805) >>> 0)));
+	framePtr = F.prev;
+
+	return result_77806;
+
+}
+
+function next_77841(s_77844) {
+	var result_77845 = 0;
+
+	var F={procname:"random.next",prev:framePtr,filename:"lib\\pure\\random.nim",line:0};
+	framePtr = F;
+		F.line = 47;
+		var s0_77846 = s_77844.a0;
+		F.line = 48;
+		var s1_77847 = s_77844.a1;
+		F.line = 49;
+		result_77845 = ((s0_77846 + s1_77847) >>> 0);
+		F.line = 50;
+		s1_77847 = (s1_77847 ^ s0_77846);
+		F.line = 51;
+		s_77844.a0 = ((rotl_77802(s0_77846, 55) ^ s1_77847) ^ (s1_77847 << 14));
+		F.line = 52;
+		s_77844.a1 = rotl_77802(s1_77847, 36);
+	framePtr = F.prev;
+
+	return result_77845;
+
+}
+
+function random_78318(max_78320) {
+	var result_78321 = 0.0;
+
+	var F={procname:"random.random",prev:framePtr,filename:"lib\\pure\\random.nim",line:0};
+	framePtr = F;
+		F.line = 89;
+		var x_78323 = next_77841(state_77605[0]);
+		F.line = 91;
+		result_78321 = ((x_78323 / 4294967295) * max_78320);
+	framePtr = F.prev;
+
+	return result_78321;
+
+}
+
+function bindBuffer_52401(gl_52403, kind_52404, buffer_52405) {
+	var F={procname:"ngl.bindBuffer",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
+	framePtr = F;
+		F.line = 249;
+		gl_52403.bindBuffer(chckRange(kind_52404, 34660, 35048), buffer_52405.b);
+	framePtr = F.prev;
+
+	
+}
+
+function bufferData_52635(gl_52639, kind_52641, data_52644, usage_52646) {
+	var F={procname:"bufferData.bufferData",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
+	framePtr = F;
+		F.line = 255;
+		gl_52639.bufferData(chckRange(kind_52641, 34660, 35048), new Float32Array(data_52644), chckRange(usage_52646, 34660, 35048));
+	framePtr = F.prev;
+
+	
+}
+
+function uploadVertices_53826(gl_53828, buff_53829, vertices_53831, drawMode_53832) {
+	var F={procname:"ngl.uploadVertices",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
+	framePtr = F;
+		F.line = 324;
+		bindBuffer_52401(gl_53828, 34962, buff_53829);
+		F.line = 325;
+		bufferData_52635(gl_53828, 34962, vertices_53831, drawMode_53832);
+		F.line = 326;
+		bindBuffer_52401(gl_53828, 34962, buff_53829);
+	framePtr = F.prev;
+
+	
+}
+
+function raiseDivByZero() {
+		var e_14258 = null;
+		e_14258 = {m_type: NTI3440, parent: null, name: null, message: null, trace: null};
+		e_14258.message = nimCopy(null, makeNimstrLit("division by zero"), NTI138);
+		e_14258.parent = null;
+		raiseException(e_14258, "DivByZeroError");
+
+	
+}
+
+function getUniformLocation_52815(gl_52817, program_52818, name_52819) {
+	var result_52820 = null;
+
+	var F={procname:"ngl.getUniformLocation",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
+	framePtr = F;
+		F.line = 269;
+		result_52820 = gl_52817.getUniformLocation(program_52818.p, toJSStr(name_52819));
+	framePtr = F.prev;
+
+	return result_52820;
+
+}
+
+function uniform4fv_53044(gl_53048, loc_53050, val_53053) {
+	var F={procname:"uniform4fv.uniform4fv",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
+	framePtr = F;
+		F.line = 276;
+		gl_53048.uniform4fv(loc_53050, new Float32Array(val_53053));
 	framePtr = F.prev;
 
 	
@@ -1119,160 +1686,150 @@ function a_49001(c_49003) {
 
 }
 
-function clearColor_51601(gl_51603, c_51604) {
-	var F={procname:"ngl.clearColor",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
+function bindColor_53023(gl_53025, program_53026, colorname_53027, color_53028) {
+	var F={procname:"ngl.bindColor",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
 	framePtr = F;
-		F.line = 159;
-		clearColor_51401(gl_51603, r_49019(c_51604), g_49036(c_51604), b_49053(c_51604), a_49001(c_51604));
+		F.line = 287;
+		var uloc_53029 = getUniformLocation_52815(gl_53025, program_53026, colorname_53027);
+		F.line = 288;
+		uniform4fv_53044(gl_53025, uloc_53029, [r_49019(color_53028), g_49036(color_53028), b_49053(color_53028), a_49001(color_53028)]);
 	framePtr = F.prev;
 
 	
 }
 
-function raiseRangeError() {
-		var e_14276 = null;
-		e_14276 = {m_type: NTI3458, parent: null, name: null, message: null, trace: null};
-		e_14276.message = nimCopy(null, makeNimstrLit("value out of range"), NTI138);
-		e_14276.parent = null;
-		raiseException(e_14276, "RangeError");
+function getAttribLocation_53201(gl_53203, program_53204, name_53205) {
+	var result_53206 = 0;
 
-	
-}
-
-function rotl_70802(x_70804, k_70805) {
-	var result_70806 = 0;
-
-	var F={procname:"random.rotl",prev:framePtr,filename:"lib\\pure\\random.nim",line:0};
+	var F={procname:"ngl.getAttribLocation",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
 	framePtr = F;
-		F.line = 44;
-		result_70806 = ((x_70804 << k_70805) | ((x_70804 >>> 0) >>> ((64 - k_70805) >>> 0)));
+		F.line = 291;
+		result_53206 = gl_53203.getAttribLocation(program_53204.p, toJSStr(name_53205));
 	framePtr = F.prev;
 
-	return result_70806;
+	return result_53206;
 
 }
 
-function next_70841(s_70844) {
-	var result_70845 = 0;
-
-	var F={procname:"random.next",prev:framePtr,filename:"lib\\pure\\random.nim",line:0};
+function enableVertexAttribArray_53401(gl_53403, attr_53404) {
+	var F={procname:"ngl.enableVertexAttribArray",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
 	framePtr = F;
-		F.line = 47;
-		var s0_70846 = s_70844.a0;
-		F.line = 48;
-		var s1_70847 = s_70844.a1;
-		F.line = 49;
-		result_70845 = ((s0_70846 + s1_70847) >>> 0);
-		F.line = 50;
-		s1_70847 = (s1_70847 ^ s0_70846);
-		F.line = 51;
-		s_70844.a0 = ((rotl_70802(s0_70846, 55) ^ s1_70847) ^ (s1_70847 << 14));
-		F.line = 52;
-		s_70844.a1 = rotl_70802(s1_70847, 36);
-	framePtr = F.prev;
-
-	return result_70845;
-
-}
-
-function randomize_71427(seed_71429) {
-	var F={procname:"random.randomize",prev:framePtr,filename:"lib\\pure\\random.nim",line:0};
-	framePtr = F;
-		F.line = 106;
-		state_70605[0].a0 = chckRange(((seed_71429 >>> 0) >>> 16), 0, 4294967295);
-		F.line = 107;
-		state_70605[0].a1 = (seed_71429 & 65535);
-		F.line = 108;
-		next_70841(state_70605[0]);
+		F.line = 300;
+		gl_53403.enableVertexAttribArray(attr_53404);
 	framePtr = F.prev;
 
 	
 }
 
-function randomize_76001() {
-	var F={procname:"random.randomize",prev:framePtr,filename:"lib\\pure\\random.nim",line:0};
+function vertexAttribPointer_53601(gl_53603, index_53604, size_53605, typ_53606, normalized_53607, stride_53608, offset_53609) {
+	var F={procname:"ngl.vertexAttribPointer",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
 	framePtr = F;
-		F.line = 124;
-		randomize_71427(getTime_73040().getTime());
+		F.line = 307;
+		gl_53603.vertexAttribPointer(index_53604, size_53605, chckRange(typ_53606, 5120, 5126), normalized_53607, stride_53608, offset_53609);
 	framePtr = F.prev;
 
 	
 }
 
-function rgb_48849(r_48853, g_48854, b_48855) {
-	var result_48856 = 0;
-
-	var F={procname:"colors.rgb",prev:framePtr,filename:"lib\\pure\\colors.nim",line:0};
+function enableAttribute_53819(gl_53821, program_53822, attribname_53823, itemSize_53824) {
+	var F={procname:"ngl.enableAttribute",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
 	framePtr = F;
-		F.line = 410;
-		result_48856 = (((r_48853 << 16) | (g_48854 << 8)) | b_48855);
+		F.line = 314;
+		var aloc_53825 = getAttribLocation_53201(gl_53821, program_53822, attribname_53823);
+		F.line = 315;
+		enableVertexAttribArray_53401(gl_53821, aloc_53825);
+		F.line = 316;
+		vertexAttribPointer_53601(gl_53821, aloc_53825, itemSize_53824, 5126, false, 0, 0);
 	framePtr = F.prev;
 
-	return result_48856;
+	
+}
+
+function drawArrays_53847(gl_53849, mode_53850, first_53851, count_53852) {
+	var F={procname:"ngl.drawArrays",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
+	framePtr = F;
+		F.line = 330;
+		gl_53849.drawArrays(mode_53850, first_53851, count_53852);
+	framePtr = F.prev;
+
+	
+}
+
+function flush_54217(gl_54219) {
+	var F={procname:"ngl.flush",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
+	framePtr = F;
+		F.line = 343;
+		gl_54219.flush();
+	framePtr = F.prev;
+
+	
+}
+
+function drawTriangleFan_70030(gl_70032, buff_70033, p_70034, vertices_70036, color_70037, colorUniform_70038, attribName_70039, drawMode_70040) {
+	var F={procname:"drawing.drawTriangleFan",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\graphic\\drawing.nim",line:0};
+	framePtr = F;
+		F.line = 25;
+		uploadVertices_53826(gl_70032, buff_70033, vertices_70036, drawMode_70040);
+		F.line = 26;
+		var numvertices_70048 = divInt((vertices_70036 != null ? vertices_70036.length : 0), 4);
+		F.line = 27;
+		bindColor_53023(gl_70032, p_70034, colorUniform_70038, color_70037);
+		F.line = 28;
+		enableAttribute_53819(gl_70032, p_70034, attribName_70039, VecSize_51001);
+		F.line = 29;
+		drawArrays_53847(gl_70032, 6, 0, numvertices_70048);
+		F.line = 30;
+		flush_54217(gl_70032);
+	framePtr = F.prev;
+
+	
+}
+
+function color_70084(r_70088) {
+	var result_70089 = 0;
+
+	var F={procname:"color.color",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\graphic\\primitives.nim",line:0};
+	framePtr = F;
+		F.line = 195;
+		result_70089 = r_70088.color;
+	framePtr = F.prev;
+
+	return result_70089;
 
 }
 
-function random_71277(max_71279) {
-	var result_71280 = 0;
-
-	var F={procname:"random.random",prev:framePtr,filename:"lib\\pure\\random.nim",line:0};
+function drawLineLoop_70049(gl_70051, buff_70052, p_70053, vertices_70055, color_70056, colorUniform_70057, attribName_70058, drawMode_70059) {
+	var F={procname:"drawing.drawLineLoop",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\graphic\\drawing.nim",line:0};
 	framePtr = F;
-	BeforeRet: do {
-		L1: do {
-			F.line = 79;
-				L2: while (true) {
-				if (!true) break L2;
-					F.line = 80;
-					var x_71282 = next_70841(state_70605[0]);
-					if ((x_71282 < ((4294967295 - (4294967295 % chckRange(max_71279, 0, 4294967295))) >>> 0))) {
-					F.line = 82;
-					result_71280 = ((x_71282 % max_71279)|0);
-					break BeforeRet;
-					}
-					
-				}
-		} while(false);
-	} while (false);
+		F.line = 35;
+		uploadVertices_53826(gl_70051, buff_70052, vertices_70055, drawMode_70059);
+		F.line = 36;
+		var numvertices_70067 = divInt((vertices_70055 != null ? vertices_70055.length : 0), 4);
+		F.line = 37;
+		bindColor_53023(gl_70051, p_70053, colorUniform_70057, color_70056);
+		F.line = 38;
+		enableAttribute_53819(gl_70051, p_70053, attribName_70058, VecSize_51001);
+		F.line = 39;
+		drawArrays_53847(gl_70051, 2, 0, numvertices_70067);
+		F.line = 40;
+		flush_54217(gl_70051);
 	framePtr = F.prev;
 
-	return result_71280;
-
+	
 }
 
-function randomColor_77001() {
-	var result_77003 = 0;
-
-	var F={procname:"utils.randomColor",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\graphic\\utils.nim",line:0};
+function draw_70080(r_70082) {
+	var F={procname:"drawing.draw",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\graphic\\drawing.nim",line:0};
 	framePtr = F;
-		F.line = 4;
-		F.line = 4;
-		randomize_76001();
-		result_77003 = rgb_48849(chckRange(random_71277(255), 0, 255), chckRange(random_71277(255), 0, 255), chckRange(random_71277(255), 0, 255));
-	framePtr = F.prev;
-
-	return result_77003;
-
-}
-clearColor_51601(surface_78001[0].ctx, randomColor_77001());
-
-function clear_51605(gl_51607, color_51608, depth_51609) {
-	var F={procname:"ngl.clear",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
-	framePtr = F;
-		if ((color_51608 && depth_51609)) {
-		F.line = 164;
-		gl_51607.clear(16640);
+		if (r_70082.primitive.filled) {
+		F.line = 54;
+		drawTriangleFan_70030(r_70082.ctx, r_70082.buff, r_70082.p, r_70082.primitive.verts, color_70084(r_70082.primitive), r_70082.colorUniformName, r_70082.attribName, r_70082.drawMode);
 		}
 		else {
-		if (color_51608) {
-		F.line = 166;
-		gl_51607.clear(16384);
+			F.line = 57;
+		drawLineLoop_70049(r_70082.ctx, r_70082.buff, r_70082.p, r_70082.primitive.verts, color_70084(r_70082.primitive), r_70082.colorUniformName, r_70082.attribName, r_70082.drawMode);
 		}
-		else {
-		if (depth_51609) {
-		F.line = 168;
-		gl_51607.clear(256);
-		}
-		}}
+		
 	framePtr = F.prev;
 
 	
@@ -1288,15 +1845,26 @@ function requestAnimationFrame_29023(fn_29028) {
 	
 }
 
-function innerframedraw_78004(now_78003) {
-	var F={procname:"ex1.innerframedraw",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\window.nim",line:0};
+function innerframedraw_80012(now_80011) {
+	var F={procname:"ex3.innerframedraw",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\window.nim",line:0};
 	framePtr = F;
-		F.line = 12;
-		clear_51605(surface_78001[0].ctx, true, false);
+		F.line = 39;
+		clear_51605(surface_80001[0].ctx, true, false);
+		if ((1.0000000000000000e+000 < (epochTime_75131() - oldTime_80009[0]))) {
+		F.line = 41;
+		radiuseq__69532(p_80006[0], random_78318(1.0000000000000000e+000));
+		F.line = 42;
+		oldTime_80009[0] = epochTime_75131();
+		}
+		
+		F.line = 43;
+		rawEcho(makeNimstrLit("hi"));
+		F.line = 44;
+		draw_70080(renderer_80008[0]);
 		F.line = 64;
-		requestAnimationFrame_29023(innerframedraw_78004);
+		requestAnimationFrame_29023(innerframedraw_80012);
 	framePtr = F.prev;
 
 	
 }
-innerframedraw_78004(0.0);
+innerframedraw_80012(0.0);

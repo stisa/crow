@@ -1289,45 +1289,6 @@ function getTime_71040() {
 }
 var startMilsecs_73512 = [getTime_71040()];
 
-function slash__21407(x_21409, y_21410) {
-	var result_21411 = 0.0;
-
-	var F={procname:"system./",prev:framePtr,filename:"lib\\system.nim",line:0};
-	framePtr = F;
-		F.line = 3365;
-		result_21411 = (x_21409 / y_21410);
-	framePtr = F.prev;
-
-	return result_21411;
-
-}
-
-function toSeconds_71062(time_71064) {
-	var result_73526 = 0.0;
-
-	var F={procname:"times.toSeconds",prev:framePtr,filename:"lib\\pure\\times.nim",line:0};
-	framePtr = F;
-		F.line = 1353;
-		result_73526 = slash__21407(time_71064.getTime(), 1000);
-	framePtr = F.prev;
-
-	return result_73526;
-
-}
-
-function epochTime_73531() {
-	var result_73533 = 0.0;
-
-	var F={procname:"times.epochTime",prev:framePtr,filename:"lib\\pure\\times.nim",line:0};
-	framePtr = F;
-		F.line = 1357;
-		result_73533 = toSeconds_71062(new Date());
-	framePtr = F.prev;
-
-	return result_73533;
-
-}
-
 function clear_51605(gl_51607, color_51608, depth_51609) {
 	var F={procname:"ngl.clear",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\ngl.nim",line:0};
 	framePtr = F;
@@ -1376,23 +1337,17 @@ function requestAnimationFrame_29023(fn_29028) {
 	
 }
 
-function innerframedraw_74003(now_69423) {
+function innerframedraw_74001(now_69421) {
 	var F={procname:"ex2.innerframedraw",prev:framePtr,filename:"C:\\Users\\stisa\\OneDrive\\Progetti\\crow\\src\\crow\\window.nim",line:0};
 	framePtr = F;
-		if ((slash__21407(1, 60) < (epochTime_73531() - oldtime_74002[0]))) {
 		F.line = 69;
 		clear_51605(surface_69001[0].ctx, true, false);
 		F.line = 72;
 		drawElements_54014(surface_69001[0].ctx, 4, 3, 5123, 0);
-		F.line = 63;
-		oldtime_74002[0] = epochTime_73531();
-		}
-		
 		F.line = 64;
-		requestAnimationFrame_29023(innerframedraw_74003);
+		requestAnimationFrame_29023(innerframedraw_74001);
 	framePtr = F.prev;
 
 	
 }
-var oldtime_74002 = [epochTime_73531()];
-innerframedraw_74003(0.0);
+innerframedraw_74001(0.0);

@@ -56,11 +56,11 @@ when defined js:
   
   template loop*(s:Window,body:untyped):untyped =
     from times import epochTime
-    var oldtime = times.epochTime()
+    #var oldtime = times.epochTime()
     proc innerframedraw(now:float=0)=
-      if times.epochTime() - oldTime > 1/60:
-        body
-        oldTime = times.epochTime()
+      #if times.epochTime() - oldTime > 1/60:
+      body
+      #  oldTime = times.epochTime()
       requestAnimationFrame(innerframedraw)
     innerframedraw()
 
@@ -70,8 +70,6 @@ elif defined useGLFW:
         modKeys: set[glfw.ModifierKey]){.closure.} =
       if action == glfw.kaDown:
         w.eventLoop.emit("keyEv", EventArgs(kind:evKey,key:key.int.toKC()))
-        echo "ha"
-    
     w.view.keyCb = keyCb
 
   proc initWindow*(name:string="crow-canvas", w = 640, h:int = 480):Window =
@@ -90,15 +88,15 @@ elif defined useGLFW:
   
   export glfw.swapBuffers
   template loop*(s:Window,body:untyped):untyped =
+    # TODO: FIXME
     from times import epochTime
     bind glfw.swapBuffers
-    var oldTime = times.epochTime()
-    #glfw.swapBuffers(s.view)
+    #var oldTime = times.epochTime()
     while not glfw.shouldClose(s.view):
-      if times.epochTime() - oldTime > 1/60:
-        body
-        glfw.swapBuffers(s.view)
-        oldTime = times.epochTime()
+      #if times.epochTime() - oldTime > 1/60:
+      body
+        #oldTime = times.epochTime()
+      glfw.swapBuffers(s.view)
       glfw.pollEvents()
     s.destroyWindow()
 else:
@@ -111,13 +109,17 @@ else:
     sdl2.init(sdl2.INIT_EVERYTHING)
     result.view = sdl2.createWindow(name.cstring, 100, 100, w.cint, h.cint, sdl2.SDL_WINDOW_OPENGL or sdl2.SDL_WINDOW_RESIZABLE)
     (result.width,result.height) = (w,h)
+    doAssert 0 == sdl2.glSetAttribute(sdl2.SDL_GL_DOUBLEBUFFER,1)
+    doAssert 0 == sdl2.glSetAttribute(sdl2.SDL_GL_DEPTH_SIZE,24)
+
     discard sdl2.glcreateContext(result.view)
+    doAssert 0 == sdl2.glSetSwapInterval(1)
+    
     loadExtensions()
     
     result.ctx.viewport(0,0,result.width,result.height)
     result.eventLoop = initEventEmitter()
-    sdl2.glSwapWindow(result.view)
-
+    
   proc destroyWindow*(s:Window) =
     sdl2.destroyWindow(s.view)
   
@@ -127,7 +129,8 @@ else:
     var
       evt = sdl2.defaultEvent
       runGame = true
-      oldTime = times.epochTime()
+      now = times.epochTime()
+      frameTime = 0'u32
     while runGame:
       while sdl2.pollEvent(evt).bool:
         if evt.kind == sdl2.QuitEvent:
@@ -135,8 +138,12 @@ else:
           break
         else:
           s.checkDefaultEvents(evt)
-        if times.epochTime() - oldTime > 1/60:
-          body
-          sdl2.glSwapWindow(s.view)
-          oldTime = times.epochTime()
-    s.destroyWindow()    
+      #render
+      body
+      #limit
+      frameTime = (times.epochTime()-now).uint32*1000 # in ms
+      now = times.epochTime()
+      if frameTime<18'u32:
+        sdl2.delay(18'u32-frameTime)
+      sdl2.glSwapWindow(s.view)
+    s.destroyWindow()
